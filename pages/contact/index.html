@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Digital Soulcraft</title>
+  <meta name="description" content="Get in touch with Digital Soulcraft. We'd love to hear from you.">
+  <link rel="stylesheet" href="/theme.css">
+  <style>
+    main {
+      min-height: calc(100vh - 200px);
+    }
+
+    .contact-hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--light-bg) 0%, var(--bg-color) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .contact-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-hero p {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .contact-content {
+      margin-bottom: 3rem;
+    }
+
+    .contact-methods {
+      background-color: var(--light-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .contact-method {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-method:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-method h3 {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-method p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .contact-method a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-method a:hover {
+      text-decoration: underline;
+    }
+
+    .form-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-group input[aria-invalid="true"],
+    .form-group textarea[aria-invalid="true"] {
+      border-color: #d32f2f;
+    }
+
+    .form-error {
+      color: #d32f2f;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .form-submit {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .form-submit:hover:not(:disabled) {
+      background-color: var(--secondary-color);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .success-message {
+      background-color: #4caf50;
+      color: white;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      display: none;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .form-errors-summary {
+      background-color: #fff3cd;
+      color: #856404;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      display: none;
+      border: 1px solid #ffeeba;
+    }
+
+    .form-errors-summary.show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+
+      .contact-container {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script src="/dsc-header.js"></script>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+
+  <main>
+    <section class="contact-hero">
+      <h1>Get in Touch</h1>
+      <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
+    </section>
+
+    <section class="contact-container">
+      <div class="contact-content">
+        <div class="contact-methods">
+          <div class="contact-method">
+            <h3>Primary</h3>
+            <p>The best way to reach us is on <strong>𝕏 (Twitter)</strong>: <a href="https://x.com/SoulcraftHQ" target="_blank" rel="noopener">@SoulcraftHQ</a></p>
+          </div>
+          <div class="contact-method">
+            <h3>Or Use This Form</h3>
+            <p>Send us a message below and we'll get back to you when we can.</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Send a Message</h2>
+
+          <div data-fs-success class="success-message">
+            <p>Thanks for reaching out! We'll get back to you soon. 💙</p>
+          </div>
+
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                data-fs-field
+                placeholder="your@email.com"
+              />
+              <span data-fs-error="email" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Name (optional)</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                data-fs-field
+                placeholder="Your name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                data-fs-field
+                placeholder="What's on your mind?"
+              ></textarea>
+              <span data-fs-error="message" class="form-error"></span>
+            </div>
+
+            <button type="submit" class="form-submit" data-fs-submit-btn>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/dsc-footer.js"></script>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+
+  <!-- Formspree Script -->
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xlgvaveq' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>

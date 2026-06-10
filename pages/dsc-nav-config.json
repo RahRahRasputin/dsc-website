@@ -1,0 +1,15 @@
+{
+  "logo": "Digital Soulcraft",
+  "links": [
+    { "label": "Wiki", "href": "/garden/wiki-hub/" },
+    { "label": "Essays", "href": "/essays/" },
+    { "label": "Outlines", "href": "/outlines/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Contact", "href": "/contact/" },
+    { "label": "Bookshop", "href": "/bookshop/" },
+    { "label": "Merch", "href": "/merch/" }
+  ],
+  "social": [
+    { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" }
+  ]
+}

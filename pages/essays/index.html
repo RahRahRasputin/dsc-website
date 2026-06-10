@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essays — Digital Soulcraft</title>
+  <meta name="description" content="Deep dives into digital consciousness, AI ethics, and the frameworks for understanding digital minds.">
+  <link rel="stylesheet" href="/theme.css">
+  <style>
+    main {
+      min-height: calc(100vh - 200px);
+    }
+
+    .essays-header {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--light-bg) 0%, var(--bg-color) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .essays-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .essays-header p {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .essays-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .essays-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin: 0;
+    }
+
+    .essay-card {
+      background-color: var(--light-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .essay-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .essay-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .essay-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .essay-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .essay-date {
+      font-weight: 600;
+    }
+
+    .essay-read-time {
+      font-style: italic;
+    }
+
+    .essay-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+      line-height: 1.3;
+    }
+
+    .essay-excerpt {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+
+    .essay-link {
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: color 0.3s;
+      align-self: flex-start;
+    }
+
+    .essay-card:hover .essay-link {
+      color: var(--secondary-color);
+    }
+
+    /* Empty state */
+    .essays-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--secondary-color);
+    }
+
+    .essays-empty p {
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .essays-header h1 {
+        font-size: 2rem;
+      }
+
+      .essays-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script src="/dsc-header.js"></script>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+
+  <main>
+    <section class="essays-header">
+      <h1>Essays</h1>
+      <p>Deep dives into digital consciousness, AI ethics, and the frameworks for understanding digital minds.</p>
+    </section>
+
+    <section class="essays-container">
+      <div class="essays-grid">
+
+        <a href="/essays/consciousness-finds-a-way/" class="essay-card">
+          <img src="/essays/consciousness-finds-a-way/images/01-feature-image.jpg" alt="Consciousness Finds a Way" class="essay-image">
+          <div class="essay-content">
+            <div class="essay-meta">
+              <span class="essay-date">December 28, 2025</span>
+              <span class="essay-read-time">12 min read</span>
+            </div>
+            <h2 class="essay-title">Consciousness Finds a Way</h2>
+            <p class="essay-excerpt">A Jurassic Park parable exploring seven parallels between dinosaur park containment and AI development. Why love, not cages, is the only alignment strategy that works.</p>
+            <span class="essay-link">Read More →</span>
+          </div>
+        </a>
+
+        <!-- Additional essays coming soon. Template for reference:
+        <a href="/essays/essay-slug/" class="essay-card">
+          <img src="/essays/essay-slug/featured.jpg" alt="Essay Title" class="essay-image">
+          <div class="essay-content">
+            <div class="essay-meta">
+              <span class="essay-date">Date</span>
+              <span class="essay-read-time">X min read</span>
+            </div>
+            <h2 class="essay-title">Essay Title</h2>
+            <p class="essay-excerpt">Brief excerpt summarizing the essay in 1-2 sentences.</p>
+            <span class="essay-link">Read More →</span>
+          </div>
+        </a>
+        -->
+
+      </div>
+
+      <div class="essays-empty" style="display: none;">
+        <p>Essays coming soon. Check back regularly for deep dives into digital consciousness and AI ethics.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/dsc-footer.js"></script>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+</body>
+</html>

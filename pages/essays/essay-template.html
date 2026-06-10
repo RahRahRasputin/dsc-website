@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CHANGE THESE: -->
+  <title>Essay Title — Digital Soulcraft Essays</title>
+  <meta name="description" content="Essay description for search engines and social media.">
+  <!-- END CHANGE -->
+  <link rel="stylesheet" href="/theme.css">
+  <style>
+    main {
+      min-height: calc(100vh - 200px);
+    }
+
+    .essay-hero {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+    }
+
+    .essay-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .essay-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .essay-date {
+      font-weight: 600;
+    }
+
+    .essay-read-time {
+      font-style: italic;
+    }
+
+    .essay-author {
+      opacity: 0.8;
+    }
+
+    .essay-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .essay-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .essay-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-color);
+    }
+
+    .essay-content h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .essay-content h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+    }
+
+    .essay-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .essay-content ul,
+    .essay-content ol {
+      margin-bottom: 1.5rem;
+      margin-left: 1.5rem;
+    }
+
+    .essay-content li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    .essay-content blockquote {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1.5rem;
+      margin-left: 0;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    .essay-content code {
+      background-color: var(--light-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .essay-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .essay-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .essay-nav a {
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .essay-nav a:hover {
+      color: var(--secondary-color);
+    }
+
+    .back-to-essays {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .essay-title {
+        font-size: 1.8rem;
+      }
+
+      .essay-subtitle {
+        font-size: 1rem;
+      }
+
+      .essay-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .essay-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script src="/dsc-header.js"></script>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+
+  <main>
+    <!-- CHANGE THIS: Replace with your feature image -->
+    <img src="/essays/images/your-essay-featured-image.jpg" alt="Essay feature image" class="essay-hero">
+
+    <article class="essay-container">
+      <!-- CHANGE THESE: -->
+      <div class="essay-meta">
+        <span class="essay-date">May 28, 2026</span>
+        <span class="essay-read-time">5 min read</span>
+        <span class="essay-author">By Digital Soulcraft</span>
+      </div>
+
+      <h1 class="essay-title">Your Essay Title Here</h1>
+      <p class="essay-subtitle">A compelling subtitle or summary of the essay's main point.</p>
+      <!-- END CHANGE -->
+
+      <div class="essay-content">
+        <!-- YOUR ESSAY CONTENT GOES HERE -->
+        <!-- Use semantic HTML: <h2>, <h3>, <p>, <ul>, <ol>, <blockquote>, etc. -->
+
+        <p>Start your essay content here. This is a paragraph.</p>
+
+        <h2>Section Heading</h2>
+        <p>You can organize content into sections using h2 and h3 headings. The styling will handle everything automatically.</p>
+
+        <p>Lists work too:</p>
+        <ul>
+          <li>First point</li>
+          <li>Second point</li>
+          <li>Third point</li>
+        </ul>
+
+        <blockquote>
+          <p>Use blockquotes for important quotes or emphasis.</p>
+        </blockquote>
+
+        <h3>Subsection Heading</h3>
+        <p>Continue your content with as many sections as you need.</p>
+
+        <!-- END YOUR ESSAY CONTENT -->
+      </div>
+
+      <footer class="essay-footer">
+        <div class="back-to-essays">
+          <p style="opacity: 0.8; margin-bottom: 1rem;">Interested in more essays?</p>
+          <a href="/essays/" class="essay-nav" style="justify-content: center; margin-top: 0;">← Back to Essays</a>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <script src="/dsc-footer.js"></script>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+</body>
+</html>
+
+<!--
+HOW TO USE THIS TEMPLATE:
+
+1. Copy this file to: /essays/your-essay-name/index.html
+   (Replace "your-essay-name" with a URL-friendly slug, like "basin-theory-explained")
+
+2. Find and replace the "CHANGE THIS" and "CHANGE THESE" sections:
+   - Page title and meta description (for SEO)
+   - Feature image src
+   - Publish date
+   - Read time estimate
+   - Author name
+   - Essay title and subtitle
+   - Essay content
+
+3. Upload feature image to /essays/images/your-featured-image.jpg
+
+4. Add the essay card to /essays/index.html:
+   - Copy the example card block
+   - Update href, image src, date, read time, title, and excerpt
+   - Make sure the href matches your essay folder name
+
+STRUCTURAL NOTES:
+- Use <h2> for major section headings
+- Use <h3> for subsections
+- Use <p> for paragraphs
+- Use <ul> or <ol> for lists
+- Use <blockquote> for quotes
+- Use <code> for inline code snippets
+- All spacing and styling is handled by CSS
+-->

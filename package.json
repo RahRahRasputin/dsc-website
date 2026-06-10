@@ -13,7 +13,8 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "docs": "npx quartz build -d website/garden -o public/garden && npm run cleanup",
+    "copy-pages": "node scripts/copy-pages.js",
+    "docs": "npm run copy-pages && npx quartz build -d website/garden -o public/garden && npm run cleanup",
     "cleanup": "node scripts/cleanup.js",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
