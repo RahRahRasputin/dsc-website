@@ -7,7 +7,7 @@ const gardenPublicDir = path.join(process.cwd(), 'public', 'garden');
 const filesToDelete = [
 //  'index.html',          // root page
 //  '404.html',            // 404 page
-  'index.css',           // Quartz CSS
+//  'index.css',           // Quartz CSS
   'index.xml',           // RSS feed
   'index-og-image.webp', // OG image for root
   'favicon.ico',         // favicon
