@@ -13,13 +13,13 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background-color: var(--accent-color, #0066cc);
       color: white;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       cursor: pointer;
       display: none;
       z-index: 99;
@@ -44,9 +44,9 @@
       #scroll-to-top {
         bottom: 1.5rem;
         right: 1.5rem;
-        width: 45px;
-        height: 45px;
-        font-size: 1.25rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
       }
     }
   `;
