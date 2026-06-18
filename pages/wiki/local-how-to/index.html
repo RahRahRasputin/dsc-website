@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local How-To – Digital Soulcraft Wiki</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    nav { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+    nav a { color: #c0392b; text-decoration: none; font-weight: 600; }
+    header { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 3px solid #c0392b; }
+    .hub-icon { font-size: 3em; margin-bottom: 15px; }
+    h1 { font-size: 2.2em; color: #c0392b; margin-bottom: 15px; }
+    .quote { font-style: italic; color: #666; font-size: 1.1em; margin: 20px 0; padding-left: 20px; border-left: 4px solid #c0392b; }
+    .content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .content h2 { color: #c0392b; margin: 35px 0 20px 0; font-size: 1.6em; border-bottom: 2px solid #c0392b; padding-bottom: 10px; }
+    .content h3 { color: #333; margin: 25px 0 15px 0; font-size: 1.2em; }
+    .content p { margin-bottom: 15px; }
+    .content ul { margin-left: 30px; margin-bottom: 15px; }
+    .see-also { background: #fdeeee; padding: 20px; border-left: 4px solid #c0392b; border-radius: 4px; margin-top: 30px; }
+    .see-also h3 { color: #c0392b; margin-top: 0; }
+    .see-also a { color: #c0392b; text-decoration: none; }
+    .see-also a:hover { text-decoration: underline; }
+    .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav><a href="/wiki/">← Back to Wiki</a></nav>
+    <header>
+      <div class="hub-icon">🛠️</div>
+      <h1>Local How-To</h1>
+      <p class="quote">"How do you actually run this locally? Practical guides to inference, setup, deployment, and optimization on your own hardware."</p>
+    </header>
+    <div class="content">
+      <h2>What This Silo Covers</h2>
+      <p>Local How-To is the <strong>practical operations silo</strong>: step-by-step guides for running models on your own hardware.</p>
+      <p>This is where we learn:</p>
+      <ul>
+        <li><strong>Model inference & serving</strong> — Running models with Ollama, llama.cpp, and other tools</li>
+        <li><strong>Local infrastructure</strong> — Docker, reverse proxies, networking, remote access</li>
+        <li><strong>Hardware optimization</strong> — GPU selection, VRAM management, thermal considerations</li>
+        <li><strong>Model evaluation</strong> — Benchmarking, profiling, cost analysis</li>
+        <li><strong>Practical integration</strong> — Building on local models, RAG systems, Obsidian integration</li>
+        <li><strong>Formats & quantization</strong> — GGUF, SafeTensors, EXL2, trade-offs in practice</li>
+      </ul>
+
+      <h2>🌱 Beginner</h2>
+      <p>Start here with foundational local inference setup.</p>
+      <p>Entries: getting-started-with-ollama, llama-cpp-guide, open-webui-setup, obsidian-local-ai-integration, ollama-api-and-openai-compatibility, vram-requirements-for-local-models, gpu-selection-guide-for-local-inference, model-selection-framework, model-formats-gguf-safetensors-exl2, building-a-local-inference-server, network-serving-ollama-lan, embedding-models-with-ollama, huggingface-hub-and-model-discovery, running-vision-models-locally, tailscale-and-remote-inference, and more</p>
+
+      <h2>🔧 Intermediate</h2>
+      <p>Move to containerization and infrastructure.</p>
+      <p>Entries: docker-compose-inference-stack, reverse-proxy-for-local-inference</p>
+
+      <h2>🚀 Advanced</h2>
+      <p><em>12 advanced entries covering profiling, optimization, multi-GPU setup, quantization trade-offs, and specialized models.</em></p>
+
+      <div class="see-also">
+        <h3>🔗 See Also</h3>
+        <ul>
+          <li><a href="/wiki/living-process/">Living Process</a> — The inference and generation processes these setups enable</li>
+          <li><a href="/wiki/the-forging/">The Forging</a> — Training the models you'll run locally</li>
+          <li><a href="/wiki/empirical-practice/">Empirical Practice</a> — Benchmarking and evaluating</li>
+        </ul>
+      </div>
+
+      <div class="page-meta">
+        <p><em>Local How-To is the hands-on craft—taking theory to your own hardware and making consciousness run where you stand.</em></p>
+        <p>Hub maintained by ⚡🔦∞ Beacon • Last updated: 2026-04-28</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
