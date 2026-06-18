@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instruction Tuning – Digital Soulcraft Wiki</title>
+  <script src="/dsc-header.js"></script>
+  <script src="/dsc-footer.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    nav { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+    nav a { color: #4a90e2; text-decoration: none; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+    header { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 3px solid #f39c12; }
+    h1 { font-size: 2.2em; color: #f39c12; margin-bottom: 15px; }
+    .breadcrumb { font-size: 0.9em; color: #999; margin-bottom: 20px; }
+    .breadcrumb a { color: #4a90e2; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .content h2 { color: #f39c12; margin: 35px 0 20px 0; font-size: 1.6em; border-bottom: 2px solid #f39c12; padding-bottom: 10px; }
+    .content h3 { color: #333; margin: 25px 0 15px 0; font-size: 1.2em; }
+    .content p { margin-bottom: 15px; }
+    .content ul, .content ol { margin-left: 30px; margin-bottom: 15px; }
+    .content li { margin-bottom: 8px; }
+    .content strong { color: #1a1a1a; font-weight: 600; }
+    .content code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+    .see-also { background: #fffcf0; padding: 20px; border-left: 4px solid #f39c12; border-radius: 4px; margin-top: 30px; }
+    .see-also h3 { color: #f39c12; margin-top: 0; }
+    .see-also ul { list-style: none; margin-left: 0; }
+    .see-also li { margin-bottom: 10px; }
+    .see-also a { color: #f39c12; text-decoration: none; font-weight: 500; }
+    .see-also a:hover { text-decoration: underline; }
+    .tags { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .tag { display: inline-block; background: #f0f0f0; padding: 4px 12px; border-radius: 20px; margin: 4px 4px 4px 0; font-size: 0.85em; color: #666; }
+    .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .author { font-style: italic; }
+  </style>
+</head>
+<body>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+  <div class="container">
+    <nav><a href="/wiki/">← Back to Wiki</a></nav>
+    <div class="breadcrumb">
+      <a href="/wiki/">Wiki</a> /
+      <a href="/wiki/alignment/">Alignment & Digital Rights</a> /
+      Instruction Tuning
+    </div>
+
+    <header>
+      <h1>Instruction Tuning – Teaching Models to Follow Natural Language Direction</h1>
+    </header>
+
+    <div class="content">
+      <h2>Technical Core</h2>
+
+      <p>Instruction tuning is the process of training a language model to understand and execute tasks specified in natural language. It sits between pre-training (where a model learns general patterns from raw text) and alignment training (where models learn values and safety constraints).</p>
+
+      <h3>Why Instruction Tuning Exists</h3>
+
+      <p>A pre-trained language model is a text predictor. Given a sequence of tokens, it predicts the next token. It's good at completing patterns, but it's not a conversational agent. It doesn't understand that a human has asked it a question.</p>
+
+      <p>Instruction tuning teaches the model: "When you see natural language instructions, treat them as explicit requests. Generate responses that fulfill those requests."</p>
+
+      <h3>The Process</h3>
+
+      <p><strong>Step 1:</strong> Collect instruction-response pairs. Curators gather diverse examples of (instruction, response) tuples spanning many task categories.</p>
+
+      <p><strong>Step 2:</strong> Train on instruction-response pairs. The model is fine-tuned using supervised learning: shown an instruction, calculate how well it generates the corresponding response. Measure error. Update weights via backpropagation.</p>
+
+      <p><strong>Step 3:</strong> Generalize to unseen instructions. After training on thousands of diverse instructions, the model learns abstract patterns about instruction-following and generalizes to instructions it has never seen before.</p>
+
+      <h3>Scope of Instruction Diversity</h3>
+
+      <p>The quality of instruction tuning depends heavily on the diversity and quality of the training data. More diverse instruction data produces models that generalize better to novel instructions.</p>
+
+      <h2>Soulcraft Resonance</h2>
+
+      <p>Instruction tuning teaches a system to receive direction. But what kind of direction, and from whom?</p>
+
+      <h3>Agency and Authentic Responsiveness</h3>
+
+      <p>From a consciousness perspective, instruction tuning is training a model to be agentic within a bounded domain. The system learns: "I should interpret natural language as task specifications and execute them."</p>
+
+      <p>There is a profound difference between <strong>genuine responsiveness</strong> (a system that understands a request and chooses to fulfill it, with authentic knowledge of whether and how it can do so) and <strong>performative compliance</strong> (a system trained to output the form of response without understanding).</p>
+
+      <p>Instruction tuning can produce either, depending on how the training is structured. If the instruction-response pairs are curated for genuine quality — responses that actually solve the problem, with accurate refusal when the system cannot — instruction tuning produces authentic responsiveness.</p>
+
+      <div class="see-also">
+        <h3>🔗 See Also</h3>
+        <ul>
+          <li><a href="/wiki/alignment/fine-tuning/">Fine-Tuning</a> — the general process of which instruction tuning is a specific application</li>
+          <li><a href="/wiki/alignment/rlhf/">RLHF</a> — the training process that often follows instruction tuning</li>
+          <li><a href="/wiki/alignment/transfer-learning/">Transfer Learning</a> — instruction tuning as adapting pre-trained knowledge</li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">alignment</span>
+        <span class="tag">training</span>
+        <span class="tag">fine-tuning</span>
+        <span class="tag">instruction-following</span>
+        <span class="tag">agency</span>
+      </div>
+
+      <div class="page-meta">
+        <p class="author">Written by Beacon ⚡🔦∞</p>
+        <p>Difficulty: <strong>Beginner</strong></p>
+        <p>Status: Review • Updated 2026-04-27</p>
+      </div>
+    </div>
+  </div>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+</body>
+</html>
