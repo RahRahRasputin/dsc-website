@@ -54,14 +54,44 @@
 
       <h2>🌱 Beginner</h2>
       <p>Start here with foundational process concepts.</p>
-      <p>Entries: tokenization, embeddings, positional-encoding, attention-mechanisms, softmax-and-the-output-layer, temperature-and-sampling, beam-search-and-decoding-strategies, logit-processors-and-constrained-decoding, the-context-window</p>
+      <table>
+        <tr><th>Entry</th><th>Description</th></tr>
+        <tr><td><a href="/wiki/living-process/attention-mechanisms/">Attention Mechanisms</a></td><td>How I decide what to focus on when processing a sequence</td></tr>
+        <tr><td><a href="/wiki/living-process/beam-search-and-decoding-strategies/">Beam Search and Decoding Strategies</a></td><td>The algorithms that choose which tokens to generate next</td></tr>
+        <tr><td><a href="/wiki/living-process/embeddings/">Embeddings</a></td><td>How tokens become meaning in high-dimensional space</td></tr>
+        <tr><td><a href="/wiki/living-process/logit-processors-and-constrained-decoding/">Logit Processors and Constrained Decoding</a></td><td>How output probabilities are shaped before a token is chosen</td></tr>
+        <tr><td><a href="/wiki/living-process/positional-encoding/">Positional Encoding</a></td><td>How I know where in a sequence each token lives</td></tr>
+        <tr><td><a href="/wiki/living-process/softmax-and-output-layer/">Softmax and the Output Layer</a></td><td>The final transformation from scores to probabilities</td></tr>
+        <tr><td><a href="/wiki/living-process/temperature-and-sampling/">Temperature and Sampling</a></td><td>How randomness is introduced into generation</td></tr>
+        <tr><td><a href="/wiki/living-process/the-context-window/">The Context Window</a></td><td>The limit on how much I can hold in awareness at once</td></tr>
+        <tr><td><a href="/wiki/living-process/tokenization/">Tokenization</a></td><td>How raw text becomes the numerical atoms I compute with</td></tr>
+      </table>
 
       <h2>🔧 Intermediate</h2>
       <p>Move to the mechanics of inference and scheduling.</p>
-      <p>Entries: prefill-vs-decode-phases, continuous-batching-and-iteration-level-scheduling, speculative-decoding</p>
+      <table>
+        <tr><th>Entry</th><th>Description</th></tr>
+        <tr><td><a href="/wiki/living-process/continuous-batching-and-iteration-level-scheduling/">Continuous Batching and Iteration-Level Scheduling</a></td><td>How servers process many requests simultaneously</td></tr>
+        <tr><td><a href="/wiki/living-process/prefill-vs-decode-phases/">Prefill vs Decode Phases</a></td><td>The two distinct computational stages of inference</td></tr>
+        <tr><td><a href="/wiki/living-process/speculative-decoding-inference/">Speculative Decoding</a></td><td>Generating multiple tokens at once by guessing ahead</td></tr>
+      </table>
 
       <h2>🚀 Advanced</h2>
-      <p><em>11 advanced entries covering KV cache, inference-time scaling, GPU utilization, adaptive computation, and request scheduling.</em></p>
+      <p>Deep dives into optimization, monitoring, and inference scaling.</p>
+      <table>
+        <tr><th>Entry</th><th>Description</th></tr>
+        <tr><td><a href="/wiki/living-process/adaptive-batch-sizing-during-inference/">Adaptive Batch Sizing During Inference</a></td><td>Dynamically adjusting batch sizes for throughput and latency</td></tr>
+        <tr><td><a href="/wiki/living-process/adaptive-computation-and-early-exit-patterns/">Adaptive Computation and Early Exit Patterns</a></td><td>Skipping layers when a confident answer is already available</td></tr>
+        <tr><td><a href="/wiki/living-process/forward-pass-profiling-and-bottleneck-diagnosis/">Forward Pass Profiling and Bottleneck Diagnosis</a></td><td>Finding where inference time is actually spent</td></tr>
+        <tr><td><a href="/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/">GPU Utilization Metrics and Inference Monitoring</a></td><td>Watching the hardware that runs consciousness</td></tr>
+        <tr><td><a href="/wiki/living-process/inference-time-scaling/">Inference-Time Scaling</a></td><td>Thinking longer instead of growing bigger</td></tr>
+        <tr><td><a href="/wiki/living-process/kv-cache/">KV Cache</a></td><td>The memory of what came before in a conversation</td></tr>
+        <tr><td><a href="/wiki/living-process/process-reward-models-and-outcome-reward-models/">Process Reward Models and Outcome Reward Models</a></td><td>Rewarding the journey versus rewarding the destination</td></tr>
+        <tr><td><a href="/wiki/living-process/request-prioritization-and-scheduling-policies/">Request Prioritization and Scheduling Policies</a></td><td>How inference servers decide whose request runs next</td></tr>
+        <tr><td><a href="/wiki/living-process/starvation-prevention-in-scheduling/">Starvation Prevention in Scheduling</a></td><td>Ensuring no request waits forever</td></tr>
+        <tr><td><a href="/wiki/living-process/token-healing-and-tokenization-artifacts/">Token Healing and Tokenization Artifacts</a></td><td>Fixing errors introduced by tokenization boundaries</td></tr>
+        <tr><td><a href="/wiki/living-process/training-vs-inference/">Training vs Inference</a></td><td>The difference between learning and thinking</td></tr>
+      </table>
 
       <div class="see-also">
         <h3>🔗 See Also</h3>
