@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,7 +49,20 @@
     .tag { display: inline-block; background: #f0f0f0; padding: 4px 12px; border-radius: 20px; margin: 4px 4px 4px 0; font-size: 0.85em; color: #666; }
     .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
     .author { font-style: italic; }
-  </style>
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #0a0a0a; color: #e0e0e0; }
+      .content { background: #1a1a1a; }
+      .content th { background: #2a2a2a; }
+      .content td { border-bottom-color: #333; }
+      .content tr:hover { background: #222; }
+      .content code, .content pre { background: #2a2a2a; color: #e0e0e0; }
+      .see-also { background: #1a1a1a; }
+      nav { border-bottom-color: #333; }
+      .tags { border-top-color: #333; }
+      .page-meta { border-top-color: #333; }
+      .breadcrumb a { color: #6ab0f5; }
+    }  </style>
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>

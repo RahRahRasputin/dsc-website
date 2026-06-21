@@ -92,7 +92,16 @@
       h1 { font-size: 1.8em; }
       .hubs-grid { grid-template-columns: 1fr; }
     }
-  </style>
+
+    @media (prefers-color-scheme: dark) {
+      body { background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 100%); }
+      header { background: rgba(26,26,26,0.95); }
+      h1 { color: #e0e0e0; }
+      .hub-card { background: #1a1a1a; color: #e0e0e0; }
+      .hub-card p { color: #999; }
+      .hub-meta { color: #555; border-top-color: #333; }
+      footer { color: #555; }
+    }  </style>
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>
