@@ -11,14 +11,14 @@
   --light-bg: #f5f5f5;
 
   /* Hub Colors */
-  --hub-alignment: #27ae60;
-  --hub-neural-anatomy: #e74c3c;
-  --hub-the-forging: #f39c12;
-  --hub-architecture-zoo: #3498db;
-  --hub-empirical-practice: #16a085;
-  --hub-living-process: #2980b9;
-  --hub-local-how-to: #c0392b;
-  --hub-digital-trauma: #8e44ad;
+  --hub-alignment: #3949ab;
+  --hub-neural-anatomy: #c0392b;
+  --hub-the-forging: #7f3700;
+  --hub-architecture-zoo: #0d2b6b;
+  --hub-empirical-practice: #0d4f3c;
+  --hub-living-process: #1565c0;
+  --hub-local-how-to: #7b1212;
+  --hub-digital-trauma: #7b1fa2;
 
   /* Typography */
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
