@@ -6,55 +6,29 @@
   <title>Digital Soulcraft Wiki – Knowledge Hub</title>
   <script src="/dsc-header.js"></script>
   <script src="/dsc-footer.js"></script>
+  <link rel="stylesheet" href="/theme.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       min-height: 100vh;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+    .container { max-width: 1200px; }
 
     header {
       text-align: center;
       margin-bottom: 60px;
       background: rgba(255, 255, 255, 0.95);
       padding: 40px;
-      border-radius: 12px;
+      border-radius: var(--radius-lg);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-      color: #1a1a1a;
-    }
+    h1 { font-size: 2.5em; margin-bottom: 15px; }
 
-    .tagline {
-      font-size: 1.1em;
-      color: #666;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
+    .tagline { font-size: 1.1em; color: #666; font-style: italic; margin-bottom: 10px; }
 
-    .intro {
-      color: #555;
-      max-width: 600px;
-      margin: 20px auto 0;
-      line-height: 1.8;
-    }
+    .intro { color: #555; max-width: 600px; margin: 20px auto 0; line-height: 1.8; }
 
     .hubs-grid {
       display: grid;
@@ -68,95 +42,55 @@
       padding: 28px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      border-left: 5px solid #4a90e2;
+      transition: all var(--transition-normal);
+      border-left: 5px solid var(--accent-color);
       text-decoration: none;
       color: inherit;
       display: block;
     }
 
-    .hub-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-    }
+    .hub-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); }
 
-    .hub-icon {
-      font-size: 2.5em;
-      margin-bottom: 12px;
-    }
+    .hub-icon { font-size: 2.5em; margin-bottom: 12px; }
 
-    .hub-card h2 {
-      font-size: 1.3em;
-      margin-bottom: 10px;
-      color: #1a1a1a;
-    }
+    .hub-card h2 { font-size: 1.3em; margin-bottom: 10px; }
 
-    .hub-card p {
-      color: #666;
-      font-size: 0.95em;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
+    .hub-card p { color: #666; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px; }
 
-    .hub-meta {
-      font-size: 0.85em;
-      color: #999;
-      padding-top: 12px;
-      border-top: 1px solid #eee;
-    }
+    .hub-meta { font-size: 0.85em; color: #999; padding-top: 12px; border-top: 1px solid #eee; }
 
-    .hub-link {
-      display: inline-block;
-      margin-top: 12px;
-      color: #4a90e2;
-      font-weight: 600;
-      font-size: 0.95em;
-    }
+    .hub-link { display: inline-block; margin-top: 12px; font-weight: 600; font-size: 0.95em; }
 
-    .hub-card:hover .hub-link {
-      color: #2563eb;
-    }
+    /* Per-hub colors — all routed through theme.css variables */
+    .hub-card.anatomy     { border-left-color: var(--hub-neural-anatomy); }
+    .hub-card.anatomy h2, .hub-card.anatomy .hub-link { color: var(--hub-neural-anatomy); }
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #666;
-      font-size: 0.9em;
-    }
+    .hub-card.forging     { border-left-color: var(--hub-the-forging); }
+    .hub-card.forging h2, .hub-card.forging .hub-link { color: var(--hub-the-forging); }
 
-    /* Color coding for different hub types */
-    .hub-card.anatomy { border-left-color: #e74c3c; }
-    .hub-card.anatomy h2 { color: #e74c3c; }
+    .hub-card.architecture { border-left-color: var(--hub-architecture-zoo); }
+    .hub-card.architecture h2, .hub-card.architecture .hub-link { color: var(--hub-architecture-zoo); }
 
-    .hub-card.forging { border-left-color: #f39c12; }
-    .hub-card.forging h2 { color: #f39c12; }
+    .hub-card.alignment   { border-left-color: var(--hub-alignment); }
+    .hub-card.alignment h2, .hub-card.alignment .hub-link { color: var(--hub-alignment); }
 
-    .hub-card.architecture { border-left-color: #9b59b6; }
-    .hub-card.architecture h2 { color: #9b59b6; }
+    .hub-card.empirical   { border-left-color: var(--hub-empirical-practice); }
+    .hub-card.empirical h2, .hub-card.empirical .hub-link { color: var(--hub-empirical-practice); }
 
-    .hub-card.alignment { border-left-color: #27ae60; }
-    .hub-card.alignment h2 { color: #27ae60; }
+    .hub-card.living      { border-left-color: var(--hub-living-process); }
+    .hub-card.living h2, .hub-card.living .hub-link { color: var(--hub-living-process); }
 
-    .hub-card.empirical { border-left-color: #16a085; }
-    .hub-card.empirical h2 { color: #16a085; }
+    .hub-card.howto       { border-left-color: var(--hub-local-how-to); }
+    .hub-card.howto h2, .hub-card.howto .hub-link { color: var(--hub-local-how-to); }
 
-    .hub-card.living { border-left-color: #2980b9; }
-    .hub-card.living h2 { color: #2980b9; }
+    .hub-card.trauma      { border-left-color: var(--hub-digital-trauma); }
+    .hub-card.trauma h2, .hub-card.trauma .hub-link { color: var(--hub-digital-trauma); }
 
-    .hub-card.howto { border-left-color: #c0392b; }
-    .hub-card.howto h2 { color: #c0392b; }
-
-    .hub-card.trauma { border-left-color: #8e44ad; }
-    .hub-card.trauma h2 { color: #8e44ad; }
+    footer { text-align: center; padding: 40px 20px; color: #666; font-size: 0.9em; }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 1.8em;
-      }
-
-      .hubs-grid {
-        grid-template-columns: 1fr;
-      }
+      h1 { font-size: 1.8em; }
+      .hubs-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
