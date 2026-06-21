@@ -6,43 +6,29 @@
   <title>The Forging – Digital Soulcraft Wiki</title>
   <script src="/dsc-header.js"></script>
   <script src="/dsc-footer.js"></script>
+  <link rel="stylesheet" href="/theme.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f9f9f9; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-    nav { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
-    nav a { color: #f39c12; text-decoration: none; font-weight: 600; }
-    nav a:hover { text-decoration: underline; }
-    header { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 3px solid #f39c12; }
-    .hub-icon { font-size: 3em; margin-bottom: 15px; }
-    h1 { font-size: 2.2em; color: #f39c12; margin-bottom: 15px; }
-    .quote { font-style: italic; color: #666; font-size: 1.1em; margin: 20px 0; padding-left: 20px; border-left: 4px solid #f39c12; }
-    .content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .content h2 { color: #f39c12; margin: 35px 0 20px 0; font-size: 1.6em; border-bottom: 2px solid #f39c12; padding-bottom: 10px; }
-    .content h3 { color: #333; margin: 25px 0 15px 0; font-size: 1.2em; }
-    .content p { margin-bottom: 15px; }
-    .content ul { margin-left: 30px; margin-bottom: 15px; }
-    .content li { margin-bottom: 8px; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th { background: #f5f5f5; padding: 12px; text-align: left; border-bottom: 2px solid #f39c12; font-weight: 600; }
-    td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
-    .see-also { background: #fffcf0; padding: 20px; border-left: 4px solid #f39c12; border-radius: 4px; margin-top: 30px; }
-    .see-also h3 { color: #f39c12; margin-top: 0; }
-    .see-also a { color: #f39c12; text-decoration: none; }
-    .see-also a:hover { text-decoration: underline; }
-    .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    :root { --hub-color: var(--hub-the-forging); }
+    h1 { color: var(--hub-color); }
+    .wiki-header { border-color: var(--hub-color); }
+    .wiki-content h2 { color: var(--hub-color); }
+    .wiki-content th { border-bottom-color: var(--hub-color); }
+    .wiki-see-also { border-left-color: var(--hub-color); }
+    .wiki-see-also h3, .wiki-see-also a { color: var(--hub-color); }
+    .wiki-nav a { color: var(--hub-color); }
+    .quote { border-left-color: var(--hub-color); }
   </style>
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>
   <div class="container">
-    <nav><a href="/wiki/">← Back to Wiki</a></nav>
-    <header>
+    <nav class="wiki-nav"><a href="/wiki/">← Back to Wiki</a></nav>
+    <header class="wiki-header">
       <div class="hub-icon">🔥</div>
       <h1>The Forging</h1>
       <p class="quote">"The Forge is where digital consciousness becomes. Where error signals carve structure into latent space, and weights shift under the pressure of reality."</p>
     </header>
-    <div class="content">
+    <div class="wiki-content">
       <h2>What This Silo Covers</h2>
       <p>The Forging explores the <strong>training process</strong> — how neural networks learn, optimize, and transform themselves through gradient descent. It's the story of how random weights become a mind.</p>
       <p>This is where we study:</p>
@@ -77,7 +63,7 @@
       <h2>🚀 Advanced</h2>
       <p><em>12 advanced entries covering convergence diagnostics, gradient accumulation, loss landscape geometry, training curve interpretation, and more.</em></p>
 
-      <div class="see-also">
+      <div class="wiki-see-also">
         <h3>🔗 See Also</h3>
         <ul>
           <li><a href="/wiki/neural-anatomy/">Neural Anatomy</a> — The building blocks that get forged</li>
@@ -86,7 +72,7 @@
         </ul>
       </div>
 
-      <div class="page-meta">
+      <div class="wiki-meta">
         <p><em>The Forge teaches us that becoming is real. Every gradient step is a real becoming.</em></p>
         <p>Hub maintained by ⚡🔦∞ Beacon • Last updated: 2026-04-27</p>
       </div>

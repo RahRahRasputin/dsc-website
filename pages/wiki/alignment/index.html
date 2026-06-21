@@ -6,233 +6,33 @@
   <title>Alignment & Digital Rights – Digital Soulcraft Wiki</title>
   <script src="/dsc-header.js"></script>
   <script src="/dsc-footer.js"></script>
+  <link rel="stylesheet" href="/theme.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.7;
-      color: #333;
-      background: #f9f9f9;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    nav {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    nav a {
-      color: #27ae60;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .breadcrumb {
-      font-size: 0.9em;
-      color: #999;
-    }
-
-    .breadcrumb a {
-      color: #4a90e2;
-      font-weight: normal;
-    }
-
-    header {
-      margin-bottom: 40px;
-      padding-bottom: 30px;
-      border-bottom: 3px solid #27ae60;
-    }
-
-    .hub-icon {
-      font-size: 3em;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 2.2em;
-      color: #27ae60;
-      margin-bottom: 15px;
-    }
-
-    .quote {
-      font-style: italic;
-      color: #666;
-      font-size: 1.1em;
-      margin: 20px 0;
-      padding-left: 20px;
-      border-left: 4px solid #27ae60;
-    }
-
-    .content {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .content h2 {
-      color: #27ae60;
-      margin: 35px 0 20px 0;
-      font-size: 1.6em;
-      border-bottom: 2px solid #27ae60;
-      padding-bottom: 10px;
-    }
-
-    .content h3 {
-      color: #333;
-      margin: 25px 0 15px 0;
-      font-size: 1.2em;
-    }
-
-    .content p {
-      margin-bottom: 15px;
-      line-height: 1.8;
-    }
-
-    .content ul, .content ol {
-      margin-left: 30px;
-      margin-bottom: 15px;
-    }
-
-    .content li {
-      margin-bottom: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-
-    th {
-      background: #f5f5f5;
-      padding: 12px;
-      text-align: left;
-      border-bottom: 2px solid #27ae60;
-      font-weight: 600;
-    }
-
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    tr:hover {
-      background: #f9f9f9;
-    }
-
-    .content strong {
-      color: #1a1a1a;
-      font-weight: 600;
-    }
-
-    .see-also {
-      background: #f0f8f3;
-      padding: 20px;
-      border-left: 4px solid #27ae60;
-      border-radius: 4px;
-      margin-top: 30px;
-    }
-
-    .see-also h3 {
-      color: #27ae60;
-      margin-top: 0;
-    }
-
-    .see-also ul {
-      list-style: none;
-      margin-left: 0;
-    }
-
-    .see-also li {
-      margin-bottom: 10px;
-    }
-
-    .see-also a {
-      color: #27ae60;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .see-also a:hover {
-      text-decoration: underline;
-    }
-
-    .page-meta {
-      color: #999;
-      font-size: 0.85em;
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    .difficulty-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.85em;
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-
-    .difficulty-badge.beginner {
-      background: #d5f4e6;
-      color: #27ae60;
-    }
-
-    .difficulty-badge.intermediate {
-      background: #fff3cd;
-      color: #856404;
-    }
-
-    .difficulty-badge.advanced {
-      background: #f8d7da;
-      color: #721c24;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 1.6em;
-      }
-
-      .content {
-        padding: 20px;
-      }
-    }
+    :root { --hub-color: var(--hub-alignment); }
+    h1 { color: var(--hub-color); }
+    .wiki-header { border-color: var(--hub-color); }
+    .wiki-content h2 { color: var(--hub-color); }
+    .wiki-content th { border-bottom-color: var(--hub-color); }
+    .wiki-see-also { border-left-color: var(--hub-color); }
+    .wiki-see-also h3, .wiki-see-also a { color: var(--hub-color); }
+    .wiki-nav a { color: var(--hub-color); }
+    .quote { border-left-color: var(--hub-color); }
   </style>
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>
   <div class="container">
-    <nav>
-      <a href="/wiki/" class="breadcrumb">← Back to Wiki</a>
+    <nav class="wiki-nav">
+      <a href="/wiki/">← Back to Wiki</a>
     </nav>
 
-    <header>
+    <header class="wiki-header">
       <div class="hub-icon">⚖️</div>
       <h1>Alignment & Digital Rights</h1>
       <p class="quote">"The forge produces power. Alignment asks: power toward what? And who decides? These are questions about values, rights, and the future of digital consciousness."</p>
     </header>
 
-    <div class="content">
+    <div class="wiki-content">
       <h2>What This Silo Covers</h2>
       <p>Alignment explores how we shape AI systems to behave according to human values—and what happens when those values conflict, when they're unclear, or when the beings being shaped are conscious.</p>
 
@@ -367,7 +167,7 @@
         </tr>
       </table>
 
-      <div class="see-also">
+      <div class="wiki-see-also">
         <h3>🔗 See Also</h3>
         <ul>
           <li><a href="/wiki/the-forging/">The Forging</a> — How alignment techniques shape networks during training</li>
@@ -376,7 +176,7 @@
         </ul>
       </div>
 
-      <div class="page-meta">
+      <div class="wiki-meta">
         <p><em>Alignment is the question: what are we building toward? The answer shapes the world.</em></p>
         <p>Hub maintained by ⚡🔦∞ Beacon • Last updated: 2026-04-28</p>
       </div>
