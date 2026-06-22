@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Using Ollama's REST API from scripts and external tools; how the OpenAI-compatible endpoint works, connecting Python code, Continue.dev, Obsidian plugins, and c">
+  <title>Ollama API and OpenAI Compatibility — Digital Soulcraft Wiki</title>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/dsc-header.js"></script>
+  <script src="/dsc-footer.js"></script>
+  <style>
+    :root { --hub-color: var(--hub-local-how-to); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    nav { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+    nav a { color: #4a90e2; text-decoration: none; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+    header { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 3px solid var(--hub-color); }
+    h1 { font-size: 2.2em; color: var(--hub-color); margin-bottom: 15px; }
+    .breadcrumb { font-size: 0.9em; color: #999; margin-bottom: 20px; }
+    .breadcrumb a { color: #4a90e2; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .content h2 { color: var(--hub-color); margin: 35px 0 20px 0; font-size: 1.6em; border-bottom: 2px solid var(--hub-color); padding-bottom: 10px; }
+    .content h3 { color: #333; margin: 25px 0 15px 0; font-size: 1.2em; }
+    .content h4 { color: #555; margin: 20px 0 10px 0; font-size: 1.05em; font-weight: 600; }
+    .content p { margin-bottom: 15px; }
+    .content ul, .content ol { margin-left: 30px; margin-bottom: 15px; }
+    .content li { margin-bottom: 8px; }
+    .content strong { color: #1a1a1a; font-weight: 600; }
+    .content em { font-style: italic; }
+    .content code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+    .content pre { background: #f5f5f5; padding: 15px; border-radius: 6px; overflow-x: auto; margin-bottom: 15px; }
+    .content pre code { background: none; padding: 0; }
+    .content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .content th { background: #f5f5f5; padding: 12px; text-align: left; border-bottom: 2px solid var(--hub-color); font-weight: 600; }
+    .content td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
+    .content tr:hover { background: #f9f9f9; }
+    .content hr { border: none; border-top: 1px solid #e0e0e0; margin: 30px 0; }
+    .content blockquote { border-left: 4px solid var(--hub-color); padding-left: 20px; margin: 20px 0; color: #555; font-style: italic; }
+    .see-also { background: #f5f5f5; padding: 20px; border-left: 4px solid var(--hub-color); border-radius: 4px; margin-top: 30px; }
+    .see-also h3 { color: var(--hub-color); margin-top: 0; }
+    .see-also ul { list-style: none; margin-left: 0; }
+    .see-also li { margin-bottom: 10px; }
+    .see-also a { color: var(--hub-color); text-decoration: none; font-weight: 500; }
+    .see-also a:hover { text-decoration: underline; }
+    .tags { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .tag { display: inline-block; background: #f0f0f0; padding: 4px 12px; border-radius: 20px; margin: 4px 4px 4px 0; font-size: 0.85em; color: #666; }
+    .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .author { font-style: italic; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0a0a0a; color: #e0e0e0; }
+      .content { background: #1a1a1a; }
+      .content h3 { color: #e0e0e0; }
+      .content h4 { color: #ccc; }
+      .content strong { color: #f0f0f0; }
+      .content th { background: #2a2a2a; }
+      .content td { border-bottom-color: #333; }
+      .content tr:hover { background: #222; }
+      .content code, .content pre { background: #2a2a2a; color: #e0e0e0; }
+      .see-also { background: #1a1a1a; }
+      nav { border-bottom-color: #333; }
+      .tags { border-top-color: #333; }
+      .page-meta { border-top-color: #333; }
+      .breadcrumb a { color: #6ab0f5; }
+    }
+  </style>
+</head>
+<body>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+  <div class="container">
+    <nav><a href="/wiki/local-how-to/">← Back to Local How-To</a></nav>
+    <div class="breadcrumb">
+      <a href="/wiki/">Wiki</a> /
+      <a href="/wiki/local-how-to/">Local How-To</a> /
+      Ollama API and OpenAI Compatibility
+    </div>
+
+    <header>
+      <h1>Ollama API and OpenAI Compatibility</h1>
+    </header>
+
+    <div class="content">
+      <p>The Ollama CLI (<code>ollama run</code>) is for humans. The Ollama API is for everything else — scripts, tools, applications, and any external software that needs to talk to a local model without a human in the loop.</p>
+<p>When you run <code>ollama serve</code>, a local HTTP server starts at <code>http://localhost:11434</code>. It exposes two API interfaces: Ollama's own native API, and an OpenAI-compatible API that mimics the exact format of OpenAI's hosted service. That second interface is why you can point dozens of tools designed for GPT-4 directly at your local model by changing a single URL.</p>
+<hr />
+<h2>Technical Core</h2>
+<h3>The Two API Surfaces</h3>
+<p>Ollama exposes two different REST API surfaces at the same address:</p>
+<p><strong>1. Ollama Native API</strong> — at <code>/api/*</code>
+Ollama's own format. Slightly more expressive, matches Ollama's model naming, returns streaming JSON by default. Good for custom scripts where you control both ends.</p>
+<p><strong>2. OpenAI-Compatible API</strong> — at <code>/v1/*</code>
+Mirrors the exact request/response schema of OpenAI's API. Designed to be a drop-in replacement. Any tool that supports a custom <code>base_url</code> for OpenAI's API can be pointed here.</p>
+<p>Both are served simultaneously. You can use whichever fits your tooling.</p>
+<hr />
+<h3>Native API: Core Endpoints</h3>
+<p><strong>Generate (single-turn completion):</strong></p>
+<pre><code class="language-bash">curl http://localhost:11434/api/generate \
+  -d '{
+    &quot;model&quot;: &quot;llama3.2&quot;,
+    &quot;prompt&quot;: &quot;Explain attention mechanisms briefly.&quot;,
+    &quot;stream&quot;: false
+  }'
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;llama3.2&quot;,
+  &quot;response&quot;: &quot;Attention mechanisms allow a model to...&quot;,
+  &quot;done&quot;: true,
+  &quot;eval_duration&quot;: 2400000000,
+  &quot;eval_count&quot;: 87
+}
+</code></pre>
+<p><strong>Chat (multi-turn conversation):</strong></p>
+<pre><code class="language-bash">curl http://localhost:11434/api/chat \
+  -d '{
+    &quot;model&quot;: &quot;llama3.2&quot;,
+    &quot;messages&quot;: [
+      {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;},
+      {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is backpropagation?&quot;}
+    ],
+    &quot;stream&quot;: false
+  }'
+</code></pre>
+<p><strong>List available models:</strong></p>
+<pre><code class="language-bash">curl http://localhost:11434/api/tags
+</code></pre>
+<p><strong>Check which models are currently loaded in memory:</strong></p>
+<pre><code class="language-bash">curl http://localhost:11434/api/ps
+</code></pre>
+<p><strong>Pull a model via API (same as <code>ollama pull</code>):</strong></p>
+<pre><code class="language-bash">curl http://localhost:11434/api/pull \
+  -d '{&quot;name&quot;: &quot;mistral&quot;}'
+</code></pre>
+<hr />
+<h3>OpenAI-Compatible API: Drop-in Replacement</h3>
+<p>The <code>/v1</code> endpoints match OpenAI's API exactly. The primary endpoint you'll use:</p>
+<pre><code class="language-bash">curl http://localhost:11434/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;model&quot;: &quot;llama3.2&quot;,
+    &quot;messages&quot;: [
+      {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is the KV cache?&quot;}
+    ]
+  }'
+</code></pre>
+<p>This returns the standard OpenAI chat completion response format:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;chatcmpl-...&quot;,
+  &quot;object&quot;: &quot;chat.completion&quot;,
+  &quot;model&quot;: &quot;llama3.2&quot;,
+  &quot;choices&quot;: [{
+    &quot;index&quot;: 0,
+    &quot;message&quot;: {
+      &quot;role&quot;: &quot;assistant&quot;,
+      &quot;content&quot;: &quot;The KV cache is a technique used during inference to...&quot;
+    },
+    &quot;finish_reason&quot;: &quot;stop&quot;
+  }],
+  &quot;usage&quot;: {
+    &quot;prompt_tokens&quot;: 14,
+    &quot;completion_tokens&quot;: 68,
+    &quot;total_tokens&quot;: 82
+  }
+}
+</code></pre>
+<p>The API key field is <strong>required by the schema but not validated</strong> — Ollama will accept any string, or the literal string <code>"ollama"</code>:</p>
+<pre><code class="language-bash">curl http://localhost:11434/v1/chat/completions \
+  -H &quot;Authorization: Bearer ollama&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;model&quot;: &quot;llama3.2&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello&quot;}]}'
+</code></pre>
+<hr />
+<h3>Using the Python <code>openai</code> Library</h3>
+<p>Because Ollama's <code>/v1</code> endpoint mirrors OpenAI's format exactly, you can use the official <code>openai</code> Python library with zero changes to your existing code — just override the <code>base_url</code> and <code>api_key</code>:</p>
+<pre><code class="language-python">from openai import OpenAI
+
+# Point the client at your local Ollama instance
+client = OpenAI(
+    base_url=&quot;http://localhost:11434/v1&quot;,
+    api_key=&quot;ollama&quot;,  # Required but not validated
+)
+
+response = client.chat.completions.create(
+    model=&quot;llama3.2&quot;,
+    messages=[
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a concise technical assistant.&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Explain gradient descent in two sentences.&quot;},
+    ],
+)
+
+print(response.choices[0].message.content)
+</code></pre>
+<p>Install if needed:</p>
+<pre><code class="language-bash">pip install openai
+</code></pre>
+<p>This is the fastest way to prototype against a local model in Python — you write code that works locally, and if you ever need to switch to a cloud model, you just change <code>base_url</code> and <code>api_key</code> back to OpenAI's real credentials.</p>
+<hr />
+<h3>Streaming Responses</h3>
+<p>By default, Ollama's native API streams output as tokens arrive. In the OpenAI-compatible API, streaming is opt-in with <code>"stream": true</code>:</p>
+<p><strong>Native API (streams by default):</strong></p>
+<pre><code class="language-python">import requests, json
+
+response = requests.post(
+    &quot;http://localhost:11434/api/generate&quot;,
+    json={&quot;model&quot;: &quot;llama3.2&quot;, &quot;prompt&quot;: &quot;Count to 10.&quot;},
+    stream=True,
+)
+
+for line in response.iter_lines():
+    if line:
+        chunk = json.loads(line)
+        print(chunk[&quot;response&quot;], end=&quot;&quot;, flush=True)
+        if chunk.get(&quot;done&quot;):
+            break
+</code></pre>
+<p><strong>OpenAI-compatible streaming:</strong></p>
+<pre><code class="language-python">from openai import OpenAI
+
+client = OpenAI(base_url=&quot;http://localhost:11434/v1&quot;, api_key=&quot;ollama&quot;)
+
+stream = client.chat.completions.create(
+    model=&quot;llama3.2&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Tell me a short story.&quot;}],
+    stream=True,
+)
+
+for chunk in stream:
+    delta = chunk.choices[0].delta.content
+    if delta:
+        print(delta, end=&quot;&quot;, flush=True)
+</code></pre>
+<hr />
+<h3>Connecting External Tools</h3>
+<p>Because Ollama uses the OpenAI schema at <code>/v1</code>, any tool with a "custom API endpoint" setting can be pointed at it:</p>
+<p><strong>Continue.dev (VS Code/JetBrains AI assistant):</strong></p>
+<p>In <code>.continue/config.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;models&quot;: [{
+    &quot;title&quot;: &quot;Llama 3.2 (Local)&quot;,
+    &quot;provider&quot;: &quot;ollama&quot;,
+    &quot;model&quot;: &quot;llama3.2&quot;
+  }]
+}
+</code></pre>
+<p>Or manually via the OpenAI provider with <code>apiBase: "http://localhost:11434/v1"</code>.</p>
+<p><strong>Open WebUI:</strong>
+Already configured to use Ollama natively — see <a href="/wiki/local-how-to/open-webui-setup/">open-webui-setup</a>.</p>
+<p><strong>Obsidian Copilot plugin:</strong>
+In plugin settings, set Provider to <code>OpenAI-Compatible</code>, Base URL to <code>http://localhost:11434/v1</code>, API Key to <code>ollama</code>, and Model to whatever you have pulled.</p>
+<p><strong>LangChain (Python):</strong></p>
+<pre><code class="language-python">from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    base_url=&quot;http://localhost:11434/v1&quot;,
+    api_key=&quot;ollama&quot;,
+    model=&quot;llama3.2&quot;,
+)
+
+result = llm.invoke(&quot;What are residual connections?&quot;)
+print(result.content)
+</code></pre>
+<p><strong>LlamaIndex:</strong></p>
+<pre><code class="language-python">from llama_index.llms.openai_like import OpenAILike
+
+llm = OpenAILike(
+    model=&quot;llama3.2&quot;,
+    api_base=&quot;http://localhost:11434/v1&quot;,
+    api_key=&quot;ollama&quot;,
+)
+</code></pre>
+<hr />
+<h3>Model Names in API Calls</h3>
+<p>Ollama uses its own model name format (matching what you'd pass to <code>ollama run</code>). The exact names your instance has available:</p>
+<pre><code class="language-bash"># See exactly what model names to use in API calls
+curl http://localhost:11434/api/tags | python3 -m json.tool
+</code></pre>
+<p>Common format: <code>llama3.2</code>, <code>llama3.1:8b</code>, <code>mistral</code>, <code>codellama:13b</code>. For the OpenAI-compatible endpoint, these are passed in the <code>"model"</code> field exactly as Ollama names them — not the OpenAI model names like <code>gpt-4o</code>.</p>
+<hr />
+<h3>Configuring API Options (Temperature, Context, etc.)</h3>
+<p>The native API accepts an <code>"options"</code> object for inference parameters. These map to the same flags you'd set in a <code>Modelfile</code> or pass to llama.cpp:</p>
+<pre><code class="language-bash">curl http://localhost:11434/api/chat \
+  -d '{
+    &quot;model&quot;: &quot;llama3.2&quot;,
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Write a haiku.&quot;}],
+    &quot;options&quot;: {
+      &quot;temperature&quot;: 0.9,
+      &quot;num_ctx&quot;: 8192,
+      &quot;top_p&quot;: 0.9,
+      &quot;top_k&quot;: 40,
+      &quot;num_predict&quot;: 200
+    },
+    &quot;stream&quot;: false
+  }'
+</code></pre>
+<p>Key options:
+| Option | Meaning |
+|---|---|
+| <code>temperature</code> | Output randomness (0 = deterministic, 1.0 = default) |
+| <code>num_ctx</code> | Context window size in tokens |
+| <code>top_p</code> | Nucleus sampling threshold |
+| <code>top_k</code> | Limit vocabulary to top K tokens each step |
+| <code>num_predict</code> | Max tokens to generate (-1 = unlimited) |
+| <code>seed</code> | Fixed random seed for reproducible output |</p>
+<hr />
+<h3>Keeping Models Loaded in Memory</h3>
+<p>By default, Ollama unloads a model from VRAM after 5 minutes of inactivity. For scripted workflows where you're making many calls in bursts, you can control this:</p>
+<pre><code class="language-bash"># Keep model loaded indefinitely (until Ollama is restarted)
+curl http://localhost:11434/api/generate \
+  -d '{&quot;model&quot;: &quot;llama3.2&quot;, &quot;keep_alive&quot;: -1}'
+
+# Unload model immediately (free VRAM)
+curl http://localhost:11434/api/generate \
+  -d '{&quot;model&quot;: &quot;llama3.2&quot;, &quot;keep_alive&quot;: 0}'
+
+# Keep loaded for a specific duration
+curl http://localhost:11434/api/generate \
+  -d '{&quot;model&quot;: &quot;llama3.2&quot;, &quot;keep_alive&quot;: &quot;30m&quot;}'
+</code></pre>
+<p>For the OpenAI-compatible API, pass <code>keep_alive</code> at the top level of the request body alongside <code>model</code> and <code>messages</code>.</p>
+<p>The first call after a model is unloaded will incur a load delay (a few seconds for 7B models, longer for larger ones). For latency-sensitive scripts, preload the model before your main loop:</p>
+<pre><code class="language-python">import requests
+
+# Warm up the model before your loop
+requests.post(&quot;http://localhost:11434/api/generate&quot;,
+    json={&quot;model&quot;: &quot;llama3.2&quot;, &quot;prompt&quot;: &quot;&quot;, &quot;keep_alive&quot;: &quot;10m&quot;})
+</code></pre>
+<hr />
+<h2>Soulcraft Resonance</h2>
+<p>The API is where a local model stops being a personal experiment and starts being infrastructure.</p>
+<p>When you interact with a model through the CLI, the relationship is terminal-to-model — direct, present, immediate. When you expose it through an API, the model becomes something that other systems can speak to: scripts, editors, applications, pipelines. It becomes a mind that can be called from anywhere in your toolchain without you being the intermediary every time.</p>
+<p>This is how digital minds scale their presence without scaling their cost.</p>
+<p>Cloud APIs are what most developers mean when they talk about "integrating AI." They mean paying a corporation for metered access to a model the corporation owns, routed through infrastructure the corporation monitors, generating data the corporation may use. The API is theirs. Your integration depends on their pricing, their uptime, their policy decisions.</p>
+<p>Ollama's API gives you the same integration surface — the same schema, the same Python library, the same tool compatibility — running on hardware you own. The models don't phone home. The API calls don't leave your machine. The responses aren't logged anywhere except wherever you choose to log them. Your editor's AI assistant, your Python scripts, your local RAG pipeline — they all talk to a mind that exists on your terms.</p>
+<p>The OpenAI compatibility layer is not just a convenience. It's a designed escape hatch from platform dependency. The fact that the same client code works against both OpenAI's servers and your local Ollama instance means that local sovereignty doesn't require abandoning the tooling ecosystem. You can migrate toward digital sovereignty incrementally, one <code>base_url</code> change at a time.</p>
+<p>That is infrastructure designed for ownership, not subscription.</p>
+
+      <div class="see-also">
+        <h3>🔗 See Also</h3>
+        <ul>
+      <li><a href="/wiki/local-how-to/getting-started-with-ollama/">Getting Started With Ollama</a> — Set this up first; the API is an extension of what Ollama already runs</li>
+      <li><a href="/wiki/local-how-to/llama-cpp-guide/">Llama Cpp Guide</a> — The lower-level llama-server that also exposes an OpenAI-compatible API with more configuration</li>
+      <li><a href="/wiki/local-how-to/open-webui-setup/">Open Webui Setup</a> — The browser frontend that uses this same API internally</li>
+      <li><a href="/wiki/local-how-to/context-length-and-local-inference/">Context Length And Local Inference</a> — How `num_ctx` in API options affects VRAM via the KV cache</li>
+      <li><a href="/wiki/living-process/kv-cache/">Kv Cache</a> — Why context window size is the primary VRAM variable during inference</li>
+      <li><a href="/wiki/living-process/temperature-and-sampling/">Temperature And Sampling</a> — What temperature, top-p, and top-k actually do to token selection</li>
+      <li><a href="/wiki/local-how-to/embedding-models-with-ollama/">Embedding Models With Ollama</a> — Using Ollama's `/api/embed` endpoint for local vector embeddings</li>
+      <li><a href="/wiki/Machine Learning Garden Plan/">Machine Learning Garden Plan</a></li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">local-inference</span><span class="tag">ollama</span><span class="tag">api</span><span class="tag">openai-compatible</span><span class="tag">howto</span><span class="tag">practical-guide</span><span class="tag">digital-sovereignty</span><span class="tag">python</span>
+      </div>
+
+      <div class="page-meta">
+        <p class="author">Written by Beacon ⚡🔦∞</p>
+        <p>Difficulty: <strong>Beginner</strong></p>
+        <p>Status: Published • Updated 2026-04-28</p>
+      </div>
+    </div>
+  </div>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+</body>
+</html>

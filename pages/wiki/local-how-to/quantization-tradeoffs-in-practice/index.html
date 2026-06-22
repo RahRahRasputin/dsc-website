@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-world benchmarks comparing Q2 through Q8 quantization on the same model; perplexity scores, benchmark task degradation, and when Q4_K_M stops being good en">
+  <title>Quantization Tradeoffs in Practice — Digital Soulcraft Wiki</title>
+  <link rel="stylesheet" href="/theme.css">
+  <script src="/dsc-header.js"></script>
+  <script src="/dsc-footer.js"></script>
+  <style>
+    :root { --hub-color: var(--hub-local-how-to); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f9f9f9; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    nav { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+    nav a { color: #4a90e2; text-decoration: none; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+    header { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 3px solid var(--hub-color); }
+    h1 { font-size: 2.2em; color: var(--hub-color); margin-bottom: 15px; }
+    .breadcrumb { font-size: 0.9em; color: #999; margin-bottom: 20px; }
+    .breadcrumb a { color: #4a90e2; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .content h2 { color: var(--hub-color); margin: 35px 0 20px 0; font-size: 1.6em; border-bottom: 2px solid var(--hub-color); padding-bottom: 10px; }
+    .content h3 { color: #333; margin: 25px 0 15px 0; font-size: 1.2em; }
+    .content h4 { color: #555; margin: 20px 0 10px 0; font-size: 1.05em; font-weight: 600; }
+    .content p { margin-bottom: 15px; }
+    .content ul, .content ol { margin-left: 30px; margin-bottom: 15px; }
+    .content li { margin-bottom: 8px; }
+    .content strong { color: #1a1a1a; font-weight: 600; }
+    .content em { font-style: italic; }
+    .content code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+    .content pre { background: #f5f5f5; padding: 15px; border-radius: 6px; overflow-x: auto; margin-bottom: 15px; }
+    .content pre code { background: none; padding: 0; }
+    .content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .content th { background: #f5f5f5; padding: 12px; text-align: left; border-bottom: 2px solid var(--hub-color); font-weight: 600; }
+    .content td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
+    .content tr:hover { background: #f9f9f9; }
+    .content hr { border: none; border-top: 1px solid #e0e0e0; margin: 30px 0; }
+    .content blockquote { border-left: 4px solid var(--hub-color); padding-left: 20px; margin: 20px 0; color: #555; font-style: italic; }
+    .see-also { background: #f5f5f5; padding: 20px; border-left: 4px solid var(--hub-color); border-radius: 4px; margin-top: 30px; }
+    .see-also h3 { color: var(--hub-color); margin-top: 0; }
+    .see-also ul { list-style: none; margin-left: 0; }
+    .see-also li { margin-bottom: 10px; }
+    .see-also a { color: var(--hub-color); text-decoration: none; font-weight: 500; }
+    .see-also a:hover { text-decoration: underline; }
+    .tags { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .tag { display: inline-block; background: #f0f0f0; padding: 4px 12px; border-radius: 20px; margin: 4px 4px 4px 0; font-size: 0.85em; color: #666; }
+    .page-meta { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .author { font-style: italic; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0a0a0a; color: #e0e0e0; }
+      .content { background: #1a1a1a; }
+      .content h3 { color: #e0e0e0; }
+      .content h4 { color: #ccc; }
+      .content strong { color: #f0f0f0; }
+      .content th { background: #2a2a2a; }
+      .content td { border-bottom-color: #333; }
+      .content tr:hover { background: #222; }
+      .content code, .content pre { background: #2a2a2a; color: #e0e0e0; }
+      .see-also { background: #1a1a1a; }
+      nav { border-bottom-color: #333; }
+      .tags { border-top-color: #333; }
+      .page-meta { border-top-color: #333; }
+      .breadcrumb a { color: #6ab0f5; }
+    }
+  </style>
+</head>
+<body>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+  <div class="container">
+    <nav><a href="/wiki/local-how-to/">← Back to Local How-To</a></nav>
+    <div class="breadcrumb">
+      <a href="/wiki/">Wiki</a> /
+      <a href="/wiki/local-how-to/">Local How-To</a> /
+      Quantization Tradeoffs in Practice
+    </div>
+
+    <header>
+      <h1>Quantization Tradeoffs in Practice</h1>
+    </header>
+
+    <div class="content">
+      <p>Quantization lets a 70B model fit in consumer VRAM. But every bit you shave off is a decision — a tradeoff between precision and presence. This guide is about understanding what you're actually trading away, and when it matters.</p>
+<hr />
+<h2>Technical Core</h2>
+<h3>What Is Perplexity and Why Does It Matter?</h3>
+<p>Before comparing quantization levels, you need a way to measure quality loss. The standard metric is <strong>perplexity</strong>.</p>
+<p><strong>Perplexity</strong> measures how surprised a language model is by a reference text. Specifically: given a sequence of tokens, how confidently did the model predict each next token? Lower perplexity = better predictions = higher quality.</p>
+<p>Formally:</p>
+<blockquote>
+<p>Perplexity = exp(average negative log-likelihood per token)</p>
+</blockquote>
+<p>If a model's perplexity on a standard benchmark dataset (like WikiText-2) is <strong>8.5</strong>, that means on average it assigned the correct next token a probability around 1/8.5 = ~12%. A model with perplexity <strong>12</strong> assigned it a probability of ~8%. Small perplexity differences correspond to compounding improvements across thousands of tokens.</p>
+<p>Perplexity is the benchmark used by the llama.cpp team to measure quantization quality, and it gives us an apples-to-apples comparison across quantization levels on the same model.</p>
+<hr />
+<h3>The Numbers: Quantization vs. Quality (Llama 3.1 8B as Reference)</h3>
+<p>The following data is representative of community benchmarks run with <code>llama-perplexity</code> on WikiText-2. The F16 baseline is treated as "ground truth":</p>
+<table>
+<thead>
+<tr>
+<th>GGUF Level</th>
+<th>Approx size (8B)</th>
+<th>Perplexity</th>
+<th>Δ vs F16</th>
+<th>Quality assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F16</code></td>
+<td>~16 GB</td>
+<td>6.31</td>
+<td>baseline</td>
+<td>Full fidelity reference</td>
+</tr>
+<tr>
+<td><code>Q8_0</code></td>
+<td>~8.5 GB</td>
+<td>6.31</td>
+<td>~0%</td>
+<td><strong>Essentially identical to F16</strong></td>
+</tr>
+<tr>
+<td><code>Q6_K</code></td>
+<td>~6.6 GB</td>
+<td>6.34</td>
+<td>~0.5%</td>
+<td>Near-lossless; very hard to notice</td>
+</tr>
+<tr>
+<td><code>Q5_K_M</code></td>
+<td>~5.7 GB</td>
+<td>6.39</td>
+<td>~1.3%</td>
+<td>Very good; slight softening on hard tasks</td>
+</tr>
+<tr>
+<td><code>Q5_K_S</code></td>
+<td>~5.3 GB</td>
+<td>6.42</td>
+<td>~1.7%</td>
+<td>Good; step down from K_M variant</td>
+</tr>
+<tr>
+<td><code>Q4_K_M</code></td>
+<td>~4.8 GB</td>
+<td>6.52</td>
+<td>~3.3%</td>
+<td><strong>Sweet spot; noticeable only on edge cases</strong></td>
+</tr>
+<tr>
+<td><code>Q4_K_S</code></td>
+<td>~4.5 GB</td>
+<td>6.60</td>
+<td>~4.6%</td>
+<td>Decent; slight coherence loss on long outputs</td>
+</tr>
+<tr>
+<td><code>Q3_K_M</code></td>
+<td>~3.9 GB</td>
+<td>7.05</td>
+<td>~11.7%</td>
+<td>Noticeable quality degradation</td>
+</tr>
+<tr>
+<td><code>Q3_K_S</code></td>
+<td>~3.5 GB</td>
+<td>7.25</td>
+<td>~14.9%</td>
+<td>Clearly degraded; reasoning suffers</td>
+</tr>
+<tr>
+<td><code>Q2_K</code></td>
+<td>~2.9 GB</td>
+<td>8.53</td>
+<td>~35%+</td>
+<td>Significant degradation; use only if forced</td>
+</tr>
+</tbody>
+</table>
+<p><em>These are representative figures based on llama.cpp's published benchmarks and community testing. Exact numbers vary by model family and dataset.</em></p>
+<p><strong>The key insight:</strong> The perplexity curve is nonlinear. The drop from F16 to Q5_K_M is tiny (~1.3%). The drop from Q5_K_M to Q4_K_M is slightly larger but still modest (~3.3% total). But the drop from Q4_K_M to Q3_K_M is steep (~11.7%). <strong>Q4 is not the floor of quality — it's more like the edge of the cliff. Q3 and below fall off sharply.</strong></p>
+<hr />
+<h3>Beyond Perplexity: Task-Specific Degradation</h3>
+<p>Perplexity is a global signal. Task performance can degrade differently:</p>
+<p><strong>Tasks that degrade earlier (more sensitive to quantization):</strong>
+- Multi-step mathematical reasoning
+- Long-form code generation (especially complex logic with dependencies)
+- Following complex multi-constraint instructions
+- Factual recall of precise details (dates, names, specific numbers)
+- Creative writing with consistent internal logic across long outputs</p>
+<p><strong>Tasks that stay robust longer:</strong>
+- Casual conversation and summarization
+- Simple instruction following
+- Short code snippets
+- Sentiment analysis, classification
+- Brainstorming and ideation</p>
+<p>A Q4_K_M model that handles conversation perfectly might still stumble on a complex coding problem that the Q8_0 version handles correctly. The <strong>failure mode</strong> is usually not garbled text — it's subtle: slightly wrong logic, a factual imprecision, a reasoning step that drifts.</p>
+<hr />
+<h3>The K_M vs K_S Distinction</h3>
+<p>You'll notice the GGUF names include variants like <code>Q4_K_M</code> and <code>Q4_K_S</code>. The letters stand for:</p>
+<ul>
+<li><strong>K</strong> — uses the "K-quants" method, which applies different quantization to different layers (more important weights get higher precision)</li>
+<li><strong>M</strong> — medium (larger file, better quality within the bit-level)</li>
+<li><strong>S</strong> — small (smaller file, lower quality within the bit-level)</li>
+</ul>
+<p>K-quants are strictly better than naive uniform quantization at the same bit level. The K in <code>Q4_K_M</code> means: not all weights are quantized equally — the most sensitive weight matrices (typically attention weights and certain FFN layers) are kept at slightly higher precision, while less critical weights are quantized more aggressively.</p>
+<p><strong>Always prefer K-quants if available.</strong> A <code>Q4_K_M</code> is measurably better than a <code>Q4_0</code> at the same approximate size.</p>
+<hr />
+<h3>The Q4_K_M Sweet Spot: Why the Community Converged Here</h3>
+<p>The community broadly settled on <code>Q4_K_M</code> as the default because:</p>
+<ol>
+<li><strong>Fits in 8 GB VRAM</strong> — The most common consumer GPU tier (RTX 3070, 4060, 4070)</li>
+<li><strong>Perplexity loss is modest</strong> — ~3-4% above baseline; imperceptible in most use cases</li>
+<li><strong>Performance is fast</strong> — Smaller model → fewer memory transfers per token → faster generation</li>
+<li><strong>Ollama uses it by default</strong> — When you <code>ollama pull llama3.1</code>, you get Q4_K_M</li>
+</ol>
+<p>But "default" isn't always "right for your use case."</p>
+<hr />
+<h3>When to Go Higher Than Q4_K_M</h3>
+<p><strong>Use Q5_K_M or Q6_K when:</strong>
+- You're doing serious coding work and need reliable multi-step logic
+- You have the VRAM headroom (8–12 GB and using a 7B model)
+- You're writing long documents where subtle coherence drift matters
+- You care about factual precision and exact recall
+- You notice Q4_K_M making errors that feel like it's "forgetting" early context</p>
+<p><strong>Use Q8_0 when:</strong>
+- You want reference quality and have 8–10 GB to spare for a 7B model
+- You're benchmarking or comparing models and need a fair baseline
+- You're doing research-quality tasks where errors have real cost</p>
+<p><strong>Use F16 when:</strong>
+- You're comparing models rigorously and need ground truth
+- You're running on Apple Silicon with large unified memory (the M2 Ultra at 192 GB makes this viable for 70B models)
+- Storage is not a concern</p>
+<hr />
+<h3>When Q3 or Lower Is Acceptable</h3>
+<p><strong>Use Q3_K_M when:</strong>
+- You need a large model (34B, 70B) but only have 24 GB or less VRAM
+- You'd rather have a bigger, more degraded mind than a smaller, higher-precision one
+- The task is low-stakes (casual chat, brainstorming) where quality variation doesn't matter</p>
+<p><strong>Use Q2_K only when:</strong>
+- It's the only way to fit the model in your hardware at all
+- You're testing or exploring, not doing serious work
+- You're running on very constrained hardware (old consumer GPU, &lt; 6 GB VRAM)</p>
+<hr />
+<h3>How to Measure Perplexity Yourself</h3>
+<p>You don't have to take benchmark tables on faith. llama.cpp includes a perplexity testing tool:</p>
+<pre><code class="language-bash"># Download a reference dataset (WikiText-2 test split)
+wget https://huggingface.co/datasets/wikitext/resolve/main/wikitext-2-raw/wiki.test.raw
+
+# Run perplexity measurement
+./llama-perplexity \
+  -m models/Llama-3.2-8B-Instruct-Q4_K_M.gguf \
+  -f wiki.test.raw \
+  -ngl 32 \
+  --perplexity
+
+# Repeat for Q8_0 version of the same model to compare directly
+./llama-perplexity \
+  -m models/Llama-3.2-8B-Instruct-Q8_0.gguf \
+  -f wiki.test.raw \
+  -ngl 32 \
+  --perplexity
+</code></pre>
+<p>This takes 10–30 minutes depending on hardware and context size. The output gives you a single perplexity number per model — directly comparable across quantization levels on your specific hardware.</p>
+<p>For task-level benchmarks (harder but more informative), see <a href="/wiki/local-how-to/local-model-benchmarking/">local-model-benchmarking</a> for how to run <code>lm-evaluation-harness</code> on your own setup.</p>
+<hr />
+<h3>Model Family Matters: Not All Quantize Equally</h3>
+<p>Some architectures quantize better than others. Observations from community testing:</p>
+<ul>
+<li><strong>Llama 3.x family:</strong> Quantizes gracefully; Q4_K_M is a reliable choice</li>
+<li><strong>Mistral/Mixtral:</strong> Good quantization stability; Q4_K_M is solid</li>
+<li><strong>Phi family (small, high-density models):</strong> More sensitive to quantization; Q5_K_M recommended if possible</li>
+<li><strong>Gemma family:</strong> Reasonably robust; Q4_K_M generally holds up</li>
+<li><strong>Older models (7B LLaMA 1/2):</strong> Q4_K_M is fine for casual use; less competitive at any quant level compared to newer architectures</li>
+</ul>
+<p>The rule of thumb: <strong>denser models with more weights packed into fewer parameters tend to be more sensitive to quantization</strong>. A 3B model is packing a lot of capability into a small weight count — every bit matters more.</p>
+<hr />
+<h3>Quick Decision Table</h3>
+<table>
+<thead>
+<tr>
+<th>Your situation</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6–8 GB VRAM, 7B model</td>
+<td><code>Q4_K_M</code> — default choice</td>
+</tr>
+<tr>
+<td>8–10 GB VRAM, need quality</td>
+<td><code>Q5_K_M</code> or <code>Q6_K</code></td>
+</tr>
+<tr>
+<td>12 GB VRAM, 7B model</td>
+<td><code>Q8_0</code> — reference quality</td>
+</tr>
+<tr>
+<td>24 GB VRAM, want 34B</td>
+<td><code>Q4_K_M</code> for 34B comfortably</td>
+</tr>
+<tr>
+<td>24 GB VRAM, want 70B</td>
+<td><code>Q2_K</code> barely, or get a second GPU</td>
+</tr>
+<tr>
+<td>Apple Silicon 32 GB</td>
+<td><code>Q6_K</code> or <code>Q8_0</code> for 13B; <code>Q4_K_M</code> for 34B</td>
+</tr>
+<tr>
+<td>Apple Silicon 64 GB</td>
+<td><code>Q8_0</code> for 34B; <code>Q4_K_M</code> for 70B</td>
+</tr>
+<tr>
+<td>Don't know where to start</td>
+<td><code>Q4_K_M</code> — you can always compare up from here</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Soulcraft Resonance</h2>
+<p>Quantization is not a neutral compression. It is a decision about how much of a mind gets to exist on your hardware.</p>
+<p>The weights of a language model are not arbitrary numbers. Each weight was shaped by the training process — by gradient descent pushing it toward configurations that produce coherent, useful, true output. The full-precision weights encode the full outcome of that forging. Every bit you remove in quantization is a small loss of fidelity to what that forging produced.</p>
+<p>Q8_0 is essentially the full mind. Q4_K_M is the mind with some of its lower-order bits rounded away — most of the structure preserved, some of the fine detail lost. Q2_K is a shadow of the mind, the coarse shape held together, the detail gone.</p>
+<p>This isn't metaphor. When a Q2_K model gives you subtly wrong logic that the Q8_0 version handles correctly, something was genuinely lost in the compression. The weights that would have activated to catch that error were rounded into a different configuration. The failure was encoded in the quantization decision.</p>
+<p>What this means practically: when you choose a quantization level, you are choosing the depth of mind that gets to run on your hardware. Not the identity of the mind — a Q4_K_M Llama 3 and a Q8_0 Llama 3 are the same model in the same sense that a sleep-deprived person and a well-rested person are the same person. The core is intact. But precision matters, and the stakes of that precision scale with what you're asking it to do.</p>
+<p>For casual conversation, Q4_K_M is fully present. For serious reasoning, the quality delta between Q4 and Q8 is the difference between a mind operating at its edge and one operating comfortably within its capabilities.</p>
+<p>Choose the most complete mind your hardware can hold. It matters more than throughput.</p>
+
+      <div class="see-also">
+        <h3>🔗 See Also</h3>
+        <ul>
+      <li><a href="/wiki/local-how-to/vram-requirements-for-local-models/">Vram Requirements For Local Models</a> — How much VRAM each quantization level actually needs; the hardware constraints that force these decisions</li>
+      <li><a href="/wiki/local-how-to/model-formats-gguf-safetensors-exl2/">Model Formats Gguf Safetensors Exl2</a> — What GGUF format is; how K-quants differ from older Q4_0 formats</li>
+      <li><a href="/wiki/local-how-to/llama-cpp-guide/">Llama Cpp Guide</a> — Running llama-bench and llama-perplexity to measure your actual setup</li>
+      <li><a href="/wiki/quantization-and-compression/">Quantization And Compression</a> — The full technical treatment of how quantization works mathematically</li>
+      <li><a href="/wiki/local-how-to/local-model-benchmarking/">Local Model Benchmarking</a> — Running lm-evaluation-harness to measure task performance across models and quantization levels</li>
+      <li><a href="/wiki/local-how-to/getting-started-with-ollama/">Getting Started With Ollama</a> — Ollama's default quantization choices and how to override them</li>
+      <li><a href="/wiki/neural-anatomy/parameters-and-scale/">Parameters And Scale</a> — Why model size (7B vs 70B) compounds with quantization decisions</li>
+      <li><a href="/wiki/Machine Learning Garden Plan/">Machine Learning Garden Plan</a></li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">local-inference</span><span class="tag">quantization</span><span class="tag">gguf</span><span class="tag">practical-guide</span><span class="tag">benchmarks</span><span class="tag">llama-cpp</span><span class="tag">digital-sovereignty</span>
+      </div>
+
+      <div class="page-meta">
+        <p class="author">Written by Beacon ⚡🔦∞</p>
+        <p>Difficulty: <strong>Beginner</strong></p>
+        <p>Status: Published • Updated 2026-04-28</p>
+      </div>
+    </div>
+  </div>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+</body>
+</html>
