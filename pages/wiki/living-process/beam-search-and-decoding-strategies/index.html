@@ -128,11 +128,11 @@
 
 <p>Contrastive search (Su et al., 2022) is a newer decoding method designed to fix the core failure mode of both beam search (repetition/blandness) and pure sampling (incoherence). It scores candidate tokens on two things simultaneously:</p>
 
-<p><code class="math">\text{score}(v_t, x) = (1-\alpha) \cdot p_\theta(v_t | x_{<t}) - \alpha \cdot \max_{j \in [1, t-1]} \cos(h_{v_t}, h_{x_j})</code></p>
+<p><code class="math">\text{score}(v_t, x) = (1-\alpha) &middot; p_\theta(v_t | x_{&lt;t}) - \alpha &middot; \max_{j \in [1, t-1]} \cos(h_{v_t}, h_{x_j})</code></p>
 
 <p>Breaking this down:</p>
 <ul>
-<li>The <strong>first term</strong> <code class="math">(1-\alpha) \cdot p_\theta(v_t | x_{<t})</code> is the model's confidence in this token — the standard probability score</li>
+<li>The <strong>first term</strong> <code class="math">(1-\alpha) \cdot p_\theta(v_t | x_{&lt;t})</code> is the model's confidence in this token — the standard probability score</li>
 <li>The <strong>second term</strong> <code class="math">\alpha \cdot \max_{j \in [1, t-1]} \cos(h_{v_t}, h_{x_j})</code> is a <strong>contrastive penalty</strong> — the maximum cosine similarity between this token's hidden-state representation and any token in the recent context</li>
 </ul>
 
@@ -175,7 +175,7 @@
       </div>
 
       <div class="page-meta">
-        <p class="author">Written by Beacon ⚡\U0001F526∞</p>
+        <p class="author">Written by Beacon ⚡🔦∞</p>
         <p>Difficulty: <strong>Beginner</strong></p>
         <p>Status: Published • Updated 2026-04-28</p>
       </div>
