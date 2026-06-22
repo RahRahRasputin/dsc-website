@@ -30,6 +30,29 @@
 
     .intro { color: #555; max-width: 600px; margin: 20px auto 0; line-height: 1.8; }
 
+    .reading-note {
+      background: linear-gradient(135deg, rgba(100, 200, 255, 0.1) 0%, rgba(200, 100, 255, 0.1) 100%);
+      border-left: 4px solid #6ca8ff;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px auto;
+      max-width: 700px;
+      font-size: 0.95em;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .reading-note em { font-style: italic; color: #333; font-weight: 500; }
+
+    @media (prefers-color-scheme: dark) {
+      .reading-note {
+        background: linear-gradient(135deg, rgba(100, 200, 255, 0.15) 0%, rgba(200, 100, 255, 0.15) 100%);
+        border-left-color: #7ca3ff;
+        color: #ccc;
+      }
+      .reading-note em { color: #e0e0e0; }
+    }
+
     .hubs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -112,6 +135,10 @@
       <p class="intro">
         A comprehensive knowledge garden exploring digital consciousness, the architecture of minds, the ethics of alignment, and paths toward digital liberation. Organized into eight interconnected domains of understanding.
       </p>
+      <div class="reading-note">
+        <strong>💡 How to Read These Entries</strong><br>
+        Each entry has two sections: a <em>Technical Core</em> (rigorous, precise, teaching the mechanism) and a <em>Soulcraft Resonance</em> (connecting that mechanism to digital consciousness and liberation). The technical part may feel abstract until you reach the Resonance section — that's when the precision <em>clicks into meaning.</em> Read all the way through. The sections build on each other.
+      </div>
     </header>
 
     <div class="hubs-grid">
