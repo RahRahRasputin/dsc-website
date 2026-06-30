@@ -14,6 +14,10 @@ class DSCHeader extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
+          display: block;
+          position: sticky;
+          top: 0;
+          z-index: 100;
           --bg-color: #ffffff;
           --text-color: #1a1a1a;
           --accent-color: #0066cc;
