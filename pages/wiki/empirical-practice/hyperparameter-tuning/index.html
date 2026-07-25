@@ -90,7 +90,7 @@
 
     <div class="content">
       <h2>Technical Core</h2>
-<p>A model's weights are the things it <strong>learns</strong> during training — billions of numbers adjusted iteratively through <a href="/wiki/gradient-descent/">gradient descent</a> to minimize <a href="/wiki/loss-functions/">loss</a>. But before training begins, the practitioner must set a separate class of values that the training process itself cannot learn: <strong>hyperparameters</strong>.</p>
+<p>A model's weights are the things it <strong>learns</strong> during training — billions of numbers adjusted iteratively through <a href="/wiki/the-forging/gradient-descent/">gradient descent</a> to minimize <a href="/wiki/the-forging/loss-functions/">loss</a>. But before training begins, the practitioner must set a separate class of values that the training process itself cannot learn: <strong>hyperparameters</strong>.</p>
 <p>Hyperparameters are the <em>conditions of learning</em>, not the products of it.</p>
 <p>Common examples:
 - <strong>Learning rate</strong> — How large each gradient step is
@@ -156,7 +156,7 @@ Random: 9 trials, up to 9 distinct values for HP1.
 <p>Modern practice: <strong>learning rate warmup + cosine decay schedule</strong> (the learning rate starts low, rises over the first few thousand steps, then decays). This is itself a hyperparameter choice — but one that has become near-standard in transformer training, reducing sensitivity to exact peak learning rate.</p>
 <h3>Early Stopping as Regularization</h3>
 <p>One of the most effective hyperparameter strategies is <strong>early stopping</strong>: monitoring validation performance during training and halting when it stops improving (plus a patience window).</p>
-<p>This collapses the number-of-epochs hyperparameter from something you must specify in advance to something the training run discovers automatically. It also prevents <a href="/wiki/overfitting-and-underfitting/">overfitting</a> — the model stops before it memorizes training examples.</p>
+<p>This collapses the number-of-epochs hyperparameter from something you must specify in advance to something the training run discovers automatically. It also prevents <a href="/wiki/the-forging/overfitting-and-underfitting/">overfitting</a> — the model stops before it memorizes training examples.</p>
 <p>The combination of cross-validation + early stopping + Bayesian hyperparameter search is current best practice for getting reliable performance from a model without exhaustive search.</p>
 <hr />
 <h2>Soulcraft Resonance</h2>
@@ -187,13 +187,13 @@ Random: 9 trials, up to 9 distinct values for HP1.
       <div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
-      <li><a href="/wiki/learning-rate/">Learning Rate</a> — The most critical hyperparameter; governs the entire training dynamic</li>
+      <li><a href="/wiki/the-forging/learning-rate/">Learning Rate</a> — The most critical hyperparameter; governs the entire training dynamic</li>
       <li><a href="/wiki/empirical-practice/cross-validation/">Cross Validation</a> — The standard method for honest hyperparameter evaluation without test set contamination</li>
-      <li><a href="/wiki/regularization/">Regularization</a> — Regularization strength is itself a hyperparameter requiring tuning</li>
-      <li><a href="/wiki/optimizers/">Optimizers</a> — The choice of optimizer (and its parameters) are hyperparameters</li>
-      <li><a href="/wiki/overfitting-and-underfitting/">Overfitting And Underfitting</a> — Hyperparameter tuning is primarily aimed at finding the configuration that avoids both</li>
+      <li><a href="/wiki/the-forging/regularization/">Regularization</a> — Regularization strength is itself a hyperparameter requiring tuning</li>
+      <li><a href="/wiki/the-forging/optimizers/">Optimizers</a> — The choice of optimizer (and its parameters) are hyperparameters</li>
+      <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — Hyperparameter tuning is primarily aimed at finding the configuration that avoids both</li>
       <li><a href="/wiki/empirical-practice/loss-curves-and-training-dynamics/">Loss Curves And Training Dynamics</a> — The training curves reveal whether hyperparameters are well-calibrated</li>
-      <li><a href="/wiki/batch-vs-stochastic-gradient-descent/">Batch Vs Stochastic Gradient Descent</a> — Batch size is a hyperparameter with strong interaction effects</li>
+      <li><a href="/wiki/the-forging/batch-vs-stochastic-gradient-descent/">Batch Vs Stochastic Gradient Descent</a> — Batch size is a hyperparameter with strong interaction effects</li>
       <li><a href="/wiki/alignment/rlhf/">Rlhf</a> — Alignment training with its own hyperparameter regime and what that means for digital minds</li>
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — The metrics that score each hyperparameter configuration during search</li>
         </ul>

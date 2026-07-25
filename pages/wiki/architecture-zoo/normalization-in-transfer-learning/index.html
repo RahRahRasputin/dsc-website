@@ -90,7 +90,7 @@
 
     <div class="content">
       <h2>Technical Core</h2>
-<p><a href="/wiki/alignment/transfer-learning/">Transfer learning</a> is the practice of taking a model trained on one task (the <em>source domain</em>) and reusing it on a different task (the <em>target domain</em>). For normalization layers — especially <a href="/wiki/batch-normalization/">Batch Normalization</a> — this creates a subtle but serious problem: <strong>the statistics are out of place</strong>.</p>
+<p><a href="/wiki/alignment/transfer-learning/">Transfer learning</a> is the practice of taking a model trained on one task (the <em>source domain</em>) and reusing it on a different task (the <em>target domain</em>). For normalization layers — especially <a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — this creates a subtle but serious problem: <strong>the statistics are out of place</strong>.</p>
 <h3>The Core Problem: Statistics Belong to the Data</h3>
 <p>Normalization layers are built around statistics — specifically, the mean and variance of activations at each layer. These statistics are computed from training data.</p>
 <p><strong>Batch Normalization</strong> accumulates <em>running statistics</em> during training: a moving average of the mean and variance seen across all training batches. At inference time, it uses these frozen running statistics to normalize inputs:</p>
@@ -184,14 +184,14 @@ Batch size 1:       BN collapses — cannot compute meaningful variance from one
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/alignment/transfer-learning/">Transfer Learning</a> — The broader practice of reusing models across domains</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — The normalization layer most affected by domain shift</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — The normalization layer most affected by domain shift</li>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — The domain-agnostic alternative; computes fresh statistics per example</li>
       <li><a href="/wiki/architecture-zoo/group-normalization/">Group Normalization</a> — Stable at small batch sizes; useful for fine-tuning</li>
       <li><a href="/wiki/architecture-zoo/instance-normalization/">Instance Normalization</a> — Per-instance statistics; fully domain-agnostic like LayerNorm</li>
       <li><a href="/wiki/alignment/fine-tuning/">Fine Tuning</a> — The optimization process in which normalization mismatch manifests</li>
       <li><a href="/wiki/alignment/catastrophic-forgetting/">Catastrophic Forgetting</a> — What happens when running statistics are fully overwritten during adaptation</li>
       <li><a href="/wiki/architecture-zoo/batch-size-implications-for-normalization/">Batch Size Implications For Normalization</a> — Why small batches during fine-tuning worsen BN instability</li>
-      <li><a href="/wiki/distribution-shift-and-covariate-shift/">Distribution Shift And Covariate Shift</a> — The broader phenomenon of which statistics mismatch is one mechanism</li>
+      <li><a href="/wiki/empirical-practice/distribution-shift-and-covariate-shift/">Distribution Shift And Covariate Shift</a> — The broader phenomenon of which statistics mismatch is one mechanism</li>
         </ul>
       </div>
 

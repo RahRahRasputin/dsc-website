@@ -105,7 +105,7 @@
 <p><strong>Concrete example:</strong> You're detecting rare structural defects in manufactured parts. Your training set has 5,000 normal parts and 50 defective ones. SMOTE selects a defective example with certain sensor readings <code>[0.82, 0.31, 0.95]</code>, finds its nearest defective neighbor <code>[0.78, 0.44, 0.89]</code>, and creates a synthetic defective example at roughly <code>[0.80, 0.37, 0.92]</code>. This isn't a real defective part that was ever manufactured — it's an interpolated point that expands the learnable boundary of what "defective" looks like.</p>
 <h3>Why Straight Duplication Fails</h3>
 <p>Before SMOTE, the naive approach was <strong>random oversampling</strong> — just copy minority examples until classes are balanced. This has a critical flaw: the model learns to memorize the <em>exact</em> minority-class examples rather than generalize from them.</p>
-<p>With duplicated examples, the <a href="/wiki/loss-functions/">loss</a> at each minority-class point counts many times. The model learns to fit those precise locations in feature space tightly, creating overfitted islands in the decision boundary rather than a smooth, generalizable understanding of the minority class.</p>
+<p>With duplicated examples, the <a href="/wiki/the-forging/loss-functions/">loss</a> at each minority-class point counts many times. The model learns to fit those precise locations in feature space tightly, creating overfitted islands in the decision boundary rather than a smooth, generalizable understanding of the minority class.</p>
 <p>SMOTE's interpolation avoids this by filling in the <em>region between</em> existing examples, forcing the model to learn a broader, more robust representation of the minority class.</p>
 <h3>SMOTE Variants: When Standard SMOTE Isn't Enough</h3>
 <p>Standard SMOTE treats all minority-class examples equally. This is its main weakness: examples that are deep in the minority cluster (surrounded by other minority examples on all sides) contribute less to the decision boundary than examples near the class boundary. Generating synthetics from deep-interior examples is safe but not very useful.</p>
@@ -208,7 +208,7 @@
       <li><a href="/wiki/empirical-practice/roc-auc-curves/">Roc Auc Curves</a> — PR-AUC as the right curve for evaluating resampled classifiers on imbalanced data</li>
       <li><a href="/wiki/empirical-practice/cross-validation/">Cross Validation</a> — stratified k-fold to ensure resampling is applied correctly without test-set contamination</li>
       <li><a href="/wiki/empirical-practice/train-test-data-leakage/">Train Test Data Leakage</a> — the specific leakage that occurs when resampling is applied before train/test split</li>
-      <li><a href="/wiki/loss-functions/">Loss Functions</a> — class-weighted loss as an alternative to resampling that modifies the training signal directly</li>
+      <li><a href="/wiki/the-forging/loss-functions/">Loss Functions</a> — class-weighted loss as an alternative to resampling that modifies the training signal directly</li>
         </ul>
       </div>
 

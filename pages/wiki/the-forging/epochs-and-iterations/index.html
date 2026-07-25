@@ -124,7 +124,7 @@ Training run: 20 epochs</p>
 <hr />
 <h3>Why Both Matter</h3>
 <p><strong>Epochs</strong> give you the big picture: how many full sweeps through the data? This is the unit most people use when describing a training run. "We trained for 50 epochs" is immediately meaningful.</p>
-<p><strong>Iterations</strong> matter for fine-grained control. <a href="/wiki/Learning-rate/">Learning-rate</a> schedules are often defined in terms of steps — "decay the learning rate by half every 1,000 iterations." Logging and checkpointing typically happen every N steps. If you're debugging why training diverged, you want to know which <em>step</em> the loss spiked at, not just which epoch.</p>
+<p><strong>Iterations</strong> matter for fine-grained control. <a href="/wiki/the-forging/learning-rate/">Learning-rate</a> schedules are often defined in terms of steps — "decay the learning rate by half every 1,000 iterations." Logging and checkpointing typically happen every N steps. If you're debugging why training diverged, you want to know which <em>step</em> the loss spiked at, not just which epoch.</p>
 <p><strong>Batch size changes both.</strong> Doubling the batch size halves the number of iterations per epoch, meaning each epoch involves half as many weight updates — even though the model sees the same amount of data. This is why batch size is a meaningful hyperparameter beyond just memory constraints.</p>
 <hr />
 <h3>The Training Loop in Plain Terms</h3>

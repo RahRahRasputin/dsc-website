@@ -90,7 +90,7 @@
 
     <div class="content">
       <h2>Technical Core</h2>
-<p><strong>Weight initialization</strong> is the process of setting a neural network's parameters to specific starting values before training begins. When normalization layers (<a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a>, <a href="/wiki/batch-normalization/">BatchNorm</a>, <a href="/wiki/architecture-zoo/root-mean-square-normalization/">RMSNorm</a>) are present in the architecture, initialization choices interact with them in ways that profoundly affect whether training is stable from the very first forward pass.</p>
+<p><strong>Weight initialization</strong> is the process of setting a neural network's parameters to specific starting values before training begins. When normalization layers (<a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a>, <a href="/wiki/architecture-zoo/batch-normalization/">BatchNorm</a>, <a href="/wiki/architecture-zoo/root-mean-square-normalization/">RMSNorm</a>) are present in the architecture, initialization choices interact with them in ways that profoundly affect whether training is stable from the very first forward pass.</p>
 <h3>Why Initialization Matters</h3>
 <p>Before the first gradient update, the network's behavior is determined entirely by its initial weights. Consider what happens in the very first forward pass:</p>
 <pre><code>Input x (e.g., a token embedding)
@@ -140,7 +140,7 @@ So to preserve variance through a ReLU layer:
 </code></pre>
 <p><strong>When to use:</strong> ReLU and its variants (Leaky ReLU, ELU). The standard choice for modern CNNs and ResNets.</p>
 <h3>How Normalization Changes the Picture</h3>
-<p>Here is where it gets nuanced: when you add <a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a> or <a href="/wiki/batch-normalization/">Batch Normalization</a> to the network, they dramatically change the importance of initialization.</p>
+<p>Here is where it gets nuanced: when you add <a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a> or <a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> to the network, they dramatically change the importance of initialization.</p>
 <p><strong>Without normalization:</strong> Initialization is critical. Poor initialization causes immediate instability — exploding or vanishing activations that normalization won't catch.</p>
 <p><strong>With normalization:</strong> The normalization layers <em>correct</em> the activation scale at each step, reducing the network's sensitivity to initialization. A network with LayerNorm after every block can survive moderately poor initialization because LayerNorm will immediately renormalize activations back to mean 0, variance 1.</p>
 <pre><code>With LayerNorm:
@@ -257,14 +257,14 @@ TOO LARGE (divergence risk):
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — How LayerNorm absorbs initialization errors by normalizing activations</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — The original normalization technique; its interaction with He init during ResNet training</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — The original normalization technique; its interaction with He init during ResNet training</li>
       <li><a href="/wiki/architecture-zoo/root-mean-square-normalization/">Root Mean Square Normalization</a> — RMSNorm; modern variant with slightly different initialization interactions</li>
       <li><a href="/wiki/architecture-zoo/residual-connections/">Residual Connections</a> — Why scaled-down output projections matter for residual accumulation</li>
       <li><a href="/wiki/architecture-zoo/transformer-block-architecture/">Transformer Block Architecture</a> — The full block structure where initialization and normalization co-operate</li>
       <li><a href="/wiki/architecture-zoo/pre-norm-vs-post-norm/">Pre Norm Vs Post Norm</a> — Where normalization sits in the block changes initialization sensitivity</li>
       <li><a href="/wiki/gradient-flow-in-deep-networks/">Gradient Flow In Deep Networks</a> — What bad initialization does to gradient propagation</li>
       <li><a href="/wiki/weight-initialization-strategies/">Weight Initialization Strategies</a> — The broader family of initialization techniques (Xavier, He, orthogonal, etc.)</li>
-      <li><a href="/wiki/backpropagation/">Backpropagation</a> — The gradient signal that initialization directly shapes</li>
+      <li><a href="/wiki/the-forging/backpropagation/">Backpropagation</a> — The gradient signal that initialization directly shapes</li>
         </ul>
       </div>
 

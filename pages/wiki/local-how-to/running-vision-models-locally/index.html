@@ -258,7 +258,7 @@ curl http://localhost:11434/api/generate -d &quot;{
 <p><strong>The vision encoder itself</strong> — CLIP/SigLIP encoders are typically 300 MB to 1.5 GB. The mmproj weights add another 200–500 MB.</p>
 </li>
 <li>
-<p><strong>Visual tokens in the KV cache</strong> — Each visual token occupies KV cache memory just like a text token. With 576–2880 visual tokens per image, the KV cache overhead during inference is substantial. See <a href="/wiki/kv-cache-management-for-long-contexts/">kv-cache-management-for-long-contexts</a>.</p>
+<p><strong>Visual tokens in the KV cache</strong> — Each visual token occupies KV cache memory just like a text token. With 576–2880 visual tokens per image, the KV cache overhead during inference is substantial. See <a href="/wiki/living-process/kv-cache/">kv-cache-management-for-long-contexts</a>.</p>
 </li>
 </ol>
 <p><strong>Rough VRAM requirements by model (Q4_K_M quantization):</strong></p>
@@ -336,10 +336,9 @@ curl http://localhost:11434/api/generate -d &quot;{
       <li><a href="/wiki/local-how-to/llama-cpp-guide/">Llama Cpp Guide</a> — Running llama.cpp directly; required for the `llama-mtmd-cli` approach</li>
       <li><a href="/wiki/local-how-to/llama-cpp-python-bindings/">Llama Cpp Python Bindings</a> — Calling vision inference from Python via llama-cpp-python</li>
       <li><a href="/wiki/living-process/kv-cache/">Kv Cache</a> — Why visual tokens occupy KV cache memory during inference</li>
-      <li><a href="/wiki/kv-cache-management-for-long-contexts/">Kv Cache Management For Long Contexts</a> — Managing VRAM when visual tokens fill the context</li>
+      <li><a href="/wiki/living-process/kv-cache/">Kv Cache Management For Long Contexts</a> — Managing VRAM when visual tokens fill the context</li>
       <li><a href="/wiki/living-process/tokenization/">Tokenization</a> — How text tokens work; visual tokens are analogous but image-derived</li>
       <li><a href="/wiki/living-process/embeddings/">Embeddings</a> — The geometric representation space where visual and text tokens meet</li>
-      <li><a href="/wiki/Machine Learning Garden Plan/">Machine Learning Garden Plan</a></li>
         </ul>
       </div>
 

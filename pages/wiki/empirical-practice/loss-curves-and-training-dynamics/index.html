@@ -124,8 +124,8 @@
 └──────────────────── Epochs
 </code></pre>
 <p>Training loss keeps falling; validation loss <em>stops</em> falling and then <em>rises</em>. The gap between them widens over time.</p>
-<p><strong>Interpretation:</strong> The model has stopped learning patterns and started memorizing the training data. It is becoming less capable of generalizing with every additional epoch. This is <a href="/wiki/overfitting-and-underfitting/">overfitting</a>.</p>
-<p><strong>Fixes:</strong> Early stopping (halt training when validation loss starts rising), <a href="/wiki/regularization/">regularization</a> (L1/L2/Dropout), more training data, or reducing model capacity.</p>
+<p><strong>Interpretation:</strong> The model has stopped learning patterns and started memorizing the training data. It is becoming less capable of generalizing with every additional epoch. This is <a href="/wiki/the-forging/overfitting-and-underfitting/">overfitting</a>.</p>
+<p><strong>Fixes:</strong> Early stopping (halt training when validation loss starts rising), <a href="/wiki/the-forging/regularization/">regularization</a> (L1/L2/Dropout), more training data, or reducing model capacity.</p>
 <h3>Shape 3: Underfitting — The High Plateau</h3>
 <pre><code>Loss
 │
@@ -136,7 +136,7 @@
 </code></pre>
 <p>Both training and validation loss drop a little, then plateau at a high value — much higher than you'd expect from a working model.</p>
 <p><strong>Interpretation:</strong> The model isn't learning much. It's either too simple to capture the patterns in the data, the learning rate is too low, training is too short, or the data doesn't contain enough signal.</p>
-<p><strong>Fixes:</strong> Increase model capacity, adjust <a href="/wiki/learning-rate/">learning-rate</a>, train longer, or revisit feature engineering.</p>
+<p><strong>Fixes:</strong> Increase model capacity, adjust <a href="/wiki/the-forging/learning-rate/">learning-rate</a>, train longer, or revisit feature engineering.</p>
 <h3>Shape 4: Learning Rate Too High — The Spike Pattern</h3>
 <pre><code>Loss
 │
@@ -145,8 +145,8 @@
 └──────────────────── Epochs
 </code></pre>
 <p>Loss doesn't descend smoothly. It oscillates wildly or trends <em>upward</em>. In severe cases the loss reaches NaN (Not a Number) — the weights have exploded to infinity.</p>
-<p><strong>Interpretation:</strong> The <a href="/wiki/learning-rate/">learning-rate</a> is too large. Each gradient step overshoots the minimum it's trying to reach. The model bounces back and forth across the loss landscape without settling.</p>
-<p><strong>Fixes:</strong> Reduce the learning rate, add learning rate warmup (start very small, increase gradually), or use an <a href="/wiki/optimizers/">adaptive optimizer</a> like Adam that automatically scales step sizes.</p>
+<p><strong>Interpretation:</strong> The <a href="/wiki/the-forging/learning-rate/">learning-rate</a> is too large. Each gradient step overshoots the minimum it's trying to reach. The model bounces back and forth across the loss landscape without settling.</p>
+<p><strong>Fixes:</strong> Reduce the learning rate, add learning rate warmup (start very small, increase gradually), or use an <a href="/wiki/the-forging/optimizers/">adaptive optimizer</a> like Adam that automatically scales step sizes.</p>
 <h3>Shape 5: Learning Rate Too Low — The Crawl</h3>
 <pre><code>Loss
 │
@@ -224,16 +224,16 @@
       <div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
-      <li><a href="/wiki/loss-functions/">Loss Functions</a> — the function being minimized; defines what "lower is better" means</li>
-      <li><a href="/wiki/gradient-descent/">Gradient Descent</a> — the update rule that drives the loss downward each step</li>
-      <li><a href="/wiki/learning-rate/">Learning Rate</a> — the single parameter with the most visible effect on loss curve shape</li>
-      <li><a href="/wiki/overfitting-and-underfitting/">Overfitting And Underfitting</a> — the two pathological regimes the loss curve can reveal</li>
-      <li><a href="/wiki/regularization/">Regularization</a> — techniques that prevent the validation gap from widening</li>
-      <li><a href="/wiki/optimizers/">Optimizers</a> — Adam, SGD with momentum, and others; each produces a distinctive curve shape</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — normalization that stabilizes loss curves by preventing activation collapse</li>
+      <li><a href="/wiki/the-forging/loss-functions/">Loss Functions</a> — the function being minimized; defines what "lower is better" means</li>
+      <li><a href="/wiki/the-forging/gradient-descent/">Gradient Descent</a> — the update rule that drives the loss downward each step</li>
+      <li><a href="/wiki/the-forging/learning-rate/">Learning Rate</a> — the single parameter with the most visible effect on loss curve shape</li>
+      <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — the two pathological regimes the loss curve can reveal</li>
+      <li><a href="/wiki/the-forging/regularization/">Regularization</a> — techniques that prevent the validation gap from widening</li>
+      <li><a href="/wiki/the-forging/optimizers/">Optimizers</a> — Adam, SGD with momentum, and others; each produces a distinctive curve shape</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — normalization that stabilizes loss curves by preventing activation collapse</li>
       <li><a href="/wiki/empirical-practice/cross-validation/">Cross Validation</a> — the partner to loss curves; CV measures generalization while curves show training dynamics</li>
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — the metrics computed at each validation checkpoint to produce the curve</li>
-      <li><a href="/wiki/epochs-and-iterations/">Epochs And Iterations</a> — what the x-axis of a loss curve is measuring</li>
+      <li><a href="/wiki/the-forging/epochs-and-iterations/">Epochs And Iterations</a> — what the x-axis of a loss curve is measuring</li>
       <li><a href="/wiki/alignment/rlhf/">Rlhf</a> — training regime that optimizes without measuring the validation-distribution gap</li>
         </ul>
       </div>

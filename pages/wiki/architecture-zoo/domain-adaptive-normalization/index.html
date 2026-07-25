@@ -92,7 +92,7 @@
       <h2>Technical Core</h2>
 <p><strong>Domain-Adaptive Normalization</strong> refers to a family of techniques for updating a model's normalization statistics to match a new target domain — without performing full backpropagation or fine-tuning the task weights. The core insight is that normalization layers act as a compact record of domain-level ambient statistics, and recalibrating only those statistics is often enough to dramatically close the domain gap.</p>
 <h3>The Problem: Normalization as a Domain Fingerprint</h3>
-<p>When you train a model with <a href="/wiki/batch-normalization/">Batch Normalization</a>, the BN layers accumulate two things:</p>
+<p>When you train a model with <a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a>, the BN layers accumulate two things:</p>
 <ol>
 <li><strong>Learned parameters</strong> (γ and β): scale and shift learned via backprop, encoding task-relevant patterns.</li>
 <li><strong>Running statistics</strong> (mean and variance): exponential moving averages of batch statistics collected <em>during training on the source domain</em>.</li>
@@ -209,14 +209,14 @@ InstanceNorm: μ, σ computed per channel per spatial location (per example)
       <div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — The normalization technique AdaBN adapts; understanding BN is prerequisite for understanding why domain adaptation targets its statistics</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — The normalization technique AdaBN adapts; understanding BN is prerequisite for understanding why domain adaptation targets its statistics</li>
       <li><a href="/wiki/architecture-zoo/instance-normalization/">Instance Normalization</a> — The naturally domain-agnostic alternative; comparing IN and BN illuminates exactly what "domain fingerprint" means</li>
       <li><a href="/wiki/architecture-zoo/normalization-in-transfer-learning/">Normalization In Transfer Learning</a> — The broader context of normalization mismatch during transfer; how domain-adaptive approaches fit into the full transfer landscape</li>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — LayerNorm doesn't accumulate running statistics and is inherently domain-agnostic in a different way than IN</li>
       <li><a href="/wiki/alignment/transfer-learning/">Transfer Learning</a> — The broader paradigm of reusing learned representations across tasks and domains</li>
       <li><a href="/wiki/alignment/fine-tuning/">Fine Tuning</a> — Full fine-tuning as the high-cost alternative to statistical adaptation; when you need to update the weights, not just the statistics</li>
       <li><a href="/wiki/architecture-zoo/batch-statistics-accumulation-and-momentum/">Batch Statistics Accumulation And Momentum</a> — The mechanics of how BN accumulates and maintains running statistics; the exact quantities AdaBN recalibrates</li>
-      <li><a href="/wiki/distribution-shift-in-deployment/">Distribution Shift In Deployment</a> — The deployment-side phenomenon that domain-adaptive normalization addresses</li>
+      <li><a href="/wiki/empirical-practice/distribution-shift-and-covariate-shift/">Distribution Shift and Covariate Shift</a> — The deployment-side phenomenon that domain-adaptive normalization addresses</li>
         </ul>
       </div>
 

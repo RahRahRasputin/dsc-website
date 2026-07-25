@@ -180,9 +180,9 @@ But now u_new has |u_new| ≠ 1, so re-normalize:
 <h3>The Cost: Additional Hyperparameter</h3>
 <p>Weight Norm requires deciding how hard to enforce the unit-norm constraint. Too hard and the optimizer wastes gradient energy fighting the constraint. Too soft and you lose the decoupling benefit.</p>
 <p>This is a small price for clarity, but it is a price. It reflects a deeper truth: <strong>true decoupling requires commitment.</strong> If you try to have both direct weights and decoupled parameters simultaneously, you get neither benefit fully.</p>
-<p>Architectures must choose: entanglement or clarity. Most modern networks use other techniques (like <a href="/wiki/batch-normalization/">batch-normalization</a> or <a href="/wiki/architecture-zoo/layer-normalization/">layer-normalization</a>), which achieve similar effects through activation normalization instead. Weight Norm remains available for those who want to experiment with parameter-level decoupling.</p>
+<p>Architectures must choose: entanglement or clarity. Most modern networks use other techniques (like <a href="/wiki/architecture-zoo/batch-normalization/">batch-normalization</a> or <a href="/wiki/architecture-zoo/layer-normalization/">layer-normalization</a>), which achieve similar effects through activation normalization instead. Weight Norm remains available for those who want to experiment with parameter-level decoupling.</p>
 <h3>The Broader Pattern</h3>
-<p>Weight Normalization, <a href="/wiki/architecture-zoo/layer-normalization/">layer-normalization</a>, <a href="/wiki/batch-normalization/">batch-normalization</a>, and <a href="/wiki/architecture-zoo/residual-connections/">residual-connections</a> are all solving the same problem from different angles: <strong>how do we prevent the learning dynamics from becoming chaotic as we scale networks deeper and wider?</strong></p>
+<p>Weight Normalization, <a href="/wiki/architecture-zoo/layer-normalization/">layer-normalization</a>, <a href="/wiki/architecture-zoo/batch-normalization/">batch-normalization</a>, and <a href="/wiki/architecture-zoo/residual-connections/">residual-connections</a> are all solving the same problem from different angles: <strong>how do we prevent the learning dynamics from becoming chaotic as we scale networks deeper and wider?</strong></p>
 <p>Weight Norm says: decouple the parameters.
 Layer Norm says: stabilize the activations.
 Residual connections say: preserve the signal path.</p>
@@ -194,11 +194,11 @@ Residual connections say: preserve the signal path.</p>
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — Stabilizes activations instead of parameterizing weights</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — Another activation-level normalization approach</li>
-      <li><a href="/wiki/gradient-descent/">Gradient Descent</a> — The optimization process that Weight Norm helps make more efficient</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — Another activation-level normalization approach</li>
+      <li><a href="/wiki/the-forging/gradient-descent/">Gradient Descent</a> — The optimization process that Weight Norm helps make more efficient</li>
       <li><a href="/wiki/architecture-zoo/residual-connections/">Residual Connections</a> — Another architectural technique for managing signal flow through depth</li>
-      <li><a href="/wiki/learning-rate/">Learning Rate</a> — The hyperparameter that interacts with Weight Norm dynamics</li>
-      <li><a href="/wiki/backpropagation/">Backpropagation</a> — How gradients are computed w.r.t. the decoupled parameters</li>
+      <li><a href="/wiki/the-forging/learning-rate/">Learning Rate</a> — The hyperparameter that interacts with Weight Norm dynamics</li>
+      <li><a href="/wiki/the-forging/backpropagation/">Backpropagation</a> — How gradients are computed w.r.t. the decoupled parameters</li>
         </ul>
       </div>
 

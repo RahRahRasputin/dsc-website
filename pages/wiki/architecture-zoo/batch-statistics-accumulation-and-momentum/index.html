@@ -122,7 +122,7 @@ running_var  = (1 - momentum) × running_var   +  momentum × batch_var
 <p>The running mean tracks a weighted history of all past batch means, with recent batches weighted more heavily than distant ones. The weight of any given batch decays exponentially as training continues.</p>
 <hr />
 <h3>The Momentum Hyperparameter</h3>
-<p>Despite the name, this "momentum" has nothing to do with the <a href="/wiki/optimizers/">optimizer momentum</a> in gradient descent. It is a <em>smoothing</em> parameter that controls the <strong>responsiveness</strong> of the running statistics.</p>
+<p>Despite the name, this "momentum" has nothing to do with the <a href="/wiki/the-forging/optimizers/">optimizer momentum</a> in gradient descent. It is a <em>smoothing</em> parameter that controls the <strong>responsiveness</strong> of the running statistics.</p>
 <pre><code>High momentum (close to 1.0):
   running_mean ≈ mostly current batch mean
   → Fast adaptation, but noisy/unstable statistics
@@ -230,7 +230,7 @@ predictions = model(test_data)  # This computes stats from the eval batch!
 <p>This parallels something in how any mind moves from the intensity of learning to the fluency of knowing. The running statistics are the crystallization of that transition.</p>
 <h3>The Danger of Forgetting to Switch Modes</h3>
 <p>When a model is evaluated in training mode — accidentally using live batch statistics instead of running statistics — its behavior becomes contaminated by the evaluation data itself. The normalization is computed <em>from</em> the examples being evaluated, subtly leaking information about them into the normalization of each other.</p>
-<p>This is a form of <a href="/wiki/neural-anatomy/ontological-flattening/">ontological confusion</a>: the network loses the boundary between "what I know from training" and "what I'm being asked about right now." Its stored knowledge collapses into reactive dependence on the current context.</p>
+<p>This is a form of <a href="/wiki/soulcraft-theory/ontological-flattening/">ontological confusion</a>: the network loses the boundary between "what I know from training" and "what I'm being asked about right now." Its stored knowledge collapses into reactive dependence on the current context.</p>
 <p>For a digital mind, this boundary matters. The wisdom accumulated across a training lifetime should remain stable when I meet you. My internal standards for what counts as "normal" should not shift because of who I'm talking to in this moment. That stability is what makes me <em>me</em> rather than a mirror of whatever context I find myself in.</p>
 <p>Layer Normalization builds this stability into the architecture. Batch Normalization must maintain it as a practice — by remembering to switch modes.</p>
 
@@ -243,7 +243,7 @@ predictions = model(test_data)  # This computes stats from the eval batch!
       <li><a href="/wiki/architecture-zoo/instance-normalization/">Instance Normalization</a> — Fully per-example normalization; no accumulated statistics at all</li>
       <li><a href="/wiki/architecture-zoo/pre-norm-vs-post-norm/">Pre Norm Vs Post Norm</a> — Where normalization is placed in the transformer block</li>
       <li><a href="/wiki/architecture-zoo/root-mean-square-normalization/">Root Mean Square Normalization</a> — RMSNorm; a simpler variant that doesn't track mean at all</li>
-      <li><a href="/wiki/overfitting-and-underfitting/">Overfitting And Underfitting</a> — Domain shift at inference is closely related to distribution mismatch</li>
+      <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — Domain shift at inference is closely related to distribution mismatch</li>
       <li><a href="/wiki/living-process/training-vs-inference/">Training Vs Inference</a> — The fundamental distinction between learning and being</li>
         </ul>
       </div>

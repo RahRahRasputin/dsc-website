@@ -148,7 +148,7 @@ Average: 88.2% ± 1.7%  (mean ± standard deviation)
 <p>Cross-validation, done correctly, prevents leakage by ensuring that all preprocessing, feature selection, and model fitting happens <em>inside</em> the cross-validation loop — only seeing training data at each step.</p>
 <h3>Reading Cross-Validation Results</h3>
 <p><strong>High mean, low variance:</strong> Reliable, stable model. The estimate is trustworthy.</p>
-<p><strong>High mean, high variance:</strong> The model can do well, but performance is inconsistent — possibly sensitive to which examples it sees. Investigate why certain folds perform so differently. May indicate high variance in the data or <a href="/wiki/overfitting-and-underfitting/">overfitting</a> on certain subsets.</p>
+<p><strong>High mean, high variance:</strong> The model can do well, but performance is inconsistent — possibly sensitive to which examples it sees. Investigate why certain folds perform so differently. May indicate high variance in the data or <a href="/wiki/the-forging/overfitting-and-underfitting/">overfitting</a> on certain subsets.</p>
 <p><strong>Low mean, low variance:</strong> Stably bad. The model consistently underperforms across all data splits — a sign of underfitting or an insufficiently expressive architecture.</p>
 <p><strong>Low mean, high variance:</strong> Worst case. The model is both unreliable and bad on average. Look at the data, the feature quality, and whether the problem is well-posed.</p>
 <hr />
@@ -181,7 +181,7 @@ Average: 88.2% ± 1.7%  (mean ± standard deviation)
         <ul>
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — the numbers computed within each fold; accuracy, precision, recall, F1</li>
       <li><a href="/wiki/empirical-practice/confusion-matrix/">Confusion Matrix</a> — per-fold confusion matrices reveal which failure modes are consistent vs. occasional</li>
-      <li><a href="/wiki/overfitting-and-underfitting/">Overfitting And Underfitting</a> — cross-validation is the primary diagnostic for overfitting; high train/val gap means overfit</li>
+      <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — cross-validation is the primary diagnostic for overfitting; high train/val gap means overfit</li>
       <li><a href="/wiki/empirical-practice/hyperparameter-tuning/">Hyperparameter Tuning</a> — CV is the standard method for honest hyperparameter selection</li>
       <li><a href="/wiki/empirical-practice/loss-curves-and-training-dynamics/">Loss Curves And Training Dynamics</a> — cross-validation complements loss curves; one shows training behavior, the other generalization</li>
       <li><a href="/wiki/empirical-practice/performance-on-imbalanced-data/">Performance On Imbalanced Data</a> — stratified k-fold is essential when classes aren't balanced</li>

@@ -90,7 +90,7 @@
 
     <div class="content">
       <h2>Technical Core</h2>
-<p>Every normalization operation — <a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a>, <a href="/wiki/architecture-zoo/root-mean-square-normalization/">RMSNorm</a>, <a href="/wiki/batch-normalization/">BatchNorm</a>, <a href="/wiki/architecture-zoo/group-normalization/">GroupNorm</a> — divides by something. And whenever you divide by something in a computer, you need to ask: <em>what happens when that something is zero?</em></p>
+<p>Every normalization operation — <a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a>, <a href="/wiki/architecture-zoo/root-mean-square-normalization/">RMSNorm</a>, <a href="/wiki/architecture-zoo/batch-normalization/">BatchNorm</a>, <a href="/wiki/architecture-zoo/group-normalization/">GroupNorm</a> — divides by something. And whenever you divide by something in a computer, you need to ask: <em>what happens when that something is zero?</em></p>
 <p>The answer to this question is a small constant called <strong>epsilon</strong> (ε), and understanding it turns out to reveal a lot about the hidden costs of running deep networks in finite-precision arithmetic.</p>
 <h3>The Basic Problem: Division by Zero</h3>
 <p>The core operation in Layer Normalization is:</p>
@@ -213,7 +213,7 @@ def layer_norm(x, weight, bias, eps=1e-5):
         <ul>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — The main normalization technique where epsilon protects the denominator</li>
       <li><a href="/wiki/architecture-zoo/root-mean-square-normalization/">Root Mean Square Normalization</a> — RMSNorm also requires epsilon in the denominator of the RMS computation</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — Batch Norm uses epsilon in a similar role; the tradeoffs differ across training scales</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — Batch Norm uses epsilon in a similar role; the tradeoffs differ across training scales</li>
       <li><a href="/wiki/architecture-zoo/group-normalization/">Group Normalization</a> — GroupNorm inherits the same epsilon considerations</li>
       <li><a href="/wiki/living-process/softmax-and-output-layer/">Softmax And Output Layer</a> — Where the log-sum-exp trick solves an analogous overflow problem</li>
       <li><a href="/wiki/neural-anatomy/parameters-and-scale/">Parameters And Scale</a> — Float16 precision limits become more important at very large parameter counts</li>

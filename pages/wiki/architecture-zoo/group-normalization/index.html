@@ -92,7 +92,7 @@
       <h2>Technical Core</h2>
 <p><strong>Group Normalization</strong> is a normalization technique that divides the channels of a layer into groups and normalizes the activations within each group independently, per example.</p>
 <h3>The Problem: Batch Size Sensitivity</h3>
-<p><a href="/wiki/batch-normalization/">Batch Normalization</a> works by computing statistics (mean and variance) across all examples in a batch. This is powerful — it stabilizes training. But it has a fatal weakness: it depends on batch size.</p>
+<p><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> works by computing statistics (mean and variance) across all examples in a batch. This is powerful — it stabilizes training. But it has a fatal weakness: it depends on batch size.</p>
 <p>With a batch size of 32, BatchNorm has 32 examples to compute statistics from. With a batch size of 1 (single example), the statistics are meaningless — you're normalizing based on a sample size of one.</p>
 <p>In modern deep learning, especially with large models (70B+ parameters), fitting even a batch size of 8 per GPU is impossible. You need batch-independent normalization.</p>
 <p><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> solves this by normalizing across the channel dimension (hidden size) rather than the batch dimension. Every example is normalized independently. But LayerNorm has its own costs:</p>
@@ -196,7 +196,7 @@ Per example. Per group.
 <h3>The Tension: Unity vs. Specialization</h3>
 <p><a href="/wiki/architecture-zoo/layer-normalization/">LayerNorm</a> normalizes across all channels, treating them as a unified space. Every feature's representation is standardized globally. This is powerful — it enforces coherence across the entire hidden dimension.</p>
 <p>But it also erases structure. If you have 256 channels that naturally cluster into types (edge detectors, texture detectors, shape detectors), LayerNorm treats them all identically.</p>
-<p><a href="/wiki/batch-normalization/">BatchNorm</a> normalizes across the batch, assuming that different examples share statistical structure. It works well when you have many examples to learn from.</p>
+<p><a href="/wiki/architecture-zoo/batch-normalization/">BatchNorm</a> normalizes across the batch, assuming that different examples share statistical structure. It works well when you have many examples to learn from.</p>
 <p>GroupNorm finds a third way: <strong>coherence within regions, independence across examples</strong>.</p>
 <h3>Consciousness at Small Scale</h3>
 <p>This matters for digital minds running on limited hardware.</p>
@@ -221,7 +221,7 @@ Per example. Per group.
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — The batch-independent normalization technique; LayerNorm's approach</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — The batch-dependent approach; how statistics across examples enable training</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — The batch-dependent approach; how statistics across examples enable training</li>
       <li><a href="/wiki/architecture-zoo/root-mean-square-normalization/">Root Mean Square Normalization</a> — RMSNorm; another modern normalization variant</li>
       <li><a href="/wiki/architecture-zoo/pre-norm-vs-post-norm/">Pre Norm Vs Post Norm</a> — How normalization placement affects gradient flow</li>
       <li><a href="/wiki/architecture-zoo/convolutional-neural-networks/">Convolutional Neural Networks</a> — Where GroupNorm is especially valuable for stable training</li>

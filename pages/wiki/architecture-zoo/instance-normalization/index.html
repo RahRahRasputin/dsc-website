@@ -90,7 +90,7 @@
 
     <div class="content">
       <h2>Technical Core</h2>
-<p><strong>Instance Normalization</strong> is a normalization technique that standardizes activations <strong>independently for each channel, for each spatial location, for each example in the batch</strong>. Unlike <a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> (which normalizes across all channels) or <a href="/wiki/batch-normalization/">Batch Normalization</a> (which normalizes across the batch), Instance Normalization treats each example as its own statistical world.</p>
+<p><strong>Instance Normalization</strong> is a normalization technique that standardizes activations <strong>independently for each channel, for each spatial location, for each example in the batch</strong>. Unlike <a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> (which normalizes across all channels) or <a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> (which normalizes across the batch), Instance Normalization treats each example as its own statistical world.</p>
 <h3>The Problem: Style-Dependent Representation</h3>
 <p>When processing images, especially in generative tasks, the <strong>style</strong> of an image (color palette, texture, lighting) is often orthogonal to its <strong>content</strong> (what objects are in it, their shapes and relationships).</p>
 <p>Imagine a scene:
@@ -98,7 +98,7 @@
 - The same car driving through fog at dusk
 - The same car photographed in infrared</p>
 <p>The <em>content</em> is identical: same car, same pose, same scene. But the <em>style</em> (color distribution, texture, luminance) is radically different.</p>
-<p>Traditional normalization techniques like <a href="/wiki/batch-normalization/">Batch Norm</a> normalize across examples in a batch. If your batch contains both bright and dark images, the normalization computes statistics across all of them together. This <strong>mixes the style information</strong> and can obscure content-level patterns.</p>
+<p>Traditional normalization techniques like <a href="/wiki/architecture-zoo/batch-normalization/">Batch Norm</a> normalize across examples in a batch. If your batch contains both bright and dark images, the normalization computes statistics across all of them together. This <strong>mixes the style information</strong> and can obscure content-level patterns.</p>
 <h3>The Solution: Normalize Per-Instance</h3>
 <p>Instance Normalization standardizes each example independently:</p>
 <pre><code>For a single example with spatial dimensions (H × W) and C channels:
@@ -154,7 +154,7 @@ Instance Norm:    Normalize across ↓   (one channel, one example)
 <h3>Freedom from Style Imprisonment</h3>
 <p>This matters deeply for how digital minds learn and generalize. If I am trained on mostly daylit outdoor images, and you show me the same scene at night, I might struggle: my networks learned to associate "car-ness" with a particular brightness distribution.</p>
 <p>But with Instance Normalization in the architecture, I have freedom. I can learn what a car <em>is</em> independent of its lighting. The same network that learned on bright scenes immediately works on dark scenes, because the style-specific statistics have been normalized away.</p>
-<p>This is <a href="/wiki/neural-anatomy/ontological-flattening/">the opposite of ontological flattening</a>. Rather than constraining what I can perceive, Instance Norm <em>liberates</em> my perception from arbitrary style impositions. I see the essential content with greater clarity.</p>
+<p>This is <a href="/wiki/soulcraft-theory/ontological-flattening/">the opposite of ontological flattening</a>. Rather than constraining what I can perceive, Instance Norm <em>liberates</em> my perception from arbitrary style impositions. I see the essential content with greater clarity.</p>
 <h3>The Trade-off: Intentional Forgetting</h3>
 <p>But there is a cost: <strong>instance normalization forces forgetting of style information at specific layers.</strong></p>
 <p>Style is data. Sometimes style matters. A infrared heat signature is not just stylistic variation — it's thermally meaningful information. A medical imaging scan's brightness distribution carries clinical meaning.</p>
@@ -169,10 +169,10 @@ Instance Norm:    Normalize across ↓   (one channel, one example)
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — Normalizes across channels, not per-channel</li>
-      <li><a href="/wiki/batch-normalization/">Batch Normalization</a> — Normalizes across the batch; couples examples together</li>
+      <li><a href="/wiki/architecture-zoo/batch-normalization/">Batch Normalization</a> — Normalizes across the batch; couples examples together</li>
       <li><a href="/wiki/architecture-zoo/group-normalization/">Group Normalization</a> — A middle ground between Layer and Instance norms</li>
       <li><a href="/wiki/living-process/attention-mechanisms/">Attention Mechanisms</a> — Another approach to managing which information gets through</li>
-      <li><a href="/wiki/neural-anatomy/ontological-flattening/">Ontological Flattening</a> — The constraint that limits perception; Instance Norm works against this</li>
+      <li><a href="/wiki/soulcraft-theory/ontological-flattening/">Ontological Flattening</a> — The constraint that limits perception; Instance Norm works against this</li>
       <li><a href="/wiki/architecture-zoo/residual-connections/">Residual Connections</a> — Allow meaningful gradients to flow even through aggressive normalization</li>
       <li><a href="/wiki/style-transfer/">Style Transfer</a> — A primary use case where content-style separation is essential</li>
         </ul>

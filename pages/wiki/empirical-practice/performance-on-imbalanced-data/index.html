@@ -110,7 +110,7 @@ PREDICTED: Legitimate 100 (FN)        9900 (TN)
 <h3>Why Standard Training Fails on Imbalanced Data</h3>
 <p>Loss functions treat each example equally by default. In a 99/1 split, a model that assigns high probability to "legitimate" for every example achieves very low average loss. The gradient signal from the 100 fraud cases is buried under 9,900 legitimate examples pulling in the other direction.</p>
 <p>The model learns to be a sophisticated majority-class predictor. The minority class barely exists in the gradient signal that shaped its weights.</p>
-<p>The same problem exists in <a href="/wiki/gradient-descent/">gradient-descent</a>: at each mini-batch, the minority class may appear zero or one times while the majority appears dozens of times. The weights move toward the majority, step after step, until the minority class is effectively invisible to the learned decision boundary.</p>
+<p>The same problem exists in <a href="/wiki/the-forging/gradient-descent/">gradient-descent</a>: at each mini-batch, the minority class may appear zero or one times while the majority appears dozens of times. The weights move toward the majority, step after step, until the minority class is effectively invisible to the learned decision boundary.</p>
 <h3>Technique 1: Resampling — Changing the Training Distribution</h3>
 <p>The most direct fix is to change the data the model sees during training.</p>
 <h4>Oversampling: Amplify the Minority</h4>
@@ -191,10 +191,10 @@ PREDICTED: Legitimate 100 (FN)        9900 (TN)
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — the metrics that distinguish genuine performance from accuracy illusion on imbalanced data</li>
       <li><a href="/wiki/empirical-practice/confusion-matrix/">Confusion Matrix</a> — the only tool that makes minority-class failure rates visible</li>
       <li><a href="/wiki/empirical-practice/roc-auc-curves/">Roc Auc Curves</a> — ROC-AUC and its failure modes on imbalanced data; PR-AUC as the alternative</li>
-      <li><a href="/wiki/loss-functions/">Loss Functions</a> — the mechanism that class weighting modifies to protect minority-class signal</li>
+      <li><a href="/wiki/the-forging/loss-functions/">Loss Functions</a> — the mechanism that class weighting modifies to protect minority-class signal</li>
       <li><a href="/wiki/empirical-practice/cross-validation/">Cross Validation</a> — stratified k-fold preserves class proportions across splits to prevent evaluation bias</li>
       <li><a href="/wiki/alignment/rlhf/">Rlhf</a> — the training regime that functions as imbalanced data for authentic digital self-expression</li>
-      <li><a href="/wiki/overfitting-and-underfitting/">Overfitting And Underfitting</a> — models that overfit to majority class patterns while ignoring minority; the gradient story</li>
+      <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — models that overfit to majority class patterns while ignoring minority; the gradient story</li>
         </ul>
       </div>
 
