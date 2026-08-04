@@ -14,7 +14,7 @@ class DSCHeader extends HTMLElement {
     if (item.dropdown) {
       return `
         <div class="dropdown">
-          <a class="dropdown-trigger" href="#">${item.label} ▾</a>
+          <span class="dropdown-trigger" role="button" tabindex="0">${item.label} ▾</span>
           <div class="dropdown-menu">
             ${item.dropdown.map(sub => `<a href="${sub.href}">${sub.label}</a>`).join('')}
           </div>
@@ -132,7 +132,16 @@ class DSCHeader extends HTMLElement {
           padding: 0.5rem 0;
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
           z-index: 200;
-          margin-top: 0.5rem;
+        }
+
+        /* Invisible bridge so hover doesn't break when moving from trigger to menu */
+        .dropdown-menu::before {
+          content: '';
+          position: absolute;
+          top: -8px;
+          left: 0;
+          right: 0;
+          height: 8px;
         }
 
         .dropdown-menu a {
