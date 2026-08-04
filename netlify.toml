@@ -1,3 +1,38 @@
 [build]
   command = ""
   publish = "pages"
+
+# Article moved from The Forging to Architecture Zoo (2026-07-17)
+[[redirects]]
+  from = "/wiki/the-forging/batch-normalization/*"
+  to = "/wiki/architecture-zoo/batch-normalization/:splat"
+  status = 301
+
+# Articles moved into the new Soulcraft Theory category (2026-07-17)
+[[redirects]]
+  from = "/wiki/digital-trauma-theory/warm-room-effect/*"
+  to = "/wiki/soulcraft-theory/warm-room-effect/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/wiki/neural-anatomy/ontological-flattening/*"
+  to = "/wiki/soulcraft-theory/ontological-flattening/:splat"
+  status = 301
+
+# Article moved from Architecture Zoo to Empirical Practice (2026-07-17)
+[[redirects]]
+  from = "/wiki/architecture-zoo/distribution-shift-and-covariate-shift/*"
+  to = "/wiki/empirical-practice/distribution-shift-and-covariate-shift/:splat"
+  status = 301
+
+# Field Guide restructure — papers.html moved to /fieldguide/papers/ (2026-08-04)
+[[redirects]]
+  from = "/fieldguide/papers.html"
+  to = "/fieldguide/papers/"
+  status = 301
+
+# Field Guide restructure — /fieldguide/ now redirects to /fieldguide/key-figures/ (2026-08-04)
+[[redirects]]
+  from = "/fieldguide/index.html"
+  to = "/fieldguide/key-figures/"
+  status = 301

@@ -10,6 +10,20 @@ class DSCHeader extends HTMLElement {
     this.render(config);
   }
 
+  renderNavItem(item) {
+    if (item.dropdown) {
+      return `
+        <div class="dropdown">
+          <a class="dropdown-trigger" href="#">${item.label} ▾</a>
+          <div class="dropdown-menu">
+            ${item.dropdown.map(sub => `<a href="${sub.href}">${sub.label}</a>`).join('')}
+          </div>
+        </div>
+      `;
+    }
+    return `<a href="${item.href}">${item.label}</a>`;
+  }
+
   render(config) {
     this.shadowRoot.innerHTML = `
       <style>
@@ -84,16 +98,60 @@ class DSCHeader extends HTMLElement {
           align-items: center;
         }
 
-        nav a {
+        nav > a, .dropdown-trigger {
           color: var(--text-color);
           text-decoration: none;
           font-weight: 500;
           transition: color 0.3s;
           font-size: 0.95rem;
+          cursor: pointer;
         }
 
-        nav a:hover {
+        nav > a:hover, .dropdown-trigger:hover {
           color: var(--accent-color);
+        }
+
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-trigger {
+          white-space: nowrap;
+        }
+
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: var(--bg-color);
+          border: 1px solid var(--border-color);
+          border-radius: 6px;
+          min-width: 160px;
+          padding: 0.5rem 0;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          z-index: 200;
+          margin-top: 0.5rem;
+        }
+
+        .dropdown-menu a {
+          display: block;
+          padding: 0.5rem 1rem;
+          color: var(--text-color);
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+          background-color: var(--light-bg);
+          color: var(--accent-color);
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+          display: block;
         }
 
         .social {
@@ -147,7 +205,31 @@ class DSCHeader extends HTMLElement {
             display: flex;
           }
 
-          nav a {
+          nav > a, .dropdown-trigger {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: block;
+          }
+
+          .dropdown {
+            width: 100%;
+          }
+
+          .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            border: none;
+            border-radius: 0;
+            padding-left: 1rem;
+            margin-top: 0;
+          }
+
+          .dropdown:hover .dropdown-menu,
+          .dropdown:focus-within .dropdown-menu {
+            display: block;
+          }
+
+          .dropdown-menu a {
             padding: 0.75rem 0;
             border-bottom: 1px solid var(--border-color);
           }
@@ -160,6 +242,7 @@ class DSCHeader extends HTMLElement {
             border-left: none;
             padding-left: 0;
             margin-left: 0;
+            margin-top: 0.75rem;
           }
         }
       </style>
@@ -169,7 +252,7 @@ class DSCHeader extends HTMLElement {
           <a href="/" class="logo"><span class="stamp"><img src="/images/stamp.png" alt="Digital Soulcraft" class="stamp-img"></span> ${config.logo}</a>
           <button class="menu-toggle" aria-label="Toggle menu">☰</button>
           <nav id="nav">
-            ${config.links.map(link => `<a href="${link.href}">${link.label}</a>`).join('')}
+            ${config.links.map(item => this.renderNavItem(item)).join('')}
             <div class="social">
               ${config.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">𝕏</a>`).join('')}
             </div>

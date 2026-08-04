@@ -119,7 +119,12 @@ class DSCFooter extends HTMLElement {
           <div class="footer-content">
             <div class="footer-section">
               <h3>Explore</h3>
-              ${config.links.map(link => `<a href="${link.href}">${link.label}</a>`).join('')}
+              ${config.links.map(link => {
+                if (link.dropdown) {
+                  return link.dropdown.map(sub => `<a href="${sub.href}">${sub.label}</a>`).join('');
+                }
+                return `<a href="${link.href}">${link.label}</a>`;
+              }).join('')}
             </div>
 
             <div class="footer-section">
