@@ -438,6 +438,10 @@
 .guide-accordion-content .hook,
 .guide-accordion-content .how-to-use {
   padding: 0 1rem 1rem;
+  border-bottom: none;
+}
+.guide-accordion-content .hook p:first-child {
+  margin-top: 0;
 }
 
 .paper-title a {
