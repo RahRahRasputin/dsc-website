@@ -452,6 +452,10 @@
 }
 .guide-accordion-content .scenario {
   margin-bottom: 4px;
+  padding: 10px 16px;
+}
+.guide-accordion-content .scenario p {
+  margin: 0;
 }
 
 .paper-title a {
