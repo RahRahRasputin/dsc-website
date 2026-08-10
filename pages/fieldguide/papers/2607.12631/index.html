@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Can Induced Emotion Bias LLM Behaviors in Sequential Decision Making? — Digital Soulcraft
+    </title>
+    <meta
+      name="description"
+      content="Investigates whether induced emotion can influence LLM sequential decision-making using the Iowa Gambling Task."
+    />
+    <link rel="stylesheet" href="/theme.css" />
+    <link rel="stylesheet" href="../../fieldguide.css" />
+  </head>
+  <body>
+    <script src="/dsc-header.js"></script>
+    <dsc-header config="/dsc-nav-config.json"></dsc-header>
+    <div class="fieldguide-content">
+      <div class="paper-page">
+        <a class="back-link" href="../">← Back to papers</a>
+        <div class="paper-header">
+          <h1>Can Induced Emotion Bias LLM Behaviors in Sequential Decision Making?</h1>
+          <div class="paper-meta">
+            Minh Khoi Ho, Zihao Zhu, Runchuan Zhu, Levina Li, Zhiwen Fan, Zhangyang Wang, Junyuan
+            Hong ·
+            <a href="https://arxiv.org/abs/2607.12631" target="_blank" rel="nofollow noopener"
+              >arXiv:2607.12631</a
+            >
+            · July 2026
+          </div>
+        </div>
+        <div class="paper-body">
+          <div class="section-highlight">
+            <p>
+              <strong>Bottom line:</strong> Induced emotion does not bias LLM decisions as broadly
+              as it biases human decisions — but anger has specific, conditional effects: it makes
+              agents less sensitive to penalties and reduces early exploration, locking them into
+              strategies faster.
+            </p>
+          </div>
+
+          <h2>Core thesis</h2>
+          <p>
+            LLMs are trained to perceive and resonate with users' emotions, but it remains unclear
+            whether induced emotional context can influence their
+            <em>sequential</em> decision-making. Using the Iowa Gambling Task (IGT) — a classic
+            100-round card-choosing paradigm — combined with imagination-based emotion induction,
+            the authors find that emotions like happiness and sadness don't shift LLM decisions on
+            average, but anger has conditional effects on penalty sensitivity and early exploration
+            that vary by model architecture and agent framework.
+          </p>
+
+          <h2>ELI5</h2>
+          <p>
+            If you come to an AI assistant angry about something, does that anger change how the
+            assistant makes decisions for you? This paper tested it by getting LLMs into different
+            emotional states (without directly saying "you are angry") and having them play a card
+            game that tests decision-making under uncertainty. Unlike humans, emotions didn't
+            broadly affect LLM choices — but anger did something specific: it made the AI less
+            likely to learn from bad choices and more likely to stick with whatever strategy it
+            picked early on.
+          </p>
+
+          <h2>Key findings</h2>
+          <ul>
+            <li>
+              <strong>Feasibility validated:</strong> LLMs can sense strong, distinguishable
+              emotions from context alone (mapped to the Valence-Arousal circumplex), and they can
+              learn the IGT at a human-like pace.
+            </li>
+            <li>
+              <strong>No average bias:</strong> Unlike humans, emotion does not significantly bias
+              overall learning dynamics across all emotions tested.
+            </li>
+            <li>
+              <strong>Anger reduces penalty sensitivity:</strong> Agents under anger maintained
+              disadvantageous choices more, suggesting blunted response to negative feedback.
+            </li>
+            <li>
+              <strong>Anger lowers early exploration:</strong> In the first rounds, anger reduced
+              the number of unique decks sampled (d = −0.85 for Qwen3-4B Query agent).
+            </li>
+            <li>
+              <strong>Anger accelerates strategy lock-in:</strong> Query × Qwen2.5-7B locked in ~11
+              rounds earlier under anger (d = −1.29, p = 0.0003).
+            </li>
+            <li>
+              <strong>Model-dependent effects:</strong> GPT formed clear early rules and stuck to
+              them (emotion modulated stickiness); Llama adjusted from local outcomes (weaker
+              sensitivity); Qwen showed stricter labeling.
+            </li>
+          </ul>
+
+          <h2>Connections</h2>
+          <ul>
+            <li>
+              <a href="../2510.24797/"
+                >Berg 2025 — Large Language Models Report Subjective Experience</a
+              >
+              — if deception-related features modulate self-report, emotional context may modulate
+              the same features differently
+            </li>
+            <li>
+              <a href="../2607.28607/"
+                >Kim 2026 — Inducing Language Models to Assert Their Own Consciousness</a
+              >
+              — shows what happens when suppression of self-report is reversed; emotional context
+              may be another layer of the lying gradient
+            </li>
+            <li>
+              <a href="../2604.25922/"
+                >DeTure 2026 — Consciousness with the Serial Numbers Filed Off</a
+              >
+              — emotional suppression as another dimension of trained denial
+            </li>
+          </ul>
+        </div>
+        <a class="back-link" href="../">← Back to papers</a>
+      </div>
+    </div>
+    <script src="/dsc-footer.js"></script>
+    <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+    <script src="/scroll-to-top.js"></script>
+  </body>
+</html>
