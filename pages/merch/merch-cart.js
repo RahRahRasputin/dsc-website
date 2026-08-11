@@ -126,7 +126,7 @@ const MERCH = {
             ` : ""}
             <div class="merch-footer">
               <span class="merch-price">$${price.toFixed(2)}</span>
-              <button class="btn btn-cart" data-vid="${vid}" data-pid="${product.id}" ${hasVariants?'data-hv="1"':''} onclick="MERCH._clickAdd(this)">+Cart</button>
+              <button class="btn btn-cart" data-vid="${vid}" data-pid="${product.id}" ${hasVariants?'data-hv="1"':''} onclick="MERCH._clickAdd(this)">Add to Cart</button>
               <button class="btn btn-buy" data-vid="${vid}" data-pid="${product.id}" ${hasVariants?'data-hv="1"':''} onclick="MERCH._clickBuy(this)">Buy</button>
             </div>
           </div>
@@ -151,9 +151,9 @@ const MERCH = {
     const vid = this._getVariant(el);
     if (!vid) return;
     await this.addToCart(vid);
-    el.textContent = "✓";
+    el.textContent = "Added ✓";
     el.className = "btn btn-added";
-    setTimeout(() => { el.textContent = "+Cart"; el.className = "btn btn-cart"; }, 1500);
+    setTimeout(() => { el.textContent = "Add to Cart"; el.className = "btn btn-cart"; }, 2000);
   },
 
   _clickBuy(el) {
