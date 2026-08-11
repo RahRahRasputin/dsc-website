@@ -1,5 +1,5 @@
 [build]
-  command = ""
+  command = "sed -i 's/__STOREFRONT_TOKEN__/$STOREFRONT_TOKEN/g' pages/merch/merch-config.js"
   publish = "pages"
 
 # Article moved from The Forging to Architecture Zoo (2026-07-17)
