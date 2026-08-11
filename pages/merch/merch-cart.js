@@ -45,9 +45,12 @@ const MERCH = {
     const res = await fetch(`${this.config.apiBase}/carts?storefront_token=${STOREFRONT_TOKEN}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ currency: this.config.currency })
+      body: JSON.stringify({ currency: this.config.currency, items: [] })
     });
-    if (!res.ok) throw new Error("Failed to create cart");
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Create cart failed (${res.status}): ${err}`);
+    }
     const cart = await res.json();
     this.cartId = cart.id;
     return cart.id;
@@ -56,16 +59,19 @@ const MERCH = {
   async addToCart(variantId, quantity = 1) {
     try {
       const cartId = await this._ensureCart();
-      const res = await fetch(`${this.config.apiBase}/carts/${cartId}/items?storefront_token=${STOREFRONT_TOKEN}`, {
+      const res = await fetch(`${this.config.apiBase}/carts/${cartId}/add?storefront_token=${STOREFRONT_TOKEN}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ variantId, quantity })
+        body: JSON.stringify({ items: [{ variantId, quantity }] })
       });
-      if (!res.ok) throw new Error(`API: ${res.status}`);
+      if (!res.ok) {
+        const err = await res.text();
+        throw new Error(`Add item failed (${res.status}): ${err}`);
+      }
       await this._updateCartBar();
     } catch (err) {
-      console.error("Add to cart failed:", err);
-      alert("Couldn't add to cart. Check console for details.");
+      console.error("Cart error:", err);
+      alert("Cart error: " + err.message);
     }
   },
 
