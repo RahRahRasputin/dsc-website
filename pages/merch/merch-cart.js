@@ -71,14 +71,16 @@ const MERCH = {
   async _updateCartBar() {
     const bar = document.getElementById("cart-bar");
     const countEl = document.getElementById("cart-count");
+    const badgeCount = document.getElementById("badge-count");
     if (!bar || !countEl) return;
-    if (!this.cartId) { bar.classList.remove("show"); return; }
+    if (!this.cartId) { bar.classList.remove("show"); if(badgeCount) badgeCount.textContent = "0"; return; }
     try {
       const res = await fetch(`${this.config.apiBase}/carts/${this.cartId}?storefront_token=${STOREFRONT_TOKEN}`);
       if (!res.ok) throw new Error("Cart not found");
       const cart = await res.json();
       const count = (cart.items || []).reduce((s, i) => s + (i.quantity || 0), 0);
       countEl.textContent = count;
+      if (badgeCount) badgeCount.textContent = count;
       bar.classList.add("show");
     } catch {
       bar.classList.remove("show");

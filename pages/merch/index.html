@@ -184,6 +184,33 @@
     .cart-info { font-size: 0.9rem; opacity: 0.8; }
     .cart-info strong { color: var(--accent-color); }
 
+    /* Cart badge */
+    #cart-badge {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.8rem 0.4rem 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+    }
+    #cart-badge:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    #cart-badge .count { background: rgba(255,255,255,0.25); border-radius: 10px; padding: 0.1rem 0.4rem; font-size: 0.75rem; min-width: 1.2rem; text-align: center; }
+
+    @media (max-width: 600px) {
+      #cart-badge { top: 0.5rem; right: 0.5rem; padding: 0.3rem 0.6rem; font-size: 0.78rem; }
+    }
+
     .error-banner {
       text-align: center;
       padding: 2rem;
@@ -374,6 +401,11 @@
       <button class="btn-checkout" id="checkout-btn" onclick="MERCH.checkout()">Checkout →</button>
     </div>
   </div>
+
+  <!-- Cart badge -->
+  <button id="cart-badge" onclick="MERCH.checkout()" title="View cart">
+    🛒 <span class="count" id="badge-count">0</span>
+  </button>
 
   <!-- Product Detail Modal -->
   <div id="product-modal" onclick="if(event.target===this)MERCH.closeModal()">
