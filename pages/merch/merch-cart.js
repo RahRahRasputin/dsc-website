@@ -61,10 +61,11 @@ const MERCH = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ variantId, quantity })
       });
-      if (!res.ok) throw new Error("Failed to add item");
+      if (!res.ok) throw new Error(`API: ${res.status}`);
       await this._updateCartBar();
     } catch (err) {
       console.error("Add to cart failed:", err);
+      alert("Couldn't add to cart. Check console for details.");
     }
   },
 
@@ -278,6 +279,12 @@ const MERCH = {
   _clickBuy(el) {
     const vid = this._getVariant(el);
     if (vid) this.buyNow(vid);
+  },
+
+  // ── Badge click — checkout if cart exists, else go to shop ──
+  badgeClick() {
+    if (this.cartId) { this.checkout(); return false; }
+    return true; // let the href through
   },
 
   // ── Init ──

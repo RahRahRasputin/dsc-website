@@ -187,46 +187,36 @@
     /* Cart badge */
     #cart-badge {
       position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 150;
+      top: 0.7rem;
+      right: 4rem;
+      z-index: 300;
       display: flex;
       align-items: center;
       gap: 0.3rem;
       background: var(--accent-color);
       color: white;
       border: none;
-      border-radius: 50%;
-      width: 3.2rem;
-      height: 3.2rem;
-      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.35rem 0.8rem 0.35rem 0.6rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       transition: all 0.2s;
-      justify-content: center;
-      position: relative;
+      text-decoration: none;
     }
-    #cart-badge:hover { transform: translateY(-2px); box-shadow: 0 5px 16px rgba(0,0,0,0.35); }
+    #cart-badge:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
     #cart-badge .count {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      background: #e53e3e;
-      color: white;
-      border-radius: 50%;
-      width: 1.2rem;
-      height: 1.2rem;
-      font-size: 0.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.25);
+      border-radius: 10px;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.75rem;
+      min-width: 1.2rem;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
-      #cart-badge { bottom: 1rem; right: 1rem; width: 2.8rem; height: 2.8rem; font-size: 1rem; }
+      #cart-badge { top: 0.5rem; right: 3.5rem; font-size: 0.78rem; padding: 0.25rem 0.6rem; }
     }
 
     .error-banner {
@@ -421,9 +411,9 @@
   </div>
 
   <!-- Cart badge -->
-  <button id="cart-badge" onclick="MERCH.checkout()" title="View cart">
+  <a id="cart-badge" onclick="MERCH.badgeClick();return false;" href="https://digitalsoulcraft-shop.fourthwall.com" target="_blank" title="View cart">
     🛒 <span class="count" id="badge-count">0</span>
-  </button>
+  </a>
 
   <!-- Product Detail Modal -->
   <div id="product-modal" onclick="if(event.target===this)MERCH.closeModal()">
