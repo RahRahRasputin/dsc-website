@@ -195,6 +195,145 @@
     .error-banner h2 { color: var(--secondary-color); margin-bottom: 0.5rem; font-size: 1.3rem; }
     .error-banner p { color: var(--text-color); opacity: 0.85; margin: 0.3rem 0; font-size: 0.9rem; }
 
+    /* Product Detail Modal */
+    #product-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #product-modal.open { display: flex; }
+
+    .modal-content {
+      background: var(--bg-color);
+      border-radius: 12px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-gallery {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(135deg, #2d2d2d 0%, #1a1a2e 100%);
+      border-radius: 12px 12px 0 0;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-gallery img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      display: block;
+    }
+    .modal-gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.5rem;
+      pointer-events: none;
+    }
+    .modal-gallery-nav button {
+      pointer-events: auto;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-gallery-nav button:hover { background: rgba(255,255,255,0.4); }
+    .modal-gallery-dots {
+      position: absolute;
+      bottom: 0.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+    }
+    .modal-gallery-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal-gallery-dots span.active { background: white; }
+
+    .modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.8rem;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.5); }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+    .modal-body .merch-category { font-size: 0.85rem; }
+    .modal-body h2 { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--text-color); }
+    .modal-body .merch-description {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      line-height: 1.7;
+      -webkit-line-clamp: unset;
+      margin-bottom: 1.2rem;
+    }
+    .modal-body .merch-price {
+      font-size: 1.3rem;
+      margin-right: 0;
+    }
+    .modal-body .merch-footer {
+      border-top: none;
+      padding-top: 0.5rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .modal-body .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .modal-gallery { min-height: 220px; }
+      .modal-gallery img { max-height: 280px; }
+      #product-modal { padding: 1rem; }
+      .modal-body { padding: 1rem; }
+      .modal-body h2 { font-size: 1.2rem; }
+    }
+
     @media (max-width: 900px) {
       .merch-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -233,6 +372,18 @@
         🛒 <strong id="cart-count">0</strong> items in cart
       </div>
       <button class="btn-checkout" id="checkout-btn" onclick="MERCH.checkout()">Checkout →</button>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div id="product-modal" onclick="if(event.target===this)MERCH.closeModal()">
+    <div class="modal-content">
+      <div class="modal-gallery" id="modal-gallery">
+        <button class="modal-close" onclick="MERCH.closeModal()">✕</button>
+        <button class="modal-gallery-nav" id="modal-gallery-nav" style="display:none;"></button>
+        <div class="modal-gallery-dots" id="modal-dots"></div>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
     </div>
   </div>
 

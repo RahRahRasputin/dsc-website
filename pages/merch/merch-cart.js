@@ -2,6 +2,7 @@
 
 const MERCH = {
   config: MERCH_CONFIG,
+  _products: [],  // cached product data for modal
 
   // ── Cart State ──
   _cartId: localStorage.getItem("fw_cart_id") || null,
@@ -13,12 +14,11 @@ const MERCH = {
     else localStorage.removeItem("fw_cart_id");
   },
 
-  // ── Checkout (Buy Now — direct) ──
+  // ── Checkout ──
   buyNow(variantId, quantity = 1) {
     window.location.href = `https://${this.config.checkoutDomain}/cart/checkout?products=${variantId}:${quantity}&currency=${this.config.currency}`;
   },
 
-  // ── Checkout (Cart) ──
   async checkout() {
     if (!this.cartId) return;
     window.location.href = `https://${this.config.checkoutDomain}/cart/checkout?cartId=${this.cartId}&currency=${this.config.currency}`;
@@ -31,14 +31,15 @@ const MERCH = {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`API returned ${res.status}`);
       const data = await res.json();
-      return data.results || [];
+      this._products = data.results || [];
+      return this._products;
     } catch (err) {
       console.error("Failed to fetch products:", err);
       return [];
     }
   },
 
-  // ── Cart API helpers ──
+  // ── Cart API ──
   async _ensureCart() {
     if (this.cartId) return this.cartId;
     const res = await fetch(`${this.config.apiBase}/carts?storefront_token=${STOREFRONT_TOKEN}`, {
@@ -84,6 +85,122 @@ const MERCH = {
     }
   },
 
+  // ── Product Detail Modal ──
+  _modalIdx: 0,
+  _modalProduct: null,
+
+  openModal(productId) {
+    const p = this._products.find(x => x.id === productId);
+    if (!p) return;
+    this._modalProduct = p;
+    this._modalIdx = 0;
+    this._renderModal();
+    document.getElementById("product-modal").classList.add("open");
+    document.body.style.overflow = "hidden";
+  },
+
+  closeModal() {
+    document.getElementById("product-modal").classList.remove("open");
+    document.body.style.overflow = "";
+  },
+
+  _renderModal() {
+    const p = this._modalProduct;
+    if (!p) return;
+    const imgs = p.images || [];
+    const img = imgs[this._modalIdx];
+    const hasMulti = imgs.length > 1;
+
+    // Render gallery
+    const galleryNav = document.getElementById("modal-gallery-nav");
+    const dots = document.getElementById("modal-dots");
+    if (hasMulti) {
+      galleryNav.style.display = "flex";
+      galleryNav.innerHTML = `
+        <button onclick="MERCH._modalPrev()">‹</button>
+        <button onclick="MERCH._modalNext()">›</button>`;
+      dots.innerHTML = imgs.map((_, i) =>
+        `<span class="${i===this._modalIdx?'active':''}" onclick="MERCH._modalGo(${i})"></span>`
+      ).join("");
+    } else {
+      galleryNav.style.display = "none";
+      dots.innerHTML = "";
+    }
+
+    document.querySelector("#modal-gallery > img")?.remove();
+    if (img) {
+      const el = document.createElement("img");
+      el.src = img.transformedUrl;
+      el.alt = p.name;
+      galleryNav.before(el);
+    }
+
+    // Render body
+    const first = p.variants?.[0];
+    const hasVar = p.variants && p.variants.length > 1;
+    let cat = "Merch";
+    const n = p.name.toLowerCase();
+    if (n.includes("hoodie")||n.includes("shirt")) cat = "Apparel";
+    else if (n.includes("mug")) cat = "Drinkware";
+    else if (n.includes("poster")) cat = "Posters";
+
+    document.getElementById("modal-body").innerHTML = `
+      <div class="merch-category">${cat}</div>
+      <h2>${this._e(p.name)}</h2>
+      <div class="merch-description">${this._e(this._s(p.description||""))}</div>
+      ${hasVar ? `
+        <div class="merch-variants">
+          <label class="variant-label">Size:</label>
+          <select class="variant-select" id="mv-${p.id}">
+            ${p.variants.map(v => `<option value="${v.id}">${this._e(v.attributes?.size?.name||v.name)} — $${v.unitPrice?.value?.toFixed(2)}</option>`).join("")}
+          </select>
+        </div>
+      ` : ""}
+      <div class="merch-footer">
+        <span class="merch-price">$${(first?.unitPrice?.value||0).toFixed(2)}</span>
+        <button class="btn btn-cart" onclick="MERCH._modalAddToCart()">Add to Cart</button>
+        <button class="btn btn-buy" onclick="MERCH._modalBuyNow()">Buy Now</button>
+      </div>`;
+  },
+
+  _modalNext() {
+    const imgs = this._modalProduct?.images || [];
+    this._modalIdx = (this._modalIdx + 1) % imgs.length;
+    this._renderModal();
+  },
+  _modalPrev() {
+    const imgs = this._modalProduct?.images || [];
+    this._modalIdx = (this._modalIdx - 1 + imgs.length) % imgs.length;
+    this._renderModal();
+  },
+  _modalGo(i) {
+    this._modalIdx = i;
+    this._renderModal();
+  },
+
+  _modalGetVariant() {
+    const p = this._modalProduct;
+    if (!p) return "";
+    if (p.variants && p.variants.length > 1) {
+      const sel = document.getElementById(`mv-${p.id}`);
+      if (sel) return sel.value;
+    }
+    return p.variants?.[0]?.id || "";
+  },
+
+  async _modalAddToCart() {
+    const vid = this._modalGetVariant();
+    if (!vid) return;
+    await this.addToCart(vid);
+    const btn = document.querySelector("#modal-body .btn-cart");
+    if (btn) { btn.textContent = "Added ✓"; btn.className = "btn btn-added"; setTimeout(() => { btn.textContent = "Add to Cart"; btn.className = "btn btn-cart"; }, 2000); }
+  },
+
+  _modalBuyNow() {
+    const vid = this._modalGetVariant();
+    if (vid) this.buyNow(vid);
+  },
+
   // ── Render Products ──
   renderProducts(products, containerId = "merch-grid") {
     const container = document.getElementById(containerId);
@@ -109,12 +226,12 @@ const MERCH = {
 
       return `
         <div class="merch-card">
-          <div class="merch-image" style="background:linear-gradient(135deg,#2d2d2d 0%,#1a1a2e 100%);">
+          <div class="merch-image" style="background:linear-gradient(135deg,#2d2d2d 0%,#1a1a2e 100%);cursor:pointer;" onclick="MERCH.openModal('${product.id}')">
             ${img ? `<img src="${img}" alt="${this._e(product.name)}" loading="lazy">` : `<div style="font-size:3rem;">📦</div>`}
           </div>
           <div class="merch-content">
             <div class="merch-category">${cat}</div>
-            <h2 class="merch-title">${this._e(product.name)}</h2>
+            <h2 class="merch-title" style="cursor:pointer;" onclick="MERCH.openModal('${product.id}')">${this._e(product.name)}</h2>
             <p class="merch-description">${this._e(this._s(product.description||""))}</p>
             ${hasVariants ? `
               <div class="merch-variants">
@@ -136,7 +253,7 @@ const MERCH = {
     this._updateCartBar();
   },
 
-  // ── Button click handlers ──
+  // ── Grid button handlers ──
   _getVariant(el) {
     const pid = el.dataset.pid;
     const hv = el.dataset.hv === "1";
