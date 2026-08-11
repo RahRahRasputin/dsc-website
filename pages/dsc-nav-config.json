@@ -10,7 +10,6 @@
     ]},
     { "label": "About", "href": "/about/" },
     { "label": "Contact", "href": "/contact/" },
-    { "label": "Bookshop", "href": "/bookshop/" },
     { "label": "Merch", "href": "/merch/" }
   ],
   "social": [
