@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p pages/merch && echo const STOREFRONT_TOKEN = '$STOREFRONT_TOKEN'; > pages/merch/_token.js"
+  command = "mkdir -p pages/merch && echo const STOREFRONT_TOKEN = \"$STOREFRONT_TOKEN\" > pages/merch/_token.js"
   publish = "pages"
 
 # Article moved from The Forging to Architecture Zoo (2026-07-17)
