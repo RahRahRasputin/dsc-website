@@ -11,3 +11,4 @@ private/
 replit.nix
 .env
 .env.local
+pages/merch/_token.js

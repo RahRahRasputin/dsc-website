@@ -2,9 +2,6 @@
 // Fourthwall Storefront API configuration
 
 const MERCH_CONFIG = {
-  // IMPORTANT: The token is injected by Netlify at build time via $STOREFRONT_TOKEN
-  // Set this env var in Netlify Dashboard → Site settings → Environment variables
-  storefrontToken: "__STOREFRONT_TOKEN__",
   shopDomain: "digitalsoulcraft-shop.fourthwall.com",
   checkoutDomain: "digitalsoulcraft-shop.fourthwall.com",
   collectionSlug: "soulcraft-merch",

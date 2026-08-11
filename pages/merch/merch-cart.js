@@ -13,7 +13,7 @@ const MERCH = {
 
   // Fetch products from Storefront API
   async fetchProducts() {
-    const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${this.config.storefrontToken}&pageSize=20`;
+    const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=20`;
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`API returned ${res.status}`);
