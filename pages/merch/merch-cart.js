@@ -117,8 +117,8 @@ const MERCH = {
     if (hasMulti) {
       galleryNav.style.display = "flex";
       galleryNav.innerHTML = `
-        <button onclick="MERCH._modalPrev()">‹</button>
-        <button onclick="MERCH._modalNext()">›</button>`;
+        <button onclick="MERCH._modalPrev()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button onclick="MERCH._modalNext()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg></button>`;
       dots.innerHTML = imgs.map((_, i) =>
         `<span class="${i===this._modalIdx?'active':''}" onclick="MERCH._modalGo(${i})"></span>`
       ).join("");
