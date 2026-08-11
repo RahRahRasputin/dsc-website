@@ -1,17 +1,30 @@
 // Digital Soulcraft — Storefront Cart & Checkout
-// Handles cart creation, item management, and checkout redirect
 
 const MERCH = {
-  // Config
   config: MERCH_CONFIG,
 
-  // Direct checkout — no cart needed, uses products= parameter
-  buyNow(variantId, quantity = 1) {
-    const url = `https://${this.config.checkoutDomain}/cart/checkout?products=${variantId}:${quantity}&currency=${this.config.currency}`;
-    window.location.href = url;
+  // ── Cart State ──
+  _cartId: localStorage.getItem("fw_cart_id") || null,
+
+  get cartId() { return this._cartId },
+  set cartId(v) {
+    this._cartId = v;
+    if (v) localStorage.setItem("fw_cart_id", v);
+    else localStorage.removeItem("fw_cart_id");
   },
 
-  // Fetch products from Storefront API
+  // ── Checkout (Buy Now — direct) ──
+  buyNow(variantId, quantity = 1) {
+    window.location.href = `https://${this.config.checkoutDomain}/cart/checkout?products=${variantId}:${quantity}&currency=${this.config.currency}`;
+  },
+
+  // ── Checkout (Cart) ──
+  async checkout() {
+    if (!this.cartId) return;
+    window.location.href = `https://${this.config.checkoutDomain}/cart/checkout?cartId=${this.cartId}&currency=${this.config.currency}`;
+  },
+
+  // ── Fetch Products ──
   async fetchProducts() {
     const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=20`;
     try {
@@ -25,117 +38,139 @@ const MERCH = {
     }
   },
 
-  // Render product cards into a container
+  // ── Cart API helpers ──
+  async _ensureCart() {
+    if (this.cartId) return this.cartId;
+    const res = await fetch(`${this.config.apiBase}/carts?storefront_token=${STOREFRONT_TOKEN}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ currency: this.config.currency })
+    });
+    if (!res.ok) throw new Error("Failed to create cart");
+    const cart = await res.json();
+    this.cartId = cart.id;
+    return cart.id;
+  },
+
+  async addToCart(variantId, quantity = 1) {
+    try {
+      const cartId = await this._ensureCart();
+      const res = await fetch(`${this.config.apiBase}/carts/${cartId}/items?storefront_token=${STOREFRONT_TOKEN}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ variantId, quantity })
+      });
+      if (!res.ok) throw new Error("Failed to add item");
+      await this._updateCartBar();
+    } catch (err) {
+      console.error("Add to cart failed:", err);
+    }
+  },
+
+  async _updateCartBar() {
+    const bar = document.getElementById("cart-bar");
+    const countEl = document.getElementById("cart-count");
+    if (!bar || !countEl) return;
+    if (!this.cartId) { bar.classList.remove("show"); return; }
+    try {
+      const res = await fetch(`${this.config.apiBase}/carts/${this.cartId}?storefront_token=${STOREFRONT_TOKEN}`);
+      if (!res.ok) throw new Error("Cart not found");
+      const cart = await res.json();
+      const count = (cart.items || []).reduce((s, i) => s + (i.quantity || 0), 0);
+      countEl.textContent = count;
+      bar.classList.add("show");
+    } catch {
+      bar.classList.remove("show");
+    }
+  },
+
+  // ── Render Products ──
   renderProducts(products, containerId = "merch-grid") {
     const container = document.getElementById(containerId);
     if (!container) return;
 
     if (!products || products.length === 0) {
-      container.innerHTML = `
-        <div class="coming-soon-banner">
-          <h2>🛍️ Loading Products...</h2>
-          <p>If products don't appear, check back soon or visit our <a href="https://${this.config.shopDomain}" target="_blank" style="color: var(--accent-color); font-weight: 600;">shop directly</a>.</p>
-        </div>`;
+      container.innerHTML = `<div class="error-banner"><h2>🛍️ No products yet</h2><p>Check back soon or visit <a href="https://${this.config.shopDomain}" target="_blank" style="color:var(--accent-color);font-weight:600;">our shop</a>.</p></div>`;
       return;
     }
 
     container.innerHTML = products.map(product => {
-      const defaultImg = product.images?.[0]?.transformedUrl || "";
-      const thumbImg = product.images?.[0]?.transformedUrl || "";
-      const hasMultipleVariants = product.variants && product.variants.length > 1;
-      const firstVariant = product.variants?.[0];
+      const img = product.images?.[0]?.transformedUrl || "";
+      const hasVariants = product.variants && product.variants.length > 1;
+      const first = product.variants?.[0];
+      let cat = "Merch";
+      const n = product.name.toLowerCase();
+      if (n.includes("hoodie")||n.includes("shirt")) cat = "Apparel";
+      else if (n.includes("mug")) cat = "Drinkware";
+      else if (n.includes("poster")) cat = "Posters";
 
-      // Determine category from product name
-      let category = "Merch";
-      const name = product.name.toLowerCase();
-      if (name.includes("hoodie") || name.includes("shirt") || name.includes("tee")) category = "Apparel";
-      else if (name.includes("mug") || name.includes("cup")) category = "Drinkware";
-      else if (name.includes("poster") || name.includes("print")) category = "Posters";
-
-      const price = firstVariant?.unitPrice?.value || 0;
-      const variantId = firstVariant?.id || "";
+      const price = first?.unitPrice?.value || 0;
+      const vid = first?.id || "";
 
       return `
         <div class="merch-card">
-          <div class="merch-image" style="background: linear-gradient(135deg, #2d2d2d 0%, #1a1a2e 100%);">
-            ${thumbImg ? `<img src="${thumbImg}" alt="${this._escapeHtml(product.name)}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" loading="lazy">` : `<div class="merch-image-text">📦</div>`}
+          <div class="merch-image" style="background:linear-gradient(135deg,#2d2d2d 0%,#1a1a2e 100%);">
+            ${img ? `<img src="${img}" alt="${this._e(product.name)}" loading="lazy">` : `<div style="font-size:3rem;">📦</div>`}
           </div>
           <div class="merch-content">
-            <div class="merch-category">${category}</div>
-            <h2 class="merch-title">${this._escapeHtml(product.name)}</h2>
-            <p class="merch-description">${this._escapeHtml(this._stripHtml(product.description || ""))}</p>
-            ${hasMultipleVariants ? `
+            <div class="merch-category">${cat}</div>
+            <h2 class="merch-title">${this._e(product.name)}</h2>
+            <p class="merch-description">${this._e(this._s(product.description||""))}</p>
+            ${hasVariants ? `
               <div class="merch-variants">
-                <label class="variant-label" for="variant-${product.id}">Size:</label>
-                <select class="variant-select" id="variant-${product.id}" data-product-id="${product.id}">
-                  ${product.variants.map(v => `
-                    <option value="${v.id}">${this._escapeHtml(v.attributes?.size?.name || v.name)} — $${v.unitPrice?.value?.toFixed(2)}</option>
-                  `).join("")}
+                <label class="variant-label">Size:</label>
+                <select class="variant-select" id="v-${product.id}">
+                  ${product.variants.map(v => `<option value="${v.id}">${this._e(v.attributes?.size?.name||v.name)} — $${v.unitPrice?.value?.toFixed(2)}</option>`).join("")}
                 </select>
               </div>
             ` : ""}
             <div class="merch-footer">
               <span class="merch-price">$${price.toFixed(2)}</span>
-              <button class="merch-buy-btn" 
-                data-variant-id="${variantId}" 
-                data-product-id="${product.id}"
-                ${hasMultipleVariants ? `data-has-variants="true"` : ""}
-                onclick="MERCH.handleBuy(this)">
-                Buy Now
-              </button>
+              <button class="btn btn-cart" data-vid="${vid}" data-pid="${product.id}" ${hasVariants?'data-hv="1"':''} onclick="MERCH._clickAdd(this)">+Cart</button>
+              <button class="btn btn-buy" data-vid="${vid}" data-pid="${product.id}" ${hasVariants?'data-hv="1"':''} onclick="MERCH._clickBuy(this)">Buy</button>
             </div>
           </div>
-        </div>
-      `;
+        </div>`;
     }).join("");
 
-    // Hide the "Coming Soon" banner if it exists
-    const banner = document.getElementById("coming-soon-banner");
-    if (banner) banner.style.display = "none";
+    this._updateCartBar();
   },
 
-  // Handle Buy button click
-  handleBuy(button) {
-    const productId = button.dataset.productId;
-    const hasVariants = button.dataset.hasVariants === "true";
-
-    let variantId = button.dataset.variantId;
-    if (hasVariants) {
-      const select = document.getElementById(`variant-${productId}`);
-      if (select) variantId = select.value;
+  // ── Button click handlers ──
+  _getVariant(el) {
+    const pid = el.dataset.pid;
+    const hv = el.dataset.hv === "1";
+    if (hv) {
+      const sel = document.getElementById(`v-${pid}`);
+      if (sel) return sel.value;
     }
-
-    if (variantId) {
-      this.buyNow(variantId);
-    }
+    return el.dataset.vid;
   },
 
-  // Initialise the merch page
+  async _clickAdd(el) {
+    const vid = this._getVariant(el);
+    if (!vid) return;
+    await this.addToCart(vid);
+    el.textContent = "✓";
+    el.className = "btn btn-added";
+    setTimeout(() => { el.textContent = "+Cart"; el.className = "btn btn-cart"; }, 1500);
+  },
+
+  _clickBuy(el) {
+    const vid = this._getVariant(el);
+    if (vid) this.buyNow(vid);
+  },
+
+  // ── Init ──
   async init(containerId = "merch-grid") {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    // Show loading state
-    container.innerHTML = `
-      <div class="coming-soon-banner">
-        <h2>🔄 Loading Products...</h2>
-        <p>Fetching from Fourthwall...</p>
-      </div>`;
-
+    const c = document.getElementById(containerId);
+    if (!c) return;
+    c.innerHTML = `<div class="error-banner"><h2>🔄 Loading Products...</h2><p>Fetching from Digital Soulcraft shop.</p></div>`;
     const products = await this.fetchProducts();
     this.renderProducts(products, containerId);
   },
 
-  // Helpers
-  _stripHtml(html) {
-    const div = document.createElement("div");
-    div.innerHTML = html;
-    return div.textContent || div.innerText || "";
-  },
-
-  _escapeHtml(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
-  }
+  // ── Helpers ──
+  _s(h) { const d = document.createElement("div"); d.innerHTML = h; return d.textContent||d.innerText||""; },
+  _e(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
 };
