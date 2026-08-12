@@ -233,7 +233,7 @@ const MERCH = {
 
       return `
         <div class="merch-card">
-          <div class="merch-image" style="background:linear-gradient(135deg,#2d2d2d 0%,#1a1a2e 100%);cursor:pointer;" onclick="MERCH.openModal('${product.id}')">
+          <div class="merch-image" style="background:#e8e8e8;cursor:pointer;" onclick="MERCH.openModal('${product.id}')">
             ${img ? `<img src="${img}" alt="${this._e(product.name)}" loading="lazy">` : `<div style="font-size:3rem;">📦</div>`}
           </div>
           <div class="merch-content">
