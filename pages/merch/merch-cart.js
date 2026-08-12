@@ -287,10 +287,15 @@ const MERCH = {
     if (vid) this.buyNow(vid);
   },
 
-  // ── Badge click — checkout if cart exists, else go to shop ──
+  // ── Badge click — go to cart page (where they can review/edit) ──
   badgeClick() {
-    if (this.cartId) { this.checkout(); return false; }
-    return true; // let the href through
+    // If cart exists, go to cart page with cart ID
+    if (this.cartId) {
+      window.open(`https://${this.config.shopDomain}/cart?cartId=${this.cartId}&currency=${this.config.currency}`, '_blank', 'noopener');
+      return false;
+    }
+    // Empty cart — go to the shop
+    return true;
   },
 
   // ── Init ──
