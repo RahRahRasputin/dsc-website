@@ -184,39 +184,11 @@
     .cart-info { font-size: 0.9rem; opacity: 0.8; }
     .cart-info strong { color: var(--accent-color); }
 
-    /* Cart badge */
-    #cart-badge {
-      position: fixed;
-      top: 0.7rem;
-      right: 4rem;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 0.35rem 0.8rem 0.35rem 0.6rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    #cart-badge:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-    #cart-badge .count {
-      background: rgba(255,255,255,0.25);
-      border-radius: 10px;
-      padding: 0.1rem 0.4rem;
-      font-size: 0.75rem;
-      min-width: 1.2rem;
-      text-align: center;
-    }
-
     @media (max-width: 600px) {
-      #cart-badge { top: 0.5rem; right: 3.5rem; font-size: 0.78rem; padding: 0.25rem 0.6rem; }
+      .merch-grid { grid-template-columns: 1fr; }
+      .merch-hero h1 { font-size: 1.6rem; }
+      .merch-container { padding: 2rem 1rem; }
+      .merch-footer { flex-wrap: wrap; }
     }
 
     .error-banner {
@@ -372,12 +344,6 @@
     @media (max-width: 900px) {
       .merch-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 600px) {
-      .merch-grid { grid-template-columns: 1fr; }
-      .merch-hero h1 { font-size: 1.6rem; }
-      .merch-container { padding: 2rem 1rem; }
-      .merch-footer { flex-wrap: wrap; }
-    }
   </style>
 </head>
 <body>
@@ -406,14 +372,9 @@
       <div class="cart-info">
         🛒 <strong id="cart-count">0</strong> items in cart
       </div>
-      <button class="btn-checkout" id="checkout-btn" onclick="MERCH.checkout()">Checkout →</button>
+      <button class="btn-checkout" id="checkout-btn" onclick="MERCH.goToCart()">Cart →</button>
     </div>
   </div>
-
-  <!-- Cart badge -->
-  <a id="cart-badge" onclick="MERCH.badgeClick();return false;" href="https://digitalsoulcraft-shop.fourthwall.com" target="_blank" rel="nofollow noopener" title="View cart">
-    🛒 <span class="count" id="badge-count">0</span>
-  </a>
 
   <!-- Product Detail Modal -->
   <div id="product-modal" onclick="if(event.target===this)MERCH.closeModal()">

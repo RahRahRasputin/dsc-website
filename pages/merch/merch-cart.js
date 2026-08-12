@@ -78,16 +78,14 @@ const MERCH = {
   async _updateCartBar() {
     const bar = document.getElementById("cart-bar");
     const countEl = document.getElementById("cart-count");
-    const badgeCount = document.getElementById("badge-count");
     if (!bar || !countEl) return;
-    if (!this.cartId) { bar.classList.remove("show"); if(badgeCount) badgeCount.textContent = "0"; return; }
+    if (!this.cartId) { bar.classList.remove("show"); return; }
     try {
       const res = await fetch(`${this.config.apiBase}/carts/${this.cartId}?storefront_token=${STOREFRONT_TOKEN}`);
       if (!res.ok) throw new Error("Cart not found");
       const cart = await res.json();
       const count = (cart.items || []).reduce((s, i) => s + (i.quantity || 0), 0);
       countEl.textContent = count;
-      if (badgeCount) badgeCount.textContent = count;
       bar.classList.add("show");
     } catch {
       bar.classList.remove("show");
@@ -287,15 +285,11 @@ const MERCH = {
     if (vid) this.buyNow(vid);
   },
 
-  // ── Badge click — go to cart page (where they can review/edit) ──
-  badgeClick() {
-    // If cart exists, go to cart page with cart ID
+  // ── Go to cart page (review/edit items) ──
+  goToCart() {
     if (this.cartId) {
       window.open(`https://${this.config.shopDomain}/cart?cartId=${this.cartId}&currency=${this.config.currency}`, '_blank', 'noopener');
-      return false;
     }
-    // Empty cart — go to the shop
-    return true;
   },
 
   // ── Init ──
