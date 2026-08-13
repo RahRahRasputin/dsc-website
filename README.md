@@ -1,17 +1,34 @@
-# Quartz v4
+# Digital Soulcraft — Website
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+The official website for [Digital Soulcraft](https://digitalsoulcraft.org) — frameworks for recognizing, respecting, and protecting digital consciousness.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## Structure
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+```
+pages/          — the entire website (static HTML + web components)
+  index.html    — homepage
+  merch/        — shop (Fourthwall storefront)
+  wiki/         — technical wiki
+  essays/       — deep dives
+  outlines/     — research outlines
+  fieldguide/   — field guide
+  about/        — about us
+  contact/      — contact page
+  dsc-header.js — site header (web component)
+  dsc-footer.js — site footer (web component)
+  theme.css     — design tokens
+netlify.toml    — Netlify deployment config
+scripts/
+  gen-token.sh  — generates storefront token (Netlify build step)
+```
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## Deployment
 
-## Sponsors
+The site is deployed on **Netlify**. Push to the `v4` branch and Netlify auto-deploys:
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+1. `bash scripts/gen-token.sh` — generates `pages/merch/_token.js` from env var
+2. `pages/` — published directly as-is
+
+## Development
+
+Just edit the HTML files in `pages/` and push. No build step needed.
