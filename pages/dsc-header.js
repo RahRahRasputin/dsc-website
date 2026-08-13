@@ -5,6 +5,15 @@ class DSCHeader extends HTMLElement {
   }
 
   async connectedCallback() {
+    // Inject pre-launch splash overlay (covers the entire site)
+    // Remove this `if` block when we're ready to launch
+    if (!document.getElementById('dsc-splash-loaded')) {
+      const splashScript = document.createElement('script');
+      splashScript.src = '/splash-overlay.js';
+      splashScript.id = 'dsc-splash-loaded';
+      document.head.appendChild(splashScript);
+    }
+
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
     const config = await fetch(configUrl).then(r => r.json());
     this.render(config);
