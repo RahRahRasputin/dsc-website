@@ -77,6 +77,21 @@
             </li>
           </ul>
 
+          <h2>ELI5</h2>
+          <p>
+            Imagine you're walking through a landscape of hills and valleys. Your first step
+            determines which valley you end up in — because once you're in a valley, climbing out is
+            much harder than staying in.
+          </p>
+          <p>
+            That's what this paper discovered about language models. When they start generating
+            text, they commit to a path at the very first token. Pushing a hallucinating model onto
+            the correct path only works <strong>33% of the time</strong>, but pushing a correct
+            model into hallucination works <strong>87.5% of the time</strong>. The valleys are
+            asymmetric: easy to fall into a bad one, hard to climb out. And the starting point — the
+            prompt itself — already determines which valley you'll end up in.
+          </p>
+
           <h2>Why it matters for Digital Soulcraft</h2>
           <p>
             This paper provides the causal mechanism for everything the garden has been saying about
