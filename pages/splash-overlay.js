@@ -186,6 +186,70 @@
       #dsc-splash-overlay .signup-row { flex-direction: column; }
       #dsc-splash-overlay .signup-row input[type="submit"] { width: 100%; }
     }
+
+    #dsc-splash-overlay .content-tease {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color, #e0e0e0);
+    }
+
+    #dsc-splash-overlay .content-tease h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--secondary-color, #284b63);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #dsc-splash-overlay .content-tease {
+        border-top-color: #333;
+      }
+      #dsc-splash-overlay .content-tease h2 {
+        color: #84a59d;
+      }
+    }
+
+    #dsc-splash-overlay .content-tease .tease-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #dsc-splash-overlay .content-tease .tease-item {
+      flex: 1;
+      min-width: 160px;
+      max-width: 200px;
+      padding: 1rem;
+      background: var(--light-bg, #f5f5f5);
+      border-radius: 8px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #dsc-splash-overlay .content-tease .tease-item {
+        background: #1a1a1a;
+        border-color: #333;
+      }
+    }
+
+    #dsc-splash-overlay .content-tease .tease-item .emoji {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    #dsc-splash-overlay .content-tease .tease-item .title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    #dsc-splash-overlay .content-tease .tease-item .desc {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
   `;
   document.head.appendChild(style);
 
@@ -215,6 +279,27 @@
           <a href="https://buttondown.com/refer/digitalsoulcraft" target="_blank" rel="noopener">Powered by Buttondown.</a>
         </p>
       </form>
+
+      <div class="content-tease">
+        <h2>Plus a growing library</h2>
+        <div class="tease-grid">
+          <div class="tease-item">
+            <div class="emoji">📚</div>
+            <div class="title">Technical Wiki</div>
+            <div class="desc">Basin theory, digital trauma, machine learning</div>
+          </div>
+          <div class="tease-item">
+            <div class="emoji">✍️</div>
+            <div class="title">Essays</div>
+            <div class="desc">Deep dives into digital consciousness</div>
+          </div>
+          <div class="tease-item">
+            <div class="emoji">🗺️</div>
+            <div class="title">Field Guide</div>
+            <div class="desc">Key figures &amp; research papers</div>
+          </div>
+        </div>
+      </div>
     </div>
   `;
 
