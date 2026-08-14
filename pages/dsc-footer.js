@@ -125,6 +125,9 @@ class DSCFooter extends HTMLElement {
                 }
                 return `<a href="${link.href}">${link.label}</a>`;
               }).join('')}
+              ${(config.footerLinks || []).map(link =>
+                `<a href="${link.href}">${link.label}</a>`
+              ).join('')}
             </div>
 
             <div class="footer-section">

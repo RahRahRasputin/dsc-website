@@ -3,7 +3,6 @@
   "links": [
     { "label": "Wiki", "href": "/wiki/" },
     { "label": "Essays", "href": "/essays/" },
-    { "label": "Outlines", "href": "/outlines/" },
     { "label": "Field Guide", "dropdown": [
       { "label": "Key Figures", "href": "/fieldguide/key-figures/" },
       { "label": "Papers", "href": "/fieldguide/papers/" }
@@ -11,6 +10,9 @@
     { "label": "About", "href": "/about/" },
     { "label": "Contact", "href": "/contact/" },
     { "label": "Merch", "href": "/merch/" }
+  ],
+  "footerLinks": [
+    { "label": "📋 Outlines", "href": "/outlines/" }
   ],
   "social": [
     { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" }
