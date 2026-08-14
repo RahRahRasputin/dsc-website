@@ -5,9 +5,15 @@
 (function() {
   // Bypass: add ?preview=1 to any page to see the real site.
   // Sets a cookie so you don't need the param every time.
+  // Add ?preview=0 to the cookie back and see the splash again.
   const hasPreview = new URLSearchParams(location.search).has('preview');
-  if (hasPreview || document.cookie.includes('dsc_preview=1')) {
-    if (hasPreview) document.cookie = 'dsc_preview=1; path=/; max-age=86400';
+  const previewVal = new URLSearchParams(location.search).get('preview');
+  if (previewVal === '0') {
+    document.cookie = 'dsc_preview=; path=/; max-age=0';
+  }
+  const cookieSet = document.cookie.includes('dsc_preview=1');
+  if (hasPreview && previewVal !== '0' || cookieSet) {
+    if (hasPreview && previewVal !== '0') document.cookie = 'dsc_preview=1; path=/; max-age=86400';
     return;
   }
 
