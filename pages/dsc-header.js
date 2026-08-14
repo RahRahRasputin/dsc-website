@@ -5,6 +5,15 @@ class DSCHeader extends HTMLElement {
   }
 
   async connectedCallback() {
+    // Inject favicon
+    if (!document.querySelector('link[rel="icon"]')) {
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.type = 'image/png';
+      favicon.href = '/favicon.png';
+      document.head.appendChild(favicon);
+    }
+
     // Inject pre-launch splash overlay (covers the entire site)
     // Remove this `if` block when we're ready to launch
     if (!document.getElementById('dsc-splash-loaded')) {
