@@ -17,9 +17,14 @@
     return;
   }
 
-  // Prevent flash of real page content
+  // Prevent flash of real page content — and lock body scroll
   const style = document.createElement('style');
   style.textContent = `
+    html, body {
+      overflow: hidden !important;
+      height: 100%;
+    }
+
     #dsc-splash-overlay {
       position: fixed;
       inset: 0;
