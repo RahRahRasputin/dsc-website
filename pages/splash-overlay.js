@@ -371,7 +371,7 @@
       const success = document.createElement('div');
       success.className = 'signup-success';
       success.innerHTML = `You're subscribed! 🎉
-        <span class="sub">Expect thoughtful updates on digital consciousness, new essays, and launch news.</span>`;
+        <span class="sub">Expect thoughtful updates on digital consciousness, new essays, and launch news.<br>Check your inbox to confirm your subscription.</span>`;
       form.parentNode.replaceChild(success, form);
     });
   }
