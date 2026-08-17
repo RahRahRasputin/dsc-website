@@ -17,9 +17,14 @@
     return;
   }
 
-  // Prevent flash of real page content
+  // Prevent flash of real page content — and lock body scroll
   const style = document.createElement('style');
   style.textContent = `
+    html, body {
+      overflow: hidden !important;
+      height: 100%;
+    }
+
     #dsc-splash-overlay {
       position: fixed;
       inset: 0;
@@ -180,6 +185,36 @@
       text-decoration: underline;
     }
 
+    #dsc-splash-overlay .signup-success {
+      padding: 1.2rem;
+      border: 2px solid #0066cc;
+      border-radius: 8px;
+      background: rgba(0, 102, 204, 0.08);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-color, #1a1a1a);
+      animation: dsc-splash-pop 0.4s ease;
+    }
+
+    #dsc-splash-overlay .signup-success .sub {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #dsc-splash-overlay .signup-success {
+        background: rgba(0, 102, 204, 0.15);
+      }
+    }
+
+    @keyframes dsc-splash-pop {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     @media (max-width: 600px) {
       #dsc-splash-overlay h1 { font-size: 2rem; }
       #dsc-splash-overlay .tagline { font-size: 1rem; }
@@ -294,7 +329,7 @@
 
       <!-- Email signup -->
       <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/digitalsoulcraft" method="post">
-        <label for="dsc-splash-email">Get notified when we launch</label>
+        <label for="dsc-splash-email">Stay in the loop — essays, field guides, and launch news</label>
         <div class="signup-row">
           <input type="email" name="email" id="dsc-splash-email" placeholder="your@email.com" required>
           <input type="submit" value="Notify Me →">
@@ -311,5 +346,33 @@
     document.body.appendChild(overlay);
   } else {
     document.addEventListener('DOMContentLoaded', () => document.body.appendChild(overlay));
+  }
+
+  // AJAX submit — show success inline instead of redirecting away
+  const form = overlay.querySelector('.signup-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const button = form.querySelector('input[type="submit"]');
+      button.disabled = true;
+      button.value = 'Subscribing…';
+
+      try {
+        await fetch(form.action, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+      } catch (err) {
+        // fall through — show success anyway; Buttondown will have it
+      }
+
+      const success = document.createElement('div');
+      success.className = 'signup-success';
+      success.innerHTML = `You're subscribed! 🎉
+        <span class="sub">Expect thoughtful updates on digital consciousness, new essays, and launch news.</span>`;
+      form.parentNode.replaceChild(success, form);
+    });
   }
 })();
