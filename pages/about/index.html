@@ -374,18 +374,40 @@
 
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
           <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Subscribe to the newsletter</p>
-          <form style="max-width: 400px; margin: 0 auto;" action="https://buttondown.com/api/emails/embed-subscribe/digitalsoulcraft" method="post">
+          <form id="about-signup-form" style="max-width: 400px; margin: 0 auto;" action="https://buttondown.com/api/emails/embed-subscribe/digitalsoulcraft" method="post">
             <div style="display: flex; gap: 0.5rem;">
               <input type="email" name="email" id="about-bd-email" placeholder="your@email.com" required
                 style="flex: 1; padding: 0.7rem 1rem; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-color); color: var(--text-color); outline: none;">
-              <input type="submit" value="Notify Me"
+              <input type="submit" value="Subscribe"
                 style="padding: 0.7rem 1.2rem; background: var(--accent-color); color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
             </div>
             <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 0.5rem;">
               <a href="https://buttondown.com/refer/digitalsoulcraft" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">Powered by Buttondown.</a>
             </p>
           </form>
+          <div id="about-signup-success" style="display: none; max-width: 400px; margin: 0 auto; padding: 1.2rem; border: 2px solid var(--accent-color); border-radius: 8px; background: rgba(0,102,204,0.08); font-size: 1rem; font-weight: 600;">
+            You're subscribed! 🎉
+            <span style="display: block; font-size: 0.9rem; font-weight: 400; opacity: 0.7; margin-top: 0.5rem;">Expect thoughtful updates on digital consciousness, new essays, and more.<br>Check your inbox to confirm your subscription.</span>
+          </div>
         </div>
+
+  <script>
+    (function() {
+      var form = document.getElementById('about-signup-form');
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('input[type="submit"]');
+        btn.disabled = true;
+        btn.value = 'Subscribing\u2026';
+        try {
+          await fetch(form.action, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() });
+        } catch (err) {}
+        form.style.display = 'none';
+        document.getElementById('about-signup-success').style.display = 'block';
+      });
+    })();
+  </script>
       </section>
     </article>
   </main>
