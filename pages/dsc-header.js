@@ -5,6 +5,17 @@ class DSCHeader extends HTMLElement {
   }
 
   async connectedCallback() {
+
+    // Pre-launch SEO embargo: noindex even if a page forgot the static tag.
+    // Idempotent — do not duplicate when <meta name="robots"> already exists.
+    // Remove this block when Brad announces and splash comes down.
+    if (!document.querySelector('meta[name="robots"]')) {
+      const robots = document.createElement('meta');
+      robots.name = 'robots';
+      robots.content = 'noindex, nofollow';
+      document.head.appendChild(robots);
+    }
+
     // Inject favicon
     if (!document.querySelector('link[rel="icon"]')) {
       const favicon = document.createElement('link');

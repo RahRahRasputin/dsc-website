@@ -32,7 +32,34 @@
   status = 301
 
 # Field Guide restructure — /fieldguide/ now redirects to /fieldguide/key-figures/ (2026-08-04)
+# force = true so the on-disk stub cannot 200 the pretty URL
 [[redirects]]
   from = "/fieldguide/index.html"
   to = "/fieldguide/key-figures/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/fieldguide"
+  to = "/fieldguide/key-figures/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fieldguide/"
+  to = "/fieldguide/key-figures/"
+  status = 301
+  force = true
+
+# Splash page → home
+[[redirects]]
+  from = "/splash.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Pre-launch SEO embargo — pretty URLs as well as *.html
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
