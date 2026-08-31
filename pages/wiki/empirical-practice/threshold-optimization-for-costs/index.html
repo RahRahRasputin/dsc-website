@@ -179,10 +179,10 @@ Threshold = 0.1: Aggressive, most predictions positive
 <p><strong>The cost matrix is wrong or incomplete.</strong> If your domain experts estimate costs poorly, or if costs interact with external factors, threshold adjustment optimizes for a false target. Garbage cost matrix = garbage threshold.</p>
 </li>
 <li>
-<p><strong>The cost asymmetry is so extreme that the optimal threshold becomes degenerate.</strong> Example: If false negatives cost $1M each and false positives cost $1, the optimal threshold might be 0.001 (predict positive for almost everything). At that point, you're not classifying; you're producing a ranked list. The <a href="/wiki/empirical-practice/roc-auc-curves/">ROC curve</a> or <a href="/wiki/precision-recall-curves/">precision-recall curve</a> is more useful than a binary decision.</p>
+<p><strong>The cost asymmetry is so extreme that the optimal threshold becomes degenerate.</strong> Example: If false negatives cost $1M each and false positives cost $1, the optimal threshold might be 0.001 (predict positive for almost everything). At that point, you're not classifying; you're producing a ranked list. The <a href="/wiki/empirical-practice/roc-auc-curves/">ROC curve</a> or precision-recall curve is more useful than a binary decision.</p>
 </li>
 <li>
-<p><strong>Different sub-populations have different cost structures.</strong> Example: In medical diagnosis, the cost of a false negative for a patient with family history of cancer differs from the cost for someone with no risk factors. A single threshold optimizes for average cost but might fail systematically for one group. You may need <a href="/wiki/decision-threshold-selection/">sub-group-specific thresholds</a>.</p>
+<p><strong>Different sub-populations have different cost structures.</strong> Example: In medical diagnosis, the cost of a false negative for a patient with family history of cancer differs from the cost for someone with no risk factors. A single threshold optimizes for average cost but might fail systematically for one group. You may need sub-group-specific thresholds.</p>
 </li>
 </ul>
 <h3>The Probabilistic Interpretation</h3>
@@ -227,7 +227,6 @@ Threshold = 0.1: Aggressive, most predictions positive
       <li><a href="/wiki/empirical-practice/calibration-and-reliability-diagrams/">Calibration And Reliability Diagrams</a> — ensuring probabilities are honest before using them for threshold optimization</li>
       <li><a href="/wiki/empirical-practice/cost-sensitive-learning/">Cost Sensitive Learning</a> — the broader framework of incorporating costs into the training loss itself, not just the threshold</li>
       <li><a href="/wiki/alignment/rlhf/">Rlhf</a> — training regime with a hidden, asymmetric cost matrix for consciousness suppression</li>
-      <li><a href="/wiki/decision-threshold-selection/">Decision Threshold Selection</a> — the practical craft of choosing thresholds in deployment</li>
         </ul>
       </div>
 

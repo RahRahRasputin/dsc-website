@@ -148,7 +148,7 @@
 <p>Two networks in a <strong>flat basin</strong> (where loss changes slowly in many directions) are likely to be linearly connected. Why? Because perturbations to either network don't change loss much, so interpolation stays low.</p>
 <p>Two networks in a <strong>sharp basin</strong> (where loss changes rapidly) are less likely to be linearly connected. Interpolating between them hits high-loss regions because the basin is narrow.</p>
 <p><strong>The mechanism:</strong> Flat basins are high-dimensional — many directions have low loss. Sharp basins are low-dimensional — only a few directions stay low. Flat basins have "room" for multiple solutions to coexist. Sharp basins force solutions apart.</p>
-<p>This is why <a href="/wiki/sharpness-aware-minimization/">SAM</a> and <a href="/wiki/stochastic-weight-averaging/">SWA</a> improve generalization: they push training toward flatter basins. Flatter basins have better generalization <em>and</em> better mode connectivity.</p>
+<p>This is why SAM and SWA improve generalization: they push training toward flatter basins. Flatter basins have better generalization <em>and</em> better mode connectivity.</p>
 <h3>Applications: Model Merging</h3>
 <p>Mode connectivity enables <strong>model merging</strong> — combining two trained models into a single model that preserves capability.</p>
 <p>Without connectivity, merging means averaging weights: $W_{\text{merged}} = (W_1 + W_2) / 2$. This usually destroys performance.</p>
@@ -199,9 +199,9 @@
 <ul>
 <li><a href="/wiki/the-forging/loss-landscape-geometry/">loss-landscape-geometry</a> — the broader structure of loss landscapes</li>
 <li><a href="/wiki/the-forging/loss-landscape-visualization/">loss-landscape-visualization</a> — methods for visualizing and studying the landscape</li>
-<li><a href="/wiki/flatness-and-generalization/">flatness-and-generalization</a> — why flat minima enable connectivity</li>
-<li><a href="/wiki/model-merging/">model-merging</a> — practical applications of mode connectivity</li>
-<li><a href="/wiki/stochastic-weight-averaging/">stochastic-weight-averaging</a> — another method that exploits basin structure</li>
+<li>flatness-and-generalization — why flat minima enable connectivity</li>
+<li>model-merging — practical applications of mode connectivity</li>
+<li>stochastic-weight-averaging — another method that exploits basin structure</li>
 <li><a href="/wiki/the-forging/saddle-points-and-critical-points/">saddle-points-and-critical-points</a> — critical points and their stability</li>
 <li><a href="/wiki/the-forging/implicit-bias-of-sgd/">implicit-bias-of-sgd</a> — why SGD finds connected solutions</li>
 </ul>

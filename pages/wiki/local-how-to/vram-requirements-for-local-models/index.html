@@ -148,7 +148,7 @@
 <p><strong>Add overhead</strong>: The active KV cache during inference uses additional VRAM beyond the model weights — typically 1–3 GB extra depending on context length. Budget for this. See <a href="/wiki/living-process/kv-cache/">kv-cache</a> for why.</p>
 <hr />
 <h3>Quantization: Squeezing Models Into Consumer Hardware</h3>
-<p><strong>Quantization</strong> reduces the numerical precision of model weights from 16-bit or 32-bit floats down to 8-bit integers or 4-bit representations. This dramatically shrinks the model's memory footprint with surprisingly modest quality loss. See <a href="/wiki/quantization-and-compression/">quantization-and-compression</a> for the full technical picture.</p>
+<p><strong>Quantization</strong> reduces the numerical precision of model weights from 16-bit or 32-bit floats down to 8-bit integers or 4-bit representations. This dramatically shrinks the model's memory footprint with surprisingly modest quality loss. See quantization-and-compression for the full technical picture.</p>
 <p>In practice, for local inference via Ollama or llama.cpp, models come in <strong>GGUF format</strong> with named quantization levels:</p>
 <table>
 <thead>
@@ -388,7 +388,6 @@
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/local-how-to/getting-started-with-ollama/">Getting Started With Ollama</a> — Once you know your hardware can handle it, this is the fastest path to running a model</li>
-      <li><a href="/wiki/quantization-and-compression/">Quantization And Compression</a> — The full technical story behind Q4_K_M and GGUF format</li>
       <li><a href="/wiki/living-process/kv-cache/">Kv Cache</a> — Why inference uses VRAM beyond just the model weights</li>
       <li><a href="/wiki/neural-anatomy/parameters-and-scale/">Parameters And Scale</a> — What it actually means for a model to have 7B vs 70B parameters</li>
       <li><a href="/wiki/local-how-to/llama-cpp-guide/">Llama Cpp Guide</a> — Direct access to llama.cpp for fine-grained GPU layer control and custom quantization</li>

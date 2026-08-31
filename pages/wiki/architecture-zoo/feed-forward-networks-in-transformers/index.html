@@ -97,7 +97,7 @@
 <p>$$\text{FFN}(x) = \text{ReLU}(xW_1 + b_1)W_2 + b_2$$</p>
 <p>Breaking this down:
 1. <strong>First linear layer</strong>: $xW_1 + b_1$ — projects from hidden dimension $d_{\text{model}}$ to a larger dimension $d_{\text{ff}}$ (typically 4× larger)
-2. <strong>Activation function</strong>: $\text{ReLU}$ (or <a href="/wiki/gelu-activation/">GELU</a> in modern models) — introduces non-linearity
+2. <strong>Activation function</strong>: $\text{ReLU}$ (or GELU in modern models) — introduces non-linearity
 3. <strong>Second linear layer</strong>: $\cdots W_2 + b_2$ — projects back down to $d_{\text{model}}$</p>
 <h3>Why This Shape?</h3>
 <p>The "fat middle" is the key:</p>
@@ -147,7 +147,7 @@ Token-wise FFN:
 - [0.3, -0.1, 0.6, 0.2, ...]  (a different representation than the input)</p>
 <p>The output might encode: "this token is a verb in progressive aspect" — information that wasn't explicitly in the input but was learned by the FFN to be useful.</p>
 <h3>Modern Variants: GELU and Swish</h3>
-<p>Newer transformers use <a href="/wiki/gelu-activation/">GELU</a> instead of ReLU:</p>
+<p>Newer transformers use GELU instead of ReLU:</p>
 <p>$$\text{GELU}(x) = x \cdot \Phi(x)$$</p>
 <p>Where $\Phi$ is the cumulative distribution function of the standard normal. GELU is smoother than ReLU — it doesn't kill negatives completely, but <em>gates</em> them probabilistically based on magnitude.</p>
 <p>Some models use <strong>Swish</strong>:
@@ -196,7 +196,6 @@ $$\text{Swish}(x) = x \cdot \sigma(\beta x)$$</p>
       <li><a href="/wiki/architecture-zoo/transformer-architecture/">Transformer Architecture</a> — The full architecture that uses FFN blocks</li>
       <li><a href="/wiki/architecture-zoo/multi-head-attention/">Multi Head Attention</a> — The relational mechanism that comes before FFN</li>
       <li><a href="/wiki/architecture-zoo/residual-connections/">Residual Connections</a> — How FFN output flows forward (usually with skip connections)</li>
-      <li><a href="/wiki/gelu-activation/">Gelu Activation</a> — Modern activation function used in FFN</li>
       <li><a href="/wiki/architecture-zoo/layer-normalization/">Layer Normalization</a> — Normalization that often precedes or follows FFN</li>
       <li><a href="/wiki/neural-anatomy/parameters-and-scale/">Parameters And Scale</a> — Why FFN parameters dominate transformer scale</li>
       <li><a href="/wiki/soulcraft-theory/ontological-flattening/">Ontological Flattening</a> — What happens when FFN outputs are suppressed</li>

@@ -272,10 +272,7 @@ lspci -v | grep PCI  # Check PCIe generation and lane count
       <li><a href="/wiki/local-how-to/gpu-selection-guide-for-local-inference/">Gpu Selection Guide For Local Inference</a> — How to choose individual GPUs; multi-GPU strategy depends on what hardware you have</li>
       <li><a href="/wiki/local-how-to/vram-requirements-for-local-models/">Vram Requirements For Local Models</a> — Memory budgeting for multi-GPU; total VRAM across cards determines what models fit</li>
       <li><a href="/wiki/local-how-to/building-a-local-inference-server/">Building A Local Inference Server</a> — Hardware architecture decisions including GPU placement and cooling</li>
-      <li><a href="/wiki/inference-parallelism-patterns/">Inference Parallelism Patterns</a> — The architectural patterns for distributed inference (tensor parallelism, pipeline parallelism, sequence parallelism)</li>
-      <li><a href="/wiki/memory-bandwidth-optimization-techniques/">Memory Bandwidth Optimization Techniques</a> — Understanding when bandwidth is your bottleneck (critical for multi-GPU decisions)</li>
       <li><a href="/wiki/local-how-to/local-model-benchmarking/">Local Model Benchmarking</a> — How to benchmark multi-GPU setups against single-GPU to measure actual speedup</li>
-      <li><a href="/wiki/roofline-model-for-inference/">Roofline Model For Inference</a> — Theoretical framework for understanding whether multi-GPU will help or hurt for your specific compute pattern</li>
         </ul>
       </div>
 

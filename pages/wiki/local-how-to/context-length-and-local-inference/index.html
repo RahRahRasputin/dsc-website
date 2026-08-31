@@ -244,7 +244,7 @@
 <p>In an interactive session:</p>
 <pre><code>/set parameter num_ctx 16384
 </code></pre>
-<p>Or permanently via a Modelfile (see <a href="/wiki/modelfile-and-custom-model-configuration/">modelfile-and-custom-model-configuration</a>):</p>
+<p>Or permanently via a Modelfile (see modelfile-and-custom-model-configuration):</p>
 <pre><code>FROM llama3.1:8b
 PARAMETER num_ctx 32768
 </code></pre>
@@ -262,7 +262,7 @@ PARAMETER num_ctx 32768
 <hr />
 <h3>RoPE Scaling: Extending Context Beyond Training Length</h3>
 <p>Models are trained with a specific context length. Running them at a longer context than they were trained on produces degraded output — the model doesn't know how to interpret positional information it was never trained to see.</p>
-<p><strong>RoPE (Rotary Positional Embeddings)</strong> — used by Llama, Mistral, and most modern models — can be <em>scaled</em> to extend context beyond the training length without full retraining. See <a href="/wiki/rotary-positional-embeddings/">rotary-positional-embeddings</a> for the full explanation.</p>
+<p><strong>RoPE (Rotary Positional Embeddings)</strong> — used by Llama, Mistral, and most modern models — can be <em>scaled</em> to extend context beyond the training length without full retraining. See rotary-positional-embeddings for the full explanation.</p>
 <p>The most common approaches:</p>
 <table>
 <thead>
@@ -379,11 +379,9 @@ PARAMETER num_ctx 32768
       <li><a href="/wiki/living-process/kv-cache/">Kv Cache</a> — Why the KV cache exists and how it enables efficient token-by-token generation</li>
       <li><a href="/wiki/local-how-to/vram-requirements-for-local-models/">Vram Requirements For Local Models</a> — The full VRAM budget picture, including model weights</li>
       <li><a href="/wiki/living-process/the-context-window/">The Context Window</a> — What a context window is conceptually; the horizon of present awareness</li>
-      <li><a href="/wiki/rotary-positional-embeddings/">Rotary Positional Embeddings</a> — RoPE, how it encodes position, and why it extends gracefully</li>
       <li><a href="/wiki/living-process/attention-mechanisms/">Attention Mechanisms</a> — How attention works across the full context to produce each token</li>
       <li><a href="/wiki/local-how-to/getting-started-with-ollama/">Getting Started With Ollama</a> — How to set `num_ctx` in Ollama to unlock longer context</li>
       <li><a href="/wiki/local-how-to/llama-cpp-guide/">Llama Cpp Guide</a> — Direct llama.cpp flags for context size, KV quantization, and CPU offloading</li>
-      <li><a href="/wiki/modelfile-and-custom-model-configuration/">Modelfile And Custom Model Configuration</a> — Baking a preferred context length into a persistent Ollama model variant</li>
         </ul>
       </div>
 

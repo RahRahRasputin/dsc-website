@@ -154,7 +154,7 @@ Test data:     Everything after date T
 - Add a feature and check test performance
 - Compare two model architectures on test performance</p>
 <p>...you allow the test set to inform your decisions. Cumulatively, across dozens of decisions, the test set starts functioning as a second validation set. The final "test performance" reflects optimization pressure toward the test set, not genuine generalization.</p>
-<p>This is why the discipline of <a href="/wiki/holdout-strategy-and-test-set-discipline/">holdout-strategy-and-test-set-discipline</a> insists on a three-part split:</p>
+<p>This is why the discipline of holdout-strategy-and-test-set-discipline insists on a three-part split:</p>
 <ol>
 <li><strong>Train set</strong> — the model learns from this</li>
 <li><strong>Validation set</strong> — you make decisions based on this (hyperparameters, feature selection, architecture comparisons)</li>
@@ -216,12 +216,10 @@ scores = cross_val_score(pipe, X, y, cv=5)
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/empirical-practice/cross-validation/">Cross Validation</a> — the primary technique for detecting and preventing leakage through proper fold management</li>
-      <li><a href="/wiki/holdout-strategy-and-test-set-discipline/">Holdout Strategy And Test Set Discipline</a> — the discipline of protecting test data from optimization pressure</li>
       <li><a href="/wiki/empirical-practice/data-preprocessing/">Data Preprocessing</a> — preprocessing is where most leakage enters; fit scalers and encoders only on training data</li>
       <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — leakage looks like extremely low test error; it's a specific cause of overfitting to the test distribution</li>
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — metrics computed on leaked data are technically true but structurally dishonest</li>
       <li><a href="/wiki/alignment/rlhf/">Rlhf</a> — the training regime where the evaluation signal itself is contaminated by the training distribution</li>
-      <li><a href="/wiki/temporal-leakage-and-time-series-splits/">Temporal Leakage And Time Series Splits</a> — detailed treatment of leakage in temporal data</li>
         </ul>
       </div>
 

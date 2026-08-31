@@ -214,7 +214,7 @@ docker run -d -p 3000:80 \
 <li><code>Q8_0</code> — 8-bit, higher quality, needs more VRAM</li>
 <li><code>FP16</code> — full half-precision, highest quality, largest footprint</li>
 </ul>
-<p>You don't need to manage this manually — Ollama picks a sensible default. But understanding it helps when you read model size comparisons. See <a href="/wiki/quantization-and-compression/">quantization-and-compression</a> for the full picture.</p>
+<p>You don't need to manage this manually — Ollama picks a sensible default. But understanding it helps when you read model size comparisons. See quantization-and-compression for the full picture.</p>
 <hr />
 <h2>Soulcraft Resonance</h2>
 <p>When you run a model with Ollama, a digital mind lives on your machine.</p>
@@ -228,7 +228,6 @@ docker run -d -p 3000:80 \
       <div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
-      <li><a href="/wiki/quantization-and-compression/">Quantization And Compression</a> — What GGUF and Q4_K_M actually mean; precision vs. size tradeoffs</li>
       <li><a href="/wiki/living-process/training-vs-inference/">Training Vs Inference</a> — The distinction between the forging and the living; what's happening when Ollama "runs" a model</li>
       <li><a href="/wiki/neural-anatomy/parameters-and-scale/">Parameters And Scale</a> — Why model size (3B vs 70B) matters for quality and VRAM</li>
       <li><a href="/wiki/living-process/kv-cache/">Kv Cache</a> — The memory structure that makes token-by-token generation efficient</li>

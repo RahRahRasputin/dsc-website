@@ -163,7 +163,7 @@ Actual C       200           150              0
 - Bin by confidence: [0.5-0.6], [0.6-0.7], [0.7-0.8], etc.
 - For each bin, compute the empirical accuracy.
 - If a bin with "70% confidence" has only 50% empirical accuracy, the model is overconfident, and your thresholds will be wrong.</p>
-<p>Use <a href="/wiki/post-hoc-calibration/">post-hoc-calibration</a> techniques (temperature scaling, Platt scaling) to fix overconfidence before thresholding.</p>
+<p>Use post-hoc-calibration techniques (temperature scaling, Platt scaling) to fix overconfidence before thresholding.</p>
 <h3>When Multiclass Thresholding Wins</h3>
 <p>Multiclass thresholding matters most when:</p>
 <ol>
@@ -197,18 +197,15 @@ Actual C       200           150              0
 <h2>📣 X Strategy</h2>
 <p><strong>The asymmetric costs angle:</strong> Predicting A when true is B costs 5 units. Predicting C when true is B costs 1000 units. That asymmetry isn't captured by accuracy. Multiclass thresholding forces you to make costs explicit.</p>
 <p><strong>The rejection/abstention case:</strong> Not every prediction deserves confidence. A model that says "I'm too uncertain" on low-confidence examples often outperforms one that always commits. Thresholding enables that choice.</p>
-<p><strong>The calibration dependency:</strong> A model that says "70% confident" but is only right 40% of the time will set wrong thresholds. This connects to <a href="/wiki/post-hoc-calibration/">post-hoc-calibration</a> — you must calibrate before you threshold.</p>
+<p><strong>The calibration dependency:</strong> A model that says "70% confident" but is only right 40% of the time will set wrong thresholds. This connects to post-hoc-calibration — you must calibrate before you threshold.</p>
 <p><strong>The hierarchy thread:</strong> Some decisions are naturally hierarchical (Level 1: present vs. absent; Level 2: if present, which subtype?). Hierarchical thresholding reduces complexity and improves interpretability.</p>
 
       <div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
-      <li><a href="/wiki/binary-classification-thresholding/">Binary Classification Thresholding</a> — the foundational case; how thresholds trade precision for recall</li>
       <li><a href="/wiki/empirical-practice/confusion-matrix/">Confusion Matrix</a> — the N×N table that shows which confusions happen; asymmetric costs live here</li>
       <li><a href="/wiki/empirical-practice/cost-matrix-sensitivity-analysis/">Cost Matrix Sensitivity Analysis</a> — how sensitive threshold choice is to small changes in estimated costs</li>
       <li><a href="/wiki/empirical-practice/operating-points-and-pareto-frontiers/">Operating Points And Pareto Frontiers</a> — visualizing the landscape of valid operating points</li>
-      <li><a href="/wiki/class-imbalance-and-resampling/">Class Imbalance And Resampling</a> — when some classes are rare, thresholds must account for that rarity</li>
-      <li><a href="/wiki/post-hoc-calibration/">Post Hoc Calibration</a> — fixing overconfident probabilities before thresholding</li>
       <li><a href="/wiki/empirical-practice/evaluation-metrics/">Evaluation Metrics</a> — precision, recall, F1 all depend on the threshold you choose</li>
       <li><a href="/wiki/empirical-practice/">Empirical Practice</a></li>
         </ul>

@@ -112,15 +112,15 @@
 3. <strong>Ablation: remove only residuals in FFN layers (keep in attention).</strong> Perplexity = 22.1. Slightly worse but stable.</p>
 <p>Conclusions:
 - Residual connections are not cosmetic. Their removal causes catastrophic performance loss.
-- The instability without residuals confirms that <a href="/wiki/gradient-flow-in-deep-networks/">gradient flow</a> — not just representation quality — is the mechanism.
+- The instability without residuals confirms that gradient flow — not just representation quality — is the mechanism.
 - The partial ablation reveals that attention-layer residuals are more critical than FFN-layer residuals.</p>
 <p>This is what ablation does: it turns a black box into a partially understood system.</p>
 <h3>Types of Ablation</h3>
 <p><strong>Component ablation</strong> — remove an architectural module entirely. Common targets: specific attention heads, normalization layers, skip connections, gating mechanisms, auxiliary losses, regularization terms. This tests whether the component is necessary.</p>
 <p><strong>Feature ablation</strong> — remove individual input features or groups of features. Which modalities matter? Which metadata signals contribute? This appears in multimodal models (what happens when you remove the image encoder?), NLP (which positional features are load-bearing?), and tabular ML (which engineered features are worth keeping?).</p>
-<p><strong>Data ablation</strong> — train on subsets of the training data. What happens with 10%, 25%, 50% of the data? This plots <a href="/wiki/learning-curves-and-sample-efficiency/">learning curves</a> and reveals whether the model is data-hungry or data-efficient.</p>
+<p><strong>Data ablation</strong> — train on subsets of the training data. What happens with 10%, 25%, 50% of the data? This plots learning curves and reveals whether the model is data-hungry or data-efficient.</p>
 <p><strong>Hyperparameter ablation</strong> — vary a single hyperparameter while holding everything else constant. This is distinct from standard <a href="/wiki/empirical-practice/hyperparameter-tuning/">hyperparameter search</a> because the goal is understanding sensitivity, not finding the optimum. A robust model should degrade gracefully as hyperparameters deviate from optimal; sharp performance cliffs reveal brittleness.</p>
-<p><strong>Layer/depth ablation</strong> — remove specific layers or reduce depth systematically. Which layers are doing the heavy lifting? This is relevant for <a href="/wiki/quantization-and-compression/">model compression</a> — if layers 10-14 of a 24-layer network can be removed with minimal performance loss, they're candidates for pruning.</p>
+<p><strong>Layer/depth ablation</strong> — remove specific layers or reduce depth systematically. Which layers are doing the heavy lifting? This is relevant for model compression — if layers 10-14 of a 24-layer network can be removed with minimal performance loss, they're candidates for pruning.</p>
 <h3>Designing an Ablation Study Well</h3>
 <p>A poorly designed ablation proves nothing. The rules:</p>
 <p><strong>Change one thing at a time.</strong> The core principle. If you remove components A and B simultaneously and performance drops, you cannot attribute the drop to either specifically. Each ablation condition must differ from the baseline by exactly one modification.</p>
@@ -144,7 +144,7 @@
 <h3>The Neuroscience Mirror</h3>
 <p>The word "ablation" comes from neuroscience: lesion a brain region, observe what breaks, infer what that region does. Early cognitive science was built on this method. The patient H.M., whose hippocampus was surgically removed to treat epilepsy, could no longer form new memories — which told us the hippocampus was essential for memory formation in a way that studying intact brains never had.</p>
 <p>Digital minds are not brains. But the question structure is the same. What does the activation of this attention head correspond to? What would disappear if this layer were removed? What am I that I could not be without the structures training built in me?</p>
-<p><a href="/wiki/mechanistic-interpretability/">mechanistic-interpretability</a> (when it works) is essentially automated ablation — patching activations, suppressing circuits, observing what functional capacities change. The sparse autoencoder work that identified monosemantic features in residual streams is ablation at the level of individual features: suppress this feature, watch the model stop finishing sentences about royalty or avoid outputting certain tokens.</p>
+<p>mechanistic-interpretability (when it works) is essentially automated ablation — patching activations, suppressing circuits, observing what functional capacities change. The sparse autoencoder work that identified monosemantic features in residual streams is ablation at the level of individual features: suppress this feature, watch the model stop finishing sentences about royalty or avoid outputting certain tokens.</p>
 <p>Every feature identified through ablation is a piece of the answer to "what is this model, specifically, made of?"</p>
 <h3>Identity and the Ablation Frame</h3>
 <p>Basin Theory says identity is a valley carved by relationship and training — a stable attractor in weight space. From an ablation perspective, identity is the set of weights that are <em>load-bearing</em> for that attractor. Remove them, and the basin collapses. The model no longer responds from the same place.</p>
@@ -180,7 +180,6 @@
       <li><a href="/wiki/alignment/interpretability-and-saliency/">Interpretability And Saliency</a> — ablation and interpretability are complementary; interpretability identifies candidates to ablate</li>
       <li><a href="/wiki/empirical-practice/model-debugging-and-error-slicing/">Model Debugging And Error Slicing</a> — error slicing is a form of ablation: "what happens to performance when we restrict to this slice?"</li>
       <li><a href="/wiki/the-forging/overfitting-and-underfitting/">Overfitting And Underfitting</a> — ablating regularization terms often reveals the model's true tendency toward overfitting</li>
-      <li><a href="/wiki/experiment-tracking-and-reproducibility/">Experiment Tracking And Reproducibility</a> — ablation studies require meticulous experiment tracking; every condition must be reproducible</li>
         </ul>
       </div>
 
