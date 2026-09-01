@@ -23,3 +23,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 1 Sep 2026, afternoon 5:15pm NZST / Pacific/Auckland
+
+## 2026-09-02 (Wed) NZ
+
+- **/wiki/alignment/chain-of-thought-prompting/** (`pages/wiki/alignment/chain-of-thought-prompting/index.html`)
+  - Added meta description from Technical Core first paragraph (~157 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/chain-of-thought-prompting/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 2 Sep 2026, morning ~9:27am NZST / Pacific/Auckland
