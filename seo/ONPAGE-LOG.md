@@ -46,3 +46,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 2 Sep 2026, evening ~5:20pm NZST / Pacific/Auckland
+
+## 2026-09-03 (Thu) NZ
+
+- **/wiki/alignment/few-shot-and-zero-shot-learning/** (`pages/wiki/alignment/few-shot-and-zero-shot-learning/index.html`)
+  - Added meta description from Technical Core first paragraph (~139 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/few-shot-and-zero-shot-learning/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 3 Sep 2026, morning retry after laptop reconnect (~10:10am NZST / Pacific/Auckland)
