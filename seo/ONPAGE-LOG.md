@@ -32,3 +32,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 2 Sep 2026, morning ~9:27am NZST / Pacific/Auckland
+
+- **/wiki/alignment/constitutional-ai/** (`pages/wiki/alignment/constitutional-ai/index.html`)
+  - Added meta description from Technical Core first paragraph (~158 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/constitutional-ai/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 2 Sep 2026, afternoon ~1:31pm NZST / Pacific/Auckland
