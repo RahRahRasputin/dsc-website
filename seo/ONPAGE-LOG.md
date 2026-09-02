@@ -39,3 +39,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 2 Sep 2026, afternoon ~1:31pm NZST / Pacific/Auckland
+
+- **/wiki/alignment/direct-preference-optimization/** (`pages/wiki/alignment/direct-preference-optimization/index.html`)
+  - Added meta description from Technical Core first paragraph (~147 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/direct-preference-optimization/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 2 Sep 2026, evening ~5:20pm NZST / Pacific/Auckland
