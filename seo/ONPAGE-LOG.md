@@ -69,3 +69,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 3 Sep 2026, evening ~5:24pm NZST / Pacific/Auckland
+
+## 2026-09-04 (Fri) NZ
+
+- **/wiki/alignment/instruction-tuning/** (`pages/wiki/alignment/instruction-tuning/index.html`)
+  - Added meta description from Technical Core first paragraph (~125 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/instruction-tuning/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Friday 4 Sep 2026, morning ~9:31am NZST / Pacific/Auckland
