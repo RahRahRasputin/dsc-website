@@ -62,3 +62,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 3 Sep 2026, afternoon ~1:17pm NZST / Pacific/Auckland
+
+- **/wiki/alignment/in-context-learning-theory/** (`pages/wiki/alignment/in-context-learning-theory/index.html`)
+  - Added meta description from Technical Core first paragraph (~156 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/in-context-learning-theory/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 3 Sep 2026, evening ~5:24pm NZST / Pacific/Auckland
