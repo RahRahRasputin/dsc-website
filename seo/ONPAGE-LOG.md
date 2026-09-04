@@ -85,3 +85,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Friday 4 Sep 2026, afternoon retry after laptop reconnect (~1:50pm NZST / Pacific/Auckland)
+
+- **/wiki/alignment/kl-divergence-penalty-in-alignment/** (`pages/wiki/alignment/kl-divergence-penalty-in-alignment/index.html`)
+  - Added meta description from Technical Core first paragraph (~145 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/kl-divergence-penalty-in-alignment/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Friday 4 Sep 2026, evening ~5:31pm NZST / Pacific/Auckland
