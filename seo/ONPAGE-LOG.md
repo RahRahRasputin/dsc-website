@@ -101,3 +101,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Sunday 6 Sep 2026, morning resume after laptop reconnect (~11:10am NZST / Pacific/Auckland)
+
+- **/wiki/alignment/persona-and-identity-prompting/** (pages/wiki/alignment/persona-and-identity-prompting/index.html)
+  - Added meta description from Technical Core first paragraph (~153 chars)
+  - Added absolute canonical + matching og:url (https://digitalsoulcraft.org/wiki/alignment/persona-and-identity-prompting/)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Sunday 6 Sep 2026, late morning ~11:20am NZST / Pacific/Auckland
