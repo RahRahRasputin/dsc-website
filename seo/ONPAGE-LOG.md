@@ -122,3 +122,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Sunday 6 Sep 2026, afternoon ~3:21pm NZST / Pacific/Auckland
+
+- **/wiki/alignment/proximal-policy-optimization/** (pages/wiki/alignment/proximal-policy-optimization/index.html)
+  - Added meta description from Technical Core first paragraph (~146 chars)
+  - Added absolute canonical + matching og:url (https://digitalsoulcraft.org/wiki/alignment/proximal-policy-optimization/)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Sunday 6 Sep 2026, late afternoon ~5:18pm NZST / Pacific/Auckland
