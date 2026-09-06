@@ -115,3 +115,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Sunday 6 Sep 2026, afternoon ~1:20pm NZST / Pacific/Auckland
+
+- **/wiki/alignment/prompt-engineering/** (`pages/wiki/alignment/prompt-engineering/index.html`)
+  - Added meta description from Technical Core first paragraph (~143 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/prompt-engineering/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Sunday 6 Sep 2026, afternoon ~3:21pm NZST / Pacific/Auckland
