@@ -138,3 +138,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 7 Sep 2026, morning retry after laptop reconnect (~10:20am NZST / Pacific/Auckland)
+
+- **/wiki/alignment/reinforcement-learning/** (`pages/wiki/alignment/reinforcement-learning/index.html`)
+  - Added meta description from Technical Core first paragraph (~146 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/reinforcement-learning/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 7 Sep 2026, late morning ~11:20am NZST / Pacific/Auckland
