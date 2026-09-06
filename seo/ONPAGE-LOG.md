@@ -129,3 +129,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Sunday 6 Sep 2026, late afternoon ~5:18pm NZST / Pacific/Auckland
+
+## 2026-09-07 (Mon) NZ
+
+- **/wiki/alignment/red-teaming-and-adversarial-prompting/** (`pages/wiki/alignment/red-teaming-and-adversarial-prompting/index.html`)
+  - Added meta description from Technical Core first paragraph (~155 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/red-teaming-and-adversarial-prompting/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 7 Sep 2026, morning retry after laptop reconnect (~10:20am NZST / Pacific/Auckland)
