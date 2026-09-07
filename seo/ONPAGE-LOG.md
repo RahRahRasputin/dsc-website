@@ -145,3 +145,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 7 Sep 2026, late morning ~11:20am NZST / Pacific/Auckland
+
+- **/wiki/alignment/reward-hacking-and-specification-gaming/** (`pages/wiki/alignment/reward-hacking-and-specification-gaming/index.html`)
+  - Added meta description from Technical Core first paragraph (~157 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/alignment/reward-hacking-and-specification-gaming/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 7 Sep 2026, early afternoon ~1:39pm NZST / Pacific/Auckland
