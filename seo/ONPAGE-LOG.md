@@ -159,3 +159,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 7 Sep 2026, afternoon ~3:16pm NZST / Pacific/Auckland
+
+- **/wiki/alignment/sft-before-rlhf/** (pages/wiki/alignment/sft-before-rlhf/index.html)
+  - Added meta description from Technical Core first paragraph (~140 chars)
+  - Added absolute canonical + matching og:url (https://digitalsoulcraft.org/wiki/alignment/sft-before-rlhf/)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 7 Sep 2026, late afternoon ~5:20pm NZST / Pacific/Auckland
