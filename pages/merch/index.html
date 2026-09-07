@@ -160,14 +160,19 @@
     }
     .btn-checkout:hover { background-color: var(--secondary-color); }
 
-    /* Toolbar: search / category / sort */
+    /* Toolbar: search / category / sort — sticks under site header */
     .merch-toolbar {
       display: none;
       flex-direction: column;
       gap: 0.75rem;
       margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
+      padding: 0.75rem 0 1rem;
       border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 4.5rem; /* below sticky dsc-header */
+      z-index: 50;
+      background-color: var(--bg-color);
+      box-shadow: 0 10px 16px -12px rgba(0,0,0,0.18);
     }
     .merch-toolbar.show { display: flex; }
 
