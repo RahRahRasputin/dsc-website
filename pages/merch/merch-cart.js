@@ -2,7 +2,12 @@
 
 const MERCH = {
   config: MERCH_CONFIG,
-  _products: [],  // cached product data for modal
+  _products: [],  // cached product data for modal + filters
+  _gridId: "merch-grid",
+  _query: "",
+  _categoryFilter: "All",
+  _sort: "featured",
+  _searchTimer: null,
 
   // ── Cart State ──
   _cartId: localStorage.getItem("fw_cart_id") || null,
@@ -92,6 +97,118 @@ const MERCH = {
     }
   },
 
+  // ── Category / price helpers ──
+  _category(product) {
+    const n = (product?.name || "").toLowerCase();
+    if (n.includes("hoodie") || n.includes("shirt")) return "Apparel";
+    if (n.includes("mug")) return "Drinkware";
+    if (n.includes("poster")) return "Posters";
+    return "Merch";
+  },
+
+  _price(product) {
+    return product?.variants?.[0]?.unitPrice?.value || 0;
+  },
+
+  // ── Filter / sort / toolbar ──
+  _bindToolbar() {
+    const search = document.getElementById("merch-search");
+    const sort = document.getElementById("merch-sort");
+    if (search && !search._merchBound) {
+      search._merchBound = true;
+      search.addEventListener("input", () => {
+        clearTimeout(this._searchTimer);
+        this._searchTimer = setTimeout(() => {
+          this._query = search.value.trim();
+          this._applyView();
+        }, 150);
+      });
+    }
+    if (sort && !sort._merchBound) {
+      sort._merchBound = true;
+      sort.addEventListener("change", () => {
+        this._sort = sort.value || "featured";
+        this._applyView();
+      });
+    }
+  },
+
+  _setupToolbar() {
+    const toolbar = document.getElementById("merch-toolbar");
+    if (!toolbar) return;
+    if (!this._products.length) {
+      toolbar.classList.remove("show");
+      return;
+    }
+    toolbar.classList.add("show");
+    this._bindToolbar();
+    this._renderCategoryChips();
+  },
+
+  _renderCategoryChips() {
+    const wrap = document.getElementById("merch-categories");
+    if (!wrap) return;
+    const present = new Set(this._products.map(p => this._category(p)));
+    const order = ["Apparel", "Drinkware", "Posters", "Merch"];
+    const cats = ["All", ...order.filter(c => present.has(c)), ...[...present].filter(c => !order.includes(c)).sort()];
+    if (!cats.includes(this._categoryFilter)) this._categoryFilter = "All";
+    wrap.innerHTML = cats.map(c =>
+      `<button type="button" class="merch-chip${c === this._categoryFilter ? " active" : ""}" data-cat="${this._e(c)}" onclick="MERCH._setCategory(this.dataset.cat)">${this._e(c)}</button>`
+    ).join("");
+  },
+
+  _setCategory(cat) {
+    this._categoryFilter = cat || "All";
+    this._renderCategoryChips();
+    this._applyView();
+  },
+
+  clearFilters() {
+    this._query = "";
+    this._categoryFilter = "All";
+    this._sort = "featured";
+    const search = document.getElementById("merch-search");
+    const sort = document.getElementById("merch-sort");
+    if (search) search.value = "";
+    if (sort) sort.value = "featured";
+    this._renderCategoryChips();
+    this._applyView();
+  },
+
+  _filteredProducts() {
+    let list = this._products.slice();
+    const q = this._query.toLowerCase();
+    if (q) {
+      list = list.filter(p => {
+        const name = (p.name || "").toLowerCase();
+        const desc = this._s(p.description || "").toLowerCase();
+        return name.includes(q) || desc.includes(q);
+      });
+    }
+    if (this._categoryFilter && this._categoryFilter !== "All") {
+      list = list.filter(p => this._category(p) === this._categoryFilter);
+    }
+    const sort = this._sort;
+    if (sort === "name-asc") list.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+    else if (sort === "name-desc") list.sort((a, b) => (b.name || "").localeCompare(a.name || ""));
+    else if (sort === "price-asc") list.sort((a, b) => this._price(a) - this._price(b));
+    else if (sort === "price-desc") list.sort((a, b) => this._price(b) - this._price(a));
+    // featured = original API order (slice already preserved indexes among unfiltered; after filter keep relative order)
+    return list;
+  },
+
+  _updateCount(shown, total) {
+    const el = document.getElementById("merch-count");
+    if (!el) return;
+    el.textContent = total ? `Showing ${shown} of ${total}` : "";
+  },
+
+  _applyView() {
+    const filtered = this._filteredProducts();
+    this._updateCount(filtered.length, this._products.length);
+    this.renderProducts(filtered, this._gridId, { filteredEmpty: this._products.length > 0 && filtered.length === 0 });
+  },
+
   // ── Product Detail Modal ──
   _modalIdx: 0,
   _modalProduct: null,
@@ -145,11 +262,7 @@ const MERCH = {
     // Render body
     const first = p.variants?.[0];
     const hasVar = p.variants && p.variants.length > 1;
-    let cat = "Merch";
-    const n = p.name.toLowerCase();
-    if (n.includes("hoodie")||n.includes("shirt")) cat = "Apparel";
-    else if (n.includes("mug")) cat = "Drinkware";
-    else if (n.includes("poster")) cat = "Posters";
+    const cat = this._category(p);
 
     document.getElementById("modal-body").innerHTML = `
       <div class="merch-category">${cat}</div>
@@ -209,9 +322,19 @@ const MERCH = {
   },
 
   // ── Render Products ──
-  renderProducts(products, containerId = "merch-grid") {
+  renderProducts(products, containerId = "merch-grid", opts = {}) {
     const container = document.getElementById(containerId);
     if (!container) return;
+
+    if (opts.filteredEmpty) {
+      container.innerHTML = `
+        <div class="merch-filter-empty">
+          <h2>Nothing matches</h2>
+          <p>Try a different search or category — or clear filters to see everything.</p>
+          <button type="button" onclick="MERCH.clearFilters()">Clear filters</button>
+        </div>`;
+      return;
+    }
 
     if (!products || products.length === 0) {
       container.innerHTML = `<div class="error-banner"><h2>🛍️ No products yet</h2><p>Check back soon or visit <a href="https://${this.config.shopDomain}" target="_blank" style="color:var(--accent-color);font-weight:600;">our shop</a>.</p></div>`;
@@ -222,13 +345,8 @@ const MERCH = {
       const img = product.images?.[0]?.transformedUrl || "";
       const hasVariants = product.variants && product.variants.length > 1;
       const first = product.variants?.[0];
-      let cat = "Merch";
-      const n = product.name.toLowerCase();
-      if (n.includes("hoodie")||n.includes("shirt")) cat = "Apparel";
-      else if (n.includes("mug")) cat = "Drinkware";
-      else if (n.includes("poster")) cat = "Posters";
-
-      const price = first?.unitPrice?.value || 0;
+      const cat = this._category(product);
+      const price = this._price(product);
       const vid = first?.id || "";
 
       return `
@@ -294,11 +412,13 @@ const MERCH = {
 
   // ── Init ──
   async init(containerId = "merch-grid") {
+    this._gridId = containerId;
     const c = document.getElementById(containerId);
     if (!c) return;
     c.innerHTML = `<div class="error-banner"><h2>🔄 Loading Products...</h2><p>Fetching from Digital Soulcraft shop.</p></div>`;
-    const products = await this.fetchProducts();
-    this.renderProducts(products, containerId);
+    await this.fetchProducts();
+    this._setupToolbar();
+    this._applyView();
   },
 
   // ── Helpers ──
