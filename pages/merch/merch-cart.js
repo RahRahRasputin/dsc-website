@@ -29,18 +29,28 @@ const MERCH = {
     window.location.href = `https://${this.config.checkoutDomain}/cart/checkout?cartId=${this.cartId}&currency=${this.config.currency}`;
   },
 
-  // ── Fetch Products ──
+  // --- Fetch Products ---
+  // Storefront API ignores pageSize above 10; paginate with ?page=0,1,... until hasNextPage is false.
   async fetchProducts() {
-    const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=20`;
+    const all = [];
+    let page = 0;
     try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`API returned ${res.status}`);
-      const data = await res.json();
-      this._products = data.results || [];
+      while (true) {
+        const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=10&page=${page}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`API returned ${res.status}`);
+        const data = await res.json();
+        all.push(...(data.results || []));
+        if (!data.paging?.hasNextPage) break;
+        page += 1;
+        if (page > 20) break; // safety
+      }
+      this._products = all;
       return this._products;
     } catch (err) {
       console.error("Failed to fetch products:", err);
-      return [];
+      this._products = all;
+      return this._products;
     }
   },
 
