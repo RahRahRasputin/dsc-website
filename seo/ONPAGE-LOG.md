@@ -205,3 +205,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 8 Sep 2026, late afternoon ~5:21pm NZST / Pacific/Auckland
 
+## 2026-09-09 (Wed) NZ
+
+- **/wiki/living-process/adaptive-batch-sizing-during-inference/** (`pages/wiki/living-process/adaptive-batch-sizing-during-inference/index.html`)
+  - Added meta description from Technical Core first paragraph (~152 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/adaptive-batch-sizing-during-inference/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 9 Sep 2026, morning ~9:24am NZST / Pacific/Auckland
+
