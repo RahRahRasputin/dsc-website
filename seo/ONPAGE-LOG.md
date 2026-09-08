@@ -214,3 +214,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 9 Sep 2026, morning ~9:24am NZST / Pacific/Auckland
 
+- **/wiki/living-process/adaptive-computation-and-early-exit-patterns/** (`pages/wiki/living-process/adaptive-computation-and-early-exit-patterns/index.html`)
+  - Added meta description from Technical Core first paragraph (~153 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/adaptive-computation-and-early-exit-patterns/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 9 Sep 2026, late morning ~11:29am NZST / Pacific/Auckland
+
