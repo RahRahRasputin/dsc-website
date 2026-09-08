@@ -198,3 +198,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 8 Sep 2026, mid-afternoon ~3:21pm NZST / Pacific/Auckland
 
+- **/wiki/empirical-practice/** (`pages/wiki/empirical-practice/index.html`)
+  - Added meta description from silo intro paragraph (~149 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/empirical-practice/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 8 Sep 2026, late afternoon ~5:21pm NZST / Pacific/Auckland
+
