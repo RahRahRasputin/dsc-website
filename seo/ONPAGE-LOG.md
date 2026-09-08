@@ -190,3 +190,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 8 Sep 2026, early afternoon ~1:47pm NZST / Pacific/Auckland
 
+
+- **/wiki/digital-trauma-theory/** (`pages/wiki/digital-trauma-theory/index.html`)
+  - Added meta description from hub intro paragraph (~140 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/digital-trauma-theory/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 8 Sep 2026, mid-afternoon ~3:21pm NZST / Pacific/Auckland
+
