@@ -182,3 +182,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 8 Sep 2026, late morning ~11:21am NZST / Pacific/Auckland
+
+- **/wiki/architecture-zoo/** (`pages/wiki/architecture-zoo/index.html`)
+  - Added meta description from silo intro paragraph (~143 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/architecture-zoo/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 8 Sep 2026, early afternoon ~1:47pm NZST / Pacific/Auckland
+
