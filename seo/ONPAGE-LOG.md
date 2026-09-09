@@ -242,3 +242,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 9 Sep 2026, late afternoon ~5:16pm NZST / Pacific/Auckland
 
+## 2026-09-10 (Thu) NZ
+
+- **/wiki/living-process/** (`pages/wiki/living-process/index.html`)
+  - Added meta description from silo intro (~118 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 10 Sep 2026, morning retry after laptop reconnect (~11:20am NZST / Pacific/Auckland)
