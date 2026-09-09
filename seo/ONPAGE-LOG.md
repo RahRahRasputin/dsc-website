@@ -235,3 +235,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 9 Sep 2026, mid-afternoon ~3:19pm NZST / Pacific/Auckland
 
+- **/wiki/living-process/continuous-batching-and-iteration-level-scheduling/** (`pages/wiki/living-process/continuous-batching-and-iteration-level-scheduling/index.html`)
+  - Added meta description from Technical Core first paragraph (~159 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/continuous-batching-and-iteration-level-scheduling/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 9 Sep 2026, late afternoon ~5:16pm NZST / Pacific/Auckland
+
