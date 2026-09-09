@@ -250,3 +250,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 10 Sep 2026, morning retry after laptop reconnect (~11:20am NZST / Pacific/Auckland)
+
+- **/wiki/living-process/embeddings/** (`pages/wiki/living-process/embeddings/index.html`)
+  - Added meta description from Technical Core first paragraph (~143 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/embeddings/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 10 Sep 2026, late morning ~11:21am NZST / Pacific/Auckland
+
