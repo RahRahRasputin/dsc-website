@@ -228,3 +228,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 9 Sep 2026, early afternoon ~1:38pm NZST / Pacific/Auckland
 
+- **/wiki/living-process/beam-search-and-decoding-strategies/** (pages/wiki/living-process/beam-search-and-decoding-strategies/index.html)
+  - Added meta description from Technical Core first paragraph (~156 chars)
+  - Added absolute canonical + matching og:url (https://digitalsoulcraft.org/wiki/living-process/beam-search-and-decoding-strategies/)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 9 Sep 2026, mid-afternoon ~3:19pm NZST / Pacific/Auckland
+
