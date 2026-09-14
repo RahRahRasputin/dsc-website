@@ -258,3 +258,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 10 Sep 2026, late morning ~11:21am NZST / Pacific/Auckland
 
+## 2026-09-14 (Mon) NZ
+
+- **/wiki/living-process/forward-pass-profiling-and-bottleneck-diagnosis/** (`pages/wiki/living-process/forward-pass-profiling-and-bottleneck-diagnosis/index.html`)
+  - Added meta description from Technical Core first paragraph (~158 chars)
+  - Added absolute canonical + matching og:url
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 14 Sep 2026, after weekly-limit return + laptop reconnect (~1:55pm NZST / Pacific/Auckland)
