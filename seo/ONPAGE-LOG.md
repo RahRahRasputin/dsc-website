@@ -281,3 +281,12 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 14 Sep 2026, late afternoon ~5:21pm NZST / Pacific/Auckland
 
+## 2026-09-15 (Tue) NZ
+
+- **/wiki/living-process/kv-cache/** (`pages/wiki/living-process/kv-cache/index.html`)
+  - Added meta description from Technical Core first paragraph (~152 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/kv-cache/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 15 Sep 2026, morning ~9:30am NZST / Pacific/Auckland
+
