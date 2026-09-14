@@ -274,3 +274,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 14 Sep 2026, mid-afternoon ~3:29pm NZST / Pacific/Auckland
 
+- **/wiki/living-process/inference-time-scaling/** (pages/wiki/living-process/inference-time-scaling/index.html)
+  - Added meta description from Technical Core first paragraph (~136 chars)
+  - Added absolute canonical + matching og:url (https://digitalsoulcraft.org/wiki/living-process/inference-time-scaling/)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 14 Sep 2026, late afternoon ~5:21pm NZST / Pacific/Auckland
+
