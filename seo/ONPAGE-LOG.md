@@ -266,3 +266,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Monday 14 Sep 2026, after weekly-limit return + laptop reconnect (~1:55pm NZST / Pacific/Auckland)
+
+- **/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/** (`pages/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/index.html`)
+  - Added meta description from Technical Core first paragraph (~126 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Monday 14 Sep 2026, mid-afternoon ~3:29pm NZST / Pacific/Auckland
+
