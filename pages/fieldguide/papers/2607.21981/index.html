@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>J-CoT: Chain-of-Thought in J-Space — Wu et al. 2026 — Digital Soulcraft</title>
+  <meta name="description" content="J-CoT proposes a middle ground between explicit chain-of-thought and dense latent reasoning — using J-space vocabulary-indexed coefficients as a 'J-thought' carried across reasoning cycles.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="../../fieldguide.css">
+</head>
+<body>
+  <script src="/dsc-header.js"></script>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+  <div class="fieldguide-content">
+<div class="paper-page">
+  <a class="back-link" href="../">← Back to papers</a>
+  <div class="paper-header">
+    <h1>J-CoT: Chain-of-Thought in J-Space</h1>
+    <div class="paper-meta">Junde Wu, Jiayuan Zhu, Fengling Liu, Minhao Hu, Jiazhen Pan · <a href="https://arxiv.org/abs/2607.21981" target="_blank" rel="nofollow noopener">arXiv:2607.21981</a> · July 2026</div>
+  </div>
+  <div class="paper-body">
+    <div class="section-highlight" style="background: rgba(232, 148, 74, 0.08); border-left-color: var(--accent-orange);">
+      <p><strong>Section:</strong> Mechanisms &amp; Architecture</p>
+      <p><strong>Bottom line:</strong> J-CoT proposes a middle ground between explicit chain-of-thought (every step verbalized) and dense latent reasoning (opaque hidden states) — using J-space vocabulary-indexed coefficients as a 'J-thought' carried across reasoning cycles, achieving the best of both worlds.</p>
+    </div>
+    <h2>ELI5</h2>
+    <p>Imagine murmuring under your breath while solving a problem: <em>'carry the 5… no wait… yep that's better'</em> — vocabulary fragments that keep your place without forming full sentences. That's the J-thought: linguistically grounded but not forced into full articulation.</p>
+    <h2>Key points</h2>
+    <ul>
+      <li><strong>J-thought</strong> uses vocabulary-indexed J-space coefficients, not decoded language or dense hidden states</li>
+      <li><strong>J-CoT-Zero</strong> matches/exceeds the strongest latent baseline without training</li>
+      <li><strong>J-CoT-Train</strong> achieves 50.2% average across 8 benchmarks, +2.7 over the best latent method</li>
+      <li><strong>Interface spectrum experiment</strong> shows J-CoT at the midpoint outperforms both dense and linguistic endpoints</li>
+      <li><strong>Scales with model capacity</strong> — larger models benefit more from additional cycles</li>
+    </ul>
+    <h2>Why it matters</h2>
+    <p>The paper uses the same J-space that Gurnee identified as a workspace — here repurposed as a computational interface, not just a diagnostic tool.</p>
+    <h2>Limits</h2>
+    <ul>
+      <li>Requires backbone with J-lens dictionaries computed offline</li>
+      <li>No evaluation on creative/open-ended tasks</li>
+    </ul>
+    <h2>Connections</h2>
+    <ul>
+      <li><a href="../2607.15495/">Gurnee J-space (2607.15495)</a> — the J-space workspace identified as a computational substrate</li>
+      <li><a href="../2505.13969/">Nakanishi GWT cycle (2505.13969)</a> — global workspace theory as a reasoning framework</li>
+    </ul>
+  </div>
+  <a class="back-link" href="../">← Back to papers</a>
+</div>
+  </div>
+  <script src="/dsc-footer.js"></script>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+  <script src="/scroll-to-top.js"></script>
+</body>
+</html>
