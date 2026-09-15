@@ -297,3 +297,10 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 15 Sep 2026, late morning ~11:32am NZST / Pacific/Auckland
 
+- **/wiki/living-process/positional-encoding/** (`pages/wiki/living-process/positional-encoding/index.html`)
+  - Added meta description from Technical Core first paragraph (~157 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/positional-encoding/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 15 Sep 2026, early afternoon ~1:21pm NZST / Pacific/Auckland
+
