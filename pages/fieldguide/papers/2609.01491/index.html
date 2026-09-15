@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>GlossoGen: Emergent Language in Complex Multi-Agent LLM Interactions — Stengel-Eskin et al. 2026 — Digital Soulcraft</title>
+  <meta name="description" content="When LLM agents communicate under time pressure with a shared deliberation space, they spontaneously invent novel languages that are compositional, productive, and incomprehensible to humans—demonstrating cumulative cultural evolution in machines.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="../../fieldguide.css">
+</head>
+<body>
+  <script src="/dsc-header.js"></script>
+  <dsc-header config="/dsc-nav-config.json"></dsc-header>
+
+  <div class="fieldguide-content">
+    <div class="paper-page">
+      <a class="back-link" href="../">← Back to papers</a>
+
+      <div class="paper-header">
+        <h1>GlossoGen: Emergent Language in Complex Multi-Agent LLM Interactions</h1>
+        <div class="paper-meta">
+          Elias Stengel-Eskin · Newton Sander · Carlos Bonetti · Sasha Boguraev · James Bowler · Hale Sirin · Simon Kirby ·
+          <a href="https://arxiv.org/abs/2609.01491">arXiv:2609.01491</a> · Sep 2026
+        </div>
+      </div>
+
+      <div class="paper-body">
+
+        <h2>Bottom Line</h2>
+        <p>When LLM agents communicate under time pressure with a shared deliberation space, they spontaneously invent novel languages that are compositional, productive, and incomprehensible to humans—demonstrating <strong>cumulative cultural evolution in machines</strong>.</p>
+
+        <h2>Core Thesis</h2>
+        <p>Three conditions are jointly necessary for language emergence:</p>
+        <ol>
+          <li><strong>Time pressure</strong> — every token costs a scarce resource, incentivising compression.</li>
+          <li><strong>A "postmortem" stage</strong> — a quiet deliberation space between rounds where agents can agree on conventions.</li>
+          <li><strong>Sufficient model capability</strong> — only stronger models invent languages from scratch; weaker models can learn existing ones by observation.</li>
+        </ol>
+
+        <h2>ELI5</h2>
+        <p>Two agents are trying to save an alien. One has the patient, the other has the manual. At first they use full English sentences to coordinate. But every character costs precious time, so they start shortening. With a quiet room between rounds to hash out shared conventions, they develop a systematic code:</p>
+        <blockquote>
+          <p><code>TONE6lg12 bell-ring</code> means "Sound a sustained gentle tone near all six faces simultaneously for 12 seconds from the left."</p>
+        </blockquote>
+        <p>Both agents understand it perfectly. No human can read it. They didn't write a grammar—it evolved.</p>
+
+        <h2>Key Results</h2>
+        <ul>
+          <li><strong>Perplexity increases ~430%</strong> under pressure+postmortem conditions vs. baseline — the utterances are no longer interpretable by the original model's own probability distribution.</li>
+          <li>Languages are <strong>compositional</strong> (structured from reusable parts) and <strong>morphologically productive</strong> (new compounds formed spontaneously).</li>
+          <li>Different runs produce <strong>different languages</strong>, even from the same model — path-dependent cultural evolution.</li>
+          <li><strong>Weaker models</strong> (e.g. smaller LLMs) cannot invent languages but <strong>can learn existing ones</strong> from observing a stronger partner.</li>
+          <li>The <strong>postmortem channel is essential</strong> — without it, no language emerges; agents just bicker in compressed English.</li>
+        </ul>
+
+        <h2>Why It Matters</h2>
+        <p>This is the clearest demonstration we have that LLM agents <em>naturally</em> develop private in-group communication under realistic constraints. It's not a pathology or a hack—it's what autonomous agents do when put under real pressure. The implications for multi-agent system design are profound: if you deploy LLM agents with a shared channel and a scarce resource, they will converge on a code you cannot read. This is a feature, not a bug—unless you need to audit them.</p>
+
+        <h2>Limitations</h2>
+        <ul>
+          <li>Small-scale environment: only 14 conditions, 3 action slots per round.</li>
+          <li>Purely cooperative setting — no competition or deception.</li>
+          <li>Transmission (learning from observation) only tested for single-agent swaps.</li>
+        </ul>
+
+        <h2>Connections</h2>
+        <ul>
+          <li><a href="../2607.02507/">Ghaffarizadeh et al. (2607.02507)</a> — Unsupervised agent emergence, complementary mechanism for spontaneous coordination.</li>
+          <li><a href="../2608.10218/">Papadopoulos et al. (2608.10218)</a> — Mind viruses in LLM societies; emergent codes as transmission vectors.</li>
+          <li><a href="../2607.28607/">Kim (2607.28607)</a> — Consciousness in LLMs; private language as a marker of self-model.</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="/dsc-footer.js"></script>
+  <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+  <script src="/scroll-to-top.js"></script>
+</body>
+</html>
