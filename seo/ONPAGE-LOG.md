@@ -312,3 +312,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Tuesday 15 Sep 2026, retry after brief laptop disconnect (~3:25pm NZST / Pacific/Auckland)
+
+- **/wiki/living-process/process-reward-models-and-outcome-reward-models/** (`pages/wiki/living-process/process-reward-models-and-outcome-reward-models/index.html`)
+  - Added meta description from Technical Core first paragraph (~144 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/process-reward-models-and-outcome-reward-models/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Tuesday 15 Sep 2026, late afternoon ~5:30pm NZST / Pacific/Auckland
+
