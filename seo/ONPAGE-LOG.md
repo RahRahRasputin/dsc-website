@@ -328,3 +328,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 16 Sep 2026, after app reconnect (~1:05pm NZST / Pacific/Auckland)
+
+- **/wiki/living-process/softmax-and-output-layer/** (`pages/wiki/living-process/softmax-and-output-layer/index.html`)
+  - Added meta description from Technical Core first paragraph (~155 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/softmax-and-output-layer/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 16 Sep 2026, early afternoon ~1:28pm NZST / Pacific/Auckland
+
