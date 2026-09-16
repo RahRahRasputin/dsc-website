@@ -341,3 +341,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 16 Sep 2026, mid-afternoon ~3:25pm NZST / Pacific/Auckland
+
+- **/wiki/living-process/speculative-decoding-inference/** (`pages/wiki/living-process/speculative-decoding-inference/index.html`)
+  - Added meta description from Technical Core first paragraph (~137 chars)
+  - Added absolute canonical + matching og:url (`https://digitalsoulcraft.org/wiki/living-process/speculative-decoding-inference/`)
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Wednesday 16 Sep 2026, late afternoon ~5:23pm NZST / Pacific/Auckland
+
