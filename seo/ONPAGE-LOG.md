@@ -349,3 +349,11 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Wednesday 16 Sep 2026, late afternoon ~5:23pm NZST / Pacific/Auckland
 
+## 2026-09-17 (Thu) NZ
+
+- **/wiki/living-process/starvation-prevention-in-scheduling/** (`pages/wiki/living-process/starvation-prevention-in-scheduling/index.html`)
+  - Added meta description from Technical Core (~158 chars)
+  - Added absolute canonical + matching og:url
+  - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 17 Sep 2026, morning retry after sleep-in (~10:50am NZST / Pacific/Auckland)
