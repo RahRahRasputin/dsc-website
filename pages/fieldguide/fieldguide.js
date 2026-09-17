@@ -1,6 +1,6 @@
-// Field Guide — card accordion, guide accordion, and legend scroll highlighting
+// Field Guide — card accordion, guide accordion, and team legend scroll highlighting
 document.addEventListener('DOMContentLoaded', () => {
-  // Card accordion
+  // Card accordion (existing)
   document.querySelectorAll('.card-wrapper').forEach(wrapper => {
     const card = wrapper.querySelector('.card');
     const detail = wrapper.querySelector('.card-detail');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Guide accordion
+  // Guide accordion (About This Guide)
   const guideToggle = document.querySelector('.guide-accordion-toggle');
   const guideContent = document.querySelector('.guide-accordion-content');
   if (guideToggle && guideContent) {
@@ -38,45 +38,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Scroll-highlighting legend ──
-  // One shared observer per section: activates the legend item whose colour
-  // matches the section most visible in the viewport.
+  // ── Team legend scroll highlighting (key-figures) ──
+  const legend = document.getElementById('teamLegend');
+  if (legend) {
+    const sections = document.querySelectorAll('.team-section');
+    const items = legend.querySelectorAll('.legend-item');
 
-  function makeObserver(legendEl, dataAttr) {
-    return new IntersectionObserver((entries) => {
-      let best = null, bestRatio = 0;
-      for (const entry of entries) {
-        if (entry.intersectionRatio > bestRatio) {
-          bestRatio = entry.intersectionRatio;
-          best = entry.target;
+    if (items.length > 0) items[0].classList.add('active');
+
+    const observer = new IntersectionObserver((entries) => {
+      let visible = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visible = entry.target;
+        }
+      });
+      if (visible) {
+        const team = visible.querySelector('.team-header')?.className
+          .match(/green|yellow|orange|red/)?.[0];
+        if (team) {
+          items.forEach(item => {
+            item.classList.toggle('active', item.dataset.team === team);
+          });
         }
       }
-      if (best) {
-        const colour = best.classList[1]; // .section.green → "green"
-        legendEl.querySelectorAll('.legend-item').forEach(item => {
-          item.classList.toggle('active', item.getAttribute(dataAttr) === colour);
-        });
-      }
-    }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] });
+    }, { threshold: 0.3 });
+
+    sections.forEach(s => observer.observe(s));
   }
 
-  // Team legend (key-figures page): observes .team-section
-  const teamLegend = document.getElementById('teamLegend');
-  if (teamLegend) {
-    const first = teamLegend.querySelector('.legend-item');
-    if (first) first.classList.add('active');
-
-    const obs = makeObserver(teamLegend, 'data-team');
-    document.querySelectorAll('.team-section').forEach(s => obs.observe(s));
-  }
-
-  // Section legend (papers page): observes .section
+  // ── Section legend scroll highlighting (papers) ──
   const sectionLegend = document.getElementById('sectionLegend');
   if (sectionLegend) {
-    const first = sectionLegend.querySelector('.legend-item');
-    if (first) first.classList.add('active');
+    const sections = document.querySelectorAll('.section');
+    const items = sectionLegend.querySelectorAll('.legend-item');
 
-    const obs = makeObserver(sectionLegend, 'data-section');
-    document.querySelectorAll('.section').forEach(s => obs.observe(s));
+    if (items.length > 0) items[0].classList.add('active');
+
+    const observer = new IntersectionObserver((entries) => {
+      let visible = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visible = entry.target;
+        }
+      });
+      if (visible) {
+        // .section.green → "green"
+        const cls = [...visible.classList].find(
+          c => ['green','blue','orange','red','grey'].includes(c)
+        );
+        if (cls) {
+          items.forEach(item => {
+            item.classList.toggle('active', item.dataset.section === cls);
+          });
+        }
+      }
+    }, { threshold: 0.3 });
+
+    sections.forEach(s => observer.observe(s));
   }
 });
