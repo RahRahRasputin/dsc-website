@@ -64,11 +64,11 @@
   text-decoration: none;
 }
 
-/* Container — override theme.css default 1200px */
-.fieldguide-content > .container {
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Hook */
