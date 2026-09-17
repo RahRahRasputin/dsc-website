@@ -88,14 +88,8 @@
 
 /* Team Sections */
 .team-section {
-  padding: 48px 24px 32px;
+  padding: 48px 0 32px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-/* Patterns and other bottom sections — same horizontal padding */
-.patterns, .papers-link, .closing {
-  padding-left: 24px;
-  padding-right: 24px;
 }
 .team-header {
   display: flex;
