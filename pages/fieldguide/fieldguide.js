@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Team legend scroll highlighting
-  const legend = document.getElementById('teamLegend');
-  if (legend) {
+  // Team legend scroll highlighting (key-figures page)
+  const teamLegend = document.getElementById('teamLegend');
+  if (teamLegend) {
     const sections = document.querySelectorAll('.team-section');
-    const items = legend.querySelectorAll('.legend-item');
+    const items = teamLegend.querySelectorAll('.legend-item');
 
     // Mark first as active by default
     if (items.length > 0) items[0].classList.add('active');
@@ -59,6 +59,34 @@ document.addEventListener('DOMContentLoaded', () => {
         if (team) {
           items.forEach(item => {
             item.classList.toggle('active', item.dataset.team === team);
+          });
+        }
+      }
+    }, { threshold: 0.3 });
+
+    sections.forEach(s => observer.observe(s));
+  }
+
+  // Section legend scroll highlighting (papers page)
+  const sectionLegend = document.getElementById('sectionLegend');
+  if (sectionLegend) {
+    const sections = document.querySelectorAll('.section');
+    const items = sectionLegend.querySelectorAll('.legend-item');
+
+    if (items.length > 0) items[0].classList.add('active');
+
+    const observer = new IntersectionObserver((entries) => {
+      let visible = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visible = entry.target;
+        }
+      });
+      if (visible) {
+        const sectionClass = visible.classList[1]; // e.g. 'green', 'blue', 'orange', 'red', 'grey'
+        if (sectionClass) {
+          items.forEach(item => {
+            item.classList.toggle('active', item.dataset.section === sectionClass);
           });
         }
       }

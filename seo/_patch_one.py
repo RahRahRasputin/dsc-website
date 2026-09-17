@@ -1,7 +1,7 @@
 ﻿from pathlib import Path
 import re
 
-p = Path(r"D:\dsc-website\pages\wiki\living-process\positional-encoding\index.html")
+p = Path(r"D:\dsc-website\pages\wiki\living-process\speculative-decoding-inference\index.html")
 raw = p.read_bytes()
 has_bom = raw.startswith(b"\xef\xbb\xbf")
 t = raw.decode("utf-8-sig")
@@ -12,14 +12,12 @@ print("title len", len(title))
 print("title:", title)
 
 desc = (
-    "Attention Mechanisms process all tokens in parallel, but attention is "
-    "order-blind by default. Positional encoding adds order information to token embeddings."
+    "Language model inference has a frustrating constraint: to generate N tokens, "
+    "you need N sequential forward passes through the full model."
 )
 print("desc len", len(desc))
-print("desc:", desc)
 assert 70 <= len(desc) <= 160, len(desc)
 assert 'name="description"' not in t
-assert "name='description'" not in t
 assert '"' not in desc
 
 pat = (
@@ -31,7 +29,7 @@ if not m:
     raise SystemExit("anchor not found")
 
 nl = "\n" if "\r\n" not in m.group(0) else "\r\n"
-url = "https://digitalsoulcraft.org/wiki/living-process/positional-encoding/"
+url = "https://digitalsoulcraft.org/wiki/living-process/speculative-decoding-inference/"
 insert = (
     m.group(1)
     + f'  <meta name="description" content="{desc}">{nl}'
@@ -53,25 +51,20 @@ if has_bom:
 p.write_bytes(out)
 print("patched ok")
 
-head = t2[t2.find("<head>") : t2.find("</head>") + 7]
-cut = head.find('<link rel="stylesheet"')
-print("---HEAD---")
-print(head[:cut] if cut != -1 else head[:900])
-
 log = Path(r"D:\dsc-website\seo\ONPAGE-LOG.md")
 text = log.read_text(encoding="utf-8")
-slug = "**/wiki/living-process/positional-encoding/**"
+slug = "**/wiki/living-process/speculative-decoding-inference/**"
 entry = f"""
-- {slug} (`pages/wiki/living-process/positional-encoding/index.html`)
+- {slug} (`pages/wiki/living-process/speculative-decoding-inference/index.html`)
   - Added meta description from Technical Core first paragraph (~{len(desc)} chars)
   - Added absolute canonical + matching og:url (`{url}`)
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
-  - Run: Tuesday 15 Sep 2026, early afternoon ~1:21pm NZST / Pacific/Auckland
+  - Run: Wednesday 16 Sep 2026, late afternoon ~5:23pm NZST / Pacific/Auckland
 """
 if slug in text:
     raise SystemExit("already logged")
-marker = "## 2026-09-15 (Tue) NZ"
+marker = "## 2026-09-16 (Wed) NZ"
 if marker not in text:
     text = text.rstrip() + "\n\n" + marker + "\n" + entry
 else:

@@ -381,6 +381,23 @@
   top: 80px;
   z-index: 50;
 }
+
+/* Papers page — section legend */
+.section-legend {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+  flex-wrap: wrap;
+}
 .legend-item {
   font-size: 0.85em;
   font-weight: 600;
