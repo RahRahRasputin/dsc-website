@@ -76,15 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (items.length > 0) items[0].classList.add('active');
 
     const observer = new IntersectionObserver((entries) => {
-      let visible = null;
+      let best = null, bestRatio = 0;
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          visible = entry.target;
+        if (entry.intersectionRatio > bestRatio) {
+          best = entry.target;
+          bestRatio = entry.intersectionRatio;
         }
       });
-      if (visible) {
+      if (best) {
         // .section.green → "green"
-        const cls = [...visible.classList].find(
+        const cls = [...best.classList].find(
           c => ['green','blue','orange','red','grey'].includes(c)
         );
         if (cls) {
