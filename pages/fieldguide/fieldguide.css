@@ -23,18 +23,23 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Field Guide uses site theme */
+/* Field Guide uses site theme.
+   One column for header, legend, cards, and page footer so they share
+   the same 900px width and 24px gutters. theme.css .container is 1200px. */
 .fieldguide-content {
   font-family: var(--font-body);
   background: #ffffff;
   color: #1a1a1a;
   line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Header */
 .header {
   text-align: center;
-  padding: 60px 24px 40px;
+  padding: 60px 0 40px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .header h1 {
@@ -64,11 +69,11 @@
   text-decoration: none;
 }
 
-/* Container */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* Inner wrapper — width/gutters live on .fieldguide-content */
+.fieldguide-content .container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Hook */
@@ -368,10 +373,11 @@
 
 /* Key figures — team legend */
 .team-legend {
-  max-width: 900px;
-  margin: 0 auto 1.5rem;
+  max-width: none;
+  margin: 0 0 1.5rem;
   padding: 0.75rem 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
   background: #f8f8f8;
@@ -384,8 +390,8 @@
 
 /* Papers page — section legend */
 .section-legend {
-  max-width: 900px;
-  margin: 0 auto 1.5rem;
+  max-width: none;
+  margin: 0 0 1.5rem;
   padding: 0.75rem 1.5rem;
   display: flex;
   gap: 1.5rem;
@@ -572,7 +578,7 @@
 
 /* Footer */
 .footer {
-  padding: 32px 24px;
+  padding: 32px 0;
   text-align: center;
   font-size: 0.8em;
   color: #333333;
@@ -588,4 +594,9 @@
   .header h1 { font-size: 1.8em; }
   .card { flex-direction: column; }
   .card-quote { max-width: none; text-align: left; margin-top: 8px; }
+  .team-legend,
+  .section-legend {
+    gap: 0.5rem 0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
 }
