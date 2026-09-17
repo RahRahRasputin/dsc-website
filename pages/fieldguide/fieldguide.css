@@ -572,6 +572,8 @@
 
 /* Footer */
 .footer {
+  max-width: 900px;
+  margin: 0 auto;
   padding: 32px 24px;
   text-align: center;
   font-size: 0.8em;
