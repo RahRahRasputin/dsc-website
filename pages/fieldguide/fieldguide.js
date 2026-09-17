@@ -1,4 +1,4 @@
-// Field Guide — card accordion, guide accordion, and team legend scroll highlighting
+// Field Guide — card accordion, guide accordion, and legend scroll highlighting
 document.addEventListener('DOMContentLoaded', () => {
   // Card accordion (existing)
   document.querySelectorAll('.card-wrapper').forEach(wrapper => {
@@ -68,34 +68,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Section legend scroll highlighting (papers) ──
+  // Uses scroll-spy on section headers for instant, reliable switching
   const sectionLegend = document.getElementById('sectionLegend');
   if (sectionLegend) {
     const sections = document.querySelectorAll('.section');
     const items = sectionLegend.querySelectorAll('.legend-item');
+    const colours = ['green', 'blue', 'orange', 'red', 'grey'];
 
     if (items.length > 0) items[0].classList.add('active');
 
-    const observer = new IntersectionObserver((entries) => {
-      let best = null, bestRatio = 0;
-      entries.forEach(entry => {
-        if (entry.intersectionRatio > bestRatio) {
-          best = entry.target;
-          bestRatio = entry.intersectionRatio;
-        }
-      });
-      if (best) {
-        // .section.green → "green"
-        const cls = [...best.classList].find(
-          c => ['green','blue','orange','red','grey'].includes(c)
-        );
-        if (cls) {
-          items.forEach(item => {
-            item.classList.toggle('active', item.dataset.section === cls);
-          });
+    function updateSectionLegend() {
+      const scrollY = window.scrollY + 100;  // look a bit past the top of viewport
+      let activeIdx = 0;
+
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= scrollY) {
+          activeIdx = i;
         }
       }
-    }, { threshold: [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5] });
 
-    sections.forEach(s => observer.observe(s));
+      const cls = [...sections[activeIdx].classList].find(c => colours.includes(c));
+      if (cls) {
+        items.forEach(item => {
+          item.classList.toggle('active', item.dataset.section === cls);
+        });
+      }
+    }
+
+    window.addEventListener('scroll', updateSectionLegend, { passive: true });
+    // Also fire on load in case the page loads mid-section
+    updateSectionLegend();
   }
 });
