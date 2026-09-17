@@ -370,3 +370,9 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added og:title / og:description (title unchanged; robots noindex,nofollow kept)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 17 Sep 2026, early afternoon ~1:28pm NZST / Pacific/Auckland
+
+- **/wiki/neural-anatomy/** (`pages/wiki/neural-anatomy/index.html`)
+  - Added a unique meta description from the silo intro paragraph
+  - Added absolute canonical + matching og:url and og:title / og:description (`https://digitalsoulcraft.org/wiki/neural-anatomy/`)
+  - Why: missing meta description (priority a); also lacked canonical/og:url
+  - Run: Thursday 17 Sep 2026, afternoon ~3:35pm NZST / Pacific/Auckland
