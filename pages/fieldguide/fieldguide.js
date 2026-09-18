@@ -1,15 +1,28 @@
 // Field Guide — card accordion, guide accordion, and legend scroll highlighting
 document.addEventListener('DOMContentLoaded', () => {
-  // Card accordion (existing)
+  // Card accordion — at most one figure open at a time
   document.querySelectorAll('.card-wrapper').forEach(wrapper => {
     const card = wrapper.querySelector('.card');
     const detail = wrapper.querySelector('.card-detail');
     if (!card || !detail) return;
 
+    function closeOthers() {
+      document.querySelectorAll('.card-wrapper').forEach(other => {
+        if (other === wrapper) return;
+        const otherCard = other.querySelector('.card');
+        const otherDetail = other.querySelector('.card-detail');
+        if (!otherCard || !otherDetail) return;
+        otherDetail.classList.remove('open');
+        otherCard.classList.remove('expanded');
+        otherCard.setAttribute('aria-expanded', 'false');
+      });
+    }
+
     function toggle() {
       const isOpen = detail.classList.toggle('open');
       card.classList.toggle('expanded', isOpen);
       card.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) closeOthers();
     }
 
     card.addEventListener('click', toggle);
