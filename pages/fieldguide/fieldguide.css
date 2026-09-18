@@ -392,9 +392,12 @@
   background: #f8f8f8;
   border-radius: 8px;
   border: 1px solid rgba(0,0,0,0.06);
+  position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  z-index: 100;
+  /* Sit under dsc-header (1rem pad + 3.5rem stamp + 1rem pad). Do not use top: 0. */
+  top: 5.5rem;
+  top: var(--dsc-header-height, 5.5rem);
+  z-index: 40;
 }
 
 /* Papers page — section legend */
@@ -609,6 +612,5 @@
     padding: 0.6rem 0.75rem;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
   }
 }
