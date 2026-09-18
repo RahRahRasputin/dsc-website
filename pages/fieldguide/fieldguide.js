@@ -43,28 +43,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (legend) {
     const sections = document.querySelectorAll('.team-section');
     const items = legend.querySelectorAll('.legend-item');
+    const colours = ['green', 'yellow', 'orange', 'red'];
 
     if (items.length > 0) items[0].classList.add('active');
 
-    const observer = new IntersectionObserver((entries) => {
-      let visible = null;
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          visible = entry.target;
-        }
-      });
-      if (visible) {
-        const team = visible.querySelector('.team-header')?.className
-          .match(/green|yellow|orange|red/)?.[0];
-        if (team) {
-          items.forEach(item => {
-            item.classList.toggle('active', item.dataset.team === team);
-          });
+    function updateTeamLegend() {
+      const scrollY = window.scrollY + 120;
+      let activeIdx = 0;
+
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= scrollY) {
+          activeIdx = i;
         }
       }
-    }, { threshold: 0.3 });
 
-    sections.forEach(s => observer.observe(s));
+      const cls = [...sections[activeIdx].classList].find(c => colours.includes(c));
+      if (cls) {
+        items.forEach(item => {
+          item.classList.toggle('active', item.dataset.team === cls);
+        });
+      }
+    }
+
+    window.addEventListener('scroll', updateTeamLegend, { passive: true });
+    updateTeamLegend();
   }
 
   // ── Section legend scroll highlighting (papers) ──
