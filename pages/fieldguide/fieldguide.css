@@ -613,4 +613,17 @@
     position: -webkit-sticky;
     position: sticky;
   }
+  .paper-title,
+  .paper-desc {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .paper-meta {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .paper {
+    overflow: visible;
+  }
 }
