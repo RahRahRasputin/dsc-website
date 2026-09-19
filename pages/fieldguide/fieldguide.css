@@ -156,7 +156,7 @@
   transition: max-height 0.3s ease, padding 0.3s ease, margin-top 0.3s ease;
 }
 .card-detail.open {
-  max-height: 1200px;
+  max-height: 5000px;
   padding: 16px 24px 18px;
   margin-top: 6px;
 }
