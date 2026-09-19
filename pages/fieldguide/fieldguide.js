@@ -24,17 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
       card.setAttribute('aria-expanded', String(isOpen));
       if (isOpen) {
         closeOthers();
-        // After the closing animation settles, scroll to keep this card at the top
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            const header = document.querySelector('dsc-header');
-            const legend = document.getElementById('sectionLegend') || document.getElementById('teamLegend');
-            let offset = header ? header.getBoundingClientRect().height + 16 : 80;
-            if (legend) offset += legend.getBoundingClientRect().height + 8;
-            const top = wrapper.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
-          });
-        });
+        // Wait for the collapse transition (300ms) to finish, then scroll
+        // so the card stays anchored at the top of the viewport
+        setTimeout(() => {
+          const header = document.querySelector('dsc-header');
+          const legend = document.getElementById('sectionLegend') || document.getElementById('teamLegend');
+          let offset = header ? header.getBoundingClientRect().height + 16 : 80;
+          if (legend) offset += legend.getBoundingClientRect().height + 8;
+          const top = wrapper.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }, 360);
       }
     }
 
