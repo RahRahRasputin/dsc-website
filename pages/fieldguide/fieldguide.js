@@ -105,6 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navHeight();
     updateTeamLegend();
+
+    // ── Make team legend items clickable to scroll to section ──
+    items.forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        const colour = item.dataset.team;
+        const target = document.querySelector(`.team-section.${colour}`) ||
+                       document.querySelector(`.team-header.${colour}`)?.closest('.team-section');
+        if (!target) return;
+        const header = document.querySelector('dsc-header');
+        const offset = header ? header.getBoundingClientRect().height + 16 : 100;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
   }
 
   // ── Section legend scroll highlighting (papers) ──
@@ -138,5 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateSectionLegend, { passive: true });
     // Also fire on load in case the page loads mid-section
     updateSectionLegend();
+
+    // ── Make legend items clickable to scroll to section ──
+    items.forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        const colour = item.dataset.section;
+        const target = document.querySelector(`.section.${colour}`);
+        if (!target) return;
+        // Account for the fixed header
+        const header = document.querySelector('dsc-header');
+        const offset = header ? header.getBoundingClientRect().height + 16 : 100;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
   }
 });
