@@ -119,7 +119,7 @@
 }
 
 /* Card wrapper (card + collapsible detail) */
-.card-wrapper { margin-bottom: 12px; }
+.card-wrapper { margin-bottom: 12px; overflow-anchor: none; }
 
 /* Cards */
 .card {
