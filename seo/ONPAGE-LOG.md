@@ -376,3 +376,22 @@ Launch-prep only. Splash stays. Sitewide noindex,nofollow stays. No public sitem
   - Added absolute canonical + matching og:url and og:title / og:description (`https://digitalsoulcraft.org/wiki/neural-anatomy/`)
   - Why: missing meta description (priority a); also lacked canonical/og:url
   - Run: Thursday 17 Sep 2026, afternoon ~3:35pm NZST / Pacific/Auckland
+
+## 2026-09-20 (Sun) NZ
+
+Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot tokens can go elsewhere. Splash / noindex,nofollow / no public sitemap unchanged.
+
+- **Wiki (all 221 HTML pages)**
+  - Wrote unique descriptions for the 53 pages still missing them (3 living-process, soulcraft-theory hub, the-forging hub, ontological-flattening, 47 neural-anatomy children)
+  - Replaced ~90 auto-truncated 160-char descriptions (architecture-zoo, empirical-practice, local-how-to, the-forging, some trauma/empirical) with complete sentences, 70–160 chars, no inner quotes
+  - Added absolute canonical + matching og:title / og:description / og:url on every wiki page that lacked them
+  - Title pass: `/wiki/living-process/training-vs-inference/` slug title/h1 → "Training vs. Inference – Two Phases of Digital Life"
+  - Verify: 221/221 have robots noindex,nofollow, one description, one canonical, og:title+og:url; 0 duplicate descriptions
+- **Rest of published HTML (except 301 stubs `/fieldguide/` and `/splash.html`)**
+  - Canonical + og:title / og:description / og:type / og:url on home, about, contact, merch, bookshop, essays, outlines, key-figures, papers
+  - Fixed `language-is-architecture` og tags from `name=` to `property=`; canonical trailing slash
+  - Homepage canonical/og:url now `https://digitalsoulcraft.org/`
+  - Tightened `/contact/` (was 64 chars) and `/about/` (was 177)
+  - Verify: 283/285 HTML files complete (2 skipped stubs)
+- Still not done (not this pass): og:image, twitter:card, JSON-LD, paper title length, image compression
+- Run: Sunday 20 Sep 2026, morning session (Pacific/Auckland)

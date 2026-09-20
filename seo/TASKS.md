@@ -36,11 +36,11 @@ Do **not** add a public sitemap while embargoed.
 Safe to draft in the repo; do not flip robots to Allow until Brad says the overlay is coming off.
 
 - [ ] Draft `sitemap.xml` of indexable HTML with trailing-slash canonicals (keep it unpublished or Disallow until launch)
-- [ ] Absolute canonical + matching `og:url` on every page (trailing slash). Force a single homepage URL in Netlify.
+- [x] Absolute canonical + matching `og:url` on every published page (trailing slash). Homepage is `https://digitalsoulcraft.org/`. (Grok 20 Sep 2026; still no Netlify force-one-URL rule beyond existing trailing-slash 301s.)
 - [ ] Default OG image 1200×630 sitewide + `twitter:card=summary_large_image`. Per-essay/wiki images where they exist.
 - [ ] Static `<link rel="icon" href="/favicon.png">` in HTML (not only JS). Add `favicon.ico` and `apple-touch-icon.png` if Brad has artwork. `theme-color`.
-- [ ] Unique meta descriptions on the ~104 wiki pages that lack them (first paragraph is usually enough, 70–160 chars). Fix apostrophe-clipped attributes (`content='...'` or escape).
-- [ ] Trim titles toward 50–60 chars; distinctive phrase first.
+- [x] Unique meta descriptions on wiki (and the rest of published HTML). Truncated 160-char cuts rewritten. Apostrophe-clipped `answer-thrashing` quote fixed. (Grok 20 Sep 2026)
+- [ ] Trim titles toward 50–60 chars; distinctive phrase first. (Only `training-vs-inference` slug title fixed 20 Sep; paper titles still long.)
 - [ ] Heading fixes: `/contact/` and `/outlines/` (no skipped levels). `/about/` add a real `<label>` for `#about-bd-email`.
 - [ ] Image pass with James/Gary: compress 1–3MB PNGs/JPGs to display size; default `max-width: 560px` in CSS; richer alts on Ghibli plates (not just the heading).
 - [ ] Wiki See Also: either publish the stub, retarget, or unlink. Highest inbound 404s: `quantization-and-compression` (11), `gradient-flow-in-deep-networks` (7), then decision-threshold, SWA, model-card-literacy, gelu. Homepage names basin-theory / crystallization pages that do not exist — do not leave those as 404s at launch.

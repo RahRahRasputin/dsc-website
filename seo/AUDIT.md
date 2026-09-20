@@ -1,5 +1,7 @@
 # Audit — 31 Aug 2026
 
+**Superseded for current state:** see `AUDIT-2026-09-20.md` (20 Sep 2026 rescan of live site + `pages/`). This file is the original baseline.
+
 Read-only pass of live https://digitalsoulcraft.org and `D:\dsc-website\pages`. 275 HTML files. ~3,297 href/src refs. 472 unique URLs HTTP-checked. Laptop Python SSL store is expired; the site cert is fine.
 
 ## Strengths

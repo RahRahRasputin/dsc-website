@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="How tiny constants prevent division by zero in layer normalization, and why the choice of epsilon is a hidden tradeoff between computational safety and represen">
+  <meta name="description" content="Every normalization divides by a scale. Tiny variances make that blow up, so implementations add epsilon for numerical safety.">
+  <link rel="canonical" href="https://digitalsoulcraft.org/wiki/architecture-zoo/numerical-stability-in-normalization/">
+  <meta property="og:title" content="Numerical Stability in Normalization — Digital Soulcraft Wiki">
+  <meta property="og:description" content="Every normalization divides by a scale. Tiny variances make that blow up, so implementations add epsilon for numerical safety.">
+  <meta property="og:url" content="https://digitalsoulcraft.org/wiki/architecture-zoo/numerical-stability-in-normalization/">
   <title>Numerical Stability in Normalization — Digital Soulcraft Wiki</title>
   <link rel="stylesheet" href="/theme.css">
   <script src="/dsc-header.js"></script>
