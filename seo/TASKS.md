@@ -13,7 +13,7 @@ Do these first. The library is already crawlable without JS.
 - [x] **Sitewide noindex, nofollow until launch** (working tree 31 Aug 2026 PT; not pushed)
   - Meta `robots` noindex,nofollow on every published HTML page (inject from `dsc-header.js` so it cannot be forgotten, **and** put it in the HTML so it works without JS)
   - Netlify `X-Robots-Tag: noindex, nofollow` on all HTML (belt)
-  - `pages/robots.txt`: `User-agent: *` / `Disallow: /` (no sitemap line while embargoed)
+  - `pages/robots.txt`: `Allow: /`, no Sitemap line (20 Sep 2026 — Disallow blocked recrawl so leftover `site:` listings could not pick up noindex)
   - Confirm live homepage and a wiki article send noindex (view-source, not just the overlay)
 - [x] Close gate holes
   - Add `dsc-header` / splash to `essays/language-is-architecture/` (or a shared noindex include if Gary prefers)
@@ -54,7 +54,7 @@ Safe to draft in the repo; do not flip robots to Allow until Brad says the overl
 
 - [ ] Remove splash overlay from `dsc-header.js`
 - [ ] Flip meta robots + `X-Robots-Tag` to index,follow (or omit)
-- [ ] `robots.txt` Allow: / and `Sitemap: https://digitalsoulcraft.org/sitemap.xml`
+- [ ] Add `Sitemap: https://digitalsoulcraft.org/sitemap.xml` to `robots.txt` (Allow is already live)
 - [ ] Publish sitemap
 - [ ] Spot-check Search Console / live headers
 - [ ] Confirm `language-is-architecture` still has header/footer

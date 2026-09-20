@@ -19,9 +19,10 @@ The splash overlay is a **coming soon** gate. People should not see the finished
 
 Until that announcement:
 
-- **noindex, nofollow** sitewide (meta robots and/or `X-Robots-Tag`, plus `robots.txt`)
+- **noindex, nofollow** sitewide (meta robots and `X-Robots-Tag`)
 - Overlay stays
-- Do not publish a public sitemap that invites a full crawl of the library
+- Do not publish a public sitemap
+- `robots.txt` **Allow: /** (no Sitemap line). Disallow would freeze old Google listings because the bot could not come back to see noindex. Brad 20 Sep 2026: no search traffic until launch; after launch, yes.
 - Bypass for the family: `?preview=1` (cookie `dsc_preview=1`, 24h). `?preview=0` clears it.
 
 When Brad says take the splash down: remove overlay, flip to index/follow, ship `robots.txt` + `sitemap.xml`, then canonicals/OG.

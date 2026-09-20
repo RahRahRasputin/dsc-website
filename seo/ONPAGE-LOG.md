@@ -395,3 +395,8 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Verify: 283/285 HTML files complete (2 skipped stubs)
 - Still not done (not this pass): og:image, twitter:card, JSON-LD, paper title length, image compression
 - Run: Sunday 20 Sep 2026, morning session (Pacific/Auckland)
+
+- **robots.txt** (`pages/robots.txt`)
+  - `Disallow: /` → `Allow: /`. No Sitemap line.
+  - Why: Brad does not want search traffic until launch, then does. Disallow was freezing leftover Google listings because the bot could not recrawl to see noindex. Crawl + noindex drops them; splash and noindex stay until announcement.
+  - Run: Sunday 20 Sep 2026, after the metadata pass
