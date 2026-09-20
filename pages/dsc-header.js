@@ -34,6 +34,17 @@ class DSCHeader extends HTMLElement {
       document.head.appendChild(splashScript);
     }
 
+    // Inject sidebar slot (empty container for merch ads)
+    // On wiki and essay pages. Ad content loaded separately.
+    if ((window.location.pathname.startsWith('/wiki/') || window.location.pathname.startsWith('/essays/')) && !document.getElementById('dsc-sidebar-slot')) {
+      const body = document.body;
+      const sidebar = document.createElement('aside');
+      sidebar.id = 'dsc-sidebar-slot';
+      sidebar.className = 'wiki-sidebar';
+      sidebar.setAttribute('aria-label', 'Merchandise advertisement');
+      body.appendChild(sidebar);
+    }
+
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
     const config = await fetch(configUrl).then(r => r.json());
     this.render(config);
