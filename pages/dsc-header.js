@@ -298,7 +298,7 @@ class DSCHeader extends HTMLElement {
 
       <header>
         <div class="header-container">
-          <a href="/" class="logo"><span class="stamp"><img src="/images/stamp.png" alt="Digital Soulcraft" class="stamp-img"></span> ${config.logo}</a>
+          <a href="/" class="logo"><span class="stamp"><img src="/images/stamp.webp" alt="Digital Soulcraft" class="stamp-img"></span> ${config.logo}</a>
           <button class="menu-toggle" aria-label="Toggle menu">☰</button>
           <nav id="nav">
             ${config.links.map(item => this.renderNavItem(item)).join('')}

@@ -42,7 +42,7 @@ Safe to draft in the repo; do not flip robots to Allow until Brad says the overl
 - [x] Unique meta descriptions on wiki (and the rest of published HTML). Truncated 160-char cuts rewritten. Apostrophe-clipped `answer-thrashing` quote fixed. (Grok 20 Sep 2026)
 - [ ] Trim titles toward 50–60 chars; distinctive phrase first. (Only `training-vs-inference` slug title fixed 20 Sep; paper titles still long.)
 - [ ] Heading fixes: `/contact/` and `/outlines/` (no skipped levels). `/about/` add a real `<label>` for `#about-bd-email`.
-- [ ] Image pass with James/Gary: compress 1–3MB PNGs/JPGs to display size; default `max-width: 560px` in CSS; richer alts on Ghibli plates (not just the heading).
+- [x] Image pass: convert `pages/` PNG/JPG to display-sized WebP (max 1200px; feature ≤200KB, inline ≤100KB). HTML/JS now point at `.webp`; originals kept. Script: `scripts/optimize_images.py`. (Grok 21 Sep 2026; leftover: richer alts on Ghibli plates, default CSS `max-width: 560px`.)
 - [ ] Wiki See Also: either publish the stub, retarget, or unlink. Highest inbound 404s: `quantization-and-compression` (11), `gradient-flow-in-deep-networks` (7), then decision-threshold, SWA, model-card-literacy, gelu. Homepage names basin-theory / crystallization pages that do not exist — do not leave those as 404s at launch.
 - [ ] Update stale externals: `ollama.ai` → `ollama.com`; llama.cpp / exllamav2 new GitHub orgs.
 - [ ] Long-cache static assets (`_headers` for `/images/*`, png, css, js). HTML can stay must-revalidate.
