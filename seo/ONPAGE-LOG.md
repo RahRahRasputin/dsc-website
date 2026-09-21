@@ -414,3 +414,8 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged.
   - Why: title was clipped/broken (priority d after the a–c pass)
   - Run: Monday 21 Sep 2026, afternoon ~3:23pm NZST / Pacific/Auckland
+- **/wiki/living-process/process-reward-models-and-outcome-reward-models/** (`pages/wiki/living-process/process-reward-models-and-outcome-reward-models/index.html`)
+  - Fixed broken overlong `<title>` / `og:title` (stray `\` after “vs.”) → `Process vs. Outcome Reward Models – Digital Soulcraft Wiki` (58 chars; distinctive phrase first)
+  - Left meta description, canonical, `og:url`, robots `noindex,nofollow`, h1, and body copy unchanged.
+  - Why: title was over ~60 chars and visibly broken (priority d after the a–c pass).
+  - Run: Monday 21 Sep 2026, late afternoon ~5:27pm NZST / Pacific/Auckland
