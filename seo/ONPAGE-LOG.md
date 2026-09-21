@@ -419,3 +419,10 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, `og:url`, robots `noindex,nofollow`, h1, and body copy unchanged.
   - Why: title was over ~60 chars and visibly broken (priority d after the a–c pass).
   - Run: Monday 21 Sep 2026, late afternoon ~5:27pm NZST / Pacific/Auckland
+## 2026-09-22 (Tue) NZ
+
+- **/wiki/empirical-practice/distribution-shift-and-covariate-shift/** (`pages/wiki/empirical-practice/distribution-shift-and-covariate-shift/index.html`)
+  - Trimmed overlong `<title>` / `og:title` (was ~102 chars with subtitle) → `Distribution Shift and Covariate Shift – Digital Soulcraft Wiki` (63 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
+  - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
+  - Run: Tuesday 22 Sep 2026, morning ~9:34am NZST / Pacific/Auckland
