@@ -400,3 +400,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - `Disallow: /` → `Allow: /`. No Sitemap line.
   - Why: Brad does not want search traffic until launch, then does. Disallow was freezing leftover Google listings because the bot could not recrawl to see noindex. Crawl + noindex drops them; splash and noindex stay until announcement.
   - Run: Sunday 20 Sep 2026, after the metadata pass
+
+## 2026-09-21 (Mon) NZ
+
+- **/wiki/living-process/logit-processors-and-constrained-decoding/** (`pages/wiki/living-process/logit-processors-and-constrained-decoding/index.html`)
+  - Fixed badly truncated `<title>` / `og:title` (stray `\` after "Thinking") → `Logit Processors and Constrained Decoding – Digital Soulcraft Wiki` (~66 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow unchanged; did not touch h1/body (h1 still has the old truncated subtitle)
+  - Why: title over ~60 chars and truncated/broken (priority d after a–c empty post–20 Sep pass)
+  - Run: Monday 21 Sep 2026, afternoon ~1:30pm NZST / Pacific/Auckland
