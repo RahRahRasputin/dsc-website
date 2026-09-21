@@ -408,3 +408,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow unchanged; did not touch h1/body (h1 still has the old truncated subtitle)
   - Why: title over ~60 chars and truncated/broken (priority d after a–c empty post–20 Sep pass)
   - Run: Monday 21 Sep 2026, afternoon ~1:30pm NZST / Pacific/Auckland
+
+- **/wiki/living-process/token-healing-and-tokenization-artifacts/** (`pages/wiki/living-process/token-healing-and-tokenization-artifacts/index.html`)
+  - Fixed broken `<title>` / `og:title` (stray `\` after “Bias”) → `Token Healing and Tokenization Artifacts – Digital Soulcraft` (60 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged.
+  - Why: title was clipped/broken (priority d after the a–c pass)
+  - Run: Monday 21 Sep 2026, afternoon ~3:23pm NZST / Pacific/Auckland
