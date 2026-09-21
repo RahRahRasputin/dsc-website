@@ -39,7 +39,7 @@
 /* Header */
 .header {
   text-align: center;
-  padding: 60px 0 40px;
+  padding: 32px 0 20px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .header h1 {
@@ -57,7 +57,7 @@
   margin: 0 auto;
 }
 .header .byline {
-  margin-top: 16px;
+  margin-top: 10px;
   font-size: 0.85em;
   color: #333333;
 }
@@ -517,20 +517,20 @@
 .paper-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 1.25rem 1.5rem 4rem;
 }
 .paper-page .back-link {
   display: inline-block;
   color: var(--accent-purple);
   text-decoration: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 0.95em;
 }
 .paper-page .back-link:hover {
   text-decoration: underline;
 }
 .paper-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 .paper-header h1 {
   font-family: var(--font-display);

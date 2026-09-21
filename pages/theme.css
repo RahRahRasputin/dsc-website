@@ -141,12 +141,12 @@ button:hover {
 .wiki-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
 }
 
 .wiki-nav {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -156,15 +156,15 @@ button:hover {
 }
 
 .wiki-header {
-  margin-bottom: 40px;
-  padding-bottom: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
   border-bottom: 3px solid;
 }
 
 .wiki-breadcrumb {
   font-size: 0.9em;
   color: #999;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .wiki-breadcrumb a {
