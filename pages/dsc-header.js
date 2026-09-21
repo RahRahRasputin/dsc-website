@@ -36,13 +36,45 @@ class DSCHeader extends HTMLElement {
 
     // Inject sidebar slot (empty container for merch ads)
     // On wiki and essay pages. Ad content loaded separately.
+    // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.
     if ((window.location.pathname.startsWith('/wiki/') || window.location.pathname.startsWith('/essays/')) && !document.getElementById('dsc-sidebar-slot')) {
-      const body = document.body;
+      if (!document.getElementById('dsc-sidebar-style')) {
+        const style = document.createElement('style');
+        style.id = 'dsc-sidebar-style';
+        style.textContent = `
+          .wiki-sidebar {
+            position: fixed;
+            right: 1rem;
+            top: calc(var(--dsc-header-height, 5.5rem) + 0.5rem);
+            width: 160px;
+            min-height: 400px;
+            border-radius: 8px;
+            background: var(--light-bg, #f5f5f5);
+            border: 1px dashed var(--border-color, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--secondary-color, #284b63);
+            opacity: 0.5;
+            z-index: 50;
+          }
+          .wiki-sidebar::after {
+            content: "Merch ad";
+            text-align: center;
+            padding: 1rem;
+          }
+          @media (max-width: 1100px) {
+            .wiki-sidebar { display: none; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
       const sidebar = document.createElement('aside');
       sidebar.id = 'dsc-sidebar-slot';
       sidebar.className = 'wiki-sidebar';
       sidebar.setAttribute('aria-label', 'Merchandise advertisement');
-      body.appendChild(sidebar);
+      document.body.appendChild(sidebar);
     }
 
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
@@ -315,14 +347,29 @@ class DSCHeader extends HTMLElement {
 
     toggle.addEventListener('click', () => {
       nav.classList.toggle('open');
+      this.publishHeaderHeight();
     });
 
     // Close menu when a link is clicked
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('open');
+        this.publishHeaderHeight();
       });
     });
+
+    this.publishHeaderHeight();
+    if (!this._headerHeightObserver) {
+      this._headerHeightObserver = new ResizeObserver(() => this.publishHeaderHeight());
+      this._headerHeightObserver.observe(this);
+    }
+  }
+
+  publishHeaderHeight() {
+    const h = this.getBoundingClientRect().height;
+    if (h > 0) {
+      document.documentElement.style.setProperty('--dsc-header-height', `${Math.round(h)}px`);
+    }
   }
 }
 

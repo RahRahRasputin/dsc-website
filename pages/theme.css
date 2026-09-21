@@ -306,7 +306,8 @@ button:hover {
 .wiki-sidebar {
   position: fixed;
   right: 1rem;
-  top: 5rem;
+  /* Sit just under dsc-header — do not use top: 0 / 5rem (clips under the nav). */
+  top: calc(var(--dsc-header-height, 5.5rem) + 0.5rem);
   width: 160px;
   min-height: 400px;
   border-radius: 8px;
