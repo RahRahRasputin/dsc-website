@@ -304,11 +304,16 @@ button:hover {
 
 /* Wiki sidebar slot — fixed position skyscraper on the right */
 .wiki-sidebar {
+  --dsc-col: 900px;
+  --dsc-ad-width: 160px;
   position: fixed;
-  right: 1rem;
   /* Sit just under dsc-header — do not use top: 0 / 5rem (clips under the nav). */
   top: calc(var(--dsc-header-height, 5.5rem) + 0.5rem);
-  width: 160px;
+  /* Center in the gutter between the ~900px column and the viewport edge. */
+  left: calc(50% + var(--dsc-col) / 2);
+  right: auto;
+  width: var(--dsc-ad-width);
+  margin-left: max(0.75rem, calc((100vw - var(--dsc-col)) / 4 - var(--dsc-ad-width) / 2));
   min-height: 400px;
   border-radius: 8px;
   background: var(--light-bg);

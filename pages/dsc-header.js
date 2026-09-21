@@ -43,10 +43,14 @@ class DSCHeader extends HTMLElement {
         style.id = 'dsc-sidebar-style';
         style.textContent = `
           .wiki-sidebar {
+            --dsc-col: 900px;
+            --dsc-ad-width: 160px;
             position: fixed;
-            right: 1rem;
             top: calc(var(--dsc-header-height, 5.5rem) + 0.5rem);
-            width: 160px;
+            left: calc(50% + var(--dsc-col) / 2);
+            right: auto;
+            width: var(--dsc-ad-width);
+            margin-left: max(0.75rem, calc((100vw - var(--dsc-col)) / 4 - var(--dsc-ad-width) / 2));
             min-height: 400px;
             border-radius: 8px;
             background: var(--light-bg, #f5f5f5);
