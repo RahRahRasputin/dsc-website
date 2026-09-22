@@ -451,3 +451,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
   - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
   - Run: Tuesday 22 Sep 2026, late afternoon ~5:28pm NZST / Pacific/Auckland
+
+## 2026-09-23 (Wed) NZ
+
+- **/wiki/neural-anatomy/weight-magnitude-initialization-and-eigenvalues/** (`pages/wiki/neural-anatomy/weight-magnitude-initialization-and-eigenvalues/index.html`)
+  - Trimmed overlong `<title>` / `og:title` (was ~96 chars with subtitle) → `Weight Magnitude Initialization and Eigenvalues – Digital Soulcraft` (67 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
+  - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
+  - Run: Wednesday 23 Sep 2026, morning ~9:33am NZST / Pacific/Auckland
