@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // so the card stays anchored at the top of the viewport
         setTimeout(() => {
           const header = document.querySelector('dsc-header');
-          const legend = document.getElementById('sectionLegend') || document.getElementById('teamLegend');
+          const legend = document.querySelector('.sticky-legend') || document.getElementById('sectionLegend') || document.getElementById('teamLegend');
           let offset = header ? header.getBoundingClientRect().height + 16 : 80;
           if (legend) offset += legend.getBoundingClientRect().height + 8;
           const top = wrapper.getBoundingClientRect().top + window.scrollY - offset;
@@ -64,11 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Team legend scroll highlighting (key-figures) ──
-  const legend = document.getElementById('teamLegend');
+  const legends = document.querySelectorAll('.sticky-legend');
+  const legend = legends[0] || document.getElementById('teamLegend');
   if (legend) {
     const sections = document.querySelectorAll('.team-section');
-    const items = legend.querySelectorAll('.legend-item');
-    const colours = ['green', 'risk', 'yellow', 'orange', 'red'];
+    const items = document.querySelectorAll('.sticky-legend .legend-item, #teamLegend .legend-item');
+    const colours = ['green', 'yellow', 'red', 'risk', 'orange'];
 
     function navHeight() {
       const header = document.querySelector('dsc-header');
@@ -94,9 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTeamLegend() {
-      navHeight();
-      // Active team = last heading that has arrived just under the key.
-      const line = legend.getBoundingClientRect().bottom + 32;
+      const headerH = navHeight();
+      // Active team = last heading that has reached the sticky key under the site header.
+      const line = headerH + 72;
       let current = sections[0];
       for (let i = 0; i < sections.length; i++) {
         const marker = sections[i].querySelector('.team-header') || sections[i];

@@ -414,6 +414,15 @@
   z-index: 40;
 }
 
+/* Repeated inside each key-figures section so the key stays visible while that section scrolls. */
+.team-section .sticky-legend {
+  z-index: 30;
+  margin-bottom: 16px;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+}
+
 /* Papers page — section legend */
 .section-legend {
   max-width: none;
