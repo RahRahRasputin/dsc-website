@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (legend) {
     const sections = document.querySelectorAll('.team-section');
     const items = legend.querySelectorAll('.legend-item');
-    const colours = ['green', 'yellow', 'orange', 'red'];
+    const colours = ['green', 'risk', 'yellow', 'orange', 'red'];
 
     function navHeight() {
       const header = document.querySelector('dsc-header');
