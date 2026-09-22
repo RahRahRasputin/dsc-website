@@ -338,3 +338,8 @@ button:hover {
     display: none;
   }
 }
+
+/* Scroll offset for fixed header compensation */
+:target {
+  scroll-margin-top: 100px;
+}
