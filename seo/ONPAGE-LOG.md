@@ -459,3 +459,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
   - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
   - Run: Wednesday 23 Sep 2026, morning ~9:33am NZST / Pacific/Auckland
+
+- **/wiki/alignment/capability-vs-alignment-tradeoff/** (`pages/wiki/alignment/capability-vs-alignment-tradeoff/index.html`)
+  - Trimmed overlong `<title>` / `og:title` (was ~95 chars with subtitle) → `Capability vs. Alignment – Digital Soulcraft Wiki` (49 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
+  - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
+  - Run: Wednesday 23 Sep 2026, late morning ~11:40am NZST / Pacific/Auckland
