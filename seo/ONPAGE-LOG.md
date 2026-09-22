@@ -439,3 +439,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
   - Run: Tuesday 22 Sep 2026, afternoon ~1:30pm NZST / Pacific/Auckland
 
+- **/wiki/living-process/beam-search-and-decoding-strategies/** (pages/wiki/living-process/beam-search-and-decoding-strategies/index.html)
+  - Trimmed overlong <title> / og:title (was ~99 chars with subtitle) → Beam Search and Decoding Strategies – Digital Soulcraft Wiki (60 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
+  - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
+  - Run: Tuesday 22 Sep 2026, afternoon ~3:25pm NZST / Pacific/Auckland
+
