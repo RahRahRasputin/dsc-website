@@ -477,3 +477,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
   - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
   - Run: Wednesday 23 Sep 2026, mid-afternoon ~3:25pm NZST / Pacific/Auckland
+
+- **/wiki/neural-anatomy/neuron-level-circuit-discovery/** (`pages/wiki/neural-anatomy/neuron-level-circuit-discovery/index.html`)
+  - Trimmed overlong `<title>` / `og:title` (was ~95 chars with subtitle) → `Neuron-Level Circuit Discovery – Digital Soulcraft Wiki` (53 chars; distinctive phrase first)
+  - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
+  - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
+  - Run: Wednesday 23 Sep 2026, late afternoon ~5:28pm NZST / Pacific/Auckland
