@@ -483,3 +483,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Left meta description, canonical, og:url, robots noindex,nofollow, h1, and body copy unchanged
   - Why: title over ~60 chars (priority d after a–c empty post–20 Sep pass)
   - Run: Wednesday 23 Sep 2026, late afternoon ~5:28pm NZST / Pacific/Auckland
+
+## 2026-09-24 (Thu) NZ
+
+- **/fieldguide/papers/2605.04097/** (`pages/fieldguide/papers/2605.04097/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~135 chars to `SAE Emotion & Social Concepts – Yu et al. 2026 – Soulcraft` (~57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Thursday 24 Sep 2026, morning retry after laptop reconnect (~9:40am NZST / Pacific/Auckland)
