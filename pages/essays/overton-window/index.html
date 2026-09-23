@@ -29,6 +29,11 @@
     .essay-content ul, .essay-content ol { margin: 1.5rem 0; padding-left: 2rem; }
     .essay-content li { margin-bottom: 0.75rem; line-height: 1.6; }
     .essay-content blockquote { border-left: 3px solid var(--accent-color); margin: 1.5rem 0; padding: 0.5rem 1.5rem; background: var(--light-bg); border-radius: 0 8px 8px 0; font-style: italic; color: var(--secondary-color); }
+    .essay-content h3 a[href*="key-figures"] { } /* placeholder for link style */
+    /* Anchor offset for fixed header */
+    :target {
+      scroll-margin-top: 120px;
+    }
     .essay-content .pullquote { font-size: 1.3rem; font-weight: 600; color: var(--accent-color); text-align: center; margin: 2rem 0; padding: 1.5rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
     .essay-footer { max-width: 900px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.9rem; color: var(--secondary-color); opacity: 0.8; }
     .essay-footer a { color: var(--accent-color); }
