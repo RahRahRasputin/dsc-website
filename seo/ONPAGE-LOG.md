@@ -510,3 +510,8 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Thursday 24 Sep 2026, mid-afternoon ~3:24pm NZST / Pacific/Auckland
 
+- **/fieldguide/papers/2609.01491/** (`pages/fieldguide/papers/2609.01491/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~120 chars to `GlossoGen: Emergent Language – Stengel-Eskin 2026 – Soulcraft` (61)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Thursday 24 Sep 2026, late afternoon ~5:25pm NZST / Pacific/Auckland
