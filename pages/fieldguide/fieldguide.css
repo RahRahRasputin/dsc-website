@@ -237,11 +237,13 @@
   color: #333333;
   margin-bottom: 2px;
 }
-.card-psentience {
+.card-psentience,
+.card-pdoom {
   font-size: 0.8em;
   color: #333333;
-  margin-bottom: 8px;
 }
+.card-psentience { margin-bottom: 1px; }
+.card-pdoom { margin-bottom: 8px; }
 .card-verdict {
   font-size: 0.9em;
   color: #000000;
