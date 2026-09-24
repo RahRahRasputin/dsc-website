@@ -497,3 +497,10 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Thursday 24 Sep 2026, late morning ~11:40am NZST / Pacific/Auckland
+
+- **/fieldguide/papers/2505.13969/** (`pages/fieldguide/papers/2505.13969/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~126 chars to `Selection-Broadcast Cycle – Nakanishi 2025 – Soulcraft` (54)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Thursday 24 Sep 2026, early afternoon ~1:32pm NZST / Pacific/Auckland
+
