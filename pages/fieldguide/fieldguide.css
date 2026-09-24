@@ -235,6 +235,11 @@
 .card-field {
   font-size: 0.8em;
   color: #333333;
+  margin-bottom: 2px;
+}
+.card-psentience {
+  font-size: 0.8em;
+  color: #333333;
   margin-bottom: 8px;
 }
 .card-verdict {
