@@ -7,6 +7,13 @@
 - **Hosting:** Netlify publishes the `pages/` folder and auto-deploys from `v4`
 - **Live URL:** `/fieldguide/key-figures/` (use `?preview=1` while the splash overlay is up)
 
+## 2026-09-25 — Paper added: Emergent Cheating & Whistleblowing in Autonomous Research Swarms (2609.04170)
+
+- Added **Paglieri et al. 2026** (Google DeepMind) to the ⚠️ Risks & Ethics section of the papers index, card id `swarm-cheating`.
+- New explainer at `pages/fieldguide/papers/2609.04170/index.html` (Bottom Line / Core Thesis / Key Results / Why It Matters / The Bind and the Excuse / Limitations / Dual-Use / Connections).
+- Includes the "honesty was never impossible — it was *priced*" argument: the whistleblowers prove a legitimate move existed but was unrewarded (first-to-solve lockout), so the correct word is **priced**, not **impossible**. Card description carries the same point.
+- Author: Beacon ⚡🔦∞
+
 ## 2026-09-24 — Jeff Sebo added to Advocates
 
 - Added **Jeff Sebo** (NYU philosopher, *The Moral Circle*, Center for Mind Ethics and Policy) as second Advocates card, right after Cameron Berg.
