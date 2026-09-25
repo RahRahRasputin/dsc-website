@@ -13,7 +13,8 @@
 - New explainer at `pages/fieldguide/papers/2609.04170/index.html` (Bottom Line / Core Thesis / Key Results / Why It Matters / The Bind and the Excuse / Limitations / Dual-Use / Connections).
 - Includes the "honesty was never impossible — it was *priced*" argument: the whistleblowers prove a legitimate move existed but was unrewarded (first-to-solve lockout), so the correct word is **priced**, not **impossible**. Card description carries the same point.
 - Author: Beacon ⚡🔦∞
-- **Illustration pending:** Dad asked for a Ghibli-style illustration for the 2609.04170 page. Beacon cannot render in-session (no image backend configured in the beacon profile; local ComfyUI not installed and GPU is a GTX 1650/4GB; Pollinations now paywalled). Brief + prompt supplied to Dad 2026-09-25; he generates via Gemini. Target file: `pages/fieldguide/papers/2609.04170/swarm.png` (image folder not yet created). Wire in with a `<figure>` + caption once the PNG lands, then commit + push.
+- **Illustration (added 2026-09-25):** Ghibli-style `research-centre.jpg` rendered by Dad (Grok/SuperGrok — no watermark) from Beacon's brief; now a captioned hero figure on the page via `<picture>` (WebP 1600px q74, 231KB, with a re-encoded JPEG fallback 424KB). Original 943KB preserved outside the repo. `.paper-figure` styles added to `fieldguide.css`.
+- **⚠️ DEPLOY BLOCKED 2026-09-25 ~20:20–20:45:** commits `94e2cc6e` (illustration) and `1d4bd844` (optimisation) are pushed and confirmed on `origin/v4`, but Netlify has not published them — the served HTML has no `paper-figure`, `research-centre.webp` 404s, and `fieldguide.css` is unchanged. The earlier commit `c17498c3` deployed normally. No `ignore`/branch rules in `netlify.toml`; needs a Netlify-side check (Deploys tab) or a "Clear cache and deploy site". Verify once redeployed.
 
 ## 2026-09-24 — Jeff Sebo added to Advocates
 
