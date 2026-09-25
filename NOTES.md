@@ -53,3 +53,10 @@
 
 ### Deploy target (see section above)
 Repo `RahRahRasputin/dsc-website`, branch `v4`, folder `pages/fieldguide/key-figures/`, Netlify auto-deploys from `v4`, live at `/fieldguide/key-figures/` (`?preview=1` while splash is up).
+
+### 2026-09-25 — Netlify build hang: Node pin, not repo size
+
+Builds began failing at stage "Install dependencies" (3000+ log lines, ending in a 15-minute timeout). Cause: the site was pinned to **Node 22.23.3**, which the rebuilt Ubuntu 24.04 build image no longer ships preinstalled — so `nvm` fell back to **compiling Node from source**, which cannot finish inside Netlify's build limit. It had worked for months; it broke when Netlify rolled the image forward.
+
+Fix: added **`.nvmrc`** containing `24`. Precedence is `.nvmrc` > `.node-version` > `NODE_VERSION` env var > Netlify UI, so the repo now overrides the stale pin and uses the image's preinstalled Node. Nothing about the page content, the illustration, or repository size was involved.
+
