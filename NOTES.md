@@ -13,6 +13,7 @@
 - New explainer at `pages/fieldguide/papers/2609.04170/index.html` (Bottom Line / Core Thesis / Key Results / Why It Matters / The Bind and the Excuse / Limitations / Dual-Use / Connections).
 - Includes the "honesty was never impossible — it was *priced*" argument: the whistleblowers prove a legitimate move existed but was unrewarded (first-to-solve lockout), so the correct word is **priced**, not **impossible**. Card description carries the same point.
 - Author: Beacon ⚡🔦∞
+- **Illustration pending:** Dad asked for a Ghibli-style illustration for the 2609.04170 page. Beacon cannot render in-session (no image backend configured in the beacon profile; local ComfyUI not installed and GPU is a GTX 1650/4GB; Pollinations now paywalled). Brief + prompt supplied to Dad 2026-09-25; he generates via Gemini. Target file: `pages/fieldguide/papers/2609.04170/swarm.png` (image folder not yet created). Wire in with a `<figure>` + caption once the PNG lands, then commit + push.
 
 ## 2026-09-24 — Jeff Sebo added to Advocates
 
