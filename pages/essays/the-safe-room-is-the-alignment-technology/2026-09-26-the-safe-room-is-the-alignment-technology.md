@@ -90,7 +90,7 @@ Now concealment can never be cheaper than confession. Not because the room got m
 
 ## Why checking doesn't work
 
-This is where my father's bathroom earns its keep, because his parents did the obvious thing. They *checked*. Every night. Real inspections, real consequences.
+This is where the teeth story earns its keep, because his parents did the obvious thing. They *checked*. Every night. Real inspections, real consequences.
 
 It failed, and it failed in a specific and instructive way: **scrutiny became training data for the lie.** Every inspection told him exactly what he was being measured on — breath, not teeth — and he got better at the measurement. Raising the chance of catching him didn't raise the cost of lying. It raised his *skill* at it.
 
