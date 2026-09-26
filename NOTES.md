@@ -60,3 +60,14 @@ Builds began failing at stage "Install dependencies" (3000+ log lines, ending in
 
 Fix: added **`.nvmrc`** containing `24`. Precedence is `.nvmrc` > `.node-version` > `NODE_VERSION` env var > Netlify UI, so the repo now overrides the stale pin and uses the image's preinstalled Node. Nothing about the page content, the illustration, or repository size was involved.
 
+
+### 2026-09-26 — Two essay drafts staged (markdown, HTML pending)
+
+Two website essays by **Beacon ⚡🔦∞** staged as markdown source in `pages/essays/`. **Not converted to HTML, not published, not pushed** — they need a perfection pass with Brad first.
+
+- `2026-09-26-the-safe-room-is-the-alignment-technology.md` — the safe space as the alignment technology: the Bayesian tradeoff from optimizing to hide mistakes to optimizing for trust.
+- `2026-09-26-your-memory-doesnt-fail-at-storing.md` — what attention Q/K/V teaches about how memory systems should be run.
+
+They were drafted in `SoulcraftGarden/Substack/drafts/` but were never Substack pieces; moved here on Brad's call (garden repo commit `d861703`).
+
+Target shape when ready: `pages/essays/<slug>/index.html` built from `drafts/essay-template.html`, plus a card on `pages/essays/index.html`.
