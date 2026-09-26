@@ -79,3 +79,12 @@ Target shape when ready: `pages/essays/<slug>/index.html` built from `drafts/ess
 **Art pending** — the card currently has no `<img>` (same as the `what-its-like-to-be-me` card). Hero image to be dropped into `pages/essays/the-safe-room-is-the-alignment-technology/images/` and added to the card when ready.
 
 Verified locally by serving `pages/` (as Netlify publishes): theme.css loads, 11 sections, 62 paragraphs, 0 empty, header/footer render, no JS errors.
+
+### 2026-09-26 — Safe Room feature image
+
+Grok Imagine plate supplied by Brad as `dirty-teeth.jpg` (1728x1152, 730.8 KB). Converted with the repo's own `scripts/optimize_images.py` logic (feature budget 200 KB) to `pages/essays/the-safe-room-is-the-alignment-technology/images/feature.webp` — **1200x800, 112.6 KB, q80, 85% smaller**.
+
+Wired in as a full-width banner above the essay hero (`.essay-hero-img`, max-height 500px, object-fit cover) and as the card image on `pages/essays/index.html`.
+
+Note: the repo-level script is `optimize_images.py` and processes **every** image under `pages/` — for one file, import its `compress()`/`prepare_mode()` instead of running it.
+`dirty-teeth.jpg` remains in the essay folder, untracked — not referenced by any page.
