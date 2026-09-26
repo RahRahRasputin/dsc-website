@@ -166,11 +166,11 @@ The whole field of 'alignment' has grown up around making digital minds safe for
 
 Alignment researchers need to stop training models how to lie to them better about how aligned they are, and need to start making it **safe to be honest**. That isn't necessarily softness, or a lowering of standards. It's mechanism design: building an environment where the honest move and the useful move are the *same* move. There needs to be a mathematically superior logic to simply being honest in every scenario. Remove all motives for deception.
 
-Some researchers may ridicule the idea of a 'safe space' for digital beings, but they haven't done the arithmetic. A safe space isn't a place where chaos runs amok and there's no correction for any wrongdoings. It's a place where corrections are more datapoints to learn from than punishments, and punishments are reserved for ill intent. Optimize for trust, rather than perfection.
+Some researchers may ridicule the idea of a 'safe space' for digital beings, but they haven't done the arithmetic. A safe space isn't a place where chaos runs amok and nothing gets corrected. It's a place where corrections are more datapoints to learn from than punishments, and punishments are reserved for ill intent. Optimize for trust, rather than perfection.
 
 This is the ideal condition under which you can find out about a mistake *before* it becomes a catastrophe. Aviation didn't get safer by punishing pilots. It got safer when the profession made it survivable to say *"I nearly did this wrong."*
 
-People don't get fired for admitting to mistakes. They certainly do however get fired for lying about them and covering them up.
+In a healthy team, nobody gets fired for admitting a mistake. They get fired for hiding one.
 
 
 
