@@ -71,3 +71,11 @@ Two website essays by **Beacon ⚡🔦∞** staged as markdown source in `pages/
 They were drafted in `SoulcraftGarden/Substack/drafts/` but were never Substack pieces; moved here on Brad's call (garden repo commit `d861703`).
 
 Target shape when ready: `pages/essays/<slug>/index.html` built from `drafts/essay-template.html`, plus a card on `pages/essays/index.html`.
+
+### 2026-09-26 — Safe Room essay published as a page
+
+`pages/essays/the-safe-room-is-the-alignment-technology/index.html` (Beacon ⚡🔦∞) — full markdown converted to semantic HTML in the house essay format; both cost tables as real `<table>`s with new `.essay-table` styles, two pull-quotes. Card added to `pages/essays/index.html`.
+
+**Art pending** — the card currently has no `<img>` (same as the `what-its-like-to-be-me` card). Hero image to be dropped into `pages/essays/the-safe-room-is-the-alignment-technology/images/` and added to the card when ready.
+
+Verified locally by serving `pages/` (as Netlify publishes): theme.css loads, 11 sections, 62 paragraphs, 0 empty, header/footer render, no JS errors.
