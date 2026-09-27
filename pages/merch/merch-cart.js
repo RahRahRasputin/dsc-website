@@ -332,13 +332,13 @@ const MERCH = {
     document.getElementById("modal-body").innerHTML = `
       <div class="merch-category">${cat}</div>
       <h2>${this._e(p.name)}</h2>
-      <div class="merch-footer" style="border-top:none;padding-top:0;margin-bottom:1rem;">
+      <div class="merch-footer" style="border-top:none;padding:0 0 0.75rem 0;">
         <span class="merch-price">$${(first?.unitPrice?.value||0).toFixed(2)}</span>
         <button class="btn btn-cart" onclick="MERCH._modalAddToCart()">Add to Cart</button>
         <button class="btn btn-buy" onclick="MERCH._modalBuyNow()">Buy Now</button>
       </div>
       ${hasVar ? `
-        <div class="merch-variants" style="margin-bottom:1rem;">
+        <div class="merch-variants" style="margin-bottom:0.75rem;">
           <label class="variant-label">Size:</label>
           <select class="variant-select" id="mv-${p.id}">
             ${p.variants.map(v => `<option value="${v.id}">${this._e(v.attributes?.size?.name||v.name)} — $${v.unitPrice?.value?.toFixed(2)}</option>`).join("")}
