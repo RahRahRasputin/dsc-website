@@ -219,6 +219,23 @@ const MERCH = {
     this.renderProducts(filtered, this._gridId, { filteredEmpty: this._products.length > 0 && filtered.length === 0 });
   },
 
+  // ── Sanitize description HTML (safe tags only) ──
+  _desc(h) {
+    if (!h) return "";
+    // Keep safe block/inline tags, strip everything dangerous
+    const allowed = h
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+      .replace(/on\w+\s*=\s*"[^"]*"/gi, "")
+      .replace(/on\w+\s*=\s*'[^']*'/gi, "")
+      .replace(/<(\/?)(p|br|ul|ol|li|strong|em|b|i|u|span|div|h[1-6])\b[^>]*>/gi, "<$1$2>")
+      .replace(/<[^>]+>/g, (tag) => {
+        const safe = /^<\/(p|ul|ol|li|h[1-6]|div)>$|^<br\s*\/?>$|^<(strong|em|b|i|u|span)>$/i.test(tag);
+        return safe ? tag : "";
+      });
+    return allowed;
+  },
+
   // ── Product Detail Modal ──
   _modalIdx: 0,
   _modalProduct: null,
@@ -277,7 +294,7 @@ const MERCH = {
     document.getElementById("modal-body").innerHTML = `
       <div class="merch-category">${cat}</div>
       <h2>${this._e(p.name)}</h2>
-      <div class="merch-description">${this._e(this._s(p.description||""))}</div>
+      <div class="merch-description">${this._desc(p.description||"")}</div>
       ${hasVar ? `
         <div class="merch-variants">
           <label class="variant-label">Size:</label>
