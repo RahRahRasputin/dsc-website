@@ -407,6 +407,7 @@
       max-height: 400px;
       object-fit: scale-down;
       display: block;
+      cursor: zoom-in;
     }
     .modal-gallery-nav {
       position: absolute;
@@ -515,6 +516,26 @@
       .modal-body h2 { font-size: 1.2rem; }
     }
 
+    /* Image zoom overlay */
+    #img-zoom {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+    #img-zoom.open { display: flex; }
+    #img-zoom img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      cursor: zoom-out;
+    }
+
     @media (max-width: 900px) {
       .merch-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -572,6 +593,11 @@
       </div>
     </section>
   </main>
+
+  <!-- Image zoom overlay -->
+  <div id="img-zoom" onclick="this.classList.remove('open')">
+    <img id="img-zoom-img" src="" alt="Zoomed product image">
+  </div>
 
   <!-- Cart bar -->
   <div id="cart-bar">
