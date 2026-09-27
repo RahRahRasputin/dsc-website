@@ -255,6 +255,40 @@ const MERCH = {
     document.body.style.overflow = "";
   },
 
+  _zoomImages: [],
+  _zoomIdx: 0,
+
+  _openZoom(imgUrl, alt, images, idx) {
+    this._zoomImages = images || [];
+    this._zoomIdx = idx || 0;
+    const zoom = document.getElementById("img-zoom");
+    const zoomImg = document.getElementById("img-zoom-img");
+    const prevBtn = document.getElementById("zoom-prev");
+    const nextBtn = document.getElementById("zoom-next");
+    if (!zoom || !zoomImg) return;
+    zoomImg.src = imgUrl;
+    zoomImg.alt = alt || "";
+    if (this._zoomImages.length > 1) {
+      prevBtn.style.display = "flex";
+      nextBtn.style.display = "flex";
+    } else {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+    zoom.classList.add("open");
+  },
+
+  _zoomNav(dir) {
+    const len = this._zoomImages.length;
+    if (len < 2) return;
+    this._zoomIdx = (this._zoomIdx + dir + len) % len;
+    const img = this._zoomImages[this._zoomIdx];
+    if (!img) return;
+    const zoomImg = document.getElementById("img-zoom-img");
+    const url = typeof img === "string" ? img : (img.transformedUrl || img.url || img.src || "");
+    if (zoomImg) zoomImg.src = url;
+  },
+
   _renderModal() {
     const p = this._modalProduct;
     if (!p) return;
@@ -285,13 +319,7 @@ const MERCH = {
       el.alt = p.name;
       el.style.cursor = "zoom-in";
       el.addEventListener("click", function() {
-        const zoom = document.getElementById("img-zoom");
-        const zoomImg = document.getElementById("img-zoom-img");
-        if (zoom && zoomImg) {
-          zoomImg.src = img.transformedUrl;
-          zoomImg.alt = p.name;
-          zoom.classList.add("open");
-        }
+        MERCH._openZoom(img.transformedUrl, p.name, imgs, MERCH._modalIdx);
       });
       galleryNav.before(el);
     }
