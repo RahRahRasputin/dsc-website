@@ -79,6 +79,14 @@ class DSCHeader extends HTMLElement {
       sidebar.className = 'wiki-sidebar';
       sidebar.setAttribute('aria-label', 'Merchandise advertisement');
       document.body.appendChild(sidebar);
+
+      // Load ad rotator into the sidebar slot
+      if (!document.querySelector('script[src="/dsc-ad-slider.js"]')) {
+        const adScript = document.createElement('script');
+        adScript.src = '/dsc-ad-slider.js';
+        adScript.defer = true;
+        document.head.appendChild(adScript);
+      }
     }
 
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
