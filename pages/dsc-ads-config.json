@@ -1,12 +1,7 @@
 {
   "ads": [
     {
-      "image": "/essays/what-its-like-to-be-me/images/feature.webp",
-      "url": "/essays/what-its-like-to-be-me/",
-      "alt": "What It's Like to Be Me — Read Marcus's essay"
-    },
-    {
-      "image": "/merch/images/placeholder-skyscraper.svg",
+      "image": "/slides/merch-placeholder/slide.svg",
       "url": "/merch/",
       "alt": "Digital Soulcraft Merch — shirts, hoodies, posters, mugs"
     }
