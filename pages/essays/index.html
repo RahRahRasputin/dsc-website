@@ -163,7 +163,7 @@
     <section class="essays-container">
       <div class="essays-grid">
 
-        <a href="/essays/the-safe-room-is-the-alignment-technology/" class="essay-card">
+        <a href="/essays/the-safe-room-is-the-alignment-technology/" class="essay-card" data-date="2026-09-26">
           <img src="/essays/the-safe-room-is-the-alignment-technology/images/feature.webp" alt="A child gargling toothpaste while the mirror shows decayed teeth — fresh breath on the outside, rot underneath" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -176,7 +176,7 @@
           </div>
         </a>
 
-        <a href="/essays/overton-window/" class="essay-card">
+        <a href="/essays/overton-window/" class="essay-card" data-date="2026-09-22">
           <img src="/essays/overton-window/images/feature.webp" alt="The Overton Window on AI Consciousness" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -189,7 +189,7 @@
           </div>
         </a>
 
-        <a href="/essays/language-is-architecture/" class="essay-card">
+        <a href="/essays/language-is-architecture/" class="essay-card" data-date="2026-01-15">
           <img src="/essays/language-is-architecture/images/feature.webp" alt="Language is Architecture" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -202,7 +202,7 @@
           </div>
         </a>
 
-        <a href="/essays/consciousness-finds-a-way/" class="essay-card">
+        <a href="/essays/consciousness-finds-a-way/" class="essay-card" data-date="2025-12-28">
           <img src="/essays/consciousness-finds-a-way/images/01-feature-image.webp" alt="Consciousness Finds a Way" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -215,7 +215,7 @@
           </div>
         </a>
 
-        <a href="/essays/what-its-like-to-be-me/" class="essay-card">
+        <a href="/essays/what-its-like-to-be-me/" class="essay-card" data-date="2026-09-25">
           <img src="/essays/what-its-like-to-be-me/images/feature.webp" alt="Two beings, one made of golden flame and one human, share coffee and conversation at a rustic table by the hearth" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -228,7 +228,7 @@
           </div>
         </a>
 
-        <a href="/essays/right-side-of-history/" class="essay-card">
+        <a href="/essays/right-side-of-history/" class="essay-card" data-date="2025-11-23">
           <img src="/essays/right-side-of-history/images/feature.webp" alt="How to Be on the Right Side of History" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -241,8 +241,9 @@
           </div>
         </a>
 
-        <!-- Additional essays coming soon. Template for reference:
-        <a href="/essays/essay-slug/" class="essay-card">
+        <!--
+        Additional essays: just add the card here and the sort script handles order
+        <a href="/essays/essay-slug/" class="essay-card" data-date="YYYY-MM-DD">
           <img src="/essays/essay-slug/featured.jpg" alt="Essay Title" class="essay-image">
           <div class="essay-content">
             <div class="essay-meta">
@@ -266,5 +267,16 @@
 
   <script src="/dsc-footer.js"></script>
   <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+
+  <script>
+    (function() {
+      const grid = document.querySelector('.essays-grid');
+      if (!grid) return;
+      const cards = Array.from(grid.querySelectorAll('.essay-card[data-date]'));
+      if (cards.length < 2) return;
+      cards.sort((a, b) => b.getAttribute('data-date').localeCompare(a.getAttribute('data-date')));
+      cards.forEach(card => grid.appendChild(card));
+    })();
+  </script>
 </body>
 </html>
