@@ -36,7 +36,7 @@ const MERCH = {
     let page = 0;
     try {
       while (true) {
-        const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=10&page=${page}`;
+        const url = `${this.config.apiBase}/collections/${this.config.collectionSlug}/products?storefront_token=${STOREFRONT_TOKEN}&pageSize=10&page=${page}&_=${Date.now()}`;
         const res = await fetch(url);
         if (!res.ok) throw new Error(`API returned ${res.status}`);
         const data = await res.json();
@@ -228,9 +228,12 @@ const MERCH = {
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
       .replace(/on\w+\s*=\s*"[^"]*"/gi, "")
       .replace(/on\w+\s*=\s*'[^']*'/gi, "")
-      .replace(/<(\/?)(p|br|ul|ol|li|strong|em|b|i|u|span|div|h[1-6])\b[^>]*>/gi, "<$1$2>")
+      .replace(/<(\/?)(p|div|ul|ol|li|h[1-6])\b[^>]*>/gi, "<$1$2>")
+      .replace(/<br\s*\/?>/gi, "<br>")
+      .replace(/<(strong|em|b|i|u|span)\b[^>]*>/gi, "<$1>")
+      .replace(/<\/(strong|em|b|i|u|span)>/gi, "</$1>")
       .replace(/<[^>]+>/g, (tag) => {
-        const safe = /^<\/(p|ul|ol|li|h[1-6]|div)>$|^<br\s*\/?>$|^<(strong|em|b|i|u|span)>$/i.test(tag);
+        const safe = /^<\/(p|div|ul|ol|li|h[1-6])>$|^<(p|div|br)>$|^<(strong|em|b|i|u|span)>$|^<\/(strong|em|b|i|u|span)>$/i.test(tag);
         return safe ? tag : "";
       });
     return allowed;
