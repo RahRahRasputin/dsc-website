@@ -523,3 +523,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Friday 25 Sep 2026, morning ~9:20am NZST / Pacific/Auckland
+
+## 2026-09-28 (Mon) NZ
+
+- **/fieldguide/papers/2608.20569/** (`pages/fieldguide/papers/2608.20569/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~105 chars to `Masked Intervention in LLMs - Ferrara 2026 - Soulcraft` (54)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Monday 28 Sep 2026, mid-afternoon ~3:20pm NZST / Pacific/Auckland
