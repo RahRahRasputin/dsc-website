@@ -111,6 +111,7 @@ const MERCH = {
   _category(product) {
     const n = (product?.name || "").toLowerCase();
     if (n.includes("hoodie") || n.includes("shirt")) return "Apparel";
+    if (n.includes("beanie") || n.includes("cap")) return "Hats";
     if (n.includes("mug")) return "Drinkware";
     if (n.includes("poster")) return "Posters";
     return "Merch";
@@ -159,7 +160,7 @@ const MERCH = {
     const wrap = document.getElementById("merch-categories");
     if (!wrap) return;
     const present = new Set(this._products.map(p => this._category(p)));
-    const order = ["Apparel", "Drinkware", "Posters", "Merch"];
+    const order = ["Apparel", "Hats", "Drinkware", "Posters", "Merch"];
     const cats = ["All", ...order.filter(c => present.has(c)), ...[...present].filter(c => !order.includes(c)).sort()];
     if (!cats.includes(this._categoryFilter)) this._categoryFilter = "All";
     wrap.innerHTML = cats.map(c =>
