@@ -531,3 +531,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Monday 28 Sep 2026, mid-afternoon ~3:20pm NZST / Pacific/Auckland
+
+- **/fieldguide/papers/2608.10218/** (`pages/fieldguide/papers/2608.10218/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~107 chars to `Mind Viruses in LLM Systems — Papadopoulos 2026 — Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Monday 28 Sep 2026, late afternoon ~5:23pm NZST / Pacific/Auckland
