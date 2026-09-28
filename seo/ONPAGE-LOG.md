@@ -537,3 +537,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Monday 28 Sep 2026, late afternoon ~5:23pm NZST / Pacific/Auckland
+
+## 2026-09-29 (Tue) NZ
+
+- **/fieldguide/papers/2609.04170/** (`pages/fieldguide/papers/2609.04170/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~101 chars to `Emergent Cheating/Whistleblowing – Paglieri 2026 – Soulcraft` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Tuesday 29 Sep 2026, morning ~9:25am NZST / Pacific/Auckland
