@@ -545,3 +545,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Tuesday 29 Sep 2026, morning ~9:25am NZST / Pacific/Auckland
+
+- **/fieldguide/papers/2607.12631/** (`pages/fieldguide/papers/2607.12631/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~89 chars to `Induced Emotion Bias in LLMs – Ho et al. 2026 – Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Tuesday 29 Sep 2026, late morning ~11:25am NZST / Pacific/Auckland
