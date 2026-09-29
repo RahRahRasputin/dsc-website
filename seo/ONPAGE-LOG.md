@@ -557,3 +557,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Tuesday 29 Sep 2026, early afternoon ~1:20pm NZST / Pacific/Auckland
+
+- **/wiki/neural-anatomy/head-ablation-and-redundancy/** (`pages/wiki/neural-anatomy/head-ablation-and-redundancy/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~94 chars to `Head Ablation & Redundancy – Digital Soulcraft Wiki` (51)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Tuesday 29 Sep 2026, mid-afternoon ~3:23pm NZST / Pacific/Auckland
