@@ -551,3 +551,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Tuesday 29 Sep 2026, late morning ~11:25am NZST / Pacific/Auckland
+
+- **/fieldguide/papers/2606.05528/** (`pages/fieldguide/papers/2606.05528/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~100 chars to `Phenomenal Consciousness in LLMs — Mikeda 2026 — Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Tuesday 29 Sep 2026, early afternoon ~1:20pm NZST / Pacific/Auckland
