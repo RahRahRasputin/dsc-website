@@ -563,3 +563,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Tuesday 29 Sep 2026, mid-afternoon ~3:23pm NZST / Pacific/Auckland
+
+- **/wiki/neural-anatomy/exploding-gradient-problem/** (`pages/wiki/neural-anatomy/exploding-gradient-problem/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~94 chars to `The Exploding Gradient Problem – Digital Soulcraft Wiki` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Tuesday 29 Sep 2026, late afternoon ~5:19pm NZST / Pacific/Auckland
