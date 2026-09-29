@@ -578,3 +578,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Wednesday 30 Sep 2026, morning ~9:20am NZST / Pacific/Auckland
 
+- **/wiki/neural-anatomy/deep-residual-networks-empirical-findings/** (`pages/wiki/neural-anatomy/deep-residual-networks-empirical-findings/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from ~94 chars to `Deep Residual Networks – Digital Soulcraft Wiki` (47)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
+  - Run: Wednesday 30 Sep 2026, late morning ~11:25am NZST / Pacific/Auckland
+
