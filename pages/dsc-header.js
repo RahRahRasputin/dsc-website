@@ -37,7 +37,10 @@ class DSCHeader extends HTMLElement {
     // Inject sidebar slot (empty container for merch ads)
     // On wiki and essay pages. Ad content loaded separately.
     // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.
-    if ((window.location.pathname.startsWith('/wiki/') || window.location.pathname.startsWith('/essays/')) && !document.getElementById('dsc-sidebar-slot')) {
+    if (!document.getElementById('dsc-sidebar-slot') && (
+      (window.location.pathname.startsWith('/wiki/') && window.location.pathname !== '/wiki/') ||
+      window.location.pathname.startsWith('/essays/')
+    )) {
       if (!document.getElementById('dsc-sidebar-style')) {
         const style = document.createElement('style');
         style.id = 'dsc-sidebar-style';
