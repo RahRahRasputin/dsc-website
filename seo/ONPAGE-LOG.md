@@ -584,3 +584,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
   - Run: Wednesday 30 Sep 2026, late morning ~11:25am NZST / Pacific/Auckland
 
+- **/fieldguide/papers/2603.09043/** (pages/fieldguide/papers/2603.09043/index.html)
+  - Trimmed overlong <title> and matching og:title from 92 chars to Time, Identity & Consciousness â Perrier 2026 â Soulcraft (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); aâc empty for published pages
+  - Run: Wednesday 30 Sep 2026, early afternoon ~1:20pm NZST / Pacific/Auckland
+
