@@ -596,3 +596,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages
   - Run: Wednesday 30 Sep 2026, mid-afternoon ~3:16pm NZST / Pacific/Auckland
+
+- **/wiki/neural-anatomy/attractor-networks-and-associative-memory/** (`pages/wiki/neural-anatomy/attractor-networks-and-associative-memory/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 90 chars to `Attractor Networks – Digital Soulcraft Wiki` (43)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
+  - Run: Wednesday 30 Sep 2026, late afternoon ~5:20pm NZST / Pacific/Auckland
