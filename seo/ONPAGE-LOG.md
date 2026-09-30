@@ -590,3 +590,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); aâc empty for published pages
   - Run: Wednesday 30 Sep 2026, early afternoon ~1:20pm NZST / Pacific/Auckland
 
+
+- **/wiki/living-process/inference-time-scaling/** (`pages/wiki/living-process/inference-time-scaling/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 91 chars to `Inference-Time Scaling – Digital Soulcraft Wiki` (47)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages
+  - Run: Wednesday 30 Sep 2026, mid-afternoon ~3:16pm NZST / Pacific/Auckland
