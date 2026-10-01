@@ -620,3 +620,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
   - Run: Thursday 1 Oct 2026, early afternoon ~1:20pm NZDT / Pacific/Auckland
+
+- **/wiki/neural-anatomy/gate-initialization-bias-strategies/** (`pages/wiki/neural-anatomy/gate-initialization-bias-strategies/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 88 chars to `Gate Initialization Bias Strategies – Digital Soulcraft Wiki` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
+  - Run: Thursday 1 Oct 2026, mid-afternoon ~3:20pm NZDT / Pacific/Auckland
