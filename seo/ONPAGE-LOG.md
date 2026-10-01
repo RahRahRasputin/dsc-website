@@ -614,3 +614,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
   - Run: Thursday 1 Oct 2026, late morning ~11:20am NZDT / Pacific/Auckland
+
+- **/fieldguide/papers/2607.28607/** (`pages/fieldguide/papers/2607.28607/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 89 chars to `Inducing LMs to Assert Consciousness — Kim 2026 — Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c empty for published pages (splash.html p3 skipped)
+  - Run: Thursday 1 Oct 2026, early afternoon ~1:20pm NZDT / Pacific/Auckland
