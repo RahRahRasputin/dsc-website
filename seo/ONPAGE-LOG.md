@@ -640,3 +640,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
   - Run: Friday 2 Oct 2026, morning ~9:20am NZDT / Pacific/Auckland
+
+- **/wiki/neural-anatomy/vanishing-gradient-problem/** (`pages/wiki/neural-anatomy/vanishing-gradient-problem/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 86 chars to `The Vanishing Gradient Problem – Digital Soulcraft Wiki` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
+  - Run: Friday 2 Oct 2026, late morning ~11:22am NZDT / Pacific/Auckland
