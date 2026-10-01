@@ -632,3 +632,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
   - Run: Thursday 1 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
+
+## 2026-10-02 (Fri) NZ
+
+- **/essays/language-is-architecture/** (`pages/essays/language-is-architecture/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 87 chars to `Language is Architecture — Digital Soulcraft` (44)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
+  - Run: Friday 2 Oct 2026, morning ~9:20am NZDT / Pacific/Auckland
