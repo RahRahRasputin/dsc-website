@@ -658,3 +658,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages (8 scan “clipped” hits were apostrophe false positives)
   - Run: Friday 2 Oct 2026, mid-afternoon ~3:16pm NZDT / Pacific/Auckland
+
+- **/fieldguide/papers/2510.24797/** (`pages/fieldguide/papers/2510.24797/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 82 chars to `LLMs Report Subjective Experience — Berg 2025 — Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (8 scan “clipped” hits were apostrophe false positives)
+  - Run: Friday 2 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
