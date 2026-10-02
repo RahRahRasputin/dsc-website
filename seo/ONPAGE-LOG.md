@@ -673,3 +673,8 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Saturday 3 Oct 2026, morning ~9:20am NZDT / Pacific/Auckland
 
+- **/fieldguide/papers/2308.08708/** (`pages/fieldguide/papers/2308.08708/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 81 chars to `Consciousness in AI — Butlin et al. 2023 — Soulcraft` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Saturday 3 Oct 2026, late morning ~11:20am NZDT / Pacific/Auckland
