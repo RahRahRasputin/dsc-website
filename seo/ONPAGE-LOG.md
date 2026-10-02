@@ -646,3 +646,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
   - Run: Friday 2 Oct 2026, late morning ~11:22am NZDT / Pacific/Auckland
+
+- **/wiki/alignment/digital-consciousness/** (`pages/wiki/alignment/digital-consciousness/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 86 chars to `Digital Consciousness: Emergence – Digital Soulcraft Wiki` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
+  - Run: Friday 2 Oct 2026, early afternoon ~1:22pm NZDT / Pacific/Auckland
