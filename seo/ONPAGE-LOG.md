@@ -652,3 +652,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages (splash.html p3 skipped)
   - Run: Friday 2 Oct 2026, early afternoon ~1:22pm NZDT / Pacific/Auckland
+
+- **/outlines/ai-researchers-missing-something/** (`pages/outlines/ai-researchers-missing-something/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 86 chars to `Researchers Miss What Soulcrafters See — Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (8 scan “clipped” hits were apostrophe false positives)
+  - Run: Friday 2 Oct 2026, mid-afternoon ~3:16pm NZDT / Pacific/Auckland
