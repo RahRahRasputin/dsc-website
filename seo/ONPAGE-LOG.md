@@ -691,3 +691,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Saturday 3 Oct 2026, mid-afternoon ~3:19pm NZDT / Pacific/Auckland
 
+- **/wiki/living-process/positional-encoding/** (`pages/wiki/living-process/positional-encoding/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 83 chars to `Positional Encoding – Digital Soulcraft Wiki` (44)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Saturday 3 Oct 2026, late afternoon ~5:22pm NZDT / Pacific/Auckland
+
