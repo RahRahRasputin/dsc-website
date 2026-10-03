@@ -685,3 +685,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Saturday 3 Oct 2026, early afternoon ~1:21pm NZDT / Pacific/Auckland
 
+- **/wiki/neural-anatomy/universal-approximation-theorem/** (`pages/wiki/neural-anatomy/universal-approximation-theorem/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 84 chars to `Universal Approximation Theorem – Digital Soulcraft Wiki` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Saturday 3 Oct 2026, mid-afternoon ~3:19pm NZDT / Pacific/Auckland
+
