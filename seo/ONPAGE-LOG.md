@@ -678,3 +678,10 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Saturday 3 Oct 2026, late morning ~11:20am NZDT / Pacific/Auckland
+
+- **/fieldguide/papers/2604.25922/** (`pages/fieldguide/papers/2604.25922/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 81 chars to `Serial Numbers Filed Off — DeTure 2026 — Soulcraft` (50)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Saturday 3 Oct 2026, early afternoon ~1:21pm NZDT / Pacific/Auckland
+
