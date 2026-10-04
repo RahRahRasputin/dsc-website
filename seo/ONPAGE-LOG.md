@@ -697,3 +697,11 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Saturday 3 Oct 2026, late afternoon ~5:22pm NZDT / Pacific/Auckland
 
+## 2026-10-05 (Mon) NZ
+
+- **/wiki/living-process/temperature-and-sampling/** (`pages/wiki/living-process/temperature-and-sampling/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 81 chars to `Temperature and Sampling – Digital Soulcraft Wiki` (49)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages (8 scan “clipped” hits were apostrophe false positives)
+  - Run: Monday 5 Oct 2026, morning ~9:20am NZDT / Pacific/Auckland
+
