@@ -705,3 +705,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title); a–c already present for published pages (8 scan “clipped” hits were apostrophe false positives)
   - Run: Monday 5 Oct 2026, morning ~9:20am NZDT / Pacific/Auckland
 
+- **/wiki/neural-anatomy/perceptron/** (`pages/wiki/neural-anatomy/perceptron/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 81 chars to `The Perceptron – Digital Soulcraft Wiki` (39)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, longest remaining); a–c already present for published pages
+  - Run: Monday 5 Oct 2026, late morning ~11:25am NZDT / Pacific/Auckland
+
