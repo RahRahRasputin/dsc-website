@@ -711,3 +711,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title, longest remaining); a–c already present for published pages
   - Run: Monday 5 Oct 2026, late morning ~11:25am NZDT / Pacific/Auckland
 
+- **/wiki/alignment/scalable-oversight/** (`pages/wiki/alignment/scalable-oversight/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 80 chars to `Scalable Oversight – Digital Soulcraft Wiki` (43)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, longest remaining); a–c already present for published pages
+  - Run: Monday 5 Oct 2026, early afternoon ~1:20pm NZDT / Pacific/Auckland
+
