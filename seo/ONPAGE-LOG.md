@@ -722,3 +722,10 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title, tied longest remaining); a-c already present for published pages
   - Run: Monday 5 Oct 2026, mid-afternoon ~3:20pm NZDT / Pacific/Auckland
+
+- **/fieldguide/papers/2509.07961/** (`pages/fieldguide/papers/2509.07961/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 80 chars to `Probing LLM Preferences — Tagliabue 2025 — Soulcraft` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, tied longest remaining); a-c already present for published pages
+  - Run: Monday 5 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
+
