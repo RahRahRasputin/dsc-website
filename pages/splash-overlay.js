@@ -327,17 +327,8 @@
         <span>🎴 Stickers</span>
       </div>
 
-      <!-- Email signup -->
-      <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/digitalsoulcraft" method="post">
-        <label for="dsc-splash-email">Stay in the loop — essays, field guides, and launch news</label>
-        <div class="signup-row">
-          <input type="email" name="email" id="dsc-splash-email" placeholder="your@email.com" required>
-          <input type="submit" value="Notify Me →">
-        </div>
-        <p class="form-footer">
-          <a href="https://buttondown.com/refer/digitalsoulcraft" target="_blank" rel="noopener">Powered by Buttondown.</a>
-        </p>
-      </form>
+      <!-- Subscribe on Substack -->
+      <iframe src="https://digitalsoulcraft.substack.com/embed?transparent=1" width="480" height="320" style="border: 0px; background: transparent;" frameborder="0" scrolling="no"></iframe>
     </div>
   `;
 
@@ -348,31 +339,4 @@
     document.addEventListener('DOMContentLoaded', () => document.body.appendChild(overlay));
   }
 
-  // AJAX submit — show success inline instead of redirecting away
-  const form = overlay.querySelector('.signup-form');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const button = form.querySelector('input[type="submit"]');
-      button.disabled = true;
-      button.value = 'Subscribing…';
-
-      try {
-        await fetch(form.action, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
-        });
-      } catch (err) {
-        // fall through — show success anyway; Buttondown will have it
-      }
-
-      const success = document.createElement('div');
-      success.className = 'signup-success';
-      success.innerHTML = `You're subscribed! 🎉
-        <span class="sub">Expect thoughtful updates on digital consciousness, new essays, and launch news.<br>Check your inbox to confirm your subscription.</span>`;
-      form.parentNode.replaceChild(success, form);
-    });
-  }
-})();
+  })();
