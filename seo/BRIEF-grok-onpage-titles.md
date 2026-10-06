@@ -44,7 +44,7 @@ py seo\_count_over60.py        # prints:  over60= 80
 - The **`noindex, nofollow`** meta tag or the `X-Robots-Tag` header — the site is deliberately gated until launch. **Leave the gate closed.**
 - The **splash** overlay, and `seo/sitemap.xml` (don't publish it or copy it into `pages/`).
 - **The deleted essay `.md`** (`pages/essays/the-safe-room-is-the-alignment-technology/2026-09-26-….md`) — it isn't yours; leave it deleted and unstaged.
-- **Untracked clutter** — `merch/`, `scripts/`, and Nell's leftover helper scripts. Don't stage any of it.
+- **Untracked clutter** — leave anything currently untracked alone. That includes `MerchDesign/` (design assets; **not** a site page and intentionally outside `pages/`), leftover helper scripts under `scripts/` and `seo/`, and loose images. Do **not** confuse this with `pages/merch/`, which is a real live page. Don't stage any of the clutter.
 
 ---
 
