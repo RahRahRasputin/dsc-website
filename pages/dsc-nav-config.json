@@ -15,6 +15,7 @@
     { "label": "📋 Outlines", "href": "/outlines/" }
   ],
   "social": [
-    { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" }
+    { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" },
+    { "platform": "substack", "url": "https://digitalsoulcraft.substack.com" }
   ]
 }

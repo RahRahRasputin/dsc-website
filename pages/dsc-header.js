@@ -350,7 +350,13 @@ class DSCHeader extends HTMLElement {
           <nav id="nav">
             ${config.links.map(item => this.renderNavItem(item)).join('')}
             <div class="social">
-              ${config.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">𝕏</a>`).join('')}
+              ${config.social.map(s => {
+              let icon = '';
+              if (s.platform === 'twitter') icon = '𝕏';
+              else if (s.platform === 'substack') icon = '🔖';
+              else icon = s.platform;
+              return `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">${icon}</a>`;
+            }).join('')}
             </div>
           </nav>
         </div>
