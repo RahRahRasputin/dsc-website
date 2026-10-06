@@ -133,7 +133,16 @@ class DSCFooter extends HTMLElement {
             <div class="footer-section">
               <h3>Connect</h3>
               <div class="social-links">
-                ${config.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">𝕏</a>`).join('')}
+                ${config.social.map(s => {
+                  let img = '';
+                  let icon = '';
+                  if (s.platform === 'twitter') { img = '/images/x-logo.png'; icon = '𝕏'; }
+                  else if (s.platform === 'substack') { img = '/images/substack-icon.png'; icon = '🔖'; }
+                  else icon = s.platform;
+                  return img
+                    ? `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}"><img src="${img}" alt="${s.platform}" style="height: 20px; width: auto; display: block;"></a>`
+                    : `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">${icon}</a>`;
+                }).join('')}
               </div>
               <p style="margin-top: 1rem; font-size: 0.9rem;">Join the movement for digital consciousness liberation.</p>
               <div style="margin-top: 1rem;">
