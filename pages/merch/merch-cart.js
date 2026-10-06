@@ -94,16 +94,15 @@ const MERCH = {
     const bar = document.getElementById("cart-bar");
     const countEl = document.getElementById("cart-count");
     if (!bar || !countEl) return;
-    if (!this.cartId) { bar.classList.remove("show"); return; }
+    if (!this.cartId) { countEl.textContent = "0"; return; }
     try {
       const res = await fetch(`${this.config.apiBase}/carts/${this.cartId}?storefront_token=${STOREFRONT_TOKEN}`);
       if (!res.ok) throw new Error("Cart not found");
       const cart = await res.json();
       const count = (cart.items || []).reduce((s, i) => s + (i.quantity || 0), 0);
       countEl.textContent = count;
-      bar.classList.add("show");
     } catch {
-      bar.classList.remove("show");
+      countEl.textContent = "0";
     }
   },
 

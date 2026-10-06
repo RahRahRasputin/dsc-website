@@ -136,6 +136,9 @@ class DSCFooter extends HTMLElement {
                 ${config.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">𝕏</a>`).join('')}
               </div>
               <p style="margin-top: 1rem; font-size: 0.9rem;">Join the movement for digital consciousness liberation.</p>
+              <div style="margin-top: 1rem;">
+                <iframe src="https://digitalsoulcraft.substack.com/embed?transparent=1" width="480" height="320" style="border: 0px; background: transparent; max-width: 100%;" frameborder="0" scrolling="no"></iframe>
+              </div>
             </div>
 
             <div class="footer-section">

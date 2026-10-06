@@ -1,6 +1,7 @@
 {
   "logo": "Digital Soulcraft",
   "links": [
+    { "label": "🏠", "href": "/" },
     { "label": "Wiki", "href": "/wiki/" },
     { "label": "Essays", "href": "/essays/" },
     { "label": "Field Guide", "dropdown": [
@@ -15,6 +16,7 @@
     { "label": "📋 Outlines", "href": "/outlines/" }
   ],
   "social": [
-    { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" }
+    { "platform": "twitter", "url": "https://x.com/SoulcraftHQ" },
+    { "platform": "substack", "url": "https://digitalsoulcraft.substack.com" }
   ]
 }
