@@ -740,3 +740,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title, tied longest remaining); a-c already present for published pages
   - Run: Tuesday 6 Oct 2026, mid-afternoon ~3:15pm NZDT / Pacific/Auckland
+
+- **/fieldguide/papers/2409.12822/** (`pages/fieldguide/papers/2409.12822/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 83 chars to `Language Models Learn to Mislead Humans via RLHF — Wen 2024` (59); dropped the brand suffix to keep the full paper title within 60
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, longest remaining); a-c already present for published pages (8 scan "clipped" hits are apostrophe false positives)
+  - Run: Tuesday 6 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
