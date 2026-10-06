@@ -357,7 +357,7 @@ class DSCHeader extends HTMLElement {
               else if (s.platform === 'substack') { img = '/images/substack-icon.png'; icon = '🔖'; }
               else icon = s.platform;
               return img
-                ? `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}"><img src="${img}" alt="${s.platform}" style="width: 28px; height: 28px; display: block;"></a>`
+                ? `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}"><img src="${img}" alt="${s.platform}" style="height: 32px; width: auto; display: block;"></a>`
                 : `<a href="${s.url}" target="_blank" rel="noopener" title="${s.platform}">${icon}</a>`;
             }).join('')}
             </div>
