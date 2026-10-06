@@ -353,7 +353,7 @@ class DSCHeader extends HTMLElement {
               ${config.social.map(s => {
               let img = '';
               let icon = '';
-              if (s.platform === 'twitter') { img = '/images/x-icon.svg'; icon = '𝕏'; }
+              if (s.platform === 'twitter') { img = '/images/x-logo.png'; icon = '𝕏'; }
               else if (s.platform === 'substack') { img = '/images/substack-icon.png'; icon = '🔖'; }
               else icon = s.platform;
               return img
