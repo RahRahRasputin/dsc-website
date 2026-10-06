@@ -729,3 +729,8 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Why: priority d (overlong title, tied longest remaining); a-c already present for published pages
   - Run: Monday 5 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
 
+- **/fieldguide/papers/2410.11407/** (`pages/fieldguide/papers/2410.11407/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 80 chars to `A Case for AI Consciousness — Goldstein & Kirk-Giannini 2024` (60); dropped the brand suffix to keep both authors credited within 60
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, longest remaining); a-c already present for published pages (8 scan "clipped" hits are apostrophe false positives)
+  - Run: Tuesday 6 Oct 2026, early afternoon ~1:25pm NZDT / Pacific/Auckland
