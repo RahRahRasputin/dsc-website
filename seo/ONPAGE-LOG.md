@@ -746,3 +746,10 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title, longest remaining); a-c already present for published pages (8 scan "clipped" hits are apostrophe false positives)
   - Run: Tuesday 6 Oct 2026, late afternoon ~5:20pm NZDT / Pacific/Auckland
+
+- **/about/** (`pages/about/index.html`)
+  - Restored head tags that commit d81066f6 (Buttondown to Substack swap, 6 Oct) accidentally dropped: `robots noindex, nofollow`, canonical `https://digitalsoulcraft.org/about/`, `og:title`, `og:description`, `og:type`, `og:url`
+  - Restored the tightened 151-char description (the swap had reverted it to the old 177-char one); title, layout, styles, and body unchanged
+  - Note: the same commit also dropped the robots meta from `splash.html`; the embargo still holds via the sitewide `X-Robots-Tag: noindex, nofollow` header in netlify.toml, but the meta tag should be restored next run
+  - Why: priority c (missing canonical/og:url on a published page); a-b clear
+  - Run: Wednesday 7 Oct 2026, late morning ~11:20am NZDT / Pacific/Auckland
