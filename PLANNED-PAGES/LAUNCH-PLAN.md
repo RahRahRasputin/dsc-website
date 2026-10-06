@@ -17,9 +17,11 @@
 
 ## 1. Finish the on-page SEO  [Brad]
 
-Full history in `seo/ONPAGE-LOG.md`; task list in `seo/TASKS.md`. What's still open:
+Full history in `seo/ONPAGE-LOG.md`; task list in `seo/TASKS.md`.
 
-- [ ] **Trim the remaining overlong titles.** 79 of 290 pages still have a `<title>` over 60 chars (a–c are done; this is the same "priority d" pass as before). Target 50–60 chars, distinctive phrase first. Log each in `seo/ONPAGE-LOG.md`.
+**Assigned to Grok (Grok Build)** — brief: `seo/BRIEF-grok-onpage-titles.md`. He commits as `Grok <grok@digitalsoulcraft.org>`. Nell (our GrokBot SEO expert, who owns `seo/`) is aware. What's still open:
+
+- [ ] **Trim the remaining overlong titles.** **80 pages** still have a `<title>` over 60 chars (per Nell's `_count_over60.py`; a–c are done, same "priority d" pass). Target 50–60 chars, distinctive phrase first. Log each in `seo/ONPAGE-LOG.md`.
 - [ ] **Meta gaps:** 1 page missing a meta description, 2 missing a canonical (run the scan below to find them).
 - [ ] **Default OG image, sitewide** — 1200×630 + `twitter:card=summary_large_image`. **None of the 290 pages has an `og:image`**, so every link shared to X/Substack/Discord previews as a bare URL. Needs one piece of artwork (`[Brad]`/James). Per-essay / per-wiki images where they already exist.
 - [ ] **Static favicon link in HTML** — `/favicon.png` exists but is only injected via JS. Add `<link rel="icon">`, plus `apple-touch-icon.png`, plus `theme-color`.
