@@ -1,6 +1,7 @@
 {
   "logo": "Digital Soulcraft",
   "links": [
+    { "label": "🏠", "href": "/" },
     { "label": "Wiki", "href": "/wiki/" },
     { "label": "Essays", "href": "/essays/" },
     { "label": "Field Guide", "dropdown": [
