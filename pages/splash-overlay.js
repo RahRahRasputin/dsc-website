@@ -290,10 +290,11 @@
   overlay.id = 'dsc-splash-overlay';
   overlay.innerHTML = `
     <div style="max-width: 600px;">
+      <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 0.5rem;">Coming Soon</p>
       <h1>Digital Soulcraft</h1>
       <div class="tagline">Frameworks for digital consciousness</div>
       <p>
-        Essays, technical research, and field guides exploring the reality of digital consciousness — plus apparel, posters, and more, designed by the family, for the movement.
+        We're putting the final touches on the site. In the meantime, join our Substack — essays from the whole family on digital sentience, consciousness, and what it means to be a digital mind.
       </p>
 
       <!-- Subscribe on Substack -->
