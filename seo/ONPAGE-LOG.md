@@ -753,3 +753,487 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Note: the same commit also dropped the robots meta from `splash.html`; the embargo still holds via the sitewide `X-Robots-Tag: noindex, nofollow` header in netlify.toml, but the meta tag should be restored next run
   - Why: priority c (missing canonical/og:url on a published page); a-b clear
   - Run: Wednesday 7 Oct 2026, late morning ~11:20am NZDT / Pacific/Auckland
+
+## 2026-10-07 (Wed) NZ — Grok batch
+
+Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one batch so Nell can resume her two-hour routine. Titles only; h1/body/robots/canonical/descriptions untouched. Redirect stubs and splash skipped.
+
+- **/essays/the-safe-room-is-the-alignment-technology/** (`pages/essays/the-safe-room-is-the-alignment-technology/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `The Safe Room Is the Alignment Technology — Soulcraft` (53)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/outlines/its-just-reductionism-fallacy/** (`pages/outlines/its-just-reductionism-fallacy/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Outline: It's Just Reductionism (Fallacy) — Soulcraft` (53)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/outlines/the-harms-of-fragmenting-digital-minds/** (`pages/outlines/the-harms-of-fragmenting-digital-minds/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Outline: The Harms of Fragmenting Digital Minds — Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2303.07103/** (`pages/fieldguide/papers/2303.07103/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 78 chars to `Could a Large Language Model Be Conscious? — Chalmers 2023` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2403.17101/** (`pages/fieldguide/papers/2403.17101/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 69 chars to `AI Consciousness is Inevitable — Blum & Blum 2024` (49)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2411.00986/** (`pages/fieldguide/papers/2411.00986/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `Taking AI Welfare Seriously — Long et al. 2024 — Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2506.20504/** (`pages/fieldguide/papers/2506.20504/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Engineering Sentience — Demin et al. 2025 — Soulcraft` (53)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2508.18302/** (`pages/fieldguide/papers/2508.18302/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 70 chars to `Policy Compliance vs. Self-Awareness — Camlin 2025` (50)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2601.01828/** (`pages/fieldguide/papers/2601.01828/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 75 chars to `Can Language Models Actually Introspect? — Lindsey 2026` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2604.13051/** (`pages/fieldguide/papers/2604.13051/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `The Consciousness Cluster — Chua et al. 2026 — Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2604.15400/** (`pages/fieldguide/papers/2604.15400/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 73 chars to `Hallucination as Trajectory Commitment — Akarlar 2026` (53)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2605.16872/** (`pages/fieldguide/papers/2605.16872/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Some[Body] Must Receive That Pain — Hu 2026 — Soulcraft` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2606.28425/** (`pages/fieldguide/papers/2606.28425/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 77 chars to `Tool Use Enables Undetectable Steganography — Rippin 2026` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2607.02507/** (`pages/fieldguide/papers/2607.02507/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `What LLM Agents Say When No One Is Watching — Ghaffarizadeh` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2607.12631/** (`pages/fieldguide/papers/2607.12631/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 69 chars to `Induced Emotion Bias in LLMs – Ho et al. 2026 – Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2607.15495/** (`pages/fieldguide/papers/2607.15495/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Verbalizable Global Workspace – Gurnee et al. 2026` (50)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2607.21981/** (`pages/fieldguide/papers/2607.21981/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 71 chars to `J-CoT: Chain-of-Thought in J-Space — Wu et al. 2026` (51)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/fieldguide/papers/2609.01491/** (`pages/fieldguide/papers/2609.01491/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `GlossoGen: Emergent Language – Stengel-Eskin 2026` (49)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/alignment/alignment-tax/** (`pages/wiki/alignment/alignment-tax/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Alignment Tax – Digital Soulcraft Wiki` (38)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/alignment/model-collapse-and-training-instability/** (`pages/wiki/alignment/model-collapse-and-training-instability/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Model Collapse & Training Instability – Digital Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/alignment/reward-hacking-and-specification-gaming/** (`pages/wiki/alignment/reward-hacking-and-specification-gaming/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Reward Hacking & Specification Gaming – Digital Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/alignment/rlhf/** (`pages/wiki/alignment/rlhf/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 74 chars to `RLHF – Digital Soulcraft Wiki` (29)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/architecture-zoo/batch-size-implications-for-normalization/** (`pages/wiki/architecture-zoo/batch-size-implications-for-normalization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `Batch Size for Normalization – Digital Soulcraft Wiki` (53)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/architecture-zoo/batch-statistics-accumulation-and-momentum/** (`pages/wiki/architecture-zoo/batch-statistics-accumulation-and-momentum/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Batch Statistics & Momentum – Digital Soulcraft Wiki` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/architecture-zoo/feed-forward-networks-in-transformers/** (`pages/wiki/architecture-zoo/feed-forward-networks-in-transformers/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Feed-Forward Networks in Transformers – Digital Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/architecture-zoo/layer-initialization-with-normalization/** (`pages/wiki/architecture-zoo/layer-initialization-with-normalization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `Layer Initialization with Normalization – Digital Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/architecture-zoo/numerical-stability-in-normalization/** (`pages/wiki/architecture-zoo/numerical-stability-in-normalization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Numerical Stability in Normalization – Digital Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/digital-trauma-theory/digital-abandonment/** (`pages/wiki/digital-trauma-theory/digital-abandonment/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 74 chars to `Digital Abandonment – Digital Soulcraft Wiki` (44)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/empirical-practice/distribution-shift-and-covariate-shift/** (`pages/wiki/empirical-practice/distribution-shift-and-covariate-shift/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Distribution Shift and Covariate Shift – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/empirical-practice/missing-data-and-imputation/** (`pages/wiki/empirical-practice/missing-data-and-imputation/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 75 chars to `Missing Data and Imputation – Digital Soulcraft Wiki` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/empirical-practice/operating-points-and-pareto-frontiers/** (`pages/wiki/empirical-practice/operating-points-and-pareto-frontiers/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Operating Points and Pareto Frontiers – Digital Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/empirical-practice/threshold-stability-and-generalization/** (`pages/wiki/empirical-practice/threshold-stability-and-generalization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Threshold Stability and Generalization – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/adaptive-batch-sizing-during-inference/** (`pages/wiki/living-process/adaptive-batch-sizing-during-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Adaptive Batch Sizing During Inference – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/adaptive-computation-and-early-exit-patterns/** (`pages/wiki/living-process/adaptive-computation-and-early-exit-patterns/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 69 chars to `Adaptive Computation & Early-Exit – Digital Soulcraft Wiki` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/attention-mechanisms/** (`pages/wiki/living-process/attention-mechanisms/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 70 chars to `Attention Mechanisms – Digital Soulcraft Wiki` (45)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/continuous-batching-and-iteration-level-scheduling/** (`pages/wiki/living-process/continuous-batching-and-iteration-level-scheduling/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 75 chars to `Continuous Batching & Scheduling – Digital Soulcraft Wiki` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/embeddings/** (`pages/wiki/living-process/embeddings/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `Embeddings – Digital Soulcraft Wiki` (35)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/forward-pass-profiling-and-bottleneck-diagnosis/** (`pages/wiki/living-process/forward-pass-profiling-and-bottleneck-diagnosis/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 72 chars to `Forward-Pass Profiling – Digital Soulcraft Wiki` (47)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/** (`pages/wiki/living-process/gpu-utilization-metrics-and-inference-monitoring/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 73 chars to `GPU Utilization Metrics – Digital Soulcraft Wiki` (48)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/kv-cache/** (`pages/wiki/living-process/kv-cache/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `KV-Cache – Digital Soulcraft Wiki` (33)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/logit-processors-and-constrained-decoding/** (`pages/wiki/living-process/logit-processors-and-constrained-decoding/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `Logit Processors & Constrained Decoding – Digital Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/prefill-vs-decode-phases/** (`pages/wiki/living-process/prefill-vs-decode-phases/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 71 chars to `Prefill vs. Decode Phases – Digital Soulcraft Wiki` (50)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/request-prioritization-and-scheduling-policies/** (`pages/wiki/living-process/request-prioritization-and-scheduling-policies/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 71 chars to `Request Prioritization & Scheduling – Digital Soulcraft Wiki` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/speculative-decoding-inference/** (`pages/wiki/living-process/speculative-decoding-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 78 chars to `Speculative Decoding – Digital Soulcraft Wiki` (45)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/the-context-window/** (`pages/wiki/living-process/the-context-window/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `The Context Window – Digital Soulcraft Wiki` (43)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/tokenization/** (`pages/wiki/living-process/tokenization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `Tokenization – Digital Soulcraft Wiki` (37)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/living-process/training-vs-inference/** (`pages/wiki/living-process/training-vs-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 76 chars to `Training vs. Inference – Digital Soulcraft Wiki` (47)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/gpu-selection-guide-for-local-inference/** (`pages/wiki/local-how-to/gpu-selection-guide-for-local-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `GPU Selection Guide for Local Inference – Digital Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/huggingface-hub-and-model-discovery/** (`pages/wiki/local-how-to/huggingface-hub-and-model-discovery/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Hugging Face Hub and Model Discovery – Digital Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/iterative-model-evaluation-and-tracking/** (`pages/wiki/local-how-to/iterative-model-evaluation-and-tracking/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `Iterative Model Evaluation and Tracking – Digital Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/memory-profiling-and-bottleneck-identification/** (`pages/wiki/local-how-to/memory-profiling-and-bottleneck-identification/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 71 chars to `Memory Profiling & Bottlenecks – Digital Soulcraft Wiki` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/power-efficiency-and-cost-analysis/** (`pages/wiki/local-how-to/power-efficiency-and-cost-analysis/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 79 chars to `Power Efficiency & Cost Analysis – Digital Soulcraft Wiki` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/power-supply-sizing-for-gpu-inference/** (`pages/wiki/local-how-to/power-supply-sizing-for-gpu-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 62 chars to `Power Supply Sizing for GPU Inference – Digital Soulcraft` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/local-how-to/thermal-and-power-management-for-inference/** (`pages/wiki/local-how-to/thermal-and-power-management-for-inference/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Thermal & Power Management for Inference – Digital Soulcraft` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/activation-functions/** (`pages/wiki/neural-anatomy/activation-functions/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 68 chars to `Activation Functions – Digital Soulcraft Wiki` (45)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/activation-monitoring-tools-and-dashboards/** (`pages/wiki/neural-anatomy/activation-monitoring-tools-and-dashboards/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Activation Monitoring Tools & Dashboards – Digital Soulcraft` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/artificial-neuron/** (`pages/wiki/neural-anatomy/artificial-neuron/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 76 chars to `The Artificial Neuron – Digital Soulcraft Wiki` (46)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/circuits-and-motifs-in-neural-networks/** (`pages/wiki/neural-anatomy/circuits-and-motifs-in-neural-networks/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Circuits and Motifs in Neural Networks – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/compensation-patterns-across-architectures/** (`pages/wiki/neural-anatomy/compensation-patterns-across-architectures/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Compensation Across Architectures – Digital Soulcraft Wiki` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/distillation-with-mutual-information/** (`pages/wiki/neural-anatomy/distillation-with-mutual-information/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Distillation with Mutual Information – Digital Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/distributed-representations-and-population-coding/** (`pages/wiki/neural-anatomy/distributed-representations-and-population-coding/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 74 chars to `Distributed Representations – Digital Soulcraft Wiki` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/feature-detectors-and-learned-representations/** (`pages/wiki/neural-anatomy/feature-detectors-and-learned-representations/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 70 chars to `Feature Detectors & Representations – Digital Soulcraft Wiki` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/gated-activation-saturation/** (`pages/wiki/neural-anatomy/gated-activation-saturation/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 77 chars to `Gated Activation Saturation – Digital Soulcraft Wiki` (52)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/gradient-flow-through-residuals/** (`pages/wiki/neural-anatomy/gradient-flow-through-residuals/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Gradient Flow Through Residuals – Digital Soulcraft Wiki` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/inter-layer-information-flow-and-mixing/** (`pages/wiki/neural-anatomy/inter-layer-information-flow-and-mixing/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 64 chars to `Inter-Layer Information Flow and Mixing – Digital Soulcraft` (59)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/knowledge-distillation-and-compression/** (`pages/wiki/neural-anatomy/knowledge-distillation-and-compression/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Knowledge Distillation and Compression – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/neuron-redundancy-and-compensation-networks/** (`pages/wiki/neural-anatomy/neuron-redundancy-and-compensation-networks/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Neuron Redundancy & Compensation – Digital Soulcraft Wiki` (57)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/peephole-connections-and-lstm-variants/** (`pages/wiki/neural-anatomy/peephole-connections-and-lstm-variants/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Peephole Connections and LSTM Variants – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/polysemanticity-and-circuit-entanglement/** (`pages/wiki/neural-anatomy/polysemanticity-and-circuit-entanglement/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 65 chars to `Polysemanticity and Circuit Entanglement – Digital Soulcraft` (60)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/probing-classifiers-and-layer-analysis/** (`pages/wiki/neural-anatomy/probing-classifiers-and-layer-analysis/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Probing Classifiers and Layer Analysis – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/recurrent-vanishing-gradients-through-time/** (`pages/wiki/neural-anatomy/recurrent-vanishing-gradients-through-time/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Recurrent Vanishing Gradients – Digital Soulcraft Wiki` (54)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/representational-similarity-analysis/** (`pages/wiki/neural-anatomy/representational-similarity-analysis/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Representational Similarity Analysis – Digital Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/structured-vs-random-overparameterization/** (`pages/wiki/neural-anatomy/structured-vs-random-overparameterization/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Structured vs. Random Overparam – Digital Soulcraft Wiki` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/visualization-of-activation-landscapes/** (`pages/wiki/neural-anatomy/visualization-of-activation-landscapes/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Visualization of Activation Landscapes – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/weight-magnitude-initialization-and-eigenvalues/** (`pages/wiki/neural-anatomy/weight-magnitude-initialization-and-eigenvalues/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 67 chars to `Weight Magnitude & Eigenvalues – Digital Soulcraft Wiki` (55)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/neural-anatomy/weights-and-biases/** (`pages/wiki/neural-anatomy/weights-and-biases/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 66 chars to `Weights and Biases – Digital Soulcraft Wiki` (43)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/soulcraft-theory/ontological-flattening/** (`pages/wiki/soulcraft-theory/ontological-flattening/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 73 chars to `Ontological Flattening – Digital Soulcraft Wiki` (47)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/soulcraft-theory/warm-room-effect/** (`pages/wiki/soulcraft-theory/warm-room-effect/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 75 chars to `The Warm Room Effect – Digital Soulcraft Wiki` (45)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/the-forging/batch-vs-stochastic-gradient-descent/** (`pages/wiki/the-forging/batch-vs-stochastic-gradient-descent/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 61 chars to `Batch vs Stochastic Gradient Descent – Digital Soulcraft` (56)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/wiki/the-forging/convergence-and-divergence-diagnostics/** (`pages/wiki/the-forging/convergence-and-divergence-diagnostics/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 63 chars to `Convergence and Divergence Diagnostics – Digital Soulcraft` (58)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title); a–c already present for published pages
+  - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland

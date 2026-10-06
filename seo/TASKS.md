@@ -40,7 +40,7 @@ Safe to draft in the repo; do not flip robots to Allow until Brad says the overl
 - [ ] Default OG image 1200×630 sitewide + `twitter:card=summary_large_image`. Per-essay/wiki images where they exist.
 - [ ] Static `<link rel="icon" href="/favicon.png">` in HTML (not only JS). Add `favicon.ico` and `apple-touch-icon.png` if Brad has artwork. `theme-color`.
 - [x] Unique meta descriptions on wiki (and the rest of published HTML). Truncated 160-char cuts rewritten. Apostrophe-clipped `answer-thrashing` quote fixed. (Grok 20 Sep 2026)
-- [ ] Trim titles toward 50–60 chars; distinctive phrase first. (Only `training-vs-inference` slug title fixed 20 Sep; paper titles still long.)
+- [x] Trim titles toward 50–60 chars; distinctive phrase first. (Grok 7 Oct 2026 batch: 80 remaining over-60 titles trimmed; `<title>` + matching `og:title` only. `over60=0`.)
 - [ ] Heading fixes: `/contact/` and `/outlines/` (no skipped levels). `/about/` add a real `<label>` for `#about-bd-email`.
 - [x] Image pass: convert `pages/` PNG/JPG to display-sized WebP (max 1200px; feature ≤200KB, inline ≤100KB). HTML/JS now point at `.webp`; originals kept. Script: `scripts/optimize_images.py`. (Grok 21 Sep 2026; leftover: richer alts on Ghibli plates, default CSS `max-width: 560px`.)
 - [ ] Wiki See Also: either publish the stub, retarget, or unlink. Highest inbound 404s: `quantization-and-compression` (11), `gradient-flow-in-deep-networks` (7), then decision-threshold, SWA, model-card-literacy, gelu. Homepage names basin-theory / crystallization pages that do not exist — do not leave those as 404s at launch.
