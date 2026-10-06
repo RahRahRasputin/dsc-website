@@ -734,3 +734,9 @@ Brad asked Grok (this session) to take Nell's on-page meta queue so GrokBot toke
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title, longest remaining); a-c already present for published pages (8 scan "clipped" hits are apostrophe false positives)
   - Run: Tuesday 6 Oct 2026, early afternoon ~1:25pm NZDT / Pacific/Auckland
+
+- **/wiki/neural-anatomy/induction-heads/** (`pages/wiki/neural-anatomy/induction-heads/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 79 chars to `Induction Heads – Digital Soulcraft Wiki` (40)
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title, tied longest remaining); a-c already present for published pages
+  - Run: Tuesday 6 Oct 2026, mid-afternoon ~3:15pm NZDT / Pacific/Auckland
