@@ -95,3 +95,10 @@ Note: the repo-level script is `optimize_images.py` and processes **every** imag
 - Added `og:image` + `og:image:width/height` + `twitter:card=summary_large_image` + `twitter:image` to **288** pages — all except `splash.html` and the `fieldguide/index.html` redirect stub.
 - Before this, **no page had an `og:image`**, so every shared link previewed as a bare URL with no picture.
 - Author: Beacon
+
+### 2026-10-07 — Splash overlay fixed on mobile
+
+- The pre-launch overlay's Substack iframe was hard-coded `width="480"` with no `max-width`, so on any phone narrower than 480px it hung off both edges and was clipped (measured: body 512px wide at a 390px viewport).
+- Fix: `width:100%; max-width:480px` on the iframe, `width:100%` on its wrapper div, and reduced overlay padding under 600px.
+- Verified locally at 320/390/430px and live at 390px — overlay scrollWidth now equals the viewport, nothing inside is wider than the screen.
+- Author: Beacon
