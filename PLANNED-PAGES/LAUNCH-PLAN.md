@@ -6,8 +6,9 @@
 **Reality check:** Brad is also studying an online course (business use of DI, Open Polytechnic) — so website time is shared. Sort by *value*, not by size; the launch gate (§6) is the one thing that must not slip.
 **Legend:** `[ ]` todo · `[x]` done · tag = origin (`[Brad]` = you asked, `[repo]` = found in the repo state, `[Beacon]` = my addition)
 
-**Live state right now (audited 2026-10-07):**
-- 290 HTML pages, **all 290 carry `noindex,nofollow`** — the launch gate is fully closed ✅
+**Live state right now (updated 2026-10-07, afternoon):**
+- 290 HTML pages, **all gated** — 289 carry `noindex,nofollow` in-file and `splash.html` is covered by Netlify's `X-Robots-Tag` + its 301. The launch gate is fully closed ✅
+- **On-page titles: DONE** — `over60 = 0`; all 80 overlong titles trimmed by Grok (2026-10-07, commit `585cf0b5`) ✅
 - Splash overlay active (`pages/splash.html`, `pages/splash-overlay.js`)
 - Deploy: push to `v4` → Netlify auto-publishes `pages/`. Verify live with `?preview=1` (bypasses the splash).
 
@@ -19,15 +20,13 @@
 
 Full history in `seo/ONPAGE-LOG.md`; task list in `seo/TASKS.md`.
 
-**Assigned to Grok (Grok Build)** — brief: `seo/BRIEF-grok-onpage-titles.md`. He commits as `Grok <grok@digitalsoulcraft.org>`. Nell (our GrokBot SEO expert, who owns `seo/`) is aware. What's still open:
-
-- [ ] **Trim the remaining overlong titles.** **80 pages** still have a `<title>` over 60 chars (per Nell's `_count_over60.py`; a–c are done, same "priority d" pass). Target 50–60 chars, distinctive phrase first. Log each in `seo/ONPAGE-LOG.md`.
-- [ ] **Meta gaps:** 1 page missing a meta description, 2 missing a canonical (run the scan below to find them).
-- [ ] **Default OG image, sitewide** — 1200×630 + `twitter:card=summary_large_image`. **None of the 290 pages has an `og:image`**, so every link shared to X/Substack/Discord previews as a bare URL. Needs one piece of artwork (`[Brad]`/James). Per-essay / per-wiki images where they already exist.
+- [x] **Trim the overlong titles — DONE (2026-10-07).** Grok (Grok Build) trimmed all **80** pages over 60 chars in one pass — in about 15 minutes. Brief: `seo/BRIEF-grok-onpage-titles.md` (reviewed by Nell). Commit `585cf0b5`, signed `Grok <grok@digitalsoulcraft.org>`; every change logged in `seo/ONPAGE-LOG.md`; deploy verified live. `over60 = 0`.
+- [x] **Meta gaps — no action needed.** The only missing description is `pages/fieldguide/index.html` (a redirect stub — skip) and the only missing canonical is `pages/splash.html` (intentional; gated by `X-Robots-Tag` + a 301). Resolved by Nell's review, 2026-10-07.
+- [ ] **Default OG image, sitewide** — 1200×630 + `twitter:card=summary_large_image`. **No page has an `og:image`**, so every link shared to X/Substack/Discord previews as a bare URL. Needs one piece of artwork (`[Brad]`/James). Per-essay / per-wiki images where they already exist.
 - [ ] **Static favicon link in HTML** — `/favicon.png` exists but is only injected via JS. Add `<link rel="icon">`, plus `apple-touch-icon.png`, plus `theme-color`.
 - [ ] **Heading fixes:** `/contact/` and `/outlines/` skip heading levels; `/about/` email input has no real `<label>`.
 
-Re-scan anytime:
+Re-scan anytime (should now report 0):
 ```bash
 cd /d/dsc-website && py seo/_count_over60.py
 ```
@@ -134,11 +133,11 @@ You couldn't decide whether expanding `/wiki/soulcraft-theory/` is pre- or post-
 ```bash
 cd /d/dsc-website
 
-# remaining overlong titles
+# confirm all titles are within 60 (expect 0 after Grok's 2026-10-07 pass)
 py seo/_count_over60.py
 
-# the launch gate (should be 290 pre-launch, 0 after)
-grep -rl "noindex" pages/ | wc -l
+# the launch gate (289 html pre-launch — splash is covered by X-Robots-Tag + a 301; 0 after)
+grep -rl "noindex" pages/ --include='*.html' | wc -l
 
 # confirm a deploy is live (ALWAYS with a cache-buster + a marker unique to the change)
 curl -s "https://digitalsoulcraft.org/<path>?preview=1&cb=$RANDOM" | grep -c '<marker>'
