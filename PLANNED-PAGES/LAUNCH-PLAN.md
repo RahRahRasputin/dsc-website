@@ -32,11 +32,14 @@ Re-scan anytime (should now report 0):
 cd /d/dsc-website && py seo/_count_over60.py
 ```
 
-## 2. Fix broken promises & 404s  [repo]
+## 2. Fix broken promises & 404s  [repo] — ✅ AUDITED & DONE (2026-10-07)
 
-- [ ] **Wiki "See Also" stubs.** Highest inbound 404s: `quantization-and-compression` (11 hits), `gradient-flow-in-deep-networks` (7), then `decision-threshold`, `swa`, `model-card-literacy`, `gelu`. Resolve each: publish the stub, retarget the link, or unlink it.
-- [ ] **Homepage names pages that don't exist** — `basin-theory` and `crystallization`. **Do not ship a 404 on a core concept** — either build the pages or remove the links before launch.
-- [ ] **Stale external links:** `ollama.ai` → `ollama.com`; llama.cpp / exllamav2 new GitHub orgs.
+- [x] **Broken internal links: ZERO.** Full-site audit — **3,264** local `href`/`src` links checked, **none broken**. (The only other miss is inside an HTML comment: the essay-card template.) The September list was already resolved on **2026-08-31** by `b03cbd3b` (*"unlink unpublished See Also"*), which removed the dead links across 60 files.
+- [x] **Homepage promise resolved.** It no longer links `basin-theory`/`crystallization`, and `crystallization-of-self` exists as a real page.
+- [x] **Retargeted 6 — where the content actually exists** (commit `ea8e5c8e`): GELU → `architecture-zoo/activation-function-properties` (incl. 2 inline body mentions), weight init → `layer-initialization-with-normalization`, hidden state → `neural-anatomy/hidden-state-analysis`, mechanistic interpretability → `alignment/interpretability-and-saliency` (also fixed an inline link whose visible text was a raw slug), embedding models → `local-how-to/embedding-models-with-ollama`, crystallization → `outlines/crystallization-of-self`. 8 restorations across 6 files; re-verified 0 broken + no duplicate See Also entries.
+- [x] **The other 60 became a backlog** → `PLANNED-PAGES/WIKI-BACKLOG.md`. They were never written; the links were correctly removed. Now recorded somewhere durable instead of only in a git commit.
+- [x] **Stale externals — nothing is actually broken.** All resolve 200 via redirect: `ollama.ai → ollama.com`, `ggerganov/llama.cpp → ggml-org/llama.cpp`, `turboderp → turboderp-org`. Non-canonical but working; no action needed.
+- [x] **`nofollow` decision (Brad, 2026-10-07): leave as is.** 216 new-tab external links already carry `rel="noopener"`; `nofollow` stays a per-link choice (paper pages), **not** sitewide — blanket nofollow on citations isn't required and isn't recommended.
 
 ## 3. Content to finish  [Beacon]
 

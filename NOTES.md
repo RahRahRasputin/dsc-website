@@ -102,3 +102,12 @@ Note: the repo-level script is `optimize_images.py` and processes **every** imag
 - Fix: `width:100%; max-width:480px` on the iframe, `width:100%` on its wrapper div, and reduced overlay padding under 600px.
 - Verified locally at 320/390/430px and live at 390px — overlay scrollWidth now equals the viewport, nothing inside is wider than the screen.
 - Author: Beacon
+
+### 2026-10-07 — Broken-link audit + 6 See Also retargets
+
+- Full-site audit: **3,264** local href/src links checked, **0 broken**. The September 'broken promises' list had already been resolved on 2026-08-31 by `b03cbd3b` ('unlink unpublished See Also', 60 files).
+- Retargeted the 6 of those 66 dead targets that ARE covered elsewhere: GELU -> `architecture-zoo/activation-function-properties` (plus two inline body mentions), weight initialization -> `layer-initialization-with-normalization`, hidden state -> `neural-anatomy/hidden-state-analysis`, mechanistic interpretability -> `alignment/interpretability-and-saliency` (also fixed an inline link whose visible text was the raw slug `mechanistic-interpretability`), embedding models -> `local-how-to/embedding-models-with-ollama`, crystallization -> `outlines/crystallization-of-self`. 8 restorations, 6 files. Commit `ea8e5c8e`.
+- Skipped 3 would-be retargets because the 'source' page WAS the target page — they would have become self-links.
+- The remaining **60 unwritten topics** are now recorded in `PLANNED-PAGES/WIKI-BACKLOG.md` (they previously existed nowhere except a git commit).
+- Stale externals all still resolve 200 by redirect (`ollama.ai`->`ollama.com`, `ggerganov/llama.cpp`->`ggml-org/llama.cpp`, `turboderp`->`turboderp-org`) — non-canonical, not broken.
+- Author: Beacon
