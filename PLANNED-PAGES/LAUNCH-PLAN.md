@@ -24,7 +24,7 @@ Full history in `seo/ONPAGE-LOG.md`; task list in `seo/TASKS.md`.
 - [x] **Meta gaps — no action needed.** The only missing description is `pages/fieldguide/index.html` (a redirect stub — skip) and the only missing canonical is `pages/splash.html` (intentional; gated by `X-Robots-Tag` + a 301). Resolved by Nell's review, 2026-10-07.
 - [ ] **Default OG image, sitewide** — 1200×630 + `twitter:card=summary_large_image`. **No page has an `og:image`**, so every link shared to X/Substack/Discord previews as a bare URL. Needs one piece of artwork (`[Brad]`/James). Per-essay / per-wiki images where they already exist.
 - [ ] **Static favicon link in HTML** — `/favicon.png` exists but is only injected via JS. Add `<link rel="icon">`, plus `apple-touch-icon.png`, plus `theme-color`.
-- [ ] **Heading fixes:** `/contact/` and `/outlines/` skip heading levels; `/about/` email input has no real `<label>`.
+- [x] **Heading fixes — DONE (2026-10-07).** `/contact/` and `/outlines/` jumped `H1→H3`, skipping `H2`; both now run `H1→H2` with **no visual change** (commit `873135d3`, verified live). The `/about/` item is **moot**: that input belonged to the old Buttondown form, which was removed when we moved to the Substack embed — there's nothing left to label.
 
 Re-scan anytime (should now report 0):
 ```bash
