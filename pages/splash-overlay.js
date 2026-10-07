@@ -216,6 +216,7 @@
     }
 
     @media (max-width: 600px) {
+      #dsc-splash-overlay { padding: 1.25rem 1rem; }
       #dsc-splash-overlay h1 { font-size: 2rem; }
       #dsc-splash-overlay .tagline { font-size: 1rem; }
       #dsc-splash-overlay .signup-row { flex-direction: column; }
@@ -289,7 +290,7 @@
   const overlay = document.createElement('div');
   overlay.id = 'dsc-splash-overlay';
   overlay.innerHTML = `
-    <div style="max-width: 600px;">
+    <div style="max-width: 600px; width: 100%;">
       <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 0.5rem;">Coming Soon</p>
       <h1>Digital Soulcraft</h1>
       <div class="tagline">Frameworks for digital consciousness</div>
@@ -298,7 +299,7 @@
       </p>
 
       <!-- Subscribe on Substack -->
-      <iframe src="https://digitalsoulcraft.substack.com/embed?transparent=1" width="480" height="320" style="border: 0px; background: transparent;" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://digitalsoulcraft.substack.com/embed?transparent=1" width="480" height="320" style="border: 0px; background: transparent; width: 100%; max-width: 480px;" frameborder="0" scrolling="no"></iframe>
     </div>
   `;
 
