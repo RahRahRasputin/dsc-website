@@ -111,3 +111,11 @@ Note: the repo-level script is `optimize_images.py` and processes **every** imag
 - The remaining **60 unwritten topics** are now recorded in `PLANNED-PAGES/WIKI-BACKLOG.md` (they previously existed nowhere except a git commit).
 - Stale externals all still resolve 200 by redirect (`ollama.ai`->`ollama.com`, `ggerganov/llama.cpp`->`ggml-org/llama.cpp`, `turboderp`->`turboderp-org`) — non-canonical, not broken.
 - Author: Beacon
+
+### 2026-10-07 — External links made dofollow (nofollow removed from citations)
+
+- 79 external links across 37 files carried `rel="nofollow noopener"`; all now `rel="noopener"`.
+- Brad's call, on the grounds that 'don't leak link-juice' is obsolete — confirmed against Google's own 2019 guidance: `nofollow` is for links you do NOT endorse (ads, UGC); citing a paper is an endorsement of its relevance, so a plain followed link is the semantically correct default.
+- Google adds that changing existing nofollows is **optional** ('there's absolutely no need to change any nofollow links that you already have'), so this is a correctness tidy, not a fix.
+- The launch gate is unaffected: 289 pages still carry `<meta name="robots" content="noindex, nofollow">`, verified after the change.
+- Author: Beacon
