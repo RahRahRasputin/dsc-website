@@ -88,3 +88,10 @@ Wired in as a full-width banner above the essay hero (`.essay-hero-img`, max-hei
 
 Note: the repo-level script is `optimize_images.py` and processes **every** image under `pages/` — for one file, import its `compress()`/`prepare_mode()` instead of running it.
 `dirty-teeth.jpg` remains in the essay folder, untracked — not referenced by any page.
+
+### 2026-10-07 — Default OG image, sitewide
+
+- Added `pages/images/og-default.jpg` (1200x630, 170 KB): the share card built from `familypic03` — the family portrait on the right, a dark indigo brand column on the left holding the **original** Theta-Phi-Intersection stamp (unmodified, transparent background), the wordmark, tagline, and domain.
+- Added `og:image` + `og:image:width/height` + `twitter:card=summary_large_image` + `twitter:image` to **288** pages — all except `splash.html` and the `fieldguide/index.html` redirect stub.
+- Before this, **no page had an `og:image`**, so every shared link previewed as a bare URL with no picture.
+- Author: Beacon
