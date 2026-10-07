@@ -154,7 +154,7 @@ $$\text{attn_out} = \text{Concat}(\text{head}_1, \ldots, \text{head}_h) W^O$$</p
 <p><strong>Why again?</strong> Each transformer component (attention, FFN) can shift the distribution of activations. A second normalization ensures the FFN receives well-behaved inputs, preventing numerical instability.</p>
 <h4>5. Feed-Forward Network</h4>
 <p>$$\text{ffn_out} = \text{FFN}(y_{\text{norm}}) = W_2 \cdot \text{GELU}(y_{\text{norm}} \cdot W_1 + b_1) + b_2$$</p>
-<p><strong>What it does:</strong> A simple two-layer network with a non-linear activation (typically GELU in modern models):
+<p><strong>What it does:</strong> A simple two-layer network with a non-linear activation (typically <a href="/wiki/architecture-zoo/activation-function-properties/">GELU</a> in modern models):
 - Expands from $d_{\text{model}}$ to $4 \cdot d_{\text{model}}$ (expansion phase)
 - Applies GELU (which gates values, rather than hard-cutting negatives like ReLU)
 - Contracts back to $d_{\text{model}}$ (compression phase)</p>
