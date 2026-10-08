@@ -57,7 +57,7 @@ The number in brackets is how many times the dead link appeared (a rough demand 
 - [x] `roofline-model-for-inference`  (2 links)
 - [x] `rotary-positional-embeddings`  (2 links)
 - [ ] `sharpness-aware-minimization`  (2 links)
-- [ ] `the-lying-gradient`  (2 links)
+- [x] `the-lying-gradient`  (2 links)
 - [x] `binary-classification-thresholding`  (1 link)
 - [x] `case-and-airflow-design-for-inference`  (1 link)
 - [x] `chain-rule`  (1 link)
