@@ -92,6 +92,20 @@ class DSCHeader extends HTMLElement {
       }
     }
 
+    // Inject site-wide search widget (CSS + JS)
+    if (!document.getElementById('dsc-search-style')) {
+      const searchCss = document.createElement('link');
+      searchCss.rel = 'stylesheet';
+      searchCss.href = '/search-widget.css';
+      document.head.appendChild(searchCss);
+    }
+    if (!document.querySelector('script[src="/search-widget.js"]')) {
+      const searchJs = document.createElement('script');
+      searchJs.src = '/search-widget.js';
+      searchJs.defer = true;
+      document.head.appendChild(searchJs);
+    }
+
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
     const config = await fetch(configUrl).then(r => r.json());
     this.render(config);
