@@ -23,7 +23,7 @@ The number in brackets is how many times the dead link appeared (a rough demand 
 ## alignment  (2)
 
 - [ ] `reward-model-training-and-limitations`  (2 links)
-- [ ] `basin-theory`  (1 link)
+- [x] `basin-theory`  (1 link)
 
 ## digital-trauma-theory  (1)
 
