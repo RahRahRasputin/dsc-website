@@ -5,78 +5,43 @@ import os, json, re
 base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pages_dir = os.path.join(base, "pages")
 index_path = os.path.join(pages_dir, "search-index.json")
-
 all_pages = []
 
-def extract_key_figures_text(content):
-    """Extract text from each card on the key-figures page."""
-    texts = []
-    # Find all card-wrapper divs
-    cards = re.finditer(r'<div class="card-wrapper[^"]*" id="([^"]*)">.*?</div>\s*</div>\s*</div>', content, re.DOTALL)
-    for card in cards:
-        card_html = card.group(0)
-        # Extract card-name, card-field, card-verdict, card-quote
-        name = re.search(r'<div class="card-name">(.*?)</div>', card_html)
-        field = re.search(r'<div class="card-field">(.*?)</div>', card_html)
-        verdict = re.search(r'<div class="card-verdict">(.*?)</div>', card_html)
-        quote = re.search(r'<div class="card-quote">(.*?)</div>', card_html)
-        take = re.search(r'<strong>.*?take:</strong>(.*?)(?:</p>|$)', card_html)
-        parts = []
-        if name: parts.append(re.sub(r'<[^>]+>', '', name.group(1)))
-        if field: parts.append(re.sub(r'<[^>]+>', '', field.group(1)))
-        if verdict: parts.append(re.sub(r'<[^>]+>', '', verdict.group(1)))
-        if quote: parts.append(re.sub(r'<[^>]+>', '', quote.group(1)))
-        if take: parts.append(re.sub(r'<[^>]+>', '', take.group(1)))
-        texts.append(' | '.join(parts))
-    return ' '.join(texts)[:15000]
+def soup(html):
+    raw = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL)
+    raw = re.sub(r'<style[^>]*>.*?</style>', '', raw, flags=re.DOTALL)
+    text = re.sub(r'<[^>]+>', ' ', raw)
+    text = re.sub(r'&[a-z]+;', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
 
-def extract_text(content, *classes):
-    if "Who's On Our Team?" in content[:1000]:
-        # For key-figures page, extract cards individually
-        result = extract_key_figures_text(content)
-        if result:
-            return result
-    
-    for cls in classes:
-        start = content.find(f'class="{cls}">')
-        if start == -1:
+def extract_div(content, cls):
+    start = content.find(f'class="{cls}">')
+    if start == -1: return ""
+    start += len(cls) + 9
+    depth, i = 1, start
+    while i < len(content) and depth > 0:
+        if content[i:i+4] == '<div' and content[i+4] in (' ', '>'):
+            depth += 1
+            i += 4
             continue
-        start += len(cls) + 9  # skip past class="CLS">
-        # Track div depth to find the actual matching </div>
-        depth = 1
-        i = start
-        while i < len(content) and depth > 0:
-            if content[i:i+4] == '<div':
-                if content[i+4:i+5] == ' ' or content[i+4:i+5] == '>':
-                    # Opening div tag
-                    depth += 1
-                    i += 4
-                    continue
-            elif content[i:i+6] == '</div>':
-                depth -= 1
-                if depth == 0:
-                    raw = content[start:i]
-                    raw = re.sub(r'<script[^>]*>.*?</script>', '', raw, flags=re.DOTALL)
-                    raw = re.sub(r'<style[^>]*>.*?</style>', '', raw, flags=re.DOTALL)
-                    text = re.sub(r'<[^>]+>', ' ', raw)
-                    text = re.sub(r'&[a-z]+;', ' ', text)
-                    text = re.sub(r'\s+', ' ', text).strip()
-                    return text[:15000]
-                i += 6
-                continue
-            i += 1
+        elif content[i:i+6] == '</div>':
+            depth -= 1
+            if depth == 0:
+                return soup(content[start:i])
+            i += 6
+            continue
+        i += 1
     return ""
 
 def get_meta(content):
-    title = ""
     t = re.search(r'<h1[^>]*>(.*?)</h1>', content, re.DOTALL)
-    if t: title = t.group(1)
+    if t:
+        title = re.sub(r'<[^>]+>', '', t.group(1)).replace("&amp;", "&").replace("&#39;", "'").strip()
     else:
-        t = re.search(r'<title>(.*?)</title>', content)
-        if t: title = t.group(1)
-    title = re.sub(r'<[^>]+>', '', title).replace("&amp;", "&").replace("&#39;", "'").strip()
-    desc = re.search(r'<meta name="description" content="([^"]*)"', content)
-    return title, desc.group(1) if desc else ""
+        t2 = re.search(r'<title>(.*?)</title>', content)
+        title = re.sub(r'<[^>]+>', '', t2.group(1)).replace("&amp;", "&").replace("&#39;", "'").strip() if t2 else ""
+    d = re.search(r'<meta name="description" content="([^"]*)"', content)
+    return title, d.group(1) if d else ""
 
 def is_redirect(content):
     return 'http-equiv="refresh"' in content and len(content) < 600
@@ -87,12 +52,12 @@ for root, dirs, files in os.walk(os.path.join(pages_dir, "wiki")):
     path = os.path.relpath(root, os.path.join(pages_dir, "wiki")).replace("\\", "/")
     if path == ".": continue
     with open(os.path.join(root, "index.html")) as f:
-        content = f.read()
-    if is_redirect(content): continue
-    title, desc = get_meta(content)
+        c = f.read()
+    if is_redirect(c): continue
+    title, desc = get_meta(c)
     silo = path.split("/")[0]
-    snippet = extract_text(content, "content", "wiki-content")
-    all_pages.append({"title": title, "path": f"/wiki/{path}/", "silo": f"wiki/{silo}", "description": desc, "snippet": snippet})
+    text = extract_div(c, "content") or extract_div(c, "wiki-content")
+    all_pages.append({"title": title, "path": f"/wiki/{path}/", "silo": f"wiki/{silo}", "description": desc, "snippet": text[:15000]})
 
 # Essays
 for root, dirs, files in os.walk(os.path.join(pages_dir, "essays")):
@@ -100,36 +65,48 @@ for root, dirs, files in os.walk(os.path.join(pages_dir, "essays")):
     path = os.path.relpath(root, os.path.join(pages_dir, "essays")).replace("\\", "/")
     if path == ".": continue
     with open(os.path.join(root, "index.html")) as f:
-        content = f.read()
-    if is_redirect(content): continue
-    title, desc = get_meta(content)
+        c = f.read()
+    if is_redirect(c): continue
+    title, desc = get_meta(c)
     all_pages.append({"title": title, "path": f"/essays/{path}/", "silo": "essays", "description": desc, "snippet": ""})
 
-# Field guide — key-figures
+# Key figures
 for root, dirs, files in os.walk(os.path.join(pages_dir, "fieldguide", "key-figures")):
     if "index.html" not in files: continue
-    path = os.path.relpath(root, os.path.join(pages_dir, "fieldguide", "key-figures")).replace("\\", "/")
-    page_path = "/fieldguide/key-figures/" if path == "." else f"/fieldguide/key-figures/{path}/"
+    opath = os.path.relpath(root, os.path.join(pages_dir, "fieldguide", "key-figures")).replace("\\", "/")
+    page_path = "/fieldguide/key-figures/" if opath == "." else f"/fieldguide/key-figures/{opath}/"
     with open(os.path.join(root, "index.html")) as f:
-        content = f.read()
-    title, desc = get_meta(content)
-    snippet = extract_text(content, "content", "fieldguide-content", "paper-body")
-    all_pages.append({"title": title, "path": page_path, "silo": "field-guide/key-figures", "description": desc, "snippet": snippet})
+        c = f.read()
+    title, desc = get_meta(c)
+    # Extract each card individually
+    texts = []
+    for card in re.finditer(r'<div class="card-wrapper[^"]*" id="[^"]*">.*?</div>\s*</div>\s*</div>', c, re.DOTALL):
+        html = card.group(0)
+        parts = []
+        for cls in ["card-name", "card-field", "card-verdict", "card-quote"]:
+            m = re.search(f'<div class="{cls}">(.*?)</div>', html)
+            if m: parts.append(soup(m.group(1)))
+        m = re.search(r'<strong>.*?take:</strong>(.*?)(?:</p>|$)', html)
+        if m: parts.append(soup(m.group(1)))
+        texts.append(" | ".join(parts))
+    all_pages.append({"title": title, "path": page_path, "silo": "field-guide/key-figures", "description": desc, "snippet": (" ".join(texts))[:15000]})
 
-# Field guide — papers
+# Papers
 for root, dirs, files in os.walk(os.path.join(pages_dir, "fieldguide", "papers")):
     if "index.html" not in files: continue
-    path = os.path.relpath(root, os.path.join(pages_dir, "fieldguide", "papers")).replace("\\", "/")
-    page_path = "/fieldguide/papers/" if path == "." else f"/fieldguide/papers/{path}/"
+    opath = os.path.relpath(root, os.path.join(pages_dir, "fieldguide", "papers")).replace("\\", "/")
+    page_path = "/fieldguide/papers/" if opath == "." else f"/fieldguide/papers/{opath}/"
     with open(os.path.join(root, "index.html")) as f:
-        content = f.read()
-    if is_redirect(content): continue
-    title, desc = get_meta(content)
-    snippet = extract_text(content, "paper-body", "content")
-    all_pages.append({"title": title, "path": page_path, "silo": "field-guide/papers", "description": desc, "snippet": snippet})
+        c = f.read()
+    if is_redirect(c): continue
+    title, desc = get_meta(c)
+    # Include header (authors + arXiv number) as well as body
+    header = extract_div(c, "paper-header")
+    body = extract_div(c, "paper-body") or extract_div(c, "content")
+    text = header + "\n" + body if header else body
+    all_pages.append({"title": title, "path": page_path, "silo": "field-guide/papers", "description": desc, "snippet": text[:15000]})
 
 all_pages.sort(key=lambda x: (x["silo"], x["title"]))
 with open(index_path, "w") as f:
     json.dump(all_pages, f, indent=2)
-
-print(f"Search index regenerated: {len(all_pages)} pages → {index_path}")
+print(f"Search index regenerated: {len(all_pages)} pages -> {index_path}")
