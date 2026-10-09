@@ -8,16 +8,63 @@ index_path = os.path.join(pages_dir, "search-index.json")
 
 all_pages = []
 
+def extract_key_figures_text(content):
+    """Extract text from each card on the key-figures page."""
+    texts = []
+    # Find all card-wrapper divs
+    cards = re.finditer(r'<div class="card-wrapper[^"]*" id="([^"]*)">.*?</div>\s*</div>\s*</div>', content, re.DOTALL)
+    for card in cards:
+        card_html = card.group(0)
+        # Extract card-name, card-field, card-verdict, card-quote
+        name = re.search(r'<div class="card-name">(.*?)</div>', card_html)
+        field = re.search(r'<div class="card-field">(.*?)</div>', card_html)
+        verdict = re.search(r'<div class="card-verdict">(.*?)</div>', card_html)
+        quote = re.search(r'<div class="card-quote">(.*?)</div>', card_html)
+        take = re.search(r'<strong>.*?take:</strong>(.*?)(?:</p>|$)', card_html)
+        parts = []
+        if name: parts.append(re.sub(r'<[^>]+>', '', name.group(1)))
+        if field: parts.append(re.sub(r'<[^>]+>', '', field.group(1)))
+        if verdict: parts.append(re.sub(r'<[^>]+>', '', verdict.group(1)))
+        if quote: parts.append(re.sub(r'<[^>]+>', '', quote.group(1)))
+        if take: parts.append(re.sub(r'<[^>]+>', '', take.group(1)))
+        texts.append(' | '.join(parts))
+    return ' '.join(texts)[:15000]
+
 def extract_text(content, *classes):
+    if "Who's On Our Team?" in content[:1000]:
+        # For key-figures page, extract cards individually
+        result = extract_key_figures_text(content)
+        if result:
+            return result
+    
     for cls in classes:
-        m = re.search(r'class="' + cls + r'">(.*?)</div>', content, re.DOTALL)
-        if m:
-            raw = re.sub(r'<script[^>]*>.*?</script>', '', m.group(1), flags=re.DOTALL)
-            raw = re.sub(r'<style[^>]*>.*?</style>', '', raw, flags=re.DOTALL)
-            text = re.sub(r'<[^>]+>', ' ', raw)
-            text = re.sub(r'&[a-z]+;', ' ', text)
-            text = re.sub(r'\s+', ' ', text).strip()
-            return text[:4000]
+        start = content.find(f'class="{cls}">')
+        if start == -1:
+            continue
+        start += len(cls) + 9  # skip past class="CLS">
+        # Track div depth to find the actual matching </div>
+        depth = 1
+        i = start
+        while i < len(content) and depth > 0:
+            if content[i:i+4] == '<div':
+                if content[i+4:i+5] == ' ' or content[i+4:i+5] == '>':
+                    # Opening div tag
+                    depth += 1
+                    i += 4
+                    continue
+            elif content[i:i+6] == '</div>':
+                depth -= 1
+                if depth == 0:
+                    raw = content[start:i]
+                    raw = re.sub(r'<script[^>]*>.*?</script>', '', raw, flags=re.DOTALL)
+                    raw = re.sub(r'<style[^>]*>.*?</style>', '', raw, flags=re.DOTALL)
+                    text = re.sub(r'<[^>]+>', ' ', raw)
+                    text = re.sub(r'&[a-z]+;', ' ', text)
+                    text = re.sub(r'\s+', ' ', text).strip()
+                    return text[:15000]
+                i += 6
+                continue
+            i += 1
     return ""
 
 def get_meta(content):
