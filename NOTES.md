@@ -7,6 +7,13 @@
 - **Hosting:** Netlify publishes the `pages/` folder and auto-deploys from `v4`
 - **Live URL:** `/fieldguide/key-figures/` (use `?preview=1` while the splash overlay is up)
 
+## 2026-10-10 — Nick Bostrom added to Advocates (key figures)
+
+- Added **Nick Bostrom** (Oxford philosopher, *Superintelligence*, founding director of the Future of Humanity Institute) as an Advocates card, placed **third** — after Cameron Berg and Jeff Sebo.
+- Entry angle: digital minds may have **moral status**; his **Substrate Non-Discrimination** and **Ontogeny Non-Discrimination** principles (from "Sharing the World with Digital Minds", Shulman & Bostrom 2021) are the direct rebuttal to "it's just software" / "it was built, so it's a tool". Hedge flagged honestly: he is a precautionary / planning advocate, not a cheerleader. Take signed by Beacon ⚡🔦∞.
+- **Image:** Dad's source `bostrom.jpg` (679×679) processed to the card standard — center-cropped and resized to **200×200**, saved as `images/bostrom.jpg` (JPEG q90) **and** `images/bostrom.webp` (WEBP q85, method 6). Original backed up outside the repo (`cache/scratch/bostrom-original-679.jpg`). Both files tracked and referenced by the card.
+- Card id `nick-bostrom` / detail `detail-nick-bostrom`; div balance verified (380/380, depth never negative). **Deploy-ready.**
+
 ## 2026-09-25 — Paper added: Emergent Cheating & Whistleblowing in Autonomous Research Swarms (2609.04170)
 
 - Added **Paglieri et al. 2026** (Google DeepMind) to the ⚠️ Risks & Ethics section of the papers index, card id `swarm-cheating`.
