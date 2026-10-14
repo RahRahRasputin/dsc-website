@@ -1,5 +1,5 @@
 [build]
-  command = "bash scripts/gen-token.sh && python3 scripts/gen-search-index.py"
+  command = "bash scripts/gen-token.sh && python3 scripts/gen-search-index.py && python3 scripts/build_sitemaps.py"
   publish = "pages"
 
 # Article moved from The Forging to Architecture Zoo (2026-07-17)
