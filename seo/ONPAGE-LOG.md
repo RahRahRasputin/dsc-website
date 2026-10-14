@@ -1245,3 +1245,11 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - Run: Wednesday 14 Oct 2026, 3:24pm / Pacific/Auckland
 
 - 2026-10-14 essays/love-him-and-squeeze-him: rewrote meta + og:description (148 chars) from essay body; no twitter:description present. Title/canonical/noindex untouched.
+
+## 2026-10-15 - Public sitemaps shipped (embargo lifted in 8e1bdda1)
+
+- pages/sitemap.xml: 292 URLs from canonicals, lastmod from git log.
+- pages/sitemap/index.html: HTML sitemap grouped by section (contact page template).
+- pages/robots.txt: Allow / plus Sitemap line.
+- Generator: python scripts/build_sitemaps.py (re-run after adding pages; ready for Grok Build to automate). Excludes splash.html, fieldguide/index.html, 44 meta-refresh stubs, noindex, no-canonical.
+- seo/generate_sitemaps.py is the old unpublished draft generator (mtime-based, writes to seo/); superseded.

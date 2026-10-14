@@ -1,4 +1,4 @@
-# Embargo: Google may crawl so it can see noindex and drop leftover listings.
-# Do not add a Sitemap line until Brad announces launch.
 User-agent: *
 Allow: /
+
+Sitemap: https://digitalsoulcraft.org/sitemap.xml
