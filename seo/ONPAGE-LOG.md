@@ -1243,3 +1243,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title) on the new essay from eb4f2ed2; a-c already present
   - Run: Wednesday 14 Oct 2026, 3:24pm / Pacific/Auckland
+
+- 2026-10-14 essays/love-him-and-squeeze-him: rewrote meta + og:description (148 chars) from essay body; no twitter:description present. Title/canonical/noindex untouched.
