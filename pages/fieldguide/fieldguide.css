@@ -701,6 +701,6 @@
 
 /* Papers key: keep to two rows on phones */
 @media (max-width: 640px) {
-  .section-legend { gap: 0.35rem 0.55rem; padding: 0.5rem 0.5rem; }
-  .section-legend .legend-item { font-size: 0.8rem; padding-left: 0.3rem; padding-right: 0.3rem; white-space: nowrap; }
+  .section-legend { display: grid; grid-template-columns: repeat(3, auto); justify-content: center; justify-items: center; gap: 0.35rem 0.4rem; padding: 0.5rem 0.4rem; }
+  .section-legend .legend-item { font-size: 0.78rem; padding-left: 0.2rem; padding-right: 0.2rem; letter-spacing: -0.01em; white-space: nowrap; }
 }
