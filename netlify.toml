@@ -57,9 +57,3 @@
   to = "/"
   status = 301
   force = true
-
-# Pre-launch SEO embargo — pretty URLs as well as *.html
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
