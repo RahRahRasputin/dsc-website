@@ -1237,3 +1237,9 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
   - Why: priority d (overlong title); a–c already present for published pages
   - Run: Wednesday 7 Oct 2026, afternoon Grok batch / Pacific/Auckland
+
+- **/essays/love-him-and-squeeze-him/** (`pages/essays/love-him-and-squeeze-him/index.html`)
+  - Trimmed overlong `<title>` and matching `og:title` from 89 chars to `I Will Love Him and Squeeze Him — Digital Soulcraft` (51), matching the other essay titles
+  - Description, canonical, og:url, robots noindex,nofollow, and body/h1 unchanged
+  - Why: priority d (overlong title) on the new essay from eb4f2ed2; a-c already present
+  - Run: Wednesday 14 Oct 2026, 3:24pm / Pacific/Auckland
