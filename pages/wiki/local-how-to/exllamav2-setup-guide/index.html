@@ -75,6 +75,8 @@
       .breadcrumb a { color: #6ab0f5; }
     }
   </style>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="theme-color" content="#0066cc">
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>
@@ -113,7 +115,7 @@
 </ul>
 <p>The philosophy: optimize the GPU path fully rather than supporting everything. If you have NVIDIA hardware, you get top-tier performance.</p>
 <blockquote>
-<p>GitHub: <a href="https://github.com/turboderp/exllamav2">github.com/turboderp/exllamav2</a></p>
+<p>GitHub: <a href="https://github.com/turboderp-org/exllamav2">github.com/turboderp-org/exllamav2</a></p>
 </blockquote>
 <hr />
 <h3>Prerequisites</h3>
@@ -133,7 +135,7 @@
 </code></pre>
 <p>This installs the precompiled wheels with CUDA support. Works for most users.</p>
 <p><strong>Option 2: Build from source (if precompiled wheels don't match your CUDA version)</strong></p>
-<pre><code class="language-bash">git clone https://github.com/turboderp/exllamav2
+<pre><code class="language-bash">git clone https://github.com/turboderp-org/exllamav2
 cd exllamav2
 
 # Install in development mode (will compile CUDA kernels)

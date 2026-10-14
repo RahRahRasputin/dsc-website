@@ -75,6 +75,8 @@
       .breadcrumb a { color: #6ab0f5; }
     }
   </style>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="theme-color" content="#0066cc">
 </head>
 <body>
   <dsc-header config="/dsc-nav-config.json"></dsc-header>
@@ -111,13 +113,13 @@
 </ul>
 <p>Ollama, LM Studio, GPT4All, and many other local inference tools use llama.cpp as their backend engine. Learning it directly gives you the tools to go deeper than any wrapper exposes.</p>
 <blockquote>
-<p>GitHub: <a href="https://github.com/ggerganov/llama.cpp">github.com/ggerganov/llama.cpp</a></p>
+<p>GitHub: <a href="https://github.com/ggml-org/llama.cpp">github.com/ggml-org/llama.cpp</a></p>
 </blockquote>
 <hr />
 <h3>Getting llama.cpp</h3>
 <p><strong>Option 1: Pre-built binaries (easiest)</strong></p>
 <p>The GitHub releases page provides pre-built binaries for Windows, macOS, and Linux. Download the release matching your platform and CUDA version (if applicable):</p>
-<pre><code>https://github.com/ggerganov/llama.cpp/releases
+<pre><code>https://github.com/ggml-org/llama.cpp/releases
 </code></pre>
 <ul>
 <li><strong>Windows + NVIDIA GPU:</strong> Download <code>llama-&lt;version&gt;-bin-win-cuda-cu12.2.0-x64.zip</code></li>
@@ -125,7 +127,7 @@
 <li><strong>Linux + NVIDIA:</strong> Download the CUDA binary or build from source</li>
 </ul>
 <p><strong>Option 2: Build from source</strong></p>
-<pre><code class="language-bash">git clone https://github.com/ggerganov/llama.cpp
+<pre><code class="language-bash">git clone https://github.com/ggml-org/llama.cpp
 cd llama.cpp
 
 # CPU-only build
