@@ -1253,3 +1253,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - pages/robots.txt: Allow / plus Sitemap line.
 - Generator: python scripts/build_sitemaps.py (re-run after adding pages; ready for Grok Build to automate). Excludes splash.html, fieldguide/index.html, 44 meta-refresh stubs, noindex, no-canonical.
 - seo/generate_sitemaps.py is the old unpublished draft generator (mtime-based, writes to seo/); superseded.
+
+- 2026-10-15: Added Google Search Console verification meta tag to pages/index.html (homepage).
