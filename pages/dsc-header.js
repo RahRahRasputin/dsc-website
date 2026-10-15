@@ -15,15 +15,6 @@ class DSCHeader extends HTMLElement {
       document.head.appendChild(favicon);
     }
 
-    // Inject pre-launch splash overlay (covers the entire site)
-    // Remove this `if` block when we're ready to launch
-    if (!document.getElementById('dsc-splash-loaded')) {
-      const splashScript = document.createElement('script');
-      splashScript.src = '/splash-overlay.js';
-      splashScript.id = 'dsc-splash-loaded';
-      document.head.appendChild(splashScript);
-    }
-
     // Inject sidebar slot (empty container for merch ads)
     // On wiki and essay pages. Ad content loaded separately.
     // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.
