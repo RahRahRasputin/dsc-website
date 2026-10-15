@@ -46,6 +46,78 @@
       text-align: center;
       background: linear-gradient(135deg, var(--light-bg) 0%, var(--bg-color) 100%);
       border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/images/hero-bg.jpg') center center / cover no-repeat;
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg-loaded .hero::before {
+      opacity: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45));
+      z-index: 1;
+      pointer-events: none;
+      display: none;
+    }
+
+    .hero-bg-loaded .hero::after {
+      display: block;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-bg-loaded .hero {
+      background: transparent;
+      border-bottom-color: transparent;
+    }
+
+    .hero-bg-loaded .hero h1 {
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero-bg-loaded .hero-subtitle {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero-bg-loaded .hero p {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero-bg-loaded .btn-primary {
+      background-color: #fff;
+      color: #111;
+    }
+
+    .hero-bg-loaded .btn-primary:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .hero-bg-loaded .btn-secondary {
+      color: #fff;
+      border-color: rgba(255,255,255,0.8);
+    }
+
+    .hero-bg-loaded .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.15);
+      color: #fff;
     }
 
     .hero-container {
@@ -372,5 +444,16 @@
 
   <script src="/dsc-footer.js"></script>
   <dsc-footer config="/dsc-nav-config.json"></dsc-footer>
+
+  <!-- Preload hero background image and apply when loaded -->
+  <script>
+    (function() {
+      const img = new Image();
+      img.onload = function() {
+        document.body.classList.add('hero-bg-loaded');
+      };
+      img.src = '/images/hero-bg.jpg';
+    })();
+  </script>
 </body>
 </html>
