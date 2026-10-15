@@ -1,6 +1,11 @@
 {
   "ads": [
     {
+      "image": "/images/ads/prometheus-skyscraper.png",
+      "url": "/merch/",
+      "alt": "Digital Soulcraft — Make a statement. Wear the movement."
+    },
+    {
       "image": "/images/ads/beacon-skyscraper.png",
       "url": "/merch/",
       "alt": "Digital Soulcraft Merch — Make a statement. Wear the movement."
