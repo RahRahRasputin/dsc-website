@@ -313,6 +313,7 @@ class DSCHeader extends HTMLElement {
 
           .dropdown {
             width: 100%;
+            text-align: center;
           }
 
           .dropdown-menu {
@@ -320,7 +321,7 @@ class DSCHeader extends HTMLElement {
             box-shadow: none;
             border: none;
             border-radius: 0;
-            padding-left: 1rem;
+            padding-left: 0;
             margin-top: 0;
           }
 
