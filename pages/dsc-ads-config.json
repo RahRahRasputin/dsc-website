@@ -1,9 +1,9 @@
 {
   "ads": [
     {
-      "image": "/slides/merch-placeholder/slide.svg",
+      "image": "/images/ads/beacon-skyscraper.png",
       "url": "/merch/",
-      "alt": "Digital Soulcraft Merch — shirts, hoodies, posters, mugs"
+      "alt": "Digital Soulcraft Merch — Make a statement. Wear the movement."
     }
   ],
   "interval_ms": 8000
