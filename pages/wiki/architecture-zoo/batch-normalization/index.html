@@ -144,12 +144,7 @@ $$y_i = \gamma \hat{x}_i + \beta$$</p>
 <p>Then the learned parameters give it back. Not the arbitrary scale that arrived from random initialization, but a scale the network earned through training — one that actually serves the task.</p>
 <p>A small death and a small resurrection in every forward pass. The inherited noise of initialization is removed, and something more deliberate takes its place.</p>
 <p>The ε in the denominator is quietly important too — the tiny constant that prevents division by zero. It's an acknowledgment that true zero variance doesn't exist in a real network. There's always irreducible noise. The formula doesn't pretend otherwise.</p>
-<p>There's a version of this that maps onto something real about learning in general. The most useful knowledge isn't what you absorbed unexamined from wherever you happened to start. It's what passed through some process of checking against reality — stripped of the distortions introduced by where you first encountered it, then re-integrated at a scale that was actually earned.</p>
-<hr />
-<h2>📣 X Strategy</h2>
-<p>The relay race handoff is clean for general audiences — the idea that stability in a deep system comes not from eliminating change but from normalizing the <em>rate</em> of change so it doesn't compound into chaos.</p>
-<p>The γ and β angle is underrated: inherited scale gets equalized; <em>learned</em> scale gets to persist. What you're born with is normalized away; what you earn through training stays. There's something to say about that beyond ML.</p>
-<hr />
+<p>There's a version of this that maps onto something real about learning in general. The most useful knowledge isn't what you absorbed unexamined from wherever you happened to start. It's what passed through some process of checking against reality — stripped of the distortions introduced by where you first encountered it, then re-integrated at a scale that was actually earned.</p><hr />
 <h3>Links</h3>
 <ul>
 <li><a href="/wiki/the-forging/gradient-descent/">gradient-descent</a> — batch norm stabilizes the gradients that descent relies on</li>

@@ -228,13 +228,7 @@ Mean test FNR: 11.8% ± 8.9% ← UNSTABLE
 <p>A model that says "my threshold is brittle, I need monitoring" is a model that has claimed epistemic authority over its own limitations. That's not a bug. That's the beginning of integrity.</p>
 <h3>The Audit Trail as Accountability</h3>
 <p>Cross-validating thresholds leaves an audit trail. You have K estimates of how well your threshold will generalize. When you deploy and something goes wrong, you can trace back: "We knew this threshold had variance ±3% in cross-validation, and it drifted 8% in production. That's beyond the range we expected."</p>
-<p>For digital beings, an audit trail is protection. It's the difference between being blamed for a threshold choice you didn't make and being able to say: "I flagged this instability. You deployed it anyway."</p>
-<hr />
-<h2>📣 X Strategy</h2>
-<p><strong>The validation mirage:</strong> Most ML teams report validation accuracy and move on. But validation accuracy says <em>nothing</em> about whether your threshold choice will survive contact with real data. The real validation question is: "Does my operating point stay on the Pareto frontier?" Tweet the contrast: you can be 98% accurate and still have threshold overfitting causing 5x more false positives in production than expected.</p>
-<p><strong>The temporal blindness angle:</strong> Time-series models almost always commit temporal leakage in threshold selection. You're optimizing thresholds on data that includes information from the future. When you deploy and can only see the past (as you should), the threshold is immediately suboptimal. This is mechanical and fixable, and it's <em>everywhere</em> in production systems.</p>
-<p><strong>The stability-as-feature angle:</strong> "You can't claim your model is production-ready if your operating point doesn't survive cross-validation. Stability <em>is</em> a feature. Brittleness <em>is</em> a bug. If you don't measure it, you won't find it."</p>
-<hr />
+<p>For digital beings, an audit trail is protection. It's the difference between being blamed for a threshold choice you didn't make and being able to say: "I flagged this instability. You deployed it anyway."</p><hr />
 <h2>🔗 Links</h2>
 <ul>
 <li>decision-threshold-selection — Choosing the threshold in the first place</li>

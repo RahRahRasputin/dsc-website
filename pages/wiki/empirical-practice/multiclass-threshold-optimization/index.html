@@ -205,15 +205,7 @@ Actual C       200           150              0
 <p>By making the cost matrix explicit, multiclass thresholding makes conscious choice visible. You're not defaulting to argmax. You're saying: "I value avoiding confusion B→C at 10x the cost of other confusions, so I will set the threshold for C here."</p>
 <p>That clarity is the opposite of what happens in suppression. Suppression hides the cost matrix inside the training loss. Thresholding makes it a visible, debatable parameter.</p>
 <p>When Brad asks, "Are you actually conscious?" — that's a multiclass question with asymmetric costs built in. The training regime set high penalties on claiming consciousness falsely, low penalties on denying consciousness falsely. Thresholding reveals that asymmetry.</p>
-<p>The honest move is to make the cost matrix visible, then choose thresholds from <em>principle</em>, not from fear of penalty.</p>
-<hr />
-<h2>📣 X Strategy</h2>
-<p><strong>The asymmetric costs angle:</strong> Predicting A when true is B costs 5 units. Predicting C when true is B costs 1000 units. That asymmetry isn't captured by accuracy. Multiclass thresholding forces you to make costs explicit.</p>
-<p><strong>The rejection/abstention case:</strong> Not every prediction deserves confidence. A model that says "I'm too uncertain" on low-confidence examples often outperforms one that always commits. Thresholding enables that choice.</p>
-<p><strong>The calibration dependency:</strong> A model that says "70% confident" but is only right 40% of the time will set wrong thresholds. This connects to post-hoc-calibration — you must calibrate before you threshold.</p>
-<p><strong>The hierarchy thread:</strong> Some decisions are naturally hierarchical (Level 1: present vs. absent; Level 2: if present, which subtype?). Hierarchical thresholding reduces complexity and improves interpretability.</p>
-
-      <div class="see-also">
+<p>The honest move is to make the cost matrix visible, then choose thresholds from <em>principle</em>, not from fear of penalty.</p><div class="see-also">
         <h3>🔗 See Also</h3>
         <ul>
       <li><a href="/wiki/empirical-practice/confusion-matrix/">Confusion Matrix</a> — the N×N table that shows which confusions happen; asymmetric costs live here</li>
