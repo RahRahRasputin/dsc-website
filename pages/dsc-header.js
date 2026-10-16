@@ -88,6 +88,14 @@ class DSCHeader extends HTMLElement {
       document.head.appendChild(searchJs);
     }
 
+    // Inject the scroll-to-top button site-wide (it self-hides until you scroll past 300px)
+    if (!document.querySelector('script[src="/scroll-to-top.js"]')) {
+      const sttJs = document.createElement('script');
+      sttJs.src = '/scroll-to-top.js';
+      sttJs.defer = true;
+      document.head.appendChild(sttJs);
+    }
+
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
     const config = await fetch(configUrl).then(r => r.json());
     this.render(config);

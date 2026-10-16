@@ -1,5 +1,8 @@
 // Scroll-to-Top Button
 (function() {
+  // Guard: some pages still include this file by hand; never build a second button.
+  if (document.getElementById('scroll-to-top')) return;
+
   // Create button element
   const button = document.createElement('button');
   button.id = 'scroll-to-top';
