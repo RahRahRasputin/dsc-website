@@ -20,7 +20,8 @@ class DSCHeader extends HTMLElement {
     // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.
     if (!document.getElementById('dsc-sidebar-slot') && (
       (window.location.pathname.startsWith('/wiki/') && window.location.pathname !== '/wiki/') ||
-      window.location.pathname.startsWith('/essays/')
+      window.location.pathname.startsWith('/essays/') ||
+      window.location.pathname.startsWith('/fieldguide/papers/')
     )) {
       if (!document.getElementById('dsc-sidebar-style')) {
         const style = document.createElement('style');
