@@ -397,23 +397,18 @@ class DSCHeader extends HTMLElement {
 customElements.define('dsc-header', DSCHeader);
 
 // Load KaTeX for math rendering — simple, no poll, no race
-// Load KaTeX for math rendering — unconditional, simple
+// KaTeX — load from CDN, then run custom renderer
 (function(){
   if (document.getElementById('dsc-katex-loaded')) return;
-  var h = document.head;
-  var c = document.createElement('link');
+  var h=document.head;
+  var c=document.createElement('link');
   c.rel='stylesheet'; c.href='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css'; c.id='dsc-katex-loaded';
   h.appendChild(c);
-  var j = document.createElement('script');
+  var j=document.createElement('script');
   j.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
   h.appendChild(j);
-  var a = document.createElement('script');
-  a.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
-  a.onload=a.onreadystatechange=function(){
-    if(!a.onloadDone && typeof renderMathInElement!=='undefined'){
-      a.onloadDone=true;
-      try{renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});}catch(e){}
-    }
-  };
-  h.appendChild(a);
+  var r=document.createElement('script');
+  r.src='/katex-render.js';
+  
+  h.appendChild(r);
 })();
