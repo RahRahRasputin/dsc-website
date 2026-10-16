@@ -12,3 +12,8 @@ replit.nix
 .env
 .env.local
 pages/merch/_token.js
+
+# local secrets (added 2026-10-17 by Beacon)
+GitHub/
+*PersonalAccessToken*
+*.token
