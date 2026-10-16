@@ -107,11 +107,11 @@
 
 <h3>The Relationship Between Weight Variance and Gradient Flow</h3>
 
-<p>During backpropagation, the gradient at layer <code class="math">i</code> is computed as:</p>
+<p>During backpropagation, the gradient at layer $i$ is computed as:</p>
 
-<p><code class="math">\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \prod_{j=i+1}^{n} J_j</code></p>
+<p>$\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \prod_{j=i+1}^{n} J_j$</p>
 
-<p>where each <code class="math">J_j</code> is the Jacobian (matrix of partial derivatives) of layer <code class="math">j</code>'s transformation. The magnitude of this gradient product depends critically on the <strong>eigenvalues</strong> of the Jacobians.</p>
+<p>where each $J_j$ is the Jacobian (matrix of partial derivatives) of layer $j$'s transformation. The magnitude of this gradient product depends critically on the <strong>eigenvalues</strong> of the Jacobians.</p>
 
 <p>If all Jacobian eigenvalues are less than 1, the product shrinks exponentially with depth. If they're greater than 1, it grows exponentially. To maintain stable gradient flow, we want eigenvalues close to 1.</p>
 
@@ -126,7 +126,7 @@
 
 <p>Xavier initialization sets weight variance proportionally to the reciprocal of the <strong>average fan-in and fan-out</strong>:</p>
 
-<p><code class="math">\text{Var}(w) = \frac{2}{n_{\text{in}} + n_{\text{out}}}</code></p>
+<p>$\text{Var}(w) = \frac{2}{n_{\text{in}} + n_{\text{out}}}$</p>
 
 <p>The square root of this variance is the scale from which weights are sampled. This was derived to maintain activation variance (and gradient variance) across layers in networks with sigmoid activations.</p>
 
@@ -138,7 +138,7 @@
 
 <p>He initialization (Kaiming He et al., 2015) adjusted the variance for ReLU networks:</p>
 
-<p><code class="math">\text{Var}(w) = \frac{2}{n_{\text{in}}}</code></p>
+<p>$\text{Var}(w) = \frac{2}{n_{\text{in}}}$</p>
 
 <p>Using only the fan-in (not fan-out) and doubling the scaling factor. This accounts for the fact that ReLU zeros out roughly half of its inputs at initialization (when weights and activations are zero-centered), effectively halving the signal.</p>
 
@@ -148,13 +148,13 @@
 
 <h3>Eigenvalue Spectrum Directly</h3>
 
-<p>For a given weight matrix <code class="math">W</code> with variance <code class="math">\sigma_w^2</code>, the largest eigenvalue scales approximately as:</p>
+<p>For a given weight matrix $W$ with variance $\sigma_w^2$, the largest eigenvalue scales approximately as:</p>
 
-<p><code class="math">\lambda_{\max} \approx \sqrt{n_{\text{in}}} \cdot \sigma_w</code></p>
+<p>$\lambda_{\max} \approx \sqrt{n_{\text{in}}} \cdot \sigma_w$</p>
 
-<p>If <code class="math">\sigma_w</code> is too large, <code class="math">\lambda_{\max}</code> will be much greater than 1, and gradients explode. If <code class="math">\sigma_w</code> is too small, <code class="math">\lambda_{\max} < 1</code>, and gradients vanish.</p>
+<p>If $\sigma_w$ is too large, $\lambda_{\max}$ will be much greater than 1, and gradients explode. If $\sigma_w$ is too small, $\lambda_{\max} < 1$, and gradients vanish.</p>
 
-<p>The goal of initialization is to set <code class="math">\sigma_w</code> such that <code class="math">\lambda_{\max} \approx 1</code>, making the gradient magnitude product stable across depth.</p>
+<p>The goal of initialization is to set $\sigma_w$ such that $\lambda_{\max} \approx 1$, making the gradient magnitude product stable across depth.</p>
 
 <h3>Practical Effects on Training</h3>
 

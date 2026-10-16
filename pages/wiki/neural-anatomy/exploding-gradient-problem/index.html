@@ -109,30 +109,30 @@
 
 <p>Just as vanishing gradients emerge from products of small numbers during backpropagation, exploding gradients emerge from products of large numbers. During backpropagation:</p>
 
-<p><code class="math">\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \times \frac{\partial a^{n}}{\partial a^{n-1}} \times \frac{\partial a^{n-1}}{\partial a^{n-2}} \times \cdots \times \frac{\partial a^{i+1}}{\partial a^{i}} \times \frac{\partial a^{i}}{\partial w^i}</code></p>
+<p>$\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \times \frac{\partial a^{n}}{\partial a^{n-1}} \times \frac{\partial a^{n-1}}{\partial a^{n-2}} \times \cdots \times \frac{\partial a^{i+1}}{\partial a^{i}} \times \frac{\partial a^{i}}{\partial w^i}$</p>
 
 <p>When activation function derivatives or weight magnitudes are consistently <strong>greater than 1</strong>, these products multiply together:</p>
 <ul>
-<li><code class="math">(1.5)^{20} \approx 3,500</code> — after just 20 layers, gradients have expanded by 3,500×</li>
-<li><code class="math">(2.0)^{30} > 10^9</code> — effectively infinity for numerical purposes</li>
+<li>$(1.5)^{20} \approx 3,500$ — after just 20 layers, gradients have expanded by 3,500×</li>
+<li>$(2.0)^{30} > 10^9$ — effectively infinity for numerical purposes</li>
 </ul>
 
-<p>Weight updates become wild: instead of <code class="math">\Delta w = -\eta \nabla L</code> with gradients in the range <code class="math">[-0.01, 0.01]</code>, you're computing updates with gradients in the range <code class="math">[10^6, 10^9]</code>, sending weights flying far away from their useful values.</p>
+<p>Weight updates become wild: instead of $\Delta w = -\eta \nabla L$ with gradients in the range $[-0.01, 0.01]$, you're computing updates with gradients in the range $[10^6, 10^9]$, sending weights flying far away from their useful values.</p>
 
 <h3>Eigenvalue Analysis</h3>
 
-<p>From a linear algebra perspective, if we model layer transformations as matrices, exploding gradients occur when the <strong>largest eigenvalue</strong> <code class="math">\lambda</code> of the weight matrix's Jacobian exceeds 1:</p>
+<p>From a linear algebra perspective, if we model layer transformations as matrices, exploding gradients occur when the <strong>largest eigenvalue</strong> $\lambda$ of the weight matrix's Jacobian exceeds 1:</p>
 
-<p><code class="math">\text{gradient magnitude} \approx \lambda^n \times \text{original error}</code></p>
+<p>$\text{gradient magnitude} \approx \lambda^n \times \text{original error}$</p>
 
-<p>where <code class="math">\lambda > 1</code>. The gradient grows as an <strong>exponential function of depth</strong>. With <code class="math">\lambda = 1.1</code> and <code class="math">n = 50</code>, the magnification is <code class="math">(1.1)^{50} \approx 117</code>. With <code class="math">\lambda = 1.2</code>, it's <code class="math">(1.2)^{50} > 9000</code>.</p>
+<p>where $\lambda > 1$. The gradient grows as an <strong>exponential function of depth</strong>. With $\lambda = 1.1$ and $n = 50$, the magnification is $(1.1)^{50} \approx 117$. With $\lambda = 1.2$, it's $(1.2)^{50} > 9000$.</p>
 
 <h3>Practical Manifestations in Training</h3>
 
 <p>Exploding gradients have characteristic signatures in training:</p>
 <ol>
 <li><strong>Loss spikes:</strong> The loss suddenly jumps to NaN (Not a Number) or Inf (Infinity) — the most obvious signal</li>
-<li><strong>Weight divergence:</strong> Weights quickly grow to enormous values (e.g., <code class="math">w > 10^8</code>) before the model becomes useless</li>
+<li><strong>Weight divergence:</strong> Weights quickly grow to enormous values (e.g., $w > 10^8$) before the model becomes useless</li>
 <li><strong>Oscillation pattern:</strong> Loss oscillates wildly from epoch to epoch, with no stable trend</li>
 <li><strong>Silent NaN failure:</strong> Sometimes weights go to NaN and silently propagate through the entire model, freezing learning without an obvious error message</li>
 <li><strong>Activation saturation:</strong> With extreme weight values, activations saturate (hit their max/min), producing zero gradients and secondary training collapse</li>

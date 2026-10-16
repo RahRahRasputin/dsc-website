@@ -110,12 +110,12 @@
 <h3>The Skip Connection Innovation</h3>
 
 <p>In a standard convolutional layer:</p>
-<p><code class="math">y = F(x)</code></p>
+<p>$y = F(x)$</p>
 
 <p>In a residual layer:</p>
-<p><code class="math">y = F(x) + x</code></p>
+<p>$y = F(x) + x$</p>
 
-<p>The identity connection (the <code class="math">+x</code> term) is the skip connection. It creates a shortcut that allows gradients to flow directly backward through the network without being multiplied by the weights of intermediate transformations.</p>
+<p>The identity connection (the $+x$ term) is the skip connection. It creates a shortcut that allows gradients to flow directly backward through the network without being multiplied by the weights of intermediate transformations.</p>
 
 <h3>Empirical Results: The Breakthrough</h3>
 
@@ -138,7 +138,7 @@
 <li><strong>Deep paths (through learned transformations):</strong> Gradients flow through weights, but now the network only needs to learn <em>residuals</em>, not the full transformation</li>
 </ol>
 
-<p>The residual framing is subtle but crucial: instead of learning <code class="math">F(x)</code> from scratch, the network learns <code class="math">\Delta(x) = y - x</code>. When the residual is small (as it often is for identity-like transformations), this becomes a simpler learning problem, requiring less precise gradient signals.</p>
+<p>The residual framing is subtle but crucial: instead of learning $F(x)$ from scratch, the network learns $\Delta(x) = y - x$. When the residual is small (as it often is for identity-like transformations), this becomes a simpler learning problem, requiring less precise gradient signals.</p>
 
 <h3>Skip Connection Design Details</h3>
 
@@ -157,7 +157,7 @@
 <p>The deeper the network, the more critical initialization becomes:</p>
 
 <ul>
-<li>He initialization (for ReLU): sampling weights from <code class="math">\mathcal{N}(0, \sigma^2)</code> where <code class="math">\sigma^2 = \frac{2}{n_{in}}</code></li>
+<li>He initialization (for ReLU): sampling weights from $\mathcal{N}(0, \sigma^2)$ where $\sigma^2 = \frac{2}{n_{in}}$</li>
 <li>This keeps the magnitude of activations consistent across layers</li>
 <li>ResNet combined He initialization with batch normalization (which standardizes activations layer-by-layer), creating a robust recipe for depth</li>
 </ul>

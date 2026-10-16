@@ -126,7 +126,7 @@
 <p>Not all neurons contribute equally to a task. Importance scores rank neurons by their contribution:</p>
 
 <ul>
-<li><strong>Gradient-based importance:</strong> How much does the loss change if we perturb a neuron's output? <code class="math">\text{Importance} = \frac{\partial L}{\partial a_i} \cdot a_i</code> where <code class="math">a_i</code> is the activation.</li>
+<li><strong>Gradient-based importance:</strong> How much does the loss change if we perturb a neuron's output? $\text{Importance} = \frac{\partial L}{\partial a_i} \cdot a_i$ where $a_i$ is the activation.</li>
 </ul>
 
 <ul>
@@ -183,7 +183,7 @@
 
 <ol>
 <li>Initialize a random input</li>
-<li>Use gradient ascent to find inputs that maximize <code class="math">a_i</code></li>
+<li>Use gradient ascent to find inputs that maximize $a_i$</li>
 <li>The optimized input reveals what the neuron "wants"</li>
 </ol>
 

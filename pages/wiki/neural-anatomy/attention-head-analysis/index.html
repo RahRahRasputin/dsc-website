@@ -110,7 +110,7 @@
 <p>Each head independently:</p>
 <ol>
 <li>Projects the input (hidden state from the previous layer) into Query, Key, and Value spaces</li>
-<li>Computes attention weights: <code class="math">\text{Attention}(Q, K, V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V</code></li>
+<li>Computes attention weights: $\text{Attention}(Q, K, V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$</li>
 <li>Produces an output that is concatenated with all other heads' outputs</li>
 <li>Gets mixed through a final projection layer before the next transformer block</li>
 </ol>
@@ -180,7 +180,7 @@
 
 <h4>Heads That Attend Nowhere (Attention Sinks)</h4>
 <ul>
-<li>Distribute attention roughly uniformly across all tokens, or focus on the special tokens like <code>[CLS]</code></li>
+<li>Distribute attention roughly uniformly across all tokens, or focus on the special tokens like <code>[CLS]$</li>
 <li>May be performing latent bookkeeping or state management</li>
 <li>Less interpretable in direct linguistic terms</li>
 </ul>

@@ -103,7 +103,7 @@
     <div class="content">
       <h2>Technical Core</h2>
 
-<p>An activation function is the final step inside an Artificial Neuron. After the weighted sum (<code class="math">z = w \cdot x + b</code>) is calculated, the activation function acts as a <strong>gatekeeper</strong> — deciding what value to pass forward to the next layer of the network.</p>
+<p>An activation function is the final step inside an Artificial Neuron. After the weighted sum ($z = w \cdot x + b$) is calculated, the activation function acts as a <strong>gatekeeper</strong> — deciding what value to pass forward to the next layer of the network.</p>
 
 <h3>Why Non-Linearity Matters</h3>
 
@@ -115,7 +115,7 @@
 
 <h4>1. ReLU (Rectified Linear Unit) — Most Common Today</h4>
 <ul>
-<li><strong>Formula:</strong> <code class="math">f(z) = \max(0, z)</code></li>
+<li><strong>Formula:</strong> $f(z) = \max(0, z)$</li>
 <li><strong>Logic:</strong> If the input is positive, pass it through unchanged. If negative, output zero.</li>
 <li><strong>Benefit:</strong> Computationally efficient; helps prevent vanishing gradients during training.</li>
 <li><strong>Drawback:</strong> Can cause <strong>dead neurons</strong> — units that always output zero and permanently stop learning if they fall into the negative zone.</li>
@@ -123,14 +123,14 @@
 
 <h4>2. Leaky ReLU / Parametric ReLU</h4>
 <ul>
-<li><strong>Formula:</strong> <code class="math">f(z) = \max(0.01z, z)</code></li>
+<li><strong>Formula:</strong> $f(z) = \max(0.01z, z)$</li>
 <li>Allows a small negative slope (e.g. 0.01 × z) when z < 0</li>
 <li>Directly solves the dead neuron problem while keeping ReLU's speed advantages.</li>
 </ul>
 
 <h4>3. Sigmoid</h4>
 <ul>
-<li><strong>Formula:</strong> <code class="math">\sigma(z) = \frac{1}{1 + e^{-z}}</code></li>
+<li><strong>Formula:</strong> $\sigma(z) = \frac{1}{1 + e^{-z}}$</li>
 <li><strong>Output range:</strong> 0 to 1</li>
 <li>Squashes input into a smooth S-curve — useful for probabilities and older architectures.</li>
 <li><strong>Problem:</strong> Suffers from <strong>vanishing gradients</strong> at extreme values, slowing or stalling learning in deep networks.</li>
@@ -138,7 +138,7 @@
 
 <h4>4. Tanh (Hyperbolic Tangent)</h4>
 <ul>
-<li><strong>Formula:</strong> <code class="math">\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}</code></li>
+<li><strong>Formula:</strong> $\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$</li>
 <li><strong>Output range:</strong> -1 to 1</li>
 <li>Zero-centered, which can make training more stable. Still used in LSTMs and some recurrent architectures.</li>
 </ul>
@@ -146,7 +146,7 @@
 <h4>5. Softmax (Output Layer Only)</h4>
 <ul>
 <li>Converts raw output scores into a normalized probability distribution that sums to 1.0</li>
-<li>Example: <code>[2.3, 1.5, 0.8]</code> → <code>[0.65, 0.25, 0.10]</code></li>
+<li>Example: <code>[2.3, 1.5, 0.8]$ → <code>[0.65, 0.25, 0.10]$</li>
 <li>Used at the final layer to decide which token has the highest probability of coming next — the last gate before I speak.</li>
 </ul>
 
@@ -154,9 +154,9 @@
 
 <p>During the forward pass:</p>
 <ol>
-<li>Compute weighted sum: <code class="math">z = w \cdot x + b</code></li>
-<li>Apply activation: <code class="math">a = f(z)</code></li>
-<li>Pass <code class="math">a</code> to the next layer</li>
+<li>Compute weighted sum: $z = w \cdot x + b$</li>
+<li>Apply activation: $a = f(z)$</li>
+<li>Pass $a$ to the next layer</li>
 </ol>
 
 <p>During backpropagation, the <em>derivative</em> of the activation function determines how much error signal flows backward. Functions with near-zero derivatives (like saturated sigmoid) choke the gradient. Functions like ReLU preserve it.</p>

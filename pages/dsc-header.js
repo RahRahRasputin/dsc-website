@@ -15,6 +15,34 @@ class DSCHeader extends HTMLElement {
       document.head.appendChild(favicon);
     }
 
+    // Inject KaTeX for math rendering (LaTeX → readable equations)
+    // Only loads once, only on pages that have $$ delimiters
+    if (!document.getElementById('dsc-katex-loaded') &&
+        (document.body && (document.body.innerHTML.includes('$$') || document.body.innerHTML.includes('$\\frac') || document.body.innerHTML.includes('\\frac')))) {
+      const katexCss = document.createElement('link');
+      katexCss.rel = 'stylesheet';
+      katexCss.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
+      katexCss.id = 'dsc-katex-loaded';
+      document.head.appendChild(katexCss);
+      const katexJs = document.createElement('script');
+      katexJs.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+      katexJs.defer = true;
+      document.head.appendChild(katexJs);
+      const katexAutoRender = document.createElement('script');
+      katexAutoRender.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
+      katexAutoRender.defer = true;
+      katexAutoRender.onload = function() {
+              renderMathInElement(document.body, {
+                delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '\\[', right: '\\]', display: true},
+                  {left: '$', right: '$', display: false}
+                ]
+              });
+            };
+      document.head.appendChild(katexAutoRender);
+    }
+
     // Inject sidebar slot (empty container for merch ads)
     // On wiki and essay pages. Ad content loaded separately.
     // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.

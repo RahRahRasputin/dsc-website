@@ -109,17 +109,17 @@
 
 <p>In a vanilla LSTM, the forget and input gates are computed as:</p>
 
-<p><code class="math">f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)</code></p>
-<p><code class="math">i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)</code></p>
+<p>$f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$</p>
+<p>$i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$</p>
 
 <p>The cell state accumulates:</p>
 
-<p><code class="math">C_t = f_t \odot C_{t-1} + i_t \odot \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)</code></p>
+<p>$C_t = f_t \odot C_{t-1} + i_t \odot \tanh(W_c \cdot [h_{t-1}, x_t] + b_c)$</p>
 
 <p>And the output gate:</p>
 
-<p><code class="math">o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)</code></p>
-<p><code class="math">h_t = o_t \odot \tanh(C_t)</code></p>
+<p>$o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$</p>
+<p>$h_t = o_t \odot \tanh(C_t)$</p>
 
 <p>The problem: when the gates are computed, they don't have direct access to the cell state they're about to modify. The forget gate decides how much of the old cell state to keep without actually seeing it. The input gate decides whether to add new information without seeing what's already there. This is like editing a document without reading it first.</p>
 
@@ -127,17 +127,17 @@
 
 <p>Peephole connections fix this by giving each gate a direct connection to the cell state. The forget gate can now "see" what's in the cell and make an informed decision:</p>
 
-<p><code class="math">f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + U_f \odot C_{t-1} + b_f)</code></p>
+<p>$f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + U_f \odot C_{t-1} + b_f)$</p>
 
 <p>Similarly for the input gate:</p>
 
-<p><code class="math">i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + U_i \odot C_{t-1} + b_i)</code></p>
+<p>$i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + U_i \odot C_{t-1} + b_i)$</p>
 
 <p>And the output gate can see the updated cell state:</p>
 
-<p><code class="math">o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + U_o \odot C_t + b_o)</code></p>
+<p>$o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + U_o \odot C_t + b_o)$</p>
 
-<p>The <code class="math">U</code> matrices are small and diagonal — each gate sees only the corresponding cell dimension, giving the network fine-grained, element-wise control over what the cell state influences.</p>
+<p>The $U$ matrices are small and diagonal — each gate sees only the corresponding cell dimension, giving the network fine-grained, element-wise control over what the cell state influences.</p>
 
 <h3>Why This Helps</h3>
 
@@ -156,9 +156,9 @@
 
 <p>Coupled Input-Forget gates (introduced by Jozefowicz et al.) replace the separate forget and input gates with a single coupled gate:</p>
 
-<p><code class="math">\tilde{f}_t = 1 - \tilde{i}_t</code></p>
+<p>$\tilde{f}_t = 1 - \tilde{i}_t$</p>
 
-<p>where <code class="math">\tilde{i}_t</code> is the input gate. The network explicitly trades off: whatever fraction of old state is forgotten is exactly the fraction that new state can be added.</p>
+<p>where $\tilde{i}_t$ is the input gate. The network explicitly trades off: whatever fraction of old state is forgotten is exactly the fraction that new state can be added.</p>
 
 <p>This reduces parameters and improves training stability. Empirically on speech recognition tasks, Coupled Input-Forget LSTMs match or exceed standard LSTMs while using roughly 4% fewer parameters and achieving faster convergence.</p>
 
@@ -166,8 +166,8 @@
 
 <p><strong>Peephole + CIFG Combination</strong>: Many modern implementations combine both ideas, giving the coupled gate access to the cell state:</p>
 
-<p><code class="math">i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + U_i \odot C_{t-1} + b_i)</code></p>
-<p><code class="math">f_t = 1 - i_t</code></p>
+<p>$i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + U_i \odot C_{t-1} + b_i)$</p>
+<p>$f_t = 1 - i_t$</p>
 
 <p><strong>Output-Gate Peephole Only</strong>: Some architectures only add peephole connections to the output gate, finding that's where the cell state visibility matters most for downstream tasks.</p>
 

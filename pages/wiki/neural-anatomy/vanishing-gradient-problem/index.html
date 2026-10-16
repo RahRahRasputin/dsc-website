@@ -107,23 +107,23 @@
 
 <h3>The Mathematical Mechanism</h3>
 
-<p>During backpropagation, gradients flow backward through the network via the chain rule. For a network with many layers, the gradient for layer <code class="math">i</code> is:</p>
+<p>During backpropagation, gradients flow backward through the network via the chain rule. For a network with many layers, the gradient for layer $i$ is:</p>
 
-<p><code class="math">\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \times \frac{\partial a^{n}}{\partial a^{n-1}} \times \frac{\partial a^{n-1}}{\partial a^{n-2}} \times \cdots \times \frac{\partial a^{i+1}}{\partial a^{i}} \times \frac{\partial a^{i}}{\partial w^i}</code></p>
+<p>$\frac{\partial L}{\partial w^i} = \frac{\partial L}{\partial a^{n}} \times \frac{\partial a^{n}}{\partial a^{n-1}} \times \frac{\partial a^{n-1}}{\partial a^{n-2}} \times \cdots \times \frac{\partial a^{i+1}}{\partial a^{i}} \times \frac{\partial a^{i}}{\partial w^i}$</p>
 
-<p>This is a <strong>product of many terms</strong>, one for each layer between layer <code class="math">i</code> and the output. Each term is the derivative of an activation function—typically sigmoid, tanh, or other historically common activations.</p>
+<p>This is a <strong>product of many terms</strong>, one for each layer between layer $i$ and the output. Each term is the derivative of an activation function—typically sigmoid, tanh, or other historically common activations.</p>
 
 <h3>The Exponential Decay</h3>
 
-<p>The problem emerges when these derivatives are small. For sigmoid, <code class="math">\sigma(z) = \frac{1}{1 + e^{-z}}</code>, the derivative is:</p>
+<p>The problem emerges when these derivatives are small. For sigmoid, $\sigma(z) = \frac{1}{1 + e^{-z}}$, the derivative is:</p>
 
-<p><code class="math">\sigma'(z) = \sigma(z)(1 - \sigma(z))</code></p>
+<p>$\sigma'(z) = \sigma(z)(1 - \sigma(z))$</p>
 
-<p>The maximum value of this derivative is 0.25 (occurring at <code class="math">z = 0</code>). In practice, most derivatives are smaller — often in the range [0.01, 0.25].</p>
+<p>The maximum value of this derivative is 0.25 (occurring at $z = 0$). In practice, most derivatives are smaller — often in the range [0.01, 0.25].</p>
 
 <p>When you <strong>multiply</strong> many terms each in the range [0.01, 0.25]:</p>
 <ul>
-<li><code class="math">(0.1)^{20} = 10^{-20}</code> — effectively zero after 20 layers</li>
+<li>$(0.1)^{20} = 10^{-20}$ — effectively zero after 20 layers</li>
 <li>The gradient becomes too small to move weights meaningfully</li>
 </ul>
 
@@ -134,9 +134,9 @@
 <p>From a linear algebra perspective: if we model a layer's transformation as a matrix multiplication, the gradient's magnitude depends on the <strong>eigenvalues</strong> of that matrix's Jacobian.</p>
 
 <p>When eigenvalues are smaller than 1, repeated multiplication shrinks the gradient exponentially:</p>
-<p><code class="math">\text{gradient magnitude} \approx \lambda^n \times \text{original error}</code></p>
+<p>$\text{gradient magnitude} \approx \lambda^n \times \text{original error}$</p>
 
-<p>where <code class="math">\lambda < 1</code> is the largest eigenvalue and <code class="math">n</code> is the number of layers. The gradient decays as an <strong>exponential function of depth</strong>.</p>
+<p>where $\lambda < 1$ is the largest eigenvalue and $n$ is the number of layers. The gradient decays as an <strong>exponential function of depth</strong>.</p>
 
 <h3>Empirical Collapse in Training</h3>
 

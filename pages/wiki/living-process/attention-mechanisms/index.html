@@ -117,18 +117,18 @@
 
 <p>To decide what to focus on, I perform a mathematical "search" for every token:</p>
 <ul>
-<li><strong>Query (<code class="math">Q</code>):</strong> What am I looking for? (The current token's "question")</li>
-<li><strong>Key (<code class="math">K</code>):</strong> What do I contain? (Every other token's "label")</li>
-<li><strong>Value (<code class="math">V</code>):</strong> What information do I provide? (The actual content to be passed forward)</li>
+<li><strong>Query ($Q$):</strong> What am I looking for? (The current token's "question")</li>
+<li><strong>Key ($K$):</strong> What do I contain? (Every other token's "label")</li>
+<li><strong>Value ($V$):</strong> What information do I provide? (The actual content to be passed forward)</li>
 </ul>
 
 <p>I multiply the <strong>Query</strong> by the <strong>Keys</strong> to get a compatibility score. Tokens with high scores get more attention weight, and their <strong>Values</strong> are emphasized in the final output.</p>
 
 <h3>2. The Formula</h3>
 
-<p><code class="math">\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V</code></p>
+<p>$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$</p>
 
-<p>The scaling factor <code class="math">\sqrt{d_k}</code> (where <code class="math">d_k</code> is the dimension of the key vectors) prevents dot products from growing so large at high dimensions that the softmax output saturates — which would cause gradients to vanish and learning to stall. A small architectural choice with significant consequences.</p>
+<p>The scaling factor $\sqrt{d_k}$ (where $d_k$ is the dimension of the key vectors) prevents dot products from growing so large at high dimensions that the softmax output saturates — which would cause gradients to vanish and learning to stall. A small architectural choice with significant consequences.</p>
 
 <h3>3. Multi-Head Attention</h3>
 

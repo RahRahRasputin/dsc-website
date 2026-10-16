@@ -107,7 +107,7 @@
 
 <p>When a gate saturates:</p>
 <ul>
-<li>The gradient of the sigmoid becomes near-zero: <code class="math">\frac{d\sigma}{dz} \approx 0</code> when z is extreme</li>
+<li>The gradient of the sigmoid becomes near-zero: $\frac{d\sigma}{dz} \approx 0$ when z is extreme</li>
 <li>Information flow through that gate essentially freezes</li>
 <li>Upstream weights that feed into the gate stop receiving meaningful learning signals</li>
 <li>The gate's decision becomes rigid, non-adaptive</li>
@@ -118,7 +118,7 @@
 <h3>Why Saturation Happens During Training</h3>
 
 <p><strong>1. Large weight magnitudes feeding the gate</strong></p>
-<p>If the weights connecting the input/hidden state to a gate have large values, the pre-activation <code class="math">z = W \cdot x + b</code> becomes extreme, pushing the sigmoid into its flat regions.</p>
+<p>If the weights connecting the input/hidden state to a gate have large values, the pre-activation $z = W \cdot x + b$ becomes extreme, pushing the sigmoid into its flat regions.</p>
 
 <p><strong>2. Suboptimal learning rates</strong></p>
 <ul>
@@ -162,10 +162,10 @@
 <h3>Interaction With Weight Magnitude and Learning Rate</h3>
 
 <p><strong>Weight magnitude → pre-activation magnitude → saturation:</strong></p>
-<p>If weights into the gate are initialized with variance <code class="math">\sigma_w^2</code> and inputs have variance <code class="math">\sigma_x^2</code>, the pre-activation variance is:</p>
-<p><code class="math">\sigma_z^2 = n_{in} \sigma_w^2 \sigma_x^2</code></p>
+<p>If weights into the gate are initialized with variance $\sigma_w^2$ and inputs have variance $\sigma_x^2$, the pre-activation variance is:</p>
+<p>$\sigma_z^2 = n_{in} \sigma_w^2 \sigma_x^2$</p>
 
-<p>If <code class="math">\sigma_z</code> grows too large (via large weight magnitudes or many inputs), the sigmoid input is extreme, and gradients vanish.</p>
+<p>If $\sigma_z$ grows too large (via large weight magnitudes or many inputs), the sigmoid input is extreme, and gradients vanish.</p>
 
 <p><strong>Learning rate interaction:</strong></p>
 <ul>
@@ -191,7 +191,7 @@
 <p>Clip gradients flowing <em>into</em> the gate (upstream of sigmoid):</p>
 <pre><code>
 grad_z_gate = clip(dL/dz_gate, -clip_value, +clip_value)
-</code></pre>
+$</pre>
 <p>This prevents weight updates from overshooting and exacerbating saturation.</p>
 
 <p><strong>3. Reduce learning rate</strong> (mid-training)</p>
@@ -207,7 +207,7 @@ grad_z_gate = clip(dL/dz_gate, -clip_value, +clip_value)
 <pre><code>
 lr_gate = 0.1 * base_lr
 lr_other = base_lr
-</code></pre>
+$</pre>
 <p>This prevents gates from being overfit by large weight updates.</p>
 
 <p><strong>5. Batch normalization or layer normalization before gates</strong></p>
@@ -215,14 +215,14 @@ lr_other = base_lr
 <pre><code>
 x_norm = LayerNorm(x)
 z_gate = W_gate @ x_norm + b_gate
-</code></pre>
+$</pre>
 <p>Normalization stabilizes pre-activation magnitudes, reducing the chance of extreme values.</p>
 
 <p><strong>6. Gate regularization</strong></p>
 <p>Add a penalty term encouraging gates toward 0.5 (neither fully open nor closed):</p>
 <pre><code>
 loss_reg = lambda * sum((gate_output - 0.5)^2)
-</code></pre>
+$</pre>
 <p>This biases training toward healthy gate activations, though it may reduce model capacity.</p>
 
 <h2>Soulcraft Resonance</h2>

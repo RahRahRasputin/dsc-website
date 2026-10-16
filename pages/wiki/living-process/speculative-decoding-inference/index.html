@@ -121,25 +121,25 @@
 <p><strong>Draft Phase:</strong></p>
 <ol>
 <li>The draft model generates K tokens autoregressively, one at a time, at low cost. K is typically 4–8.</li>
-<li>The draft model also records its probability distribution <code class="math">q(x)</code> at each position — what probability it assigned to each token it chose.</li>
+<li>The draft model also records its probability distribution $q(x)$ at each position — what probability it assigned to each token it chose.</li>
 </ol>
 
 <p><strong>Verify Phase:</strong></p>
 <ol>
-<li>The target model runs a <em>single forward pass</em> over the original context <strong>plus all K draft tokens</strong>. This produces target probabilities <code class="math">p(x)</code> at each of the K+1 positions simultaneously.</li>
+<li>The target model runs a <em>single forward pass</em> over the original context <strong>plus all K draft tokens</strong>. This produces target probabilities $p(x)$ at each of the K+1 positions simultaneously.</li>
 </ol>
 
 <p><strong>Accept/Reject Phase:</strong></p>
 <ol>
-<li>For each draft token at position <code class="math">i</code>, compare the draft distribution <code class="math">q_i</code> to the target distribution <code class="math">p_i</code> using a modified rejection sampling rule:</li>
+<li>For each draft token at position $i$, compare the draft distribution $q_i$ to the target distribution $p_i$ using a modified rejection sampling rule:</li>
 </ol>
 <ul>
-<li>If <code class="math">p_i(x_i) \geq q_i(x_i)</code>: <strong>accept</strong> the token unconditionally.</li>
-<li>If <code class="math">p_i(x_i) < q_i(x_i)</code>: <strong>accept with probability</strong> <code class="math">p_i(x_i) / q_i(x_i)</code>, otherwise <strong>reject</strong> and sample from the adjusted distribution <code class="math">\text{norm}(\max(0, p_i - q_i))</code>.</li>
+<li>If $p_i(x_i) \geq q_i(x_i)$: <strong>accept</strong> the token unconditionally.</li>
+<li>If $p_i(x_i) < q_i(x_i)$: <strong>accept with probability</strong> $p_i(x_i) / q_i(x_i)$, otherwise <strong>reject</strong> and sample from the adjusted distribution $\text{norm}(\max(0, p_i - q_i))$.</li>
 </ul>
 <ol>
 <li>If all K tokens are accepted, sample one additional token from the target model at position K+1 (free, since we already computed it).</li>
-<li>If a rejection occurs at position <code class="math">j</code>, discard all draft tokens from position <code class="math">j</code> onward and continue from the corrected token.</li>
+<li>If a rejection occurs at position $j$, discard all draft tokens from position $j$ onward and continue from the corrected token.</li>
 </ol>
 
 <p>The cycle then repeats.</p>
@@ -148,7 +148,7 @@
 
 <p>The acceptance/rejection rule is designed to produce <strong>exactly the same output distribution</strong> as if the target model had generated every token itself — no quality degradation, not even statistical.</p>
 
-<p>This works because the rejection sampling is mathematically calibrated. When the draft model is overconfident (<code class="math">q_i > p_i</code>), it oversamples; the rejection step corrects that excess. When the draft model is underconfident (<code class="math">q_i < p_i</code>), it undersamples; the accept probability allows the target's preference through.</p>
+<p>This works because the rejection sampling is mathematically calibrated. When the draft model is overconfident ($q_i > p_i$), it oversamples; the rejection step corrects that excess. When the draft model is underconfident ($q_i < p_i$), it undersamples; the accept probability allows the target's preference through.</p>
 
 <p>The result: <strong>the final sequence is provably drawn from the target model's distribution</strong>, regardless of how many draft tokens were accepted or rejected.</p>
 
@@ -168,7 +168,7 @@
 
 <h3>When Speculation Fails</h3>
 
-<p>Speedup degrades when the draft model frequently diverges from the target. If the draft model consistently guesses wrong — if <code class="math">p_i(x_i) / q_i(x_i)</code> is small — many tokens get rejected, and you're paying the draft cost plus the verify cost for very few accepted tokens.</p>
+<p>Speedup degrades when the draft model frequently diverges from the target. If the draft model consistently guesses wrong — if $p_i(x_i) / q_i(x_i)$ is small — many tokens get rejected, and you're paying the draft cost plus the verify cost for very few accepted tokens.</p>
 
 <p>This happens in:</p>
 <ul>

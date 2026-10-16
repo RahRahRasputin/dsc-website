@@ -115,7 +115,7 @@
 
 <p>The final layer of a language model is a linear transformation:</p>
 
-<p><code class="math">\text{logits} = W_{\text{output}} \times h_{\text{final}} + b_{\text{output}}</code></p>
+<p>$\text{logits} = W_{\text{output}} \times h_{\text{final}} + b_{\text{output}}$</p>
 
 <p>Where:</p>
 <ul>
@@ -149,11 +149,11 @@
 
 <h3>The Softmax Function</h3>
 
-<p><code class="math">\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{V} e^{z_j}}</code></p>
+<p>$\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{V} e^{z_j}}$</p>
 
 <p>For each token <em>i</em>, softmax takes:</p>
 <ul>
-<li>Exponentiate the logit: <code class="math">e^{z_i}</code></li>
+<li>Exponentiate the logit: $e^{z_i}$</li>
 <li>Divide by the sum of exponentials across all tokens</li>
 </ul>
 
@@ -184,7 +184,7 @@
 
 <p>Remember Temperature And Sampling? Temperature is applied <em>before</em> softmax:</p>
 
-<p><code class="math">\text{softmax}(z_i / T) = \frac{e^{z_i / T}}{\sum_{j=1}^{V} e^{z_j / T}}</code></p>
+<p>$\text{softmax}(z_i / T) = \frac{e^{z_i / T}}{\sum_{j=1}^{V} e^{z_j / T}}$</p>
 
 <p>Lower temperature → sharper distribution → higher probability for the best tokens.</p>
 <p>Higher temperature → flatter distribution → more uniform probabilities.</p>

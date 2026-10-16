@@ -119,9 +119,9 @@
 
 <p>The 2017 "Attention Is All You Need" paper (which introduced the Transformer) proposed encoding position using sine and cosine waves at different frequencies:</p>
 
-<p><code class="math">PE_{(pos,\ 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)</code></p>
+<p>$PE_{(pos,\ 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)$</p>
 
-<p><code class="math">PE_{(pos,\ 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)</code></p>
+<p>$PE_{(pos,\ 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)$</p>
 
 <p>Where <em>pos</em> is the token's position in the sequence and <em>i</em> is the dimension index within the embedding.</p>
 

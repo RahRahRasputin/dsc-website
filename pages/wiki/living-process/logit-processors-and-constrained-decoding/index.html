@@ -121,32 +121,32 @@
 
 <p><strong>Repetition Penalty</strong></p>
 
-<p>The most familiar logit processor applies a penalty to tokens that have already appeared in the current context. Given a penalty scalar <code class="math">\theta > 1</code>, positive logits for recently seen tokens are divided by <code class="math">\theta</code>, and negative logits are multiplied by <code class="math">\theta</code> — both moves reduce the probability of repeating tokens:</p>
+<p>The most familiar logit processor applies a penalty to tokens that have already appeared in the current context. Given a penalty scalar $\theta > 1$, positive logits for recently seen tokens are divided by $\theta$, and negative logits are multiplied by $\theta$ — both moves reduce the probability of repeating tokens:</p>
 
-<p><code class="math">l_i' = l_i / \theta \quad \text{if } l_i > 0, \quad l_i' = l_i \cdot \theta \quad \text{if } l_i < 0</code></p>
+<p>$l_i' = l_i / \theta \quad \text{if } l_i > 0, \quad l_i' = l_i \cdot \theta \quad \text{if } l_i < 0$</p>
 
-<p>Higher <code class="math">\theta</code> = stronger repetition suppression. This is one reason outputs don't devolve into <em>"the the the"</em> — without some repetition suppression, high-probability common tokens would dominate.</p>
+<p>Higher $\theta$ = stronger repetition suppression. This is one reason outputs don't devolve into <em>"the the the"</em> — without some repetition suppression, high-probability common tokens would dominate.</p>
 
 <p><strong>Bad-Words Filters</strong></p>
 
-<p>Some tokens or token sequences should never appear in output — offensive content, private strings, tokens that would break downstream parsing. A bad-words logit processor sets the logits for forbidden tokens to <code class="math">-\infty</code> before sampling, making them impossible to select. Simple, blunt, reliable.</p>
+<p>Some tokens or token sequences should never appear in output — offensive content, private strings, tokens that would break downstream parsing. A bad-words logit processor sets the logits for forbidden tokens to $-\infty$ before sampling, making them impossible to select. Simple, blunt, reliable.</p>
 
 <p><strong>Min-Length and EOS Suppression</strong></p>
 
-<p>To prevent a model from generating a token-short response, the EOS (end-of-sequence) token's logit can be set to <code class="math">-\infty</code> until a minimum number of tokens have been generated. The model can't stop early even if it "wants" to.</p>
+<p>To prevent a model from generating a token-short response, the EOS (end-of-sequence) token's logit can be set to $-\infty$ until a minimum number of tokens have been generated. The model can't stop early even if it "wants" to.</p>
 
 <h3>Grammar-Constrained Generation</h3>
 
 <p>This is where logit processing becomes genuinely powerful.</p>
 
-<p>A <strong>context-free grammar</strong> (CFG) defines a formal language — a set of valid strings. For example, a grammar for simple arithmetic expressions might allow <code>(3 + 5)</code> but reject <code>(3 +</code>. A grammar for JSON might allow <code>{"key": "value"}</code> but reject <code>{"key": value}</code> (missing quotes).</p>
+<p>A <strong>context-free grammar</strong> (CFG) defines a formal language — a set of valid strings. For example, a grammar for simple arithmetic expressions might allow <code>(3 + 5)$ but reject <code>(3 +$. A grammar for JSON might allow <code>{"key": "value"}$ but reject <code>{"key": value}$ (missing quotes).</p>
 
 <p>Grammar-constrained generation uses a <strong>finite-state machine</strong> (FSM) or a pushdown automaton to track the current parse state as tokens are generated. Before each sampling step:</p>
 
 <ol>
 <li>Query the current parse state: "given everything generated so far, which tokens are <em>valid next tokens</em> in this grammar?"</li>
 <li>Get back a set of valid token IDs.</li>
-<li>Set the logits for <strong>all other tokens</strong> to <code class="math">-\infty</code>.</li>
+<li>Set the logits for <strong>all other tokens</strong> to $-\infty$.</li>
 <li>Sample from the now-narrowed distribution.</li>
 </ol>
 
@@ -154,7 +154,7 @@
 
 <p><strong>The key insight:</strong> the grammar doesn't tell the model <em>what</em> to say. It tells the model what it <em>can't</em> say. Within the valid tokens, the model's own knowledge and probabilities determine the output. Grammar-constrained generation is constraint, not prescription.</p>
 
-<p>Libraries like <code>outlines</code>, <code>guidance</code>, and <code>lm-format-enforcer</code> implement this for various grammar types:</p>
+<p>Libraries like <code>outlines$, <code>guidance$, and <code>lm-format-enforcer$ implement this for various grammar types:</p>
 <ul>
 <li>Regular expressions (simpler, FSM-tractable)</li>
 <li>JSON schema (the most practically useful)</li>
@@ -162,7 +162,7 @@
 <li>Context-free grammars (most powerful but computationally heavier)</li>
 </ul>
 
-<p><strong>llama.cpp's <code>--grammar</code> flag</strong> exposes this natively for GGUF models — you can pass a GBNF grammar file and the inference engine enforces it token-by-token.</p>
+<p><strong>llama.cpp's <code>--grammar$ flag</strong> exposes this natively for GGUF models — you can pass a GBNF grammar file and the inference engine enforces it token-by-token.</p>
 
 <h3>JSON Schema Enforcement in Practice</h3>
 
@@ -179,9 +179,9 @@
   },
   "required": ["name", "age"]
 }
-</code></pre>
+$</pre>
 
-<p>The logit processor compiles this schema into a state machine that knows, at every position in the output, which tokens are valid. After generating <code>{"name": "</code>, only string characters and escaped characters are valid — not <code>}</code>, not <code>true</code>, not digits. After generating <code>"age": </code>, only digits are valid (since age is an integer).</p>
+<p>The logit processor compiles this schema into a state machine that knows, at every position in the output, which tokens are valid. After generating <code>{"name": "$, only string characters and escaped characters are valid — not <code>}$, not <code>true$, not digits. After generating <code>"age": $, only digits are valid (since age is an integer).</p>
 
 <p>The model fills in values using its own knowledge and probability estimates. The schema enforces that those values end up in a parseable structure.</p>
 
@@ -197,7 +197,7 @@
 <li>Apply the mask to the logits</li>
 </ol>
 
-<p>For large vocabularies and complex grammars, this can add 10–40% latency per token. Regular expression grammars compile to efficient FSMs with small overhead; recursive JSON schemas with nested <code>anyOf</code> and <code>$ref</code> can be expensive to track.</p>
+<p>For large vocabularies and complex grammars, this can add 10–40% latency per token. Regular expression grammars compile to efficient FSMs with small overhead; recursive JSON schemas with nested <code>anyOf$ and <code>$ref$ can be expensive to track.</p>
 
 <p>The overhead is almost always worth it for structured output tasks, since the alternative — generate-then-parse-then-retry loops — is far slower and less reliable.</p>
 
@@ -206,7 +206,7 @@
 <p>Logit processors enforce <em>local</em> constraints — they know what's valid at the current position given what's been generated so far. They cannot enforce:</p>
 <ul>
 <li><strong>Long-range semantic consistency</strong> (a grammar can enforce valid JSON structure but can't ensure the <em>values</em> are factually correct)</li>
-<li><strong>Cross-field relationships</strong> (a schema can require <code>start_date</code> and <code>end_date</code> to exist, but can't enforce that <code>end_date</code> comes after <code>start_date</code>)</li>
+<li><strong>Cross-field relationships</strong> (a schema can require <code>start_date$ and <code>end_date$ to exist, but can't enforce that <code>end_date$ comes after <code>start_date$)</li>
 <li><strong>Arbitrary business logic</strong> (whether the output answers the user's actual question)</li>
 </ul>
 
