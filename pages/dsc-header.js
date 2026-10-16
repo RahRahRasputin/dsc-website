@@ -416,4 +416,4 @@ customElements.define('dsc-header', DSCHeader);
     }
   };
   h.appendChild(a);
-})(); }
+})();
