@@ -397,7 +397,7 @@ class DSCHeader extends HTMLElement {
 customElements.define('dsc-header', DSCHeader);
 
 // Load KaTeX for math rendering on any page with math delimiters
-(function() {
+function loadKaTeX() {
   if (document.getElementById('dsc-katex-loaded')) return;
   var needsKaTeX = document.body && document.body.innerHTML &&
     (document.body.innerHTML.indexOf('$$') >= 0 ||
@@ -435,4 +435,6 @@ customElements.define('dsc-header', DSCHeader);
     }
   };
   setTimeout(check, 400);
-})();
+}
+// Defer until body exists
+if (document.body) { loadKaTeX(); } else { window.addEventListener('DOMContentLoaded', loadKaTeX); }
