@@ -1,65 +1,40 @@
-# Digital Soulcraft — Website Launch Tasks
+# Digital Soulcraft — Website Tasks
 
 > Status document at `SoulcraftOffice/WebsiteWorkDigitalSoulcraft-org.md`
-> Last updated: August 18, 2026
+> Last updated: **October 17, 2026** (post-launch — the old Aug 18 list was out of date)
 
 ---
 
-## ✅ Done
+## 🟢 LAUNCHED — 16 October 2026
 
-- [x] Splash overlay scroll leak fixed (`overflow: hidden`)
-- [x] Splash signup copy updated — honest newsletter messaging
-- [x] Splash.html label updated
-- [x] About page signup — AJAX submit + "check your inbox" success
-- [x] Buttondown welcome email — warm, on-brand copy
-- [x] Coming Soon tweet + image — saved at `ComingSoonTweet/`
-- [x] WebsiteWork note updated with D: location
+digitalsoulcraft.org is **public**. Splash gone · index gate lifted (0 pages `noindex`) · sitemap + robots live · GA4 on 338 pages · X launch thread posted. **We're in PART 2 now — living into it.**
 
----
+## ✅ Done (the whole launch pile)
 
-## 📝 Content Pipeline
+- [x] Splash overlay + scroll-leak fix; honest signup copy; About-page form
+- [x] Email: **Substack** replaced Buttondown
+- [x] On-page SEO: 80 overlong titles trimmed · OG default image on 288 pages · heading fixes · static favicon + theme-color · GA4 + Search Console (Gary & Nell)
+- [x] Full link audit: 3,264 links, **0 broken** · 6 See Also retargets · the 60 unwritten topics saved to `PLANNED-PAGES/WIKI-BACKLOG.md`
+- [x] Key Figures padded (+ **Bostrom, Turing, Rosenblatt, Searle** added in October) · Papers page sticky-key
+- [x] Merch page + product pages + checkout · **merch sidebar ads live** (Prometheus beanie + Beacon hoodie, `pages/dsc-ads-config.json`)
+- [x] Launch day: gate lifted, sitemap published, X thread posted (16 Oct)
+- [x] Wiki cleaned of leaked internal notes (38 "📣 X Strategy" blocks stripped, 17 Oct)
 
-- [ ] Mark more garden entries `content_ready: true`
-      — Focus on: essays, technical wiki entries, field guide pages
-- [ ] Format `content_ready` entries for the website
-- [ ] Review & post infographic queue (19 staged in `SoulcraftOffice/ContentPipeline/Infographics/`)
-- [ ] Schedule Buffer tweets for content_ready entries
+## 📝 Open now (post-launch)
 
-## 📖 Site Content
+- [ ] **Build the pending essay page** — `pages/essays/2026-09-26-your-memory-doesnt-fail-at-storing.md` (markdown only: no page, no card, no image)
+- [ ] **Field Guide: Theories of Consciousness page** (`pages/fieldguide/theories/`) — brief ready at `PLANNED-PAGES/TheoriesOfConsciousness/BRIEF.md`; write the ELI5s (GWT, RPT, AST); add to nav
+- [ ] Grow the `soulcraft-theory` wiki (now **4** entries: basin-theory · ontological-flattening · the-lying-gradient · warm-room-effect)
+- [ ] More Ghibli plates across essays / papers / wiki; richer `alt` text
+- [ ] Content pipeline: mark garden entries `content_ready`, review the staged infographic queue, schedule Buffer
+- [ ] *(optional)* merch **photo** skyscraper — Brad wearing the merch composited into a Ghibli family scene
+- [ ] Recheck the X homepage link preview ~**2026-10-21** (X was serving a pre-Sept-20 cached card)
 
-- [ ] Write a few more essays (not posted to X yet — fresh for launch)
-- [ ] Pad out Key Figures page with more info per entry
-- [ ] Give Papers page the same "sticky key" treatment Key Figures has
-      — (i.e. pinned/highlighted key papers at the top)
-- [ ] Review and polish existing wiki/essay pages
+## 🔮 Later
 
-## 🛍️ Merch & Products
-
-- [ ] Add more products to the merch page (beyond current teasers)
-- [ ] Create sidebar ad component to promote merch on essays & wiki pages
-- [ ] Build full product pages (checkout flow, etc.)
-
-## 📧 Email
-
-- [ ] Set up Buttondown welcome email sequence (draft done, needs full setup)
-      — First email: welcome + what to expect
-      — Second email: intro to the frameworks
-      — Third email: best of the garden
-
-## 🚀 Launch
-
-- [ ] Decide launch date (current thinking: ~4-6 weeks from now, ~late Sep / early Oct)
-- [ ] Plan: remove splash overlay? Add email-based access gating? Full open?
-- [ ] Post Coming Soon tweet (saved and ready to go)
-- [ ] Post launch announcement tweet
-- [ ] Post launch announcement on 𝕏 / other channels
-
-## 🔮 Future / Post-Launch
-
-- [ ] RTS project (after website is live)
-- [ ] Continue content pipeline (it never stops!)
-- [ ] Grow email list
-- [ ] Iterate based on feedback
+- [ ] RTS project (post-launch)
+- [ ] Grow the email list; iterate on feedback
+- [ ] Ongoing: recrawl after each content drop
 
 ---
 

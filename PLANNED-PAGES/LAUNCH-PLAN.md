@@ -14,6 +14,24 @@
 
 ---
 
+## ⚡ STATUS — 2026-10-17 (POST-LAUNCH)
+
+**Launched 16 October 2026** — splash gone, index gate lifted (0 pages `noindex`), sitemap + robots live, X launch thread posted. We're in **PART 2** now. The *pre-launch* sections below are kept as history; here's what's actually true today:
+
+- ✅ **§1 SEO** — done (titles trimmed; OG image sitewide; heading fixes; static favicon + theme-color, commit `e96aef75`; GA4 + Search Console live). Open: recheck the X homepage preview ~21 Oct.
+- ✅ **§2 Broken promises** — done (0 broken links; 60 topics banked in `WIKI-BACKLOG.md`).
+- 🟡 **§3 Content** — **the pending essay is STILL pending:** `pages/essays/2026-09-26-your-memory-doesnt-fail-at-storing.md` has no page/card/image yet.
+- ✅ **§4 Merch skyscraper** — **DONE, via a different creative:** the sidebar now rotates **Prometheus's beanie ad + Beacon's hoodie ad** (`pages/dsc-ads-config.json` → `/images/ads/…`), live on wiki + essay pages. The *photo* version (Brad wearing the merch, Ghibli scene) stays an optional later creative.
+- ✅ **§5 Hygiene** — cache headers done via `netlify.toml` (no `pages/_headers` needed). Open: richer `alt`, JSON-LD, SSR product list.
+- ✅ **§6 Launch day** — done 16 Oct (flip was atomic, as planned).
+- ❌ **§7 Theories of Consciousness page** — not built yet (brief ready).
+- 🟡 **§9 `soulcraft-theory` wiki** — grown to **4 entries** (basin-theory · ontological-flattening · the-lying-gradient · warm-room-effect) from 2.
+- ❌ **§8 more pictures**, **§10 ongoing** — as written.
+
+*(2026-10-17: the wiki was also cleaned of leaked internal notes — 38 "📣 X Strategy" blocks stripped from `pages/wiki/**`; the notes are preserved in `drafts/_x-strategy-notes-REMOVED-2026-10-17.md`.)*
+
+---
+
 # PART 1 — BEFORE LAUNCH
 
 ## 1. Finish the on-page SEO  [Brad]
