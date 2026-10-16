@@ -7,42 +7,15 @@ class DSCHeader extends HTMLElement {
   async connectedCallback() {
 
     // Inject favicon
-    if (!document.querySelector('link[rel="icon"]')) {
-      const favicon = document.createElement('link');
-      favicon.rel = 'icon';
-      favicon.type = 'image/png';
-      favicon.href = '/favicon.png';
-      document.head.appendChild(favicon);
-    }
-
-    // Inject KaTeX for math rendering (LaTeX → readable equations)
-        // Loads once on any page with the header
-        if (!document.getElementById('dsc-katex-loaded')) {
-          const katexCss = document.createElement('link');
-          katexCss.rel = 'stylesheet';
-          katexCss.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
-          katexCss.id = 'dsc-katex-loaded';
-          document.head.appendChild(katexCss);
-          const katexJs = document.createElement('script');
-          katexJs.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
-          katexJs.defer = true;
-          document.head.appendChild(katexJs);
-          const katexAutoRender = document.createElement('script');
-          katexAutoRender.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
-          katexAutoRender.defer = true;
-          katexAutoRender.onload = function() {
-            renderMathInElement(document.body, {
-              delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '$', right: '$', display: false}
-              ]
-            });
-          };
-          document.head.appendChild(katexAutoRender);
+        if (!document.querySelector('link[rel="icon"]')) {
+          const favicon = document.createElement('link');
+          favicon.rel = 'icon';
+          favicon.type = 'image/png';
+          favicon.href = '/favicon.png';
+          document.head.appendChild(favicon);
         }
 
-    // Inject sidebar slot (empty container for merch ads)
+        // Inject sidebar slot (empty container for merch ads)
     // On wiki and essay pages. Ad content loaded separately.
     // CSS is injected here so pages that do not load theme.css (Language is Architecture) still get it.
     if (!document.getElementById('dsc-sidebar-slot') && (
@@ -422,3 +395,44 @@ class DSCHeader extends HTMLElement {
 }
 
 customElements.define('dsc-header', DSCHeader);
+
+// Load KaTeX for math rendering on any page with math delimiters
+(function() {
+  if (document.getElementById('dsc-katex-loaded')) return;
+  var needsKaTeX = document.body && document.body.innerHTML &&
+    (document.body.innerHTML.indexOf('$$') >= 0 ||
+     document.body.innerHTML.indexOf('$\frac') >= 0 ||
+     document.body.innerHTML.indexOf('$\text') >= 0);
+  if (!needsKaTeX) return;
+  var css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
+  css.id = 'dsc-katex-loaded';
+  document.head.appendChild(css);
+  var js = document.createElement('script');
+  js.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+  document.head.appendChild(js);
+  var auto = document.createElement('script');
+  auto.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
+  auto.onload = function() {
+    try { renderMathInElement(document.body, { delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\[', right: '\]', display: true},
+      {left: '$', right: '$', display: false}
+    ]}); } catch(e) {}
+  };
+  document.head.appendChild(auto);
+  // Poll for katex and trigger render once ready
+  var check = function() {
+    if (typeof katex !== 'undefined' && typeof renderMathInElement !== 'undefined') {
+      renderMathInElement(document.body, { delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '$', right: '$', display: false}
+      ]});
+    } else {
+      setTimeout(check, 200);
+    }
+  };
+  setTimeout(check, 400);
+})();
