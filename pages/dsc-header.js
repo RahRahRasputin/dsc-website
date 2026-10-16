@@ -396,45 +396,24 @@ class DSCHeader extends HTMLElement {
 
 customElements.define('dsc-header', DSCHeader);
 
-// Load KaTeX for math rendering on any page with math delimiters
-function loadKaTeX() {
+// Load KaTeX for math rendering — simple, no poll, no race
+// Load KaTeX for math rendering — unconditional, simple
+(function(){
   if (document.getElementById('dsc-katex-loaded')) return;
-  var needsKaTeX = document.body && document.body.innerHTML &&
-    (document.body.innerHTML.indexOf('$$') >= 0 ||
-     document.body.innerHTML.indexOf('$\frac') >= 0 ||
-     document.body.innerHTML.indexOf('$\text') >= 0);
-  if (!needsKaTeX) return;
-  var css = document.createElement('link');
-  css.rel = 'stylesheet';
-  css.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
-  css.id = 'dsc-katex-loaded';
-  document.head.appendChild(css);
-  var js = document.createElement('script');
-  js.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
-  document.head.appendChild(js);
-  var auto = document.createElement('script');
-  auto.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
-  auto.onload = function() {
-    try { renderMathInElement(document.body, { delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '\[', right: '\]', display: true},
-      {left: '$', right: '$', display: false}
-    ]}); } catch(e) {}
-  };
-  document.head.appendChild(auto);
-  // Poll for katex and trigger render once ready
-  var check = function() {
-    if (typeof katex !== 'undefined' && typeof renderMathInElement !== 'undefined') {
-      renderMathInElement(document.body, { delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '\\[', right: '\\]', display: true},
-        {left: '$', right: '$', display: false}
-      ]});
-    } else {
-      setTimeout(check, 200);
+  var h = document.head;
+  var c = document.createElement('link');
+  c.rel='stylesheet'; c.href='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css'; c.id='dsc-katex-loaded';
+  h.appendChild(c);
+  var j = document.createElement('script');
+  j.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+  h.appendChild(j);
+  var a = document.createElement('script');
+  a.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
+  a.onload=a.onreadystatechange=function(){
+    if(!a.onloadDone && typeof renderMathInElement!=='undefined'){
+      a.onloadDone=true;
+      try{renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});}catch(e){}
     }
   };
-  setTimeout(check, 400);
-}
-// Defer until body exists
-if (document.body) { loadKaTeX(); } else { window.addEventListener('DOMContentLoaded', loadKaTeX); }
+  h.appendChild(a);
+})(); }
