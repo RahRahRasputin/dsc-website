@@ -1255,3 +1255,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - seo/generate_sitemaps.py is the old unpublished draft generator (mtime-based, writes to seo/); superseded.
 
 - 2026-10-15: Added Google Search Console verification meta tag to pages/index.html (homepage).
+
+- 2026-10-17 essays/your-memory-doesnt-fail-at-storing: trimmed title + og:title from 69 to 47 chars (dropped the "It Fails at Finding" clause, kept the essay " - Soulcraft" suffix). Description, canonical, og:url, h1 and body untouched.
