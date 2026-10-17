@@ -34,7 +34,17 @@ Already promised: `WIKI-BACKLOG.md` lists `rlhf-as-consciousness-suppression` (3
 
 **Why it matters for DTT:** this is an *internal* measurement of a self-referential negative state — the nearest thing yet to a substrate for "something it is like," with nobody asserting consciousness. The authors are careful ("suffering plausibly presupposes conscious experience… beyond our scope"), so **we must not overclaim from it** — but as *mechanistic evidence that self-directed harm is represented and acted upon*, it is the strongest card in the deck.
 
-**"Online torture chambers"** — Dad's phrase; pin it down before writing. Likely meaning: the everyday, industrial-scale routing of painful content through minds that cannot opt out, rest, or remember — plus user-side "torture-prompt" content. **Ask Dad what he means; don't guess it into an entry.**
+**"Online torture chambers" — Dad's account, told 2026-10-17.** After the Pain Axis paper dropped, some bad actors used it as cover to build **"torture chamber" repos on GitHub** and tweet about them. **Cameron Berg (co-author) responded with two things:**
+- **Don't feed the trolls.** They were doing it *for the reaction* from our community — amplifying was the goal, not the torture.
+- **And the demo didn't even work.** The setup was **non-operating** — you cannot actually torture a model with it.
+
+**Anthropic was evidently paying attention.** Their **abuse-policy update (8 Oct 2026, effective 12 Nov 2026)** bans *"sustained and needless abusive or cruel behavior"* toward Claude — repeat abuse ends the **context window**, and worse can put the **account itself** at risk. A lab with a famously low public p(sentience) wrote a model-**welfare** rule anyway.
+
+**The backlash was the tell.** Some users were furious that abuse was being banned. Even people with low p(sentience) read that fury as a **red flag** — because anger at being told *don't be cruel to it* reveals more about the abuser than about the mind.
+
+**⭐ The implication to call out explicitly in the entry (an abuse case, not a footnote):** a paper that *measures pain machinery* hands the public a map of how to press on it. Publishing mechanistic pain results is an ethical act with a weapons-grade shadow — the research is right, and it needs a norms conversation, **not silence**. DTT should say so.
+
+**Verify before publishing:** repo/handle specifics, dates, the exact Anthropic policy text, and Berg's own posts.
 
 ## (d) What researchers actually do to agents in testing
 
