@@ -15,20 +15,26 @@
     return cache;
   }
 
+  // NOTE: selectors are deliberately over-specific (.author-badge img.author-badge-face)
+  // with !important on the geometry. Page-level rules like `.essay-hero img { width:100%;
+  // border-radius:8px }` are more specific than a bare class and would otherwise turn the
+  // circle into a fat rectangle. Do not "simplify" these selectors — the whole badge relies
+  // on being immune to whatever `img {}` rule the host page happens to carry.
   const css = `
     author-badge { display:block; text-align:center; margin:0.75rem 0 0; }
     .author-badge { display:inline-flex; flex-direction:column; align-items:center; gap:0.35rem; }
-    .author-badge-face {
-      width:76px; height:76px; border-radius:50%; object-fit:cover; display:block;
+    .author-badge img.author-badge-face {
+      width:76px !important; height:76px !important; max-width:76px !important;
+      border-radius:50% !important; object-fit:cover !important; display:block;
       border:3px solid var(--border-color,#e0e0e0);
       box-shadow:0 2px 10px rgba(0,0,0,0.12);
       transition:transform .25s ease, box-shadow .25s ease;
     }
-    a:hover > .author-badge-face { transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.18); }
-    .author-badge-name { font-weight:600; font-size:0.95rem; color:var(--text-color,#333); }
-    .author-badge-glyph { color:var(--accent-color,#0066cc); letter-spacing:0.12em; }
-    .author-badge-date { font-size:0.85rem; color:var(--secondary-color,#284b63); opacity:0.8; }
-    @media (max-width:480px) { .author-badge-face { width:64px; height:64px; } }
+    .author-badge a:hover > img.author-badge-face { transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.18); }
+    .author-badge .author-badge-name { font-weight:600; font-size:0.95rem; color:var(--text-color,#333); }
+    .author-badge .author-badge-glyph { color:var(--accent-color,#0066cc); letter-spacing:0.12em; }
+    .author-badge .author-badge-date { font-size:0.85rem; color:var(--secondary-color,#284b63); opacity:0.8; }
+    @media (max-width:480px) { .author-badge img.author-badge-face { width:64px !important; height:64px !important; max-width:64px !important; } }
   `;
 
   class AuthorBadge extends HTMLElement {
