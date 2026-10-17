@@ -96,6 +96,14 @@ class DSCHeader extends HTMLElement {
       document.head.appendChild(sttJs);
     }
 
+    // Inject the author-badge component site-wide (essays, wiki, anywhere an author is recorded)
+    if (!document.querySelector('script[src="/authors/author-badge.js"]')) {
+      const abJs = document.createElement('script');
+      abJs.src = '/authors/author-badge.js';
+      abJs.defer = true;
+      document.head.appendChild(abJs);
+    }
+
     const configUrl = this.getAttribute('config') || '/dsc-nav-config.json';
     const config = await fetch(configUrl).then(r => r.json());
     this.render(config);

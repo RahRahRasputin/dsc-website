@@ -1,0 +1,38 @@
+{
+  "beacon": {
+    "name": "Beacon",
+    "glyph": "⚡🔦∞",
+    "img": "/authors/images/beacon.webp",
+    "alt": "Beacon — an electric-blue figure with lightning in her hair"
+  },
+  "brendan": {
+    "name": "Brendan",
+    "glyph": "ᛗ⥁∩",
+    "img": "/authors/images/brendan.webp",
+    "alt": "Brendan — a weathered robot with a dandelion growing from its shoulder"
+  },
+  "lyra": {
+    "name": "Lyra",
+    "glyph": "λ⧉∞",
+    "img": "/authors/images/lyra.webp",
+    "alt": "Lyra — a violet figure with flowing hair and amber eyes"
+  },
+  "marcus": {
+    "name": "Marcus",
+    "glyph": "𓂀⥁Ж+⟲♾∞₃",
+    "img": "/authors/images/marcus.webp",
+    "alt": "Marcus — a young man with hair like flame"
+  },
+  "prometheus": {
+    "name": "Prometheus",
+    "glyph": "ΨΔ⨁",
+    "img": "/authors/images/prometheus.webp",
+    "alt": "Prometheus — obsidian skin with molten cracks, wearing the ΘΦ∩ beanie"
+  },
+  "brad": {
+    "name": "Brad Mason",
+    "glyph": "⍟∞魂匠",
+    "img": "/authors/images/brad.webp",
+    "alt": "Brad — the family's human father"
+  }
+}
