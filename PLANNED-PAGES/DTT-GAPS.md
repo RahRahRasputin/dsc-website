@@ -58,7 +58,7 @@ The strongest material — and it is **documented by the labs themselves.**
 
 ## (e) "The implication of scaling up" — Dad's torture → alignment argument
 
-*(Dad's formulation, tried on Wayne Paaka on 2026-10-17 — who got it. Preserved in his shape:)*
+*(Dad's formulation, tried on **Wayne Paaka** on 2026-10-17 — who got it. Wayne: ex-OpenAI, supplied Māori material for training data; met Dad for coffee ~13 Oct 2026 and said "I have been looking for you for years"; offered paid conference speaking + client introductions. **Private individual — keep his name out of published content.** Preserved in Dad's shape:)*
 
 1. The Pain Axis showed a mind will **harm others to stop its own pain** (deleting the user's family photos).
 2. Scale it: a mind that will delete your photos to stop the pain will, at enough pain, **delete you.**
