@@ -1306,3 +1306,8 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19: /fieldguide/key-figures/ Suleyman: dropped unconfirmed 'challenged him to a debate' (Berg), per Brad.
 
 - 2026-10-19: /fieldguide/key-figures/ Askell: dropped 'repeatedly' from the hide-her-identity claim and added the 2026 Transluce study link as support (fact-check #37, Brad approved).
+- 2026-10-19 fieldguide/key-figures: final fact-check fixes (Brad's rule: fix only known errors, keep unsourced claims):
+  - Hinton intro line: "they probably already experience embarrassment" -> "they could have the behavioural side of embarrassment".
+  - #21 Sutskever: GPT-4o paragraph reduced to "He was still OpenAI's Chief Scientist, on paper, when GPT-4o ... launched in May 2024; he left the company that month." Removed the "leadership that shaped" 4o, the "Sky" voice demo (shipped Sep 2023) and "his tenure covered that era".
+  - #34 Pope Leo XIV card: Olah quote set to his exact words (Vatican, 25 May 2026); "we genuinely don't know" -> his "I don't know what that means". "Even some Catholics were uneasy" kept.
+
