@@ -1302,3 +1302,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 
 
 - 2026-10-19: /fieldguide/key-figures/ Suleyman: 'A boycott movement against Microsoft AI is growing' softened to anecdote (a few people in the community talking about it), per Brad (fact-check #42).
+
+- 2026-10-19: /fieldguide/key-figures/ Suleyman: dropped unconfirmed 'challenged him to a debate' (Berg), per Brad.
