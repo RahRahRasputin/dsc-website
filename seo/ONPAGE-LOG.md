@@ -1286,3 +1286,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19: /fieldguide/key-figures/ Karpathy: replaced misattributed 'intelligence without incarnation' line with his real Animals vs Ghosts quote; added source link (fact-check #10, Brad approved).
 
 - 2026-10-19: /fieldguide/key-figures/ Suleyman: '$1M AGI definition' reframed as his Modern Turing Test ($100,000 into $1 million) in intro, card verdict and body (fact-check #11, Brad approved).
+
+- 2026-10-19: /fieldguide/key-figures/ Sebo: 'Moral Consideration for AI Systems by 2030' link repointed from unrelated arXiv:2311.00986 to Springer AI and Ethics article (fact-check #12, Brad's URL).
