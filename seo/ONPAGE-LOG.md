@@ -1300,3 +1300,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - #30 Bengio: quote marks removed from "giving citizenship to hostile aliens" (plain paraphrase).
   - Labels: LeCun TechCrunch link text -> "TechCrunch - AMI Labs raises $1.03B for world models" (single $ in the text node); Kanai x.com/ryotakanai -> x.com/kanair; Hassabis "Times of India, Mar 2025" -> "Apr 2025".
 
+
+- 2026-10-19: /fieldguide/key-figures/ Suleyman: 'A boycott movement against Microsoft AI is growing' softened to anecdote (a few people in the community talking about it), per Brad (fact-check #42).
