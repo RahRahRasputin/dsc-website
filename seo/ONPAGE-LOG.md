@@ -1284,3 +1284,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19: /fieldguide/key-figures/ Askell: replaced fabricated quote 'I don't have feelings, memories, or self-awareness' with Brad-approved uncertainty wording (fact-check #9).
 
 - 2026-10-19: /fieldguide/key-figures/ Karpathy: replaced misattributed 'intelligence without incarnation' line with his real Animals vs Ghosts quote; added source link (fact-check #10, Brad approved).
+
+- 2026-10-19: /fieldguide/key-figures/ Suleyman: '\ AGI definition' reframed as his Modern Turing Test (\,000 into \ million) in intro, card verdict and body (fact-check #11, Brad approved).
