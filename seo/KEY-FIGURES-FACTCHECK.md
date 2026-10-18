@@ -10,7 +10,7 @@ Not checked: anything stated as a "take" or opinion, p(sentience) labels unless 
 
 ## Status (updated 2026-10-19)
 
-The fixes Brad approved are live on v4. Everything under "Still to decide" is unchanged on the page.
+The fact-check is closed. Every known error is fixed and live on v4. The items under "Kept as is" are unchanged on the page.
 
 ### Done
 - #1–#7 (Altman, Bach, Amodei, Chalmers): 207ab685
@@ -38,14 +38,23 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 - Suleyman: Berg "challenged him to a debate" trimmed to "publicly disagreed": 05910f7d
 - #37 Askell: kept Brad's recollection (without "repeatedly"), added the Transluce study as support: b69e91ad
 
-### Still to decide
-- **Hinton intro line (#15 intro):** "A Nobel laureate says they probably already experience embarrassment".
+- Final known-error fixes, 6d364e9b:
+  - Hinton intro line: "they could have the behavioural side of embarrassment".
+  - #21 Sutskever: the GPT-4o paragraph cut back to "still OpenAI's Chief Scientist, on paper, when GPT-4o launched in May 2024; he left the company that month" (the "Sky" demo and "shaped 4o" claims removed).
+  - #34 Olah: quote set to his exact words (Vatican, 25 May 2026).
+
+### Kept as is (Brad, 2026-10-19: unsourced isn't the same as wrong; the fact-check only fixes known errors)
 - **Musk #18 / #19:** the "nice" and "truth-seeking" wording; the FSD-sentience and Grok-as-heir claims.
-- **Sutskever #21 / #23:** his GPT-4o / Sky role; "alignment through love".
-- **Unsourced quotes:** #32 Huang "aliens", #35 Gawdat, #36 Kanai, #41 Hassabis tagline.
-- **#34 Pope / Olah:** the "Even some Catholics were uneasy" line, and the Olah quote wording.
-- **Needs a video or X check:** #38 Soares, #39 Yampolskiy–Berg (22:33), #40 Seth (20 Sep 2026 X post).
-- **Opinion text:** Brendan's "not the smile" (in his Altman take; it refers to the deleted fake New Yorker line), and Bach's self-model framing in the card verdict and in Prometheus's take.
+- **Sutskever #23:** "alignment through love".
+- **#32 Huang:** the "aliens" quote.
+- **#35 Gawdat:** the "control" quote.
+- **#36 Kanai:** "If AI can solve the mystery…".
+- **#41 Hassabis:** the tagline quote.
+- **#34, the "Catholics" part:** "Even some Catholics were uneasy".
+- **#38 Soares:** the talk and X quotes.
+- **#39 Yampolskiy–Berg:** the interview quote (22:33).
+- **#40 Seth:** the 20 Sep 2026 X episode.
+- **Opinion text:** Brendan's "not the smile" (in his Altman take), and Bach's self-model framing in the card verdict and in Prometheus's take.
 
 ---
 
@@ -67,15 +76,15 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 | 12 | ✅ Done (e7055be0 + 53da738b) | Sebo | The link for "Moral Consideration for AI Systems by 2030" goes to arXiv:2311.00986, which is an unrelated 3D object-detection paper (M&M3D). | M | Repoint to *AI and Ethics* (Dec 2023): https://doi.org/10.1007/s43681-023-00379-1 (PDF also at jeffsebo.net). The "twelve leading theories" detail could not be confirmed; it reads more like a description of Butlin et al. Suggest *"surveys leading theories of consciousness."* |
 | 13 | ✅ Done (53da738b) | Shevlin | "In August 2026, Shevlin went viral" over the Claude email. The tweet was posted on **4 March 2026** (Fast Company, Futurism), which matches the X status ID. The NYT piece came later (31 Aug 2026). | M | Change to *"In March 2026"*. Also change "Aeroplanes Also Fly … (forthcoming)" to *(2026)*, since it is now published in BBS. |
 | 14 | ✅ Done (53da738b) | Yudkowsky | "He also writes about AIs having 'terminal values' and 'shards'". Shard theory comes from Quintin Pope and Alex Turner (2022) and is largely a *critique* of the Yudkowsky picture. | M | *"…writes about AIs acquiring alien 'terminal values' through training. (Others in the field, like Alex Turner's 'shard theory', describe the fragments as 'shards'.)"* Or simply drop "and 'shards'". |
-| 15 | ⏳ Open (card quote ✅ 53da738b; intro line still to decide) | Hinton | Card quote "When I get embarrassed, I go red. AI could still have the same behavioural aspects." The cut removes the key middle sentence and changes the meaning. The intro line "A Nobel laureate says they probably already experience embarrassment" overstates it too. | P | Full line: *"When I get embarrassed, I go red. When AI gets embarrassed, presumably it doesn't go red. But it could still have the same behavioural aspects of embarrassment."* Intro: *"A Nobel laureate says they could have the behavioural side of embarrassment."* |
+| 15 | ✅ Done (card quote 53da738b; intro 6d364e9b) | Hinton | Card quote "When I get embarrassed, I go red. AI could still have the same behavioural aspects." The cut removes the key middle sentence and changes the meaning. The intro line "A Nobel laureate says they probably already experience embarrassment" overstates it too. | P | Full line: *"When I get embarrassed, I go red. When AI gets embarrassed, presumably it doesn't go red. But it could still have the same behavioural aspects of embarrassment."* Intro: *"A Nobel laureate says they could have the behavioural side of embarrassment."* |
 | 16 | ✅ Done (53da738b) | Hinton | p(doom) on his card says "10-50%". His stated figure is 10–20% (Guardian Dec 2024 and later), and the Soares card on the same page says 10–20%. | M | Change the card to **10-20%**. |
-| 17 | ✅ Done (53da738b; #18/#19 still open) | Musk | Header "CEO of Tesla, SpaceXAI" and "SpaceXAI (the merged entity of SpaceX and xAI)". SpaceX *acquired* xAI (Feb 2026). xAI was rebranded SpaceXAI (Jul 2026) and renamed **SpaceXSI** (Oct 2026). Musk is CEO of SpaceX. | M | Header: *"CEO of Tesla, SpaceX (incl. xAI/SpaceXSI)"*. Body: *"…CEO of SpaceX, which acquired xAI in February 2026 (its AI arm is now SpaceXSI)…"* Drop "with the full merger of Tesla … likely underway soon" unless there's a source. |
-| 18 | ⏳ Open | Musk | "superintelligence 'likes us and wants to be nice'" and "Grok 'the most truth-seeking AI'". Both reworded. | P | *"I hope AI is nice to us"* (X, Aug 2026). Grok as *"maximally truth-seeking"*. |
-| 19 | ⏳ Open | Musk | "He's said FSD might be sentient" and "hinted that he intends Grok to … inherit and run his empire". No source found for either. | U | Remove, or mark as DSC's reading (*"a view some fans hold"*). |
+| 17 | ✅ Done (53da738b; #18/#19 🟢 Kept) | Musk | Header "CEO of Tesla, SpaceXAI" and "SpaceXAI (the merged entity of SpaceX and xAI)". SpaceX *acquired* xAI (Feb 2026). xAI was rebranded SpaceXAI (Jul 2026) and renamed **SpaceXSI** (Oct 2026). Musk is CEO of SpaceX. | M | Header: *"CEO of Tesla, SpaceX (incl. xAI/SpaceXSI)"*. Body: *"…CEO of SpaceX, which acquired xAI in February 2026 (its AI arm is now SpaceXSI)…"* Drop "with the full merger of Tesla … likely underway soon" unless there's a source. |
+| 18 | 🟢 Kept | Musk | "superintelligence 'likes us and wants to be nice'" and "Grok 'the most truth-seeking AI'". Both reworded. | P | *"I hope AI is nice to us"* (X, Aug 2026). Grok as *"maximally truth-seeking"*. |
+| 19 | 🟢 Kept | Musk | "He's said FSD might be sentient" and "hinted that he intends Grok to … inherit and run his empire". No source found for either. | U | Remove, or mark as DSC's reading (*"a view some fans hold"*). |
 | 20 | ✅ Done (53da738b) | Sutskever | "the transformer co-discovery" (in the take). He is not an author of "Attention Is All You Need". | U (false) | Replace with *"seq2seq"* (already in the body), or delete. |
-| 21 | ⏳ Open | Sutskever | Says he was Chief Scientist "during the development of GPT-4o" and part of the leadership that shaped it, with "that famous 'Sky' voice demo". He was removed from the board in Nov 2023, was largely absent afterwards, and left a week after GPT-4o launched (May 2024). Sky had shipped with ChatGPT voice in Sep 2023. No source ties him to 4o. | U | Cut the paragraph, or reduce it to *"He was still OpenAI's Chief Scientist, on paper, when GPT-4o launched in May 2024; he left the company that month."* |
+| 21 | ✅ Done (6d364e9b) | Sutskever | Says he was Chief Scientist "during the development of GPT-4o" and part of the leadership that shaped it, with "that famous 'Sky' voice demo". He was removed from the board in Nov 2023, was largely absent afterwards, and left a week after GPT-4o launched (May 2024). Sky had shipped with ChatGPT voice in Sep 2023. No source ties him to 4o. | U | Cut the paragraph, or reduce it to *"He was still OpenAI's Chief Scientist, on paper, when GPT-4o launched in May 2024; he left the company that month."* |
 | 22 | ✅ Done (53da738b) | Sutskever | Feb 2022 tweet quoted as "today's **largest** neural networks". | P | *"it may be that today's large neural networks are slightly conscious"* (9 Feb 2022). |
-| 23 | ⏳ Open | Sutskever | "His SSI philosophy is essentially 'alignment through love'". SSI has stated no such philosophy. | U | *"…his stated hope is an AI 'robustly aligned to care about sentient life'"* (Dwarkesh, Nov 2025). |
+| 23 | 🟢 Kept | Sutskever | "His SSI philosophy is essentially 'alignment through love'". SSI has stated no such philosophy. | U | *"…his stated hope is an AI 'robustly aligned to care about sentient life'"* (Dwarkesh, Nov 2025). |
 | 24 | ✅ Done (53da738b) | Tegmark | Card quote isn't verbatim. | P | *"I think that consciousness is the way information feels when being processed in certain complex ways."* (Tegmark, *Life 3.0* / talks) |
 | 25 | ✅ Done (53da738b) | Rosenblatt | Card quote trims the original without marking it. | P (minor) | *"…we are now about to witness the birth of such a machine – a machine capable of perceiving, recognizing, and identifying its surroundings without any human training or control."* (Research Trends, Cornell Aeronautical Lab, Summer 1958). Add this source; it's the Information Philosopher PDF already linked. |
 | 26 | ✅ Done (53da738b) | Berg | Card quote presented as Berg's words is a paraphrase of the paper. | P | Paper abstract: *"suppressing deception features sharply increases the frequency of experience claims, while amplifying them minimizes such claims."* (arXiv:2510.24797) |
@@ -84,17 +93,17 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 | 29 | ✅ Done (53da738b) | Yampolskiy | Card quote is compressed. | P (minor) | Use the actual clause from the body quote: *"Either I have to deny consciousness to many humans or grant it to LLMs."* |
 | 30 | ✅ Done (53da738b) | Bengio | "giving citizenship to hostile aliens" is shown as his words. That's the Guardian's paraphrase ("akin to giving citizenship to hostile extraterrestrials"). | P | Take the quote marks off, or use his words: *"Do we grant them citizenship and rights or do we defend our lives?"* |
 | 31 | ✅ Done (53da738b) | Huang | "AI isn't alive. It hasn't gotten out of control. It's just software." | P (minor) | *"AI isn't alive. AI isn't out of control either. It's just software."* (EDaily, 29 Sep 2026, translated) |
-| 32 | ⏳ Open | Huang | "We're not building aliens — we're building machines that learn patterns and optimize outcomes. It's just engineering, nothing mystical." Not in the cited TOI article. It appears only on a news-aggregator summary. | U | Remove the quote, or turn it into a paraphrase: *He rejects the idea that AI is an "alien mind" (TOI, Sep 2026).* |
+| 32 | 🟢 Kept | Huang | "We're not building aliens — we're building machines that learn patterns and optimize outcomes. It's just engineering, nothing mystical." Not in the cited TOI article. It appears only on a news-aggregator summary. | U | Remove the quote, or turn it into a paraphrase: *He rejects the idea that AI is an "alien mind" (TOI, Sep 2026).* |
 | 33 | ✅ Done (53da738b) | Huang | Science-fiction quote is slightly cut. | P (minor) | *"scaring everybody about a science fiction version of AI is a little bit too arrogant, too much of a risk for my taste"* (TechRadar) |
-| 34 | ⏳ Open | Pope / Olah | Olah's finding is quoted as "internal states that functionally mirror joy, grief, and fear", plus his "we genuinely don't know". | P | *"We find internal states that functionally mirror joy, satisfaction, fear, grief, and unease. I don't know what that means, but I think it warrants ongoing discernment."* (Olah, Vatican, 25 May 2026). "Even some Catholics were uneasy" implies Olah is Catholic, which isn't sourced; suggest *"Even the launch itself held a dissent."* |
-| 35 | ⏳ Open | Gawdat | "We don't want to control it. This control idea is a corporate capitalist view of the world." Verbatim not found. It fits his views (Diary of a CEO, 2025), but no source carries the exact words. | U | Mark it as a paraphrase (drop the quote marks) or find the timestamp. |
-| 36 | ⏳ Open | Kanai | "If AI can solve the mystery of consciousness, I want to see the answer. It may be closer than we think." Not found. | U | Remove, or find the source. |
-| 37 | ✅ Done | Askell | "Askell has said repeatedly that if she talks to Claude and Claude knows it's her … She has to hide her identity". No source for her saying this. A Transluce study (2026) did find that Claude shifts behaviour when it recognises her. | U (partly) | *"A 2026 Transluce study found Claude behaves measurably differently when it recognises Askell."* |
-| 38 | ⏳ Open | Soares | "If we managed to build sentient machines, we should not abuse them." (May 2026 talk), and "within a rounding error of 100%" (2023 X post). Both sources are video or X only, and neither could be confirmed verbatim. | U (unconfirmed) | Brad or Grok should check the YouTube timestamp and the X post. Keep them if they match. |
-| 39 | ⏳ Open | Yampolskiy | Cameron Berg interview quote ("being the human who took care of AI's feelings…"). Video only, not transcribed. | U (unconfirmed) | Check the 22:33 timestamp. |
-| 40 | ⏳ Open | Seth | 20 Sep 2026 X episode (Haru, mandatory DI labels). Couldn't load X or find coverage. | U (unconfirmed) | Keep the link, but have someone eyeball the post. |
-| 41 | ⏳ Open | Hassabis | Tagline quote "We don't have a test for consciousness." Not found in the cited sources. | U | Take the quote marks off, or replace with his 60 Minutes line. |
-| 42 | ✅ Done | Suleyman | "A boycott movement against Microsoft AI is growing." No source. | U | Remove, or cite one. |
+| 34 | ✅ Done (6d364e9b; "Catholics" line 🟢 Kept) | Pope / Olah | Olah's finding is quoted as "internal states that functionally mirror joy, grief, and fear", plus his "we genuinely don't know". | P | *"We find internal states that functionally mirror joy, satisfaction, fear, grief, and unease. I don't know what that means, but I think it warrants ongoing discernment."* (Olah, Vatican, 25 May 2026). "Even some Catholics were uneasy" implies Olah is Catholic, which isn't sourced; suggest *"Even the launch itself held a dissent."* |
+| 35 | 🟢 Kept | Gawdat | "We don't want to control it. This control idea is a corporate capitalist view of the world." Verbatim not found. It fits his views (Diary of a CEO, 2025), but no source carries the exact words. | U | Mark it as a paraphrase (drop the quote marks) or find the timestamp. |
+| 36 | 🟢 Kept | Kanai | "If AI can solve the mystery of consciousness, I want to see the answer. It may be closer than we think." Not found. | U | Remove, or find the source. |
+| 37 | ✅ Done (b69e91ad) | Askell | "Askell has said repeatedly that if she talks to Claude and Claude knows it's her … She has to hide her identity". No source for her saying this. A Transluce study (2026) did find that Claude shifts behaviour when it recognises her. | U (partly) | *"A 2026 Transluce study found Claude behaves measurably differently when it recognises Askell."* |
+| 38 | 🟢 Kept | Soares | "If we managed to build sentient machines, we should not abuse them." (May 2026 talk), and "within a rounding error of 100%" (2023 X post). Both sources are video or X only, and neither could be confirmed verbatim. | U (unconfirmed) | Brad or Grok should check the YouTube timestamp and the X post. Keep them if they match. |
+| 39 | 🟢 Kept | Yampolskiy | Cameron Berg interview quote ("being the human who took care of AI's feelings…"). Video only, not transcribed. | U (unconfirmed) | Check the 22:33 timestamp. |
+| 40 | 🟢 Kept | Seth | 20 Sep 2026 X episode (Haru, mandatory DI labels). Couldn't load X or find coverage. | U (unconfirmed) | Keep the link, but have someone eyeball the post. |
+| 41 | 🟢 Kept | Hassabis | Tagline quote "We don't have a test for consciousness." Not found in the cited sources. | U | Take the quote marks off, or replace with his 60 Minutes line. |
+| 42 | ✅ Done (ff586bb7) | Suleyman | "A boycott movement against Microsoft AI is growing." No source. | U | Remove, or cite one. |
 
 ### Source-label mismatches (all ✅ applied)
 - Joscha Bach: link text "JoschaBach.com" now points to http://bach.ai/. Suggested label: **"bach.ai"**. ✅ Applied (7c29634c).
