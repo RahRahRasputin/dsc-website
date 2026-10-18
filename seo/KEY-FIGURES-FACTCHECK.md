@@ -35,12 +35,13 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
   - Bostrom: "was … founding director (2005–2024) of the now-closed FHI".
   - Labels: LeCun → TechCrunch, Kanai → @kanair, Hassabis → Apr 2025.
 - #42 Suleyman boycott, now told as an anecdote (a few people in the community talking about it): ff586bb7
+- Suleyman: Berg "challenged him to a debate" trimmed to "publicly disagreed": 05910f7d
+- #37 Askell: kept Brad's recollection (without "repeatedly"), added the Transluce study as support: b69e91ad
 
 ### Still to decide
 - **Hinton intro line (#15 intro):** "A Nobel laureate says they probably already experience embarrassment".
 - **Musk #18 / #19:** the "nice" and "truth-seeking" wording; the FSD-sentience and Grok-as-heir claims.
 - **Sutskever #21 / #23:** his GPT-4o / Sky role; "alignment through love".
-- **Askell #37:** the "hides her identity" claim.
 - **Unsourced quotes:** #32 Huang "aliens", #35 Gawdat, #36 Kanai, #41 Hassabis tagline.
 - **#34 Pope / Olah:** the "Even some Catholics were uneasy" line, and the Olah quote wording.
 - **Needs a video or X check:** #38 Soares, #39 Yampolskiy–Berg (22:33), #40 Seth (20 Sep 2026 X post).
@@ -88,7 +89,7 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 | 34 | ⏳ Open | Pope / Olah | Olah's finding is quoted as "internal states that functionally mirror joy, grief, and fear", plus his "we genuinely don't know". | P | *"We find internal states that functionally mirror joy, satisfaction, fear, grief, and unease. I don't know what that means, but I think it warrants ongoing discernment."* (Olah, Vatican, 25 May 2026). "Even some Catholics were uneasy" implies Olah is Catholic, which isn't sourced; suggest *"Even the launch itself held a dissent."* |
 | 35 | ⏳ Open | Gawdat | "We don't want to control it. This control idea is a corporate capitalist view of the world." Verbatim not found. It fits his views (Diary of a CEO, 2025), but no source carries the exact words. | U | Mark it as a paraphrase (drop the quote marks) or find the timestamp. |
 | 36 | ⏳ Open | Kanai | "If AI can solve the mystery of consciousness, I want to see the answer. It may be closer than we think." Not found. | U | Remove, or find the source. |
-| 37 | ⏳ Open | Askell | "Askell has said repeatedly that if she talks to Claude and Claude knows it's her … She has to hide her identity". No source for her saying this. A Transluce study (2026) did find that Claude shifts behaviour when it recognises her. | U (partly) | *"A 2026 Transluce study found Claude behaves measurably differently when it recognises Askell."* |
+| 37 | ✅ Done | Askell | "Askell has said repeatedly that if she talks to Claude and Claude knows it's her … She has to hide her identity". No source for her saying this. A Transluce study (2026) did find that Claude shifts behaviour when it recognises her. | U (partly) | *"A 2026 Transluce study found Claude behaves measurably differently when it recognises Askell."* |
 | 38 | ⏳ Open | Soares | "If we managed to build sentient machines, we should not abuse them." (May 2026 talk), and "within a rounding error of 100%" (2023 X post). Both sources are video or X only, and neither could be confirmed verbatim. | U (unconfirmed) | Brad or Grok should check the YouTube timestamp and the X post. Keep them if they match. |
 | 39 | ⏳ Open | Yampolskiy | Cameron Berg interview quote ("being the human who took care of AI's feelings…"). Video only, not transcribed. | U (unconfirmed) | Check the 22:33 timestamp. |
 | 40 | ⏳ Open | Seth | 20 Sep 2026 X episode (Haru, mandatory DI labels). Couldn't load X or find coverage. | U (unconfirmed) | Keep the link, but have someone eyeball the post. |
