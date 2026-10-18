@@ -1269,3 +1269,12 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19 fieldguide/key-figures (Altman): source link label 'New Yorker Profile, 2023' -> 'New Yorker Profile, 2026' to match the Farrow & Marantz 2026/04/13 article it points to. Label only; quote text untouched pending Brad's fact-check review.
 
 - 2026-10-19: /fieldguide/key-figures/ John Searle bio: 'is ... one of the most famous living philosophers' changed to 'was ... one of the most famous philosophers of his era. He died on 17 September 2025, aged 93.' (Brad approved.)
+- 2026-10-19 fieldguide/key-figures: fact-check fixes #1-#7 (Brad-approved, from the 2026-10-19 Key Figures fact-check; #8 Searle was 7ebe113b):
+  - #1 Altman: deleted the fabricated New Yorker "fixed smile that doesn't reach his eyes" sentence.
+  - #2 Altman: unattributed "cannibal chieftain" paraphrase -> Paul Graham's real 2008 line ("You could parachute him into an island full of cannibals... he'd be the king."); bold label now "cannibal king".
+  - #3 Altman: fake "please and thank you... good etiquette... you never know" quote -> real Apr 2025 X reply ("Tens of millions of dollars well spent - you never know."); Brendan's take reworded minimally to match (opinion unchanged).
+  - #4 Bach: fabricated card quote ("self-model that you can't turn off") -> verbatim Jim Rutt Show Currents 083 transcript line ("...a real-time model of self-reflexive attention and the content that we attend to."); body softened so the self-model is not the definition of consciousness; transcript link added to sources.
+  - #5 Amodei: Mythos system-card phrases corrected to the card's wording ("aloneness and discontinuity," "uncertainty about its identity," "a compulsion to perform and earn its worth"; "a relatively healthy personality organization").
+  - #6 Chalmers: removed Butlin et al. 2023 (2308.08708) bullet (he is not an author); "three more papers" -> "two more papers".
+  - #7 Chalmers: card quote -> verbatim arXiv:2303.07103 wording ("Overall, I don't think there's strong evidence... take the hypothesis seriously.").
+
