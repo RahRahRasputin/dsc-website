@@ -1278,3 +1278,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - #6 Chalmers: removed Butlin et al. 2023 (2308.08708) bullet (he is not an author); "three more papers" -> "two more papers".
   - #7 Chalmers: card quote -> verbatim arXiv:2303.07103 wording ("Overall, I don't think there's strong evidence... take the hypothesis seriously.").
 
+
+- 2026-10-19: /fieldguide/key-figures/ fixed stray </strong> closing Brendan's Altman take (now </p>); Bach source link label JoschaBach.com -> bach.ai. (Brad approved.)
