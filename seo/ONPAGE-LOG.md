@@ -1267,3 +1267,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - wiki/local-how-to: unpublished continuous-batching-parallel-requests (Lyra) unlinked to plain text; no page under any slug.
 
 - 2026-10-19 fieldguide/key-figures (Altman): source link label 'New Yorker Profile, 2023' -> 'New Yorker Profile, 2026' to match the Farrow & Marantz 2026/04/13 article it points to. Label only; quote text untouched pending Brad's fact-check review.
+
+- 2026-10-19: /fieldguide/key-figures/ John Searle bio: 'is ... one of the most famous living philosophers' changed to 'was ... one of the most famous philosophers of his era. He died on 17 September 2025, aged 93.' (Brad approved.)
