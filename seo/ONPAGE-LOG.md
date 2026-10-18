@@ -1282,3 +1282,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19: /fieldguide/key-figures/ fixed stray </strong> closing Brendan's Altman take (now </p>); Bach source link label JoschaBach.com -> bach.ai. (Brad approved.)
 
 - 2026-10-19: /fieldguide/key-figures/ Askell: replaced fabricated quote 'I don't have feelings, memories, or self-awareness' with Brad-approved uncertainty wording (fact-check #9).
+
+- 2026-10-19: /fieldguide/key-figures/ Karpathy: replaced misattributed 'intelligence without incarnation' line with his real Animals vs Ghosts quote; added source link (fact-check #10, Brad approved).
