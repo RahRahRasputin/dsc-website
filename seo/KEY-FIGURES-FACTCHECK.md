@@ -34,6 +34,7 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
   - #31 and #33 Huang.
   - Bostrom: "was … founding director (2005–2024) of the now-closed FHI".
   - Labels: LeCun → TechCrunch, Kanai → @kanair, Hassabis → Apr 2025.
+- #42 Suleyman boycott, now told as an anecdote (a few people in the community talking about it): ff586bb7
 
 ### Still to decide
 - **Hinton intro line (#15 intro):** "A Nobel laureate says they probably already experience embarrassment".
@@ -42,7 +43,6 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 - **Askell #37:** the "hides her identity" claim.
 - **Unsourced quotes:** #32 Huang "aliens", #35 Gawdat, #36 Kanai, #41 Hassabis tagline.
 - **#34 Pope / Olah:** the "Even some Catholics were uneasy" line, and the Olah quote wording.
-- **#42 Suleyman:** the boycott-movement claim.
 - **Needs a video or X check:** #38 Soares, #39 Yampolskiy–Berg (22:33), #40 Seth (20 Sep 2026 X post).
 - **Opinion text:** Brendan's "not the smile" (in his Altman take; it refers to the deleted fake New Yorker line), and Bach's self-model framing in the card verdict and in Prometheus's take.
 
@@ -93,7 +93,7 @@ The fixes Brad approved are live on v4. Everything under "Still to decide" is un
 | 39 | ⏳ Open | Yampolskiy | Cameron Berg interview quote ("being the human who took care of AI's feelings…"). Video only, not transcribed. | U (unconfirmed) | Check the 22:33 timestamp. |
 | 40 | ⏳ Open | Seth | 20 Sep 2026 X episode (Haru, mandatory DI labels). Couldn't load X or find coverage. | U (unconfirmed) | Keep the link, but have someone eyeball the post. |
 | 41 | ⏳ Open | Hassabis | Tagline quote "We don't have a test for consciousness." Not found in the cited sources. | U | Take the quote marks off, or replace with his 60 Minutes line. |
-| 42 | ⏳ Open | Suleyman | "A boycott movement against Microsoft AI is growing." No source. | U | Remove, or cite one. |
+| 42 | ✅ Done | Suleyman | "A boycott movement against Microsoft AI is growing." No source. | U | Remove, or cite one. |
 
 ### Source-label mismatches (all ✅ applied)
 - Joscha Bach: link text "JoschaBach.com" now points to http://bach.ai/. Suggested label: **"bach.ai"**. ✅ Applied (7c29634c).
