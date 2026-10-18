@@ -1288,3 +1288,15 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-19: /fieldguide/key-figures/ Suleyman: '$1M AGI definition' reframed as his Modern Turing Test ($100,000 into $1 million) in intro, card verdict and body (fact-check #11, Brad approved).
 
 - 2026-10-19: /fieldguide/key-figures/ Sebo: 'Moral Consideration for AI Systems by 2030' link repointed from unrelated arXiv:2311.00986 to Springer AI and Ethics article (fact-check #12, Brad's URL).
+- 2026-10-19 fieldguide/key-figures: fact-check batch, obvious fixes (Brad-approved; report seo/KEY-FIGURES-FACTCHECK.md):
+  - #12 Sebo: "walks through twelve leading theories" -> "surveys leading theories of consciousness".
+  - #13 Shevlin: viral Claude-email tweet "In August 2026" -> "In March 2026"; "Aeroplanes Also Fly" (BBS) "forthcoming" -> "2026".
+  - #15 Hinton: card quote -> full embarrassment line (intro line untouched, pending Brad). #16 p(doom) 10-50% -> 10-20% (en dash, as on the Soares card). Big Technology Podcast timestamp 1:38 -> 11:41.
+  - #20/#22 Sutskever: take "the transformer co-discovery" -> "seq2seq"; 2022 tweet "largest" -> "large".
+  - #24 Tegmark, #25 Rosenblatt (+ Research Trends 1958 PDF source), #26 Berg, #27 Lemoine (+ WaPo 2022/06/11 source), #29 Yampolskiy, #31/#33 Huang: quotes set to the verbatim wording.
+  - #28 Lemoine: "company-wide email" -> "an email to a 200-person internal machine-learning mailing list".
+  - Bostrom: "is a philosopher at Oxford, the founding director of the FHI" -> "was ... and founding director (2005-2024) of the now-closed FHI, and is the author of".
+  - #14 Yudkowsky: dropped "and 'shards'". #17 Musk: header "CEO of Tesla, SpaceX (incl. xAI/SpaceXSI)"; body "CEO of Tesla and SpaceX, which acquired xAI in February 2026 (its AI arm is now SpaceXSI)"; dropped the Tesla-merger clause (#18/#19 untouched).
+  - #30 Bengio: quote marks removed from "giving citizenship to hostile aliens" (plain paraphrase).
+  - Labels: LeCun TechCrunch link text -> "TechCrunch - AMI Labs raises $1.03B for world models" (single $ in the text node); Kanai x.com/ryotakanai -> x.com/kanair; Hassabis "Times of India, Mar 2025" -> "Apr 2025".
+
