@@ -1265,3 +1265,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - fieldguide/key-figures (Altman): nonexistent New Yorker 2023/12/04 URL -> Farrow & Marantz profile, 2026/04/13 (contains the Graham cannibals quote).
   - fieldguide/key-figures (LeCun): dead prezenceai.com -> TechCrunch 2026-03-09, AMI Labs raises $1.03B to build world models.
   - wiki/local-how-to: unpublished continuous-batching-parallel-requests (Lyra) unlinked to plain text; no page under any slug.
+
+- 2026-10-19 fieldguide/key-figures (Altman): source link label 'New Yorker Profile, 2023' -> 'New Yorker Profile, 2026' to match the Farrow & Marantz 2026/04/13 article it points to. Label only; quote text untouched pending Brad's fact-check review.
