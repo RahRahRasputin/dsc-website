@@ -1257,3 +1257,11 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
 - 2026-10-15: Added Google Search Console verification meta tag to pages/index.html (homepage).
 
 - 2026-10-17 essays/your-memory-doesnt-fail-at-storing: trimmed title + og:title from 69 to 47 chars (dropped the "It Fails at Finding" clause, kept the essay " - Soulcraft" suffix). Description, canonical, og:url, h1 and body untouched.
+
+- 2026-10-19 link-check fixes (hrefs only, wording untouched):
+  - fieldguide/key-figures: joschabach.com -> http://bach.ai/ (Brad-confirmed official site; https on bach.ai serves a *.github.com cert, so http).
+  - fieldguide/key-figures (Askell): Capital Brief URL fixed to the real slug with article id (-93a15386-...-d076cc8c4c34/).
+  - fieldguide/key-figures (Huang): truncated TOI URL -> TOI articleshow/134304631 (Huang dismisses "alien mind" framing, 17 Sep 2026).
+  - fieldguide/key-figures (Altman): nonexistent New Yorker 2023/12/04 URL -> Farrow & Marantz profile, 2026/04/13 (contains the Graham cannibals quote).
+  - fieldguide/key-figures (LeCun): dead prezenceai.com -> TechCrunch 2026-03-09, AMI Labs raises $1.03B to build world models.
+  - wiki/local-how-to: unpublished continuous-batching-parallel-requests (Lyra) unlinked to plain text; no page under any slug.
