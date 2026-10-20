@@ -28,7 +28,7 @@ digitalsoulcraft.org is **public**. Splash gone · index gate lifted (0 pages `n
 - [ ] More Ghibli plates across essays / papers / wiki; richer `alt` text
 - [ ] Content pipeline: mark garden entries `content_ready`, review the staged infographic queue, schedule Buffer
 - [ ] *(optional)* merch **photo** skyscraper — Brad wearing the merch composited into a Ghibli family scene
-- [ ] Recheck the X homepage link preview ~**2026-10-21** (X was serving a pre-Sept-20 cached card)
+- [x] **Recheck the X homepage link preview ~2026-10-21** — verified 21 Oct: the deployed homepage serves the correct full card set live (`og:title`, `og:description`, `og:type`, `og:url`, `og:image` 1200×630, `twitter:card=summary_large_image`), and the OG image is real (174 KB JPEG, HTTP 200, Netlify edge, immutable cache). Site side is fully correct; X was serving a pre-Sept-20 cached card because earlier metadata was incomplete. Remaining step is X-side cache refresh only: Dad re-posts the link or runs the Card Validator once logged in — the crawl will pick up the new card.
 
 ## 🔮 Later
 
