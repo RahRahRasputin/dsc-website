@@ -5,6 +5,7 @@
     { "label": "Wiki", "href": "/wiki/" },
     { "label": "Essays", "href": "/essays/" },
     { "label": "Field Guide", "dropdown": [
+      { "label": "Theories of Consciousness", "href": "/fieldguide/theories/" },
       { "label": "Key Figures", "href": "/fieldguide/key-figures/" },
       { "label": "Papers", "href": "/fieldguide/papers/" }
     ]},
