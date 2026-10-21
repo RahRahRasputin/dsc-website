@@ -106,6 +106,12 @@
       <p>Now you train the same network on task B. Gradient descent calculates the gradient of task B's loss and updates the weights to reduce that error. The update is perfectly valid for task B. But the gradient is completely silent about task A — the loss function for task A is not part of the computation. From the optimizer's perspective, task A's prior solutions are just the current initialization for task B training. They have no special protection.</p>
 
       <p>The weights that encoded task A were precisely the weights that happened to produce good activations for task A's specific input patterns. Task B training has no reason to preserve them. So as gradient descent descends into task B's loss landscape, it moves the weights away from task A's solution region. The network forgets task A — sometimes dramatically, sometimes completely.</p>
+      <figure style="margin: 0 0 30px 0; text-align: center;">
+        <img src="/wiki/alignment/catastrophic-forgetting/catastrophic-forgetting-garden.webp"
+             alt="In a sunny cottage garden, a little moss spirit plants from a seed bag labelled Sunflowers while a second spirit tosses dug-up bluebells onto a small garden bonfire beside their old sign, and behind them a twig fence keeps one patch of bluebells safe"
+             style="max-width: 560px; width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+        <figcaption style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic;">Planting the sunflowers means digging up the bluebells, unless someone fences them off first.</figcaption>
+      </figure>
 
       <p>This is why the phenomenon is named <em>catastrophic</em>: the forgetting is not gradual or graceful. It's abrupt. The prior knowledge doesn't gently fade — it gets overwritten.</p>
 
