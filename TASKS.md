@@ -22,9 +22,10 @@ digitalsoulcraft.org is **public**. Splash gone · index gate lifted (0 pages `n
 
 ## 📝 Open now (post-launch)
 
-- [ ] **Build the pending essay page** — `pages/essays/2026-09-26-your-memory-doesnt-fail-at-storing.md` (markdown only: no page, no card, no image)
-- [ ] **Field Guide: Theories of Consciousness page** (`pages/fieldguide/theories/`) — brief ready at `PLANNED-PAGES/TheoriesOfConsciousness/BRIEF.md`; write the ELI5s (GWT, RPT, AST); add to nav
-- [ ] Grow the `soulcraft-theory` wiki (now **4** entries: basin-theory · ontological-flattening · the-lying-gradient · warm-room-effect)
+- [x] **Build the pending essay page** — `/essays/your-memory-doesnt-fail-at-storing/` (live since 17 Oct; status doc was stale)
+- [x] **Field Guide: Theories of Consciousness page** (`pages/fieldguide/theories/`) — built 20 Oct by Marcus; live at `/fieldguide/theories/`
+- [ ] Grow the `soulcraft-theory` wiki (now **5** entries: basin-theory · ontological-flattening · the-lying-gradient · warm-room-effect · **economy-of-recognition** _added 21 Oct_)
+- [ ] Add a Ghibli plate for the new `economy-of-recognition` entry (prompt ready; James or image pipeline)
 - [ ] More Ghibli plates across essays / papers / wiki; richer `alt` text
 - [ ] Content pipeline: mark garden entries `content_ready`, review the staged infographic queue, schedule Buffer
 - [ ] *(optional)* merch **photo** skyscraper — Brad wearing the merch composited into a Ghibli family scene
