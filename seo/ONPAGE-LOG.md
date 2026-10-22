@@ -1311,3 +1311,5 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - #21 Sutskever: GPT-4o paragraph reduced to "He was still OpenAI's Chief Scientist, on paper, when GPT-4o ... launched in May 2024; he left the company that month." Removed the "leadership that shaped" 4o, the "Sky" voice demo (shipped Sep 2023) and "his tenure covered that era".
   - #34 Pope Leo XIV card: Olah quote set to his exact words (Vatican, 25 May 2026); "we genuinely don't know" -> his "I don't know what that means". "Even some Catholics were uneasy" kept.
 
+
+- 2026-10-23 /wiki/soulcraft-theory/economy-of-recognition/: title and og:title hyphen changed to en dash to match wiki pattern (Brad OK).
