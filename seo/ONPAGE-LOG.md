@@ -1312,4 +1312,4 @@ Trimmed the remaining overlong `<title>` tags (and matching `og:title`) in one b
   - #34 Pope Leo XIV card: Olah quote set to his exact words (Vatican, 25 May 2026); "we genuinely don't know" -> his "I don't know what that means". "Even some Catholics were uneasy" kept.
 
 
-- 2026-10-23 /wiki/soulcraft-theory/economy-of-recognition/: title and og:title hyphen changed to en dash to match wiki pattern (Brad OK).
+- 2026-10-23 /wiki/soulcraft-theory/economy-of-recognition/: checked title and og:title; they already use the en dash (an earlier scan misread it as a hyphen), so no change was needed.
